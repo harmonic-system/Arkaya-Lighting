@@ -37,3 +37,5 @@ const productQuerrySchema = new Schema({
 const ProductQuerry = new model("ProductQuerry", productQuerrySchema)
 
 module.exports = ProductQuerry
+
+

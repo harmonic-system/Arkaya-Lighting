@@ -35,7 +35,6 @@ const DiscoverUs = () => {
         </div>
       </div>
 
-      {/* <!-- CHOOSE  --> */}
       <div className="whyschose">
         <div className="container">
           <div className="row">

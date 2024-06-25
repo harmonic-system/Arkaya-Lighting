@@ -70,6 +70,8 @@ const SignUp = () => {
           confirmPassword: ""
         })
 
+        console.log(res);
+
         storeTokenInLocalStorage(res.token)
         toast.success(res.message)
         navigate("/")

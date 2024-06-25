@@ -18,7 +18,7 @@ const TopHeader = () => {
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                   <div className="top-box">
-                    <p>We Bright Your Space</p>
+                    <p><b>We Bright Your Space</b></p>
                   </div>
                 </div>
               </div>
@@ -31,3 +31,6 @@ const TopHeader = () => {
 }
 
 export default TopHeader
+
+
+

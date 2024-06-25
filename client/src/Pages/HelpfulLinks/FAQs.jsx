@@ -19,7 +19,6 @@ const FAQs = () => {
                       </h2>
                       <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          {/* <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. */}
                           <p className="text-secondary"><strong>Answer:</strong>&nbsp;Our website is secured with the latest protective security. Arkaya Lighting chooses products to sell based on their excellent designs and proven hardware reliability. So the quality is guaranteed. We check all of your orders during the packing stage to make sure that the right accessories are included and that the adapters and other standards are correct for your country. We have a OQC team who tests your ordered products are functioning correctly before they are packed and sent to you. This is in addition to the normal quality assurance checks that all the goods have passed in the factory line.</p>
                         </div>
                       </div>

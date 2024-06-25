@@ -11,3 +11,5 @@ router.route("/login").post(login)
 router.route("/user").get(authMiddleware, user)
 
 module.exports = router
+
+

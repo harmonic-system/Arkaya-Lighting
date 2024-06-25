@@ -6,18 +6,15 @@
 }
 
 nav {
-  /* position: fixed; */
   z-index: 99999999;
   width: 100%;
   height: 100px;
-  /* background: #242526; */
 }
 
 nav .wrapper {
   position: relative;
   max-width: 1300px;
   padding: 0px 30px;
-  /* height: 70px; */
   height: 100%;
   line-height: 70px;
   margin: auto;
@@ -33,16 +30,10 @@ nav .wrapper {
 
 .wrapper .top-logo a {
   color: #f2f2f2;
-  /* font-size: 30px;
-  font-weight: 600;
-  text-decoration: none; */
-  /* border: 1px solid red; */
 }
 
 .wrapper .nav-links {
   display: inline-flex;
-  /* border: 1px solid red; */
-  /* width: 70%; */
 }
 
 .nav-links li {
@@ -50,7 +41,6 @@ nav .wrapper {
 }
 
 .nav-links li a {
-  /* color: #f2f2f2; */
   color: black;
   text-decoration: none;
   font-size: 1rem;
@@ -61,7 +51,6 @@ nav .wrapper {
 }
 
 .nav-links li a:hover {
-  /* background: #3A3B3C; */
   color: #ffc221;
 }
 
@@ -120,7 +109,6 @@ nav .wrapper {
 }
 
 .mega-box .content .pro {
-  /* width: calc(25% - 30px); */
   line-height: 45px;
 }
 
@@ -132,7 +120,6 @@ nav .wrapper {
 
 .content .pro header {
   color: #f2f2f2;
-  /* font-size: 20px; */
   font-size: 1rem;
   font-weight: 500;
 }
@@ -150,7 +137,6 @@ nav .wrapper {
   padding: 0px;
   padding: 0 20px;
   color: #d9d9d9;
-  /* font-size: 17px; */
   font-size: 0.7rem;
   display: block;
 }
@@ -172,7 +158,24 @@ nav .wrapper {
   top: 10px;
 }
 
-/* @media screen and (max-width: 970px) { */
+.profile{
+  margin: 0;
+  padding: 0;
+  background: #242526;
+}
+
+.profile li a{
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  line-height: 3 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.profile li a:hover {
+  color: #ffc221 !important;
+}
+
 @media screen and (max-width: 1064px) {
   .wrapper .btn {
     display: block;
@@ -186,7 +189,6 @@ nav .wrapper {
   .wrapper .nav-links {
     position: fixed;
     height: 100vh;
-    /* height: auto; */
     width: 100%;
     max-width: 350px;
     top: 0;
@@ -201,7 +203,6 @@ nav .wrapper {
     z-index: 999999;
   }
 
-  /* custom scroll bar */
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -233,7 +234,7 @@ nav .wrapper {
   .nav-links li a {
     padding: 0 20px;
     display: block;
-    font-size: 0.5rem;
+    font-size: 1rem !important;
     color: #f2f2f2;
   }
 

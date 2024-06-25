@@ -14,9 +14,16 @@ const signUP = async (req, res, next) => {
       return res.status(400).json({ message: "Password Must Be Same" })
     }
 
-    const user = await User.create({ name, email, phone, password, confirmPassword })
+    const user = await User.create({ name:name.toLowerCase().trim(), email:email.toLowerCase().trim(), phone:phone.trim(), password:password.trim(), confirmPassword:confirmPassword.trim() })
 
+    // const options = {
+    //   httpOnly: true,
+    //   secure: true
+    // }
+
+    // res.status(201).cookie("Token", await user.generateToken(), options).json({ message: "Registration Successful", token: await user.generateToken(), userId: user._id.toString() })
     res.status(201).json({ message: "Registration Successful", token: await user.generateToken(), userId: user._id.toString() })
+      
   }
 
   catch (error) {

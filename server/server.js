@@ -5,20 +5,41 @@ const connectDB = require("./Database/connectDB")
 const authRoute = require('./routes/auth-routes')
 const contactRoute = require("./routes/contact-routes")
 const productQuerryRoute = require("./routes/productQuerry-routes")
+const newsletterRoute = require("./routes/newsletter-routes")
 const errormiddleware = require('./middleware/error-middleware')
+
+const adminRoutes = require("./routes/Admin-Routes/admin-routes")
+
+const productRoutes = require("./routes/products-routes")
+
+const adminproductsRoute = require("./routes/Admin-Routes/AdminProduct-Routes/AdminProduct-Routes")
 
 const app = express()
 
-app.use(cors())
+const corsOption = {
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
+  credentials: true
+}
+
+app.use(cors(corsOption))
 app.use(express.json())
 
 const PORT = 8000
 
 app.use("/api/v1/auth", authRoute)
 
-app.use("/api/v1/contact",contactRoute)
+app.use("/api/v1/contact", contactRoute)
 
 app.use("/api/v1/productquerry", productQuerryRoute)
+
+app.use("/api/v1/newsletter", newsletterRoute)
+
+app.use("/api/v1/admin", adminRoutes)
+
+app.use("/api/v1/products", productRoutes)
+
+app.use("/api/v1/adminproducts", adminproductsRoute)
 
 
 app.use(errormiddleware)

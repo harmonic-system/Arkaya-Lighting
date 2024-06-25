@@ -6,3 +6,5 @@ const router = express.Router()
 router.route("/singalproduct").post(productQuerry)
 
 module.exports = router
+
+

@@ -16,6 +16,8 @@ const authMiddleware = async (req, res, next) => {
     const userData = await User.findOne({ email: isVerified.email }).select("-password -confirmPassword")
 
     req.user = userData
+    // console.log(req.user);
+    // console.log(req.user.isAdmin);
 
     next()
   } catch (error) {
@@ -26,3 +28,5 @@ const authMiddleware = async (req, res, next) => {
 }
 
 module.exports = authMiddleware
+
+

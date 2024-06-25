@@ -67,10 +67,6 @@ button:focus-visible {
   }
 } */
 
-
-
-
-
 /* Toast Container Start */
 
 /* .toastBody {
@@ -106,10 +102,6 @@ button:focus-visible {
 
 /*---Cart Section End ---*/
 
-
-
-
-
 /*---Product Details Section Start ---*/
 
 .product_details {
@@ -131,9 +123,6 @@ button:focus-visible {
 }
 
 /*---Product Details Section End ---*/
-
-
-
 
 /*---Product Details Accordion Section Start ---*/
 
@@ -188,14 +177,97 @@ button:focus-visible {
 
 /*---Product Details Accordion Section End ---*/
 
+.admin_nav {
+  z-index: -99999;
+}
 
-/* Login And Signup Start */
 
-/* .eye{
-  left: 90%;
-  top: 22%;
-  font-size: 1.2rem;
+
+
+
+/* Table CSS Start */
+
+/* .table_main {
+  width: 100%;
 } */
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #ffc221;
+}
 
-/* Login And Signup End */
+.table tr {
+  border-bottom: 2px solid gray !important;
+}
+
+.message{
+  word-break: break-all;
+}
+
+.table th {
+  color: #ffc221;
+  font-size: 1.2rem;
+}
+
+.table td {
+  font-size: 1rem;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  /* border: 1px solid #ddd; */
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.table thead {
+  /* background-color: #f2f2f2; */
+  font-weight: bold;
+}
+
+/* Responsive styling */
+
+/* @media (max-width: 768px) { */
+@media (max-width: 992px) {
+
+  .table,
+  .table thead,
+  .table tbody,
+  .table th,
+  .table td,
+  .table tr {
+    display: block;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    margin-bottom: 50px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .table td {
+    display: block;
+    text-align: right;
+    position: relative;
+    /* padding-left: 50%; */
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table td:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    width: calc(50% - 20px);
+    white-space: nowrap;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+/* Table CSS End */

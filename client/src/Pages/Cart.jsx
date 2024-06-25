@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { BsCurrencyRupee } from "react-icons/bs";
 
 const Cart = () => {
   return (
@@ -39,7 +40,7 @@ const Cart = () => {
                         <button className="w-25" style={{ border: "1px solid #ffc107" }} ><strong>-</strong></button>
                       </div>
                       <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-10 d-flex justify-content-around align-items-center">
-                        <p>Rs.1000000</p>
+                        <p><BsCurrencyRupee />.1000000</p>
                         <button type="submit" className="bg-transparent"><span className="material-symbols-outlined text-danger">delete</span></button>
                       </div>
                     </div>
@@ -70,7 +71,7 @@ const Cart = () => {
                         <button className="w-25" style={{ border: "1px solid #ffc107" }} ><strong>-</strong></button>
                       </div>
                       <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-10 d-flex justify-content-around align-items-center">
-                        <p>Rs.1000000</p>
+                        <p><BsCurrencyRupee />.1000000</p>
                         <button type="submit" className="bg-transparent"><span className="material-symbols-outlined text-danger">delete</span></button>
                       </div>
                     </div>
@@ -101,7 +102,7 @@ const Cart = () => {
                         <button className="w-25" style={{ border: "1px solid #ffc107" }} ><strong>-</strong></button>
                       </div>
                       <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-10 d-flex justify-content-around align-items-center">
-                        <p>Rs.1000000</p>
+                        <p><BsCurrencyRupee />.1000000</p>
                         <button type="submit" className="bg-transparent"><span className="material-symbols-outlined text-danger">delete</span></button>
                       </div>
                     </div>
@@ -131,8 +132,8 @@ const Cart = () => {
                         <input type="text" name="" id="" className="w-25" style={{ border: "1px solid #ffc107" }} readOnly />
                         <button className="w-25" style={{ border: "1px solid #ffc107" }} ><strong>-</strong></button>
                       </div>
-                      <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-10 d-flex justify-content-around align-items-center">
-                        <p>Rs.1000000</p>
+                      <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-10 d-flex justify-content-center align-items-center">
+                        <p><BsCurrencyRupee />.1000000</p>
                         <button type="submit" className="bg-transparent"><span className="material-symbols-outlined text-danger">delete</span></button>
                       </div>
                     </div>
@@ -142,7 +143,40 @@ const Cart = () => {
             </div>
           </div>
 
+        </div>
+        <hr />
 
+
+
+
+        <div className="container">
+          {/* <div className="white_bg">
+            <div className="for_box cart-section"> */}
+          <div className="row">
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary m-auto white_bg">
+              <h4>Price Details</h4>
+              <hr />
+              <div className="d-flex justify-content-between align-items-center">
+                <h6>Price (4 Items)</h6>
+                <p><BsCurrencyRupee /> 4457</p>
+              </div>
+              <div className="d-flex justify-content-between align-items-center">
+                <h6>Discount</h6>
+                <p>50%</p>
+              </div>
+              <div className="d-flex justify-content-between align-items-center">
+                <h6>Delevery Charges</h6>
+                <p>505</p>
+              </div>
+              <hr />
+              <div className="d-flex justify-content-between align-items-center">
+                <h5><b>Total Price</b></h5>
+                <p><BsCurrencyRupee /> 587521</p>
+              </div>
+            </div>
+          </div>
+          {/* </div>
+          </div> */}
         </div>
 
 
@@ -154,11 +188,6 @@ const Cart = () => {
             </div>
           </div>
         </div>
-
-
-
-
-
       </div>
     </>
   )

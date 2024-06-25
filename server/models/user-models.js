@@ -91,3 +91,5 @@ userSchema.methods.generateToken = function () {
 const User = new model("User", userSchema)
 
 module.exports = User
+
+

@@ -19,3 +19,4 @@ const productQuerry = async (req, res, next) => {
 }
 
 module.exports = productQuerry
+

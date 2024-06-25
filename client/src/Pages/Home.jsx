@@ -1,6 +1,54 @@
+import { useState } from "react";
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify";
+const server = import.meta.env.VITE_SERVER;
 
 const Home = () => {
+
+  const [newsubscriber, setNewSubscriber] = useState({
+    newsletteremail: ""
+  })
+
+  const handleNewsletterInput = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+
+    setNewSubscriber({
+      ...newsubscriber,
+      [name]: value
+    })
+  }
+
+
+  const handleNewsletter = async (e) => {
+    try {
+      e.preventDefault()
+      const response = await fetch(`${server}api/v1/newsletter/subscribe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newsubscriber)
+      })
+      console.log(response);
+
+      const res = await response.json()
+      console.log(res);
+
+      if (response.ok) {
+        setNewSubscriber({
+          newsletteremail: ""
+        })
+        toast.success(res.message)
+      }
+      else {
+        toast.error(res.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
   return (
     <>
       <section className="slider_section">
@@ -14,7 +62,7 @@ const Home = () => {
                     <strong className="yellow_bold">Product </strong></h1>
                   <p>It is a long established fact that a r <br />
                     eader will be distracted by the readable content of a page </p>
-                  <Link to="/ledstrip">see more Products</Link>
+                  {/* <Link to="/ledstrip">see more Products</Link> */}
                 </div>
               </div>
             </div>
@@ -26,7 +74,7 @@ const Home = () => {
                     <strong className="yellow_bold">Product </strong></h1>
                   <p>It is a long established fact that a r <br />
                     eader will be distracted by the readable content of a page </p>
-                  <a href="#">see more Products</a>
+                  {/* <a href="#">see more Products</a> */}
                 </div>
               </div>
             </div>
@@ -38,21 +86,21 @@ const Home = () => {
                     <strong className="yellow_bold">Product </strong></h1>
                   <p>It is a long established fact that a r <br />
                     eader will be distracted by the readable content of a page </p>
-                  <a href="#">see more Products</a>
+                  {/* <a href="#">see more Products</a> */}
                 </div>
               </div>
             </div>
           </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#main_slider" data-bs-slide="prev">
-            <i className='fa fa-angle-right'></i>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#main_slider" data-bs-slide="next">
+          <button className="carousel-control-next" type="button" data-bs-target="#main_slider" data-bs-slide="prev">
             <i className='fa fa-angle-left'></i>
+          </button>
+          <button className="carousel-control-prev" type="button" data-bs-target="#main_slider" data-bs-slide="next">
+            <i className='fa fa-angle-right'></i>
           </button>
         </div>
       </section>
 
-      
+
 
       <div className="whyschose">
         <div className="container">
@@ -61,7 +109,7 @@ const Home = () => {
             <div className="col-md-7 offset-md-3">
               <div className="title">
                 <h2>Why <strong className="black">choose us</strong></h2>
-                <span>Fastest repair service with best price!</span>
+                <span>World class quality with best price!</span>
               </div>
             </div>
           </div>
@@ -74,14 +122,14 @@ const Home = () => {
               <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div className="for_box">
                   <i><img src="icon/1.png" /></i>
-                  <h3>Data recovery</h3>
+                  <h3>High Build Quality</h3>
                   <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
                 </div>
               </div>
               <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div className="for_box">
                   <i><img src="icon/2.png" /></i>
-                  <h3>Computer repair</h3>
+                  <h3>All Kind Of Light</h3>
                   <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
                 </div>
               </div>
@@ -99,9 +147,9 @@ const Home = () => {
                   <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
                 </div>
               </div>
-              <div className="col-md-12">
+              {/* <div className="col-md-12">
                 <a className="read-more">Read More</a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -311,9 +359,9 @@ const Home = () => {
           </div>
 
           <div className="yellow_bg mt-0">
-            <form className="row d-flex justify-content-center align-content-center">
+            <form className="row d-flex justify-content-center align-content-center" onSubmit={handleNewsletter}>
               <div className="col-xl-7 col-lg-7 col-md-7 col-sm-12">
-                <input className="form-control rounded" placeholder="Enter Your Email To Subscribe" type="email" name="email" />
+                <input className="form-control rounded" placeholder="Enter Your Email To Subscribe" type="email" name="newsletteremail" required onChange={handleNewsletterInput} value={newsubscriber.newsletteremail} />
               </div>
               <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                 <button type="submit" className="form-control rounded bg-dark text-light">Subcribe</button>

@@ -30,7 +30,7 @@ const Privacy_Policy = () => {
                 <div className="col-md-12 col-sm-12 mt-3">
                   <div className="cart-section">
                     <h3 className="p-4 text-dark">Your Cookies:</h3>
-                    <p className="p-4 text-dark">Cookies are alphanumeric identifier text files that we transfer to your computer’s hard drive through your Web browser to enable our systems to recognize your browser and to provide features such as storage of items in your Shopping Cart between visits</p>
+                    <p className="p-4 text-dark">Cookies are alphanumeric identifier text files that we transfer to your computer's hard drive through your Web browser to enable our systems to recognize your browser and to provide features such as storage of items in your Shopping Cart between visits</p>
                   </div>
                 </div>
                 <div className="col-md-12 col-sm-12 mt-3">
