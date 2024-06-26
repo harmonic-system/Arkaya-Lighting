@@ -14,7 +14,7 @@ const signUP = async (req, res, next) => {
       return res.status(400).json({ message: "Password Must Be Same" })
     }
 
-    const user = await User.create({ name:name.toLowerCase().trim(), email:email.toLowerCase().trim(), phone:phone.trim(), password:password.trim(), confirmPassword:confirmPassword.trim() })
+    const user = await User.create({ name: name.toLowerCase().trim(), email: email.toLowerCase().trim(), phone: phone.trim(), password: password.trim(), confirmPassword: confirmPassword.trim() })
 
     // const options = {
     //   httpOnly: true,
@@ -23,7 +23,7 @@ const signUP = async (req, res, next) => {
 
     // res.status(201).cookie("Token", await user.generateToken(), options).json({ message: "Registration Successful", token: await user.generateToken(), userId: user._id.toString() })
     res.status(201).json({ message: "Registration Successful", token: await user.generateToken(), userId: user._id.toString() })
-      
+
   }
 
   catch (error) {
@@ -72,6 +72,25 @@ const user = async (req, res, next) => {
     next(error)
   }
 }
+
+// const editprofile = async (req, res, next) => {
+//   try {
+//     const id = req.params.id
+
+//     const { name, email, phone, password, confirmPassword } = req.body
+
+//     const updatedUser = await User.updateOne({ _id: id }, { $set: { name: name, email: email, phone: phone, password: password, confirmPassword: confirmPassword } })
+
+//     // const updateUser = await User.findByIdAndUpdate({ _id: id }, { $set: { name: name, email: email, phone: phone, password: password, confirmPassword: confirmPassword } })
+
+//     if (updatedUser) {
+//       res.status(200).json({ message: "Profile Updated Successfully", updatedUser })
+//     }
+
+//   } catch (error) {
+//     next(error)
+//   }
+// }
 
 
 module.exports = { signUP, login, user }

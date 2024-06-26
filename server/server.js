@@ -14,6 +14,10 @@ const productRoutes = require("./routes/products-routes")
 
 const adminproductsRoute = require("./routes/Admin-Routes/AdminProduct-Routes/AdminProduct-Routes")
 
+const homecontentRoutes = require("./routes/homecontent-routes")
+
+const adminhomecontentRoutes = require("./routes/Admin-Routes/AdminHomeContent-Routes/Adminhomecontent-routes")
+
 const app = express()
 
 const corsOption = {
@@ -40,6 +44,10 @@ app.use("/api/v1/admin", adminRoutes)
 app.use("/api/v1/products", productRoutes)
 
 app.use("/api/v1/adminproducts", adminproductsRoute)
+
+app.use("/api/v1/homecontent", homecontentRoutes)
+
+app.use("/api/v1/adminhomecontent", adminhomecontentRoutes)
 
 
 app.use(errormiddleware)

@@ -1,10 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./AdminLayout.css"
+import { useAuth } from "../store/Auth";
+import { useEffect } from "react";
 
 const AdminLayout = () => {
+
+  const { user } = useAuth()
+  console.log(user);
+  const navigate = useNavigate()
+
+
+  useEffect(() => {
+    if (!user.isAdmin) {
+      navigate("/")
+    }
+  }, [])
+
+
   return (
     <>
-      <section className="w-100 border bordder-warning">
+      <section className="w-100">
         <div className="w-100 admin_nav">
           <ul className="d-flex p-5">
             <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_users">Users</Link></li>
@@ -12,6 +27,14 @@ const AdminLayout = () => {
             <li className="btn btn-dark m-2"><a className="text-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Products</a></li>
             <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_productquerry">Product Querry</Link></li>
             <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_newsletter">NewsLetters</Link></li>
+          </ul>
+        </div>
+        <hr />
+        <div className="w-100 admin_nav">
+          <ul className="d-flex p-5">
+            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_carousel">Home Carousel</Link></li>
+            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_services">Home Services</Link></li>
+            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_products">Home Product</Link></li>
           </ul>
         </div>
       </section>

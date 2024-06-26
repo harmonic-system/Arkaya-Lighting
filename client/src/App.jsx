@@ -9,6 +9,7 @@ import DiscoverUs from "./Pages/DiscoverUs"
 import Error from "./Pages/Error"
 import Cart from "./Pages/Cart"
 import UserProfile from "./Pages/UserProfile/UserProfile"
+import EditProfile from "./Pages/UserProfile/EditProfile"
 // import Product from "./Pages/Product"
 // import ProductDetails from "./Pages/ProductDetails"
 import HowToBuy from "./Pages/Resources/HowToBuy"
@@ -53,6 +54,13 @@ import EditAdminInteriorProducts from "./Pages/Admin/Products/AdminInterior/Edit
 
 import AddAdminLEDStripProducts from "./Pages/Admin/Products/AdminLEDStrip/AddAdminLEDStripProducts"
 import EditAdminLEDStripProducts from "./Pages/Admin/Products/AdminLEDStrip/EditAdminLEDStripProducts"
+
+
+import AdminHomeCarousel from "./Pages/Admin/AdminHomeContent/AdminHomeCarousel/AdminHomeCarousel"
+import AddAdminHomeCarousel from "./Pages/Admin/AdminHomeContent/AdminHomeCarousel/AddAdminHomeCarousel"
+
+import AdminHomeLProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/AdminHomeProducts"
+import AddAdminHomeProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/AddAdminHomeProducts"
 
 function App() {
 
@@ -116,6 +124,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/userprofile" element={<UserProfile />} />
+          {/* <Route path="/editprofile" element={<EditProfile />} /> */}
           <Route path="/*" element={<Error />} />
 
 
@@ -137,6 +146,18 @@ function App() {
           <Route path="/admin_newsletter" element={<AdminNewsLetter />} />
           <Route path="/admin_productquerry" element={<AdminProductQuerry />} />
 
+          <Route path="/admin_carousel" element={< AdminHomeCarousel />} />
+          <Route path="/admin_products" element={< AdminHomeLProducts />} />
+
+          {/* Add & Edit Admin Home Content Start */}
+
+          <Route path="/addadmin_carousel" element={< AddAdminHomeCarousel />} />
+          <Route path="/addadmin_products" element={< AddAdminHomeProducts />} />
+
+          {/* Add Admin Home Content End */}
+
+
+
           {/* Admin Products List Start */}
 
           <Route path="/admininterior" element={< AdminInteriorProducts />} />
@@ -147,7 +168,7 @@ function App() {
 
           {/* Admin Products List End */}
 
-          {/* Add Admin Products Start */}
+          {/* Add & Edit Admin Products Start */}
 
           <Route path="/addadmindecorativeproduct" element={< AddAdminDecorativeProducts />} />
           <Route path="/editadmindecorativeproduct/:id" element={< EditAdminDecorativeProducts />} />

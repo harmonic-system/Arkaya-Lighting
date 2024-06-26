@@ -91,7 +91,7 @@ const Login = () => {
                   <div className="col-md-12">
                     <input className="form-control rounded" onChange={handleChange} value={user.email} placeholder="Email" type="email" name="email" required />
                   </div>
-                  <p className="text-end"><Link to="" className="text-primary" >Forget Password</Link></p>
+                  {/* <p className="text-end"><Link to="" className="text-primary" >Forget Password</Link></p> */}
                   <div className="position-relative col-md-12">
                     <input className="form-control rounded" onChange={handleChange} value={user.password} placeholder="Password" type={inputType} name="password" required />
                     {show ? <FaEye className="text-dark position-absolute eye" onClick={toggleInput} /> : <FaEyeSlash className="text-dark position-absolute eye" onClick={toggleInput} />}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useAuth } from "../../store/Auth";
 import { useState } from "react";
 
@@ -53,23 +53,16 @@ const UserProfile = () => {
                   <div className=" col-md-12">
                     <input className="form-control rounded" value={profileDetails.phone} placeholder="Phone" type="text" name="phone" required readOnly />
                   </div>
-                  {/* <div className="position-relative col-md-12">
-                    <input className="form-control rounded" value={user.password} placeholder="Password" type={inputTypePass} name="password" required />
-                    {showPass ? <FaEye className="text-dark position-absolute eye" onClick={toggleInputPass} /> : <FaEyeSlash className="text-dark position-absolute eye" onClick={toggleInputPass} />}
-                  </div>
-                  <div className="position-relative col-md-12">
-                    <input className="form-control rounded" value={user.confirmPassword} placeholder="Confirm Password" type={inputTypeConPass} name="confirmPassword" required />
-                    {showConPass ? <FaEye className="text-dark position-absolute eye" onClick={toggleInputConPass} /> : <FaEyeSlash className="text-dark position-absolute eye" onClick={toggleInputConPass} />}
+                  {/* <div className=" col-md-12">
+                    <Link to="/editprofile" className="but rounded text-center">Edit Profile</Link>
                   </div> */}
-                  <div className=" col-md-12">
-                    <Link to="/login" className="but rounded text-center">Edit Profile</Link>
-                  </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
+      <Outlet />
 
 
     </>

@@ -10,6 +10,8 @@ router.route("/login").post(login)
 
 router.route("/user").get(authMiddleware, user)
 
+// router.route("/edit/:id").post(authMiddleware, editprofile)
+
 module.exports = router
 
 

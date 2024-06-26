@@ -118,7 +118,12 @@ const Home = () => {
       <div className="choose_bg">
         <div className="container">
           <div className="white_bg">
-            <div className="row">
+
+            <p> <big> Welcome to Arkaya Lighting, your ultimate destination for high-quality lights and accessories. We offer an extensive range of Lighting products to customize any lighting, illuminate your indoor and outdoor space in a stylish and efficient way. Discover our versatile selection of LED light strips, including COB LED strip, addressable LED strip, flex LED neon lights, etc. They create a vibrant and eye-catching ambiance effortlessly, perfect for adding a captivating glow to any room or accentuating architectural features. To ensure the perfect lighting experience, we offer LED strip diffuser which diffuses light evenly and reduces glare to give your space a polished look with dotless linear light. Additionally, our smart LED Controller and LED power supply systems ensure stable and efficient performance for your LED lighting control. Illuminate your home and commercial spaces with Super Lighting LED. Shop now and find the best LED lighting solution for your project.</big></p>
+
+
+
+            {/* <div className="row">
               <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div className="for_box">
                   <i><img src="icon/1.png" /></i>
@@ -147,10 +152,7 @@ const Home = () => {
                   <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
                 </div>
               </div>
-              {/* <div className="col-md-12">
-                <a className="read-more">Read More</a>
-              </div> */}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -171,42 +173,42 @@ const Home = () => {
               <div className="service-box">
                 <i><img src="icon/service1.png" /></i>
                 <h3>Fast service</h3>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
+                <p className="text-justify" >Our commitment to fast service ensures minimal waiting and maximum satisfaction, delivering results swiftly and effectively.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
                 <i><img src="icon/service2.png" /></i>
                 <h3>Secure payments</h3>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
+                <p className="text-justify" >Enjoy peace of mind with our secure payment system, safeguarding your transactions with advanced encryption.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
                 <i><img src="icon/service3.png" /></i>
                 <h3>Expert team</h3>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
+                <p className="text-justify" >Our expert team brings years of industry experience and specialized knowledge to deliver exceptional results.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
                 <i><img src="icon/service4.png" /></i>
                 <h3>Affordable services</h3>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
+                <p className="text-justify" >Our affordable services ensure value and reliability, making excellence accessible to all.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
                 <i><img src="icon/service5.png" /></i>
-                <h3>90 Days warranty</h3>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
+                <h3>High build quality</h3>
+                <p className="text-justify" >Experience superior durability and craftsmanship with our high build quality products.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
                 <i><img src="icon/service6.png" /></i>
                 <h3>Award winning</h3>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
+                <p className="text-justify" >Proudly recognized for our excellence with prestigious industry awards, showcasing our commitment to quality.</p>
               </div>
             </div>
           </div>
@@ -311,7 +313,7 @@ const Home = () => {
                   <div className="container">
                     <div className="carousel-caption text-bg">
                       <div className="img_bg">
-                        <i><img src="images/lllll.png" /><span>Jone Due<br /><strong className="date">12/02/2019</strong></span></i>
+                        <i><img src="images/lllll.png" /><span>Bayview<br /><strong className="date">12/05/2024</strong></span></i>
                       </div>
 
                       <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
@@ -323,7 +325,7 @@ const Home = () => {
                   <div className="container">
                     <div className="carousel-caption text-bg">
                       <div className="img_bg">
-                        <i><img src="images/lllll.png" /><span>Jone Due<br /><strong className="date">12/02/2019</strong></span></i>
+                        <i><img src="images/lllll.png" /><span>Kode<br /><strong className="date">06/03/2024</strong></span></i>
                       </div>
 
                       <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
@@ -335,7 +337,7 @@ const Home = () => {
                   <div className="container">
                     <div className="carousel-caption text-bg">
                       <div className="img_bg">
-                        <i><img src="images/lllll.png" /><span>Jone Due<br /><strong className="date">12/02/2019</strong></span></i>
+                        <i><img src="images/lllll.png" /><span>FTV Club<br /><strong className="date">27/04/2024</strong></span></i>
                       </div>
 
                       <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
