@@ -18,7 +18,7 @@ const TopHeader = () => {
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                   <div className="top-box">
-                    <p><b>We Bright Your Space</b></p>
+                    <p><b><big>We Bright Your Space</big></b></p>
                   </div>
                 </div>
               </div>

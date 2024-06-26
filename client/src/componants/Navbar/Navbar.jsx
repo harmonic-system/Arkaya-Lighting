@@ -176,7 +176,7 @@ const Navbar = () => {
                     <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{user.name.toUpperCase()}</a>
 
                     <ul className="dropdown-menu profile">
-                      <li><Link className="text-light" to="/">Profile</Link></li>
+                      <li><Link className="text-light" to="/userprofile">Profile</Link></li>
                       <li><Link className="text-light" to="/cart">Cart</Link></li>
                       <li><Link className="text-light" to="/logout">Logout</Link></li>
                     </ul>

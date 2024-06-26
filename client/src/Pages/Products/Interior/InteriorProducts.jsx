@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom"
+import { useAuth } from "../../../store/Auth"
+import { useEffect } from "react"
 
 const InteriorProducts = () => {
+
+  const {interiorProducts, getAllInteriorProducts} = useAuth()
+
+  useEffect(() => {
+    getAllInteriorProducts()
+  }, [])
+
   return (
     <>
       <div className="brand_color">
@@ -20,13 +29,19 @@ const InteriorProducts = () => {
           <div className="container">
             <div className="row">
 
-              <Link to="/productDetails" className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div className="product-box">
-                  <i><img src="icon/p1.png" /></i>
-                  <h3>Norton Internet Security</h3>
-                  <span>$25.00</span>
-                </div>
-              </Link>
+            {
+                interiorProducts.map((product) => {
+                  // return <Link to="/productDetails" className="col-xl-3 col-lg-3 col-md-6 col-sm-12" key={product._id} >
+                  return <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12" key={product._id} >
+                    <div className="product-box">
+                      <i><img src={product.productfile.url} /></i>
+                      <h3>{product.productname}</h3>
+                      <span><small className="text-secondary"><small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, eveniet.</small></small></span>
+                    </div>
+                  </div>
+                  {/* </Link> */ }
+                })
+              }
 
 
             </div>

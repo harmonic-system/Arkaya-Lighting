@@ -8,6 +8,7 @@ import SignUp from "./Pages/SignUp"
 import DiscoverUs from "./Pages/DiscoverUs"
 import Error from "./Pages/Error"
 import Cart from "./Pages/Cart"
+import UserProfile from "./Pages/UserProfile/UserProfile"
 // import Product from "./Pages/Product"
 // import ProductDetails from "./Pages/ProductDetails"
 import HowToBuy from "./Pages/Resources/HowToBuy"
@@ -40,6 +41,18 @@ import AdminLEDStripProducts from "./Pages/Admin/Products/AdminLEDStrip/AdminLED
 
 import AddAdminDecorativeProducts from "./Pages/Admin/Products/AdminDecorative/AddAdminDecorativeProducts"
 import EditAdminDecorativeProducts from "./Pages/Admin/Products/AdminDecorative/EditAdminDecorativeProducts"
+
+import AddAdminEntertainmentProducts from "./Pages/Admin/Products/AdminEntertainment/AddAdminEntertainmentProducts"
+import EditAdminEntertainmentProducts from "./Pages/Admin/Products/AdminEntertainment/EditAdminEntertainmentProducts"
+
+import AddAdminExteriorProducts from "./Pages/Admin/Products/AdminExterior/AddAdminExteriorProducts"
+import EditAdminExteriorProducts from "./Pages/Admin/Products/AdminExterior/EditAdminExteriorProducts"
+
+import AddAdminInteriorProducts from "./Pages/Admin/Products/AdminInterior/AddAdminInteriorProducts"
+import EditAdminInteriorProducts from "./Pages/Admin/Products/AdminInterior/EditAdminInteriorProducts"
+
+import AddAdminLEDStripProducts from "./Pages/Admin/Products/AdminLEDStrip/AddAdminLEDStripProducts"
+import EditAdminLEDStripProducts from "./Pages/Admin/Products/AdminLEDStrip/EditAdminLEDStripProducts"
 
 function App() {
 
@@ -102,6 +115,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/*" element={<Error />} />
 
 
@@ -137,6 +151,18 @@ function App() {
 
           <Route path="/addadmindecorativeproduct" element={< AddAdminDecorativeProducts />} />
           <Route path="/editadmindecorativeproduct/:id" element={< EditAdminDecorativeProducts />} />
+
+          <Route path="/addadminentertainmentproduct" element={< AddAdminEntertainmentProducts />} />
+          <Route path="/editadminentertainmentproduct/:id" element={< EditAdminEntertainmentProducts />} />
+
+          <Route path="/addadminexteriorproduct" element={< AddAdminExteriorProducts />} />
+          <Route path="/editadminexteriorproduct/:id" element={< EditAdminExteriorProducts />} />
+
+          <Route path="/addadmininteriorproduct" element={< AddAdminInteriorProducts />} />
+          <Route path="/editadmininteriorproduct/:id" element={< EditAdminInteriorProducts />} />
+
+          <Route path="/addadminledstripproduct" element={< AddAdminLEDStripProducts />} />
+          <Route path="/editadminledstripproduct/:id" element={< EditAdminLEDStripProducts />} />
 
           {/* Add Admin Products End */}
 

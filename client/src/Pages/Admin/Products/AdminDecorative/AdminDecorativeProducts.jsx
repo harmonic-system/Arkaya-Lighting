@@ -7,12 +7,12 @@ import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
 const server = import.meta.env.VITE_SERVER;
 
-const AdminDecorativeProducts = () => {
+const product = () => {
 
   const { authorizationToken, decorativeProducts, getAllDecorativeProducts } = useAuth()
 
 
-  const deleteDecorativeProduct = async (id) => {
+  const deleteProduct = async (id) => {
     try {
       const response = await fetch(`${server}api/v1/adminproducts/deletedecorativeproducts/${id}`, {
         method: "DELETE",
@@ -27,7 +27,7 @@ const AdminDecorativeProducts = () => {
         getAllDecorativeProducts()
       }
     } catch (error) {
-      toast.error('Failed to Delete Newsletter');
+      toast.error('Failed to Delete Product');
     }
   }
 
@@ -53,13 +53,13 @@ const AdminDecorativeProducts = () => {
           </thead>
           <tbody>
             {
-              decorativeProducts.map((adminDecorativeProducts) => {
-                // { console.log(adminDecorativeProducts._id); }
-                return <tr key={adminDecorativeProducts._id}>
-                  <td className="message">{adminDecorativeProducts.productfile.url}</td>
-                  <td>{adminDecorativeProducts.productname}</td>
-                  <td><Link to="/editadmindecorativeproduct/id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
-                  <td><button className="bg-transparent" onClick={() => deleteDecorativeProduct(adminDecorativeProducts._id)} ><MdDelete className="bg-transparent" /></button></td>
+              decorativeProducts.map((product) => {
+                // { console.log(product._id); }
+                return <tr key={product._id}>
+                  <td className="message">{product.productfile.url}</td>
+                  <td>{product.productname}</td>
+                  <td><Link to="/editadmindecorativeproduct/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                  <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
                 </tr>
               })
             }
@@ -73,4 +73,4 @@ const AdminDecorativeProducts = () => {
   )
 }
 
-export default AdminDecorativeProducts;
+export default product;

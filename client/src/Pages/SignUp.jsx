@@ -126,7 +126,7 @@ const SignUp = () => {
                     <input className="form-control rounded" onChange={handleChange} value={user.confirmPassword} placeholder="Confirm Password" type={inputTypeConPass} name="confirmPassword" required />
                     {showConPass ? <FaEye className="text-dark position-absolute eye" onClick={toggleInputConPass} /> : <FaEyeSlash className="text-dark position-absolute eye" onClick={toggleInputConPass} />}
                   </div>
-                  <div className=" col-md-12">
+                  <div className="col-md-12">
                     <button type="submit" className="but rounded">SignUp</button>
                     <p className="text-center mt-3">Back to Login? <Link to="/login" style={{ color: "#ffc221" }}>Login</Link></p>
                   </div>

@@ -9,19 +9,19 @@ router.route("/adddecorativeproducts").post(authMiddleware, adminMiddleware, add
 
 router.route("/deletedecorativeproducts/:id").delete(authMiddleware, adminMiddleware, deletedecorativeProduct)
 
-router.route("/addinteriorproducts").delete(authMiddleware, adminMiddleware, addinteriorProduct)
+router.route("/addinteriorproducts").post(authMiddleware, adminMiddleware, addinteriorProduct)
 
 router.route("/deleteinteriorproducts/:id").delete(authMiddleware, adminMiddleware, deleteinteriorProduct)
 
-router.route("/addexteriorproducts").delete(authMiddleware, adminMiddleware, addexteriorProduct)
+router.route("/addexteriorproducts").post(authMiddleware, adminMiddleware, addexteriorProduct)
 
 router.route("/deleteexteriorproducts/:id").delete(authMiddleware, adminMiddleware, deleteexteriorProduct)
 
-router.route("/addentertainmentproducts").delete(authMiddleware, adminMiddleware, addentertainmentProduct)
+router.route("/addentertainmentproducts").post(authMiddleware, adminMiddleware, addentertainmentProduct)
 
 router.route("/deleteentertainmentproducts/:id").delete(authMiddleware, adminMiddleware, deleteentertainmentProduct)
 
-router.route("/addledstripproducts").delete(authMiddleware, adminMiddleware, addLEDStripProduct)
+router.route("/addledstripproducts").post(authMiddleware, adminMiddleware, addLEDStripProduct)
 
 router.route("/deleteledstripproducts/:id").delete(authMiddleware, adminMiddleware, deleteLEDStripProduct)
 

@@ -33,8 +33,8 @@ const AddAdminEntertainmentProducts = () => {
         setImg("")
         setProductname("")
         toast.success("Product Added Successfully")
-        getAllDecorativeProducts()
-        navigate("/admindecorative")
+        getAllEntertainmentProducts()
+        navigate("/adminentertainment")
 
       }
 

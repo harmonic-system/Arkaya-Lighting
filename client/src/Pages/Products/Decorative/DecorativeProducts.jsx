@@ -19,7 +19,7 @@ const DecorativeProducts = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="titlepage">
-                <h2>Decorative Lights</h2>
+                <h2>Decorative Products</h2>
               </div>
             </div>
           </div>
