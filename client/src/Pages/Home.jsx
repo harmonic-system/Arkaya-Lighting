@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify";
+import { useAuth } from "../store/Auth";
 const server = import.meta.env.VITE_SERVER;
 
 const Home = () => {
@@ -8,6 +9,8 @@ const Home = () => {
   const [newsubscriber, setNewSubscriber] = useState({
     newsletteremail: ""
   })
+
+  const { homeCarousel, homeProduct } = useAuth()
 
   const handleNewsletterInput = (e) => {
     const name = e.target.name
@@ -42,7 +45,7 @@ const Home = () => {
         toast.success(res.message)
       }
       else {
-        toast.error(res.message)
+        toast.error("Already Subscribed From This Email Id")
       }
     } catch (error) {
       toast.error(error.message)
@@ -66,7 +69,26 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="carousel-item">
+
+            {
+              homeCarousel.map((carousel) => {
+                return <div className="carousel-item" key={carousel._id}>
+                  <img src={carousel.file.url} className="d-block w-100" alt="..." />
+                  <div className="container">
+                    <div className="carousel-caption relative">
+                      {/* <h1>Our <br /> <strong className="black_bold">Latest </strong><br />
+                        <strong className="yellow_bold">Product </strong></h1> */}
+                      <h1 className="black_bold">{carousel.heading}</h1>
+                      {/* <p>It is a long established fact that a r <br />
+                        eader will be distracted by the readable content of a page </p> */}
+                      <p>{carousel.description}</p>
+                    </div>
+                  </div>
+                </div>
+              })
+            }
+
+            {/* <div className="carousel-item">
               <img src="images/banner2.jpg" className="d-block w-100" alt="..." />
               <div className="container">
                 <div className="carousel-caption relative">
@@ -74,7 +96,6 @@ const Home = () => {
                     <strong className="yellow_bold">Product </strong></h1>
                   <p>It is a long established fact that a r <br />
                     eader will be distracted by the readable content of a page </p>
-                  {/* <a href="#">see more Products</a> */}
                 </div>
               </div>
             </div>
@@ -86,10 +107,9 @@ const Home = () => {
                     <strong className="yellow_bold">Product </strong></h1>
                   <p>It is a long established fact that a r <br />
                     eader will be distracted by the readable content of a page </p>
-                  {/* <a href="#">see more Products</a> */}
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <button className="carousel-control-next" type="button" data-bs-target="#main_slider" data-bs-slide="prev">
             <i className='fa fa-angle-left'></i>
@@ -232,7 +252,21 @@ const Home = () => {
         <div className="product-bg-white">
           <div className="container">
             <div className="row">
-              <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+
+              {
+                homeProduct.map((product) => {
+                  return <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12" key={product._id}>
+                    <div className="product-box">
+                      <i><img src={product.file.url} /></i>
+                      <h3>{product.productname}</h3>
+                      {/* <span>$25.00</span> */}
+                    </div>
+                  </div>
+                })
+              }
+
+
+              {/* <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div className="product-box">
                   <i><img src="icon/p1.png" /></i>
                   <h3>Norton Internet Security</h3>
@@ -287,7 +321,7 @@ const Home = () => {
                   <h3>Norton Internet Security</h3>
                   <span>$25.00</span>
                 </div>
-              </div>
+              </div> */}
 
             </div>
           </div>

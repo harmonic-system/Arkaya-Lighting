@@ -15,6 +15,8 @@ const AuthProvider = ({ children }) => {
   const [exteriorProducts, setExteriorProducts] = useState([])
   const [entertainmentProducts, setEntertainmentProducts] = useState([])
   const [ledstripProducts, setLEDStripProducts] = useState([])
+  const [homeCarousel, setHomeCarousel] = useState([])
+  const [homeProduct, setHomeProduct] = useState([])
 
 
 
@@ -114,6 +116,34 @@ const AuthProvider = ({ children }) => {
     }
   }
 
+  const getAllHomeCarousel = async () => {
+    try {
+
+      const response = await fetch(`${server}api/v1/homecontent/homecarousel`, {
+        method: "GET"
+      })
+      const res = await response.json()
+      // console.log(res);
+      setHomeCarousel(res)
+    } catch (error) {
+      toast.error("Failed to get Home Carousels")
+    }
+  }
+
+  const getAllHomeProduct = async () => {
+    try {
+      const response = await fetch(`${server}api/v1/homecontent/homeproduct`, {
+        method: "GET"
+      })
+      const res = await response.json()
+      // console.log(res);
+      setHomeProduct(res)
+    } catch (error) {
+      toast.error("Failed to get Home Products")
+    }
+  }
+
+
 
 
 
@@ -122,11 +152,13 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     userAuthentication()
     // getAllDecorativeProducts()
+    getAllHomeCarousel()
+    getAllHomeProduct()
   }, [])
 
 
   return (
-    <AuthContext.Provider value={{ storeTokenInLocalStorage, user, logoutUser, authorizationToken, decorativeProducts, getAllDecorativeProducts, interiorProducts, getAllInteriorProducts, exteriorProducts, getAllExteriorProducts, entertainmentProducts, getAllEntertainmentProducts, ledstripProducts, getAllLEDStripProducts }} >
+    <AuthContext.Provider value={{ storeTokenInLocalStorage, user, logoutUser, authorizationToken, decorativeProducts, getAllDecorativeProducts, interiorProducts, getAllInteriorProducts, exteriorProducts, getAllExteriorProducts, entertainmentProducts, getAllEntertainmentProducts, ledstripProducts, getAllLEDStripProducts, homeCarousel, getAllHomeCarousel, homeProduct, getAllHomeProduct }} >
       {children}
     </AuthContext.Provider>
   )

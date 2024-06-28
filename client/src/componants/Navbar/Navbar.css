@@ -176,7 +176,7 @@ nav .wrapper {
   color: #ffc221 !important;
 }
 
-@media screen and (max-width: 1064px) {
+@media screen and (max-width: 1080px) {
   .wrapper .btn {
     display: block;
   }

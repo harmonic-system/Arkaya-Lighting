@@ -42,11 +42,16 @@ const AdminEntertainmentProducts = () => {
     <>
       <AdminLayout />
       <div className="container my-5">
+        <div className="w-100 d-flex justify-content-end my-5">
+          <Link className="btn btn-warning" to="/addadminentertainmentproduct" >Add Product</Link>
+        </div>
         <table className="table">
           <thead>
             <tr>
               <th>Image URL</th>
               <th>Product Name</th>
+              <th>Category</th>
+              <th>Description</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -57,7 +62,9 @@ const AdminEntertainmentProducts = () => {
                 // { console.log(product._id); }
                 return <tr key={product._id}>
                   <td className="message">{product.productfile.url}</td>
-                  <td>{product.productname}</td>
+                  <td className="message">{product.productname}</td>
+                  <td className="message">{product.category}</td>
+                  <td className="message">{product.description}</td>
                   <td><Link to="/editadminentertainmentproduct/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
                 </tr>
@@ -65,9 +72,7 @@ const AdminEntertainmentProducts = () => {
             }
           </tbody>
         </table>
-        <div className="w-100 d-flex justify-content-end mt-5">
-          <Link className="btn btn-warning" to="/addadminentertainmentproduct" >Add Product</Link>
-        </div>
+
       </div>
     </>
   )

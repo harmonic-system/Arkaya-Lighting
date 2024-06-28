@@ -19,7 +19,7 @@ const AdminProductQuerry = () => {
         },
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setAllProductQuerries(data)
     } catch (error) {
       console.error('Error:', error);
@@ -68,7 +68,6 @@ const AdminProductQuerry = () => {
           <tbody>
             {
               allproductQuerries.map((allproductQuerries) => {
-                { console.log(allproductQuerries); }
                 return <tr key={allproductQuerries._id}>
                   <td>{allproductQuerries.productName}</td>
                   <td>{allproductQuerries.name}</td>

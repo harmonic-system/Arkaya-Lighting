@@ -19,7 +19,7 @@ const AdminContact = () => {
         },
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setAllContacts(data)
     } catch (error) {
       console.error('Error:', error);
@@ -67,7 +67,6 @@ const AdminContact = () => {
           <tbody>
             {
               allcontacts.map((contact) => {
-                { console.log(contact); }
                 return <tr key={contact._id}>
                   <td>{contact.name}</td>
                   <td>{contact.email}</td>

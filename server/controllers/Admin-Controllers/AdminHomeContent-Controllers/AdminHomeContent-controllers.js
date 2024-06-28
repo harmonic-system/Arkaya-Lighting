@@ -9,10 +9,10 @@ const addhomecarousel = async (req, res, next) => {
   try {
 
     const result = await cloudinary.uploader.upload(file, {
-      folder: "home/carousel",
+      folder: "arkaya/home/carousel",
       resource_type: 'auto',
       width: 2100,
-      height: 400,
+      height: 720,
     })
 
 
@@ -49,10 +49,10 @@ const addhomeproduct = async (req, res, next) => {
   try {
 
     const result = await cloudinary.uploader.upload(file, {
-      folder: "home/product",
+      folder: "arkaya/home/product",
       resource_type: 'auto',
-      width: 300,
-      height: 200,
+      width: 400,
+      height: 300,
     })
 
 
@@ -69,13 +69,25 @@ const addhomeproduct = async (req, res, next) => {
 
 const deletehomeproduct = async (req, res, next) => {
   try {
+    // const public_id = req.params.public_id
     const id = req.params.id
+    // console.log(public_id);
 
+    // const deletedImage = await cloudinary.uploader.destroy(public_id)
+
+    // if (deletedImage) {
     const deletedProduct = await HomeProduct.deleteOne({ _id: id })
+
     if (deletedProduct) {
       return res.status(200).json({ message: "Home Product Deleted Successfully" })
     }
+
+    // }
+
+
+
   } catch (error) {
+    console.log(error);
     next(error)
   }
 }

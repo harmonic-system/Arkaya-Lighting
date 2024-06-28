@@ -42,6 +42,9 @@ const product = () => {
     <>
       <AdminLayout />
       <div className="container my-5">
+        <div className="w-100 d-flex justify-content-end my-5">
+          <Link className="btn btn-warning" to="/addadmindecorativeproduct" >Add Product</Link>
+        </div>
         <table className="table">
           <thead>
             <tr>
@@ -65,9 +68,7 @@ const product = () => {
             }
           </tbody>
         </table>
-        <div className="w-100 d-flex justify-content-end mt-5">
-          <Link className="btn btn-warning" to="/addadmindecorativeproduct" >Add Product</Link>
-        </div>
+
       </div>
     </>
   )

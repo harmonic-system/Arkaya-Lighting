@@ -34,6 +34,7 @@ const LedStripProducts = () => {
                   // return <Link to="/productDetails" className="col-xl-3 col-lg-3 col-md-6 col-sm-12" key={product._id} >
                   return <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12" key={product._id} >
                     <div className="product-box">
+                      <h2>Model Number</h2>
                       <i><img src={product.productfile.url} /></i>
                       <h3>{product.productname}</h3>
                       <span><small className="text-secondary"><small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, eveniet.</small></small></span>

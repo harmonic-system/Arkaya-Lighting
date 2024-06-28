@@ -18,7 +18,7 @@ const AdminNewsLetter = () => {
         },
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setAllNewsLetters(data)
     } catch (error) {
       console.error('Error:', error);
@@ -62,7 +62,6 @@ const AdminNewsLetter = () => {
           <tbody>
             {
               allnewsletters.map((newsletter) => {
-                { console.log(newsletter); }
                 return <tr key={newsletter._id}>
                   <td>{newsletter.newsletteremail}</td>
                   <td><button className="bg-transparent" onClick={() => deleteNewsLetter(newsletter._id)} ><MdDelete className="bg-transparent" /></button></td>

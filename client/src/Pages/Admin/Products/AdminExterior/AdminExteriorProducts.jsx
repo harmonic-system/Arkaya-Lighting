@@ -42,6 +42,9 @@ const AdminExteriorProducts = () => {
     <>
       <AdminLayout />
       <div className="container my-5">
+        <div className="w-100 d-flex justify-content-end my-5">
+          <Link className="btn btn-warning" to="/addadminexteriorproduct" >Add Product</Link>
+        </div>
         <table className="table">
           <thead>
             <tr>
@@ -65,9 +68,6 @@ const AdminExteriorProducts = () => {
             }
           </tbody>
         </table>
-        <div className="w-100 d-flex justify-content-end mt-5">
-          <Link className="btn btn-warning" to="/addadminexteriorproduct" >Add Product</Link>
-        </div>
       </div>
     </>
   )

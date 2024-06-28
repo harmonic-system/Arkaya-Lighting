@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const AdminLayout = () => {
 
   const { user } = useAuth()
-  console.log(user);
+  // console.log(user);
   const navigate = useNavigate()
 
 
@@ -33,7 +33,7 @@ const AdminLayout = () => {
         <div className="w-100 admin_nav">
           <ul className="d-flex p-5">
             <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_carousel">Home Carousel</Link></li>
-            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_services">Home Services</Link></li>
+            {/* <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_services">Home Services</Link></li> */}
             <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_products">Home Product</Link></li>
           </ul>
         </div>

@@ -15,6 +15,14 @@ const EntertainmentProductSchema = new Schema({
     type: String,
     required: true
   },
+  category: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
 })
 
 const EntertainmentProduct = new model('EntertainmentProduct', EntertainmentProductSchema)

@@ -8,6 +8,8 @@ const AddAdminEntertainmentProducts = () => {
 
   const [img, setImg] = useState("")
   const [productname, setProductname] = useState("")
+  const [category, setCategory] = useState("")
+  const [des, setDes] = useState("")
 
   const { authorizationToken, getAllEntertainmentProducts } = useAuth()
   const navigate = useNavigate()
@@ -24,7 +26,9 @@ const AddAdminEntertainmentProducts = () => {
         },
         body: JSON.stringify({
           productfile: img,
-          productname: productname
+          productname: productname,
+          category: category,
+          description: des,
         })
       })
 
@@ -68,6 +72,12 @@ const AddAdminEntertainmentProducts = () => {
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <input className="form-control rounded" onChange={(e) => setProductname(e.target.value)} value={productname} placeholder="Product name" type="text" name="productname" required />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={(e) => setCategory(e.target.value)} value={category} placeholder="Product Category" type="text" name="category" required />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={(e) => setDes(e.target.value)} value={des} placeholder="Product Description" type="text" name="description" required />
             </div>
             <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <button type="submit" className="but rounded">Add</button>

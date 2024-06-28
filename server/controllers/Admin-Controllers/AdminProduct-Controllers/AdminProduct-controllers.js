@@ -14,10 +14,10 @@ const adddecorativeProduct = async (req, res, next) => {
   try {
 
     const result = await cloudinary.uploader.upload(productfile, {
-      folder: "products/decorative",
+      folder: "arkaya/products/decorative",
       resource_type: 'auto',
-      width: 300,
-      height: 200,
+      width: 400,
+      height: 300,
     })
 
 
@@ -55,10 +55,10 @@ const addinteriorProduct = async (req, res, next) => {
   try {
 
     const result = await cloudinary.uploader.upload(productfile, {
-      folder: "products/interior",
+      folder: "arkaya/products/interior",
       resource_type: 'auto',
-      width: 300,
-      height: 200,
+      width: 400,
+      height: 300,
     })
 
 
@@ -96,10 +96,10 @@ const addexteriorProduct = async (req, res, next) => {
   try {
 
     const result = await cloudinary.uploader.upload(productfile, {
-      folder: "products/exterior",
+      folder: "arkaya/products/exterior",
       resource_type: 'auto',
-      width: 300,
-      height: 200,
+      width: 400,
+      height: 300,
     })
 
 
@@ -131,20 +131,20 @@ const deleteexteriorProduct = async (req, res, next) => {
 // Entertainment Products
 
 const addentertainmentProduct = async (req, res, next) => {
-  const { productfile, productname } = req.body
+  const { productfile, productname,category,description } = req.body
   // console.log(productname,productfile);
 
   try {
 
     const result = await cloudinary.uploader.upload(productfile, {
-      folder: "products/entertainment",
+      folder: "arkaya/products/entertainment",
       resource_type: 'auto',
-      width: 300,
-      height: 200,
+      width: 400,
+      height: 300,
     })
 
 
-    const product = await EntertainmentProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname })
+    const product = await EntertainmentProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname,category, description })
     // console.log(product);
 
     res.status(200).json({ message: "Entertainment product created successfully", product })
@@ -178,10 +178,10 @@ const addLEDStripProduct = async (req, res, next) => {
   try {
 
     const result = await cloudinary.uploader.upload(productfile, {
-      folder: "products/ledstrip",
+      folder: "arkaya/products/ledstrip",
       resource_type: 'auto',
-      width: 300,
-      height: 200,
+      width: 400,
+      height: 300,
     })
 
 
