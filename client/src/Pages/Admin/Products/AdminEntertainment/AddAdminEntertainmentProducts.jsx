@@ -36,6 +36,8 @@ const AddAdminEntertainmentProducts = () => {
       if (response.ok) {
         setImg("")
         setProductname("")
+        setCategory("")
+        setDes("")
         toast.success("Product Added Successfully")
         getAllEntertainmentProducts()
         navigate("/adminentertainment")
@@ -79,7 +81,7 @@ const AddAdminEntertainmentProducts = () => {
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <input className="form-control rounded" onChange={(e) => setDes(e.target.value)} value={des} placeholder="Product Description" type="text" name="description" required />
             </div>
-            <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div className=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <button type="submit" className="but rounded">Add</button>
             </div>
           </div>

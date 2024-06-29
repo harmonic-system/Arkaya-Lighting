@@ -131,7 +131,7 @@ const deleteexteriorProduct = async (req, res, next) => {
 // Entertainment Products
 
 const addentertainmentProduct = async (req, res, next) => {
-  const { productfile, productname,category,description } = req.body
+  const { productfile, productname, category, description } = req.body
   // console.log(productname,productfile);
 
   try {
@@ -144,7 +144,7 @@ const addentertainmentProduct = async (req, res, next) => {
     })
 
 
-    const product = await EntertainmentProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname,category, description })
+    const product = await EntertainmentProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, category, description })
     // console.log(product);
 
     res.status(200).json({ message: "Entertainment product created successfully", product })
@@ -172,8 +172,8 @@ const deleteentertainmentProduct = async (req, res, next) => {
 // LED Strip Products
 
 const addLEDStripProduct = async (req, res, next) => {
-  const { productfile, productname } = req.body
-  // console.log(productname,productfile);
+  const { productfile, productname, model, des, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
+  // console.log(productfile, productname, model, des, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
 
   try {
 
@@ -185,7 +185,7 @@ const addLEDStripProduct = async (req, res, next) => {
     })
 
 
-    const product = await LEDStripProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname })
+    const product = await LEDStripProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { des, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } })
     // console.log(product);
 
     res.status(200).json({ message: "LED Strip product created successfully", product })

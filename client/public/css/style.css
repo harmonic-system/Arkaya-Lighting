@@ -1356,41 +1356,41 @@ nav.main-menu {
 /*-- Product List  --*/
 
 .product-ul {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .dropdown-button {
-  padding: 15px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
+	padding: 15px 20px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
+	display: none;
+	position: absolute;
 	right: 0;
-  background-color: white;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  min-width: 200px;
+	background-color: white;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	min-width: 200px;
 }
 
 .dropdown-content .card {
-  background-color: #f1f1f1;
-  padding: 20px;
-  margin: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+	background-color: #f1f1f1;
+	padding: 20px;
+	margin: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 }
 
 .dropdown-content .card h3 {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 .product-ul:hover .dropdown-content {
-  display: block;
+	display: block;
 }
 
 
@@ -1777,6 +1777,7 @@ ul.sociel_link li a {
 	font-size: 85px;
 	line-height: 90px;
 	text-transform: uppercase;
+	text-align: left;
 }
 
 .banner-main .carousel-caption p {
@@ -2028,11 +2029,31 @@ ul.sociel_link li a {
 	padding-top: 15px;
 }
 
+.product-bg .product-bg-white .product-box h4 {
+	color: #020000;
+	font-weight: 500;
+	font-size: 17px;
+	line-height: 20px;
+	padding-top: 15px;
+	text-align: left !important;
+	width: 100%;
+	padding-left: 50px !important;
+}
+
 .product-bg .product-bg-white .product-box span {
 	color: #020000;
 	font-weight: 500;
 	font-size: 22px;
 	line-height: 22px;
+}
+
+.product-bg .product-bg-white .product-box p {
+	color: #020000;
+	font-size: 0.9rem;
+	line-height: 22px;
+	text-align: left !important;
+	padding-left: 50px !important;
+	width: 100% !important;
 }
 
 .product-bg .product-bg-white .product-box span:hover {
@@ -2527,7 +2548,3 @@ ul.lik li a:hover {
 	top: inherit;
 	bottom: 10px;
 }
-
-
-
-

@@ -58,13 +58,15 @@ const Home = () => {
         <div id="main_slider" className="carousel slide banner-main" data-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img src="images/banner2.jpg" className="d-block w-100" alt="..." />
+              <img src="images/carousel/2.jpg" className="d-block w-100" alt="..." />
               <div className="container">
-                <div className="carousel-caption relative">
-                  <h1>Our <br /> <strong className="black_bold">Latest </strong><br />
-                    <strong className="yellow_bold">Product </strong></h1>
-                  <p>It is a long established fact that a r <br />
-                    eader will be distracted by the readable content of a page </p>
+                <div className="carousel-caption relative" style={{left:"5%"}}>
+                  {/* <h1>Our <br /> <strong className="black_bold">Latest </strong><br />
+                    <strong className="yellow_bold">Product </strong></h1> */}
+                    <h1>Neon Flex</h1>
+                  {/* <p>It is a long established fact that a r <br />
+                    eader will be distracted by the readable content of a page </p> */}
+                    <p>Illuminate your space with vibrant Neon Flex, combining style and energy efficiency effortlessly.</p>
                   {/* <Link to="/ledstrip">see more Products</Link> */}
                 </div>
               </div>
@@ -75,7 +77,7 @@ const Home = () => {
                 return <div className="carousel-item" key={carousel._id}>
                   <img src={carousel.file.url} className="d-block w-100" alt="..." />
                   <div className="container">
-                    <div className="carousel-caption relative">
+                    <div className="carousel-caption relative" style={{left:"5%"}}>
                       {/* <h1>Our <br /> <strong className="black_bold">Latest </strong><br />
                         <strong className="yellow_bold">Product </strong></h1> */}
                       <h1 className="black_bold">{carousel.heading}</h1>
@@ -383,6 +385,8 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        <hr />
 
         <div className="container">
           <div className="row mt-2">
