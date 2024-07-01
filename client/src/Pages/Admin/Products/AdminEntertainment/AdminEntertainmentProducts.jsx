@@ -10,6 +10,7 @@ const server = import.meta.env.VITE_SERVER;
 const AdminEntertainmentProducts = () => {
 
   const { authorizationToken, entertainmentProducts, getAllEntertainmentProducts } = useAuth()
+  let count = 1
 
 
   const deleteProduct = async (id) => {
@@ -48,6 +49,7 @@ const AdminEntertainmentProducts = () => {
         <table className="table">
           <thead>
             <tr>
+              <th>S.No</th>
               <th>Image URL</th>
               <th>Product Name</th>
               <th>Category</th>
@@ -61,6 +63,7 @@ const AdminEntertainmentProducts = () => {
               entertainmentProducts.map((product) => {
                 // { console.log(product._id); }
                 return <tr key={product._id}>
+                  <td>{count++}</td>
                   <td className="message">{product.productfile.url}</td>
                   <td className="message">{product.productname}</td>
                   <td className="message">{product.category}</td>

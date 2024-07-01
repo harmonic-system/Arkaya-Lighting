@@ -1783,7 +1783,6 @@ ul.sociel_link li a {
 .banner-main .carousel-caption p {
 	color: #050000;
 	font-weight: 500;
-
 	line-height: 23px;
 }
 
@@ -2094,7 +2093,7 @@ ul.sociel_link li a {
 	line-height: 28px;
 	padding-top: 40px;
 	padding-bottom: 40px;
-	display: inline-block;
+	/* display: inline-block; */
 }
 
 .img_bg i {
@@ -2106,6 +2105,7 @@ ul.sociel_link li a {
 .img_bg i img {
 	width: 149px;
 	height: 149px;
+	border-radius: 50%;
 }
 
 .img_bg span {

@@ -60,13 +60,13 @@ const Home = () => {
             <div className="carousel-item active">
               <img src="images/carousel/2.jpg" className="d-block w-100" alt="..." />
               <div className="container">
-                <div className="carousel-caption relative" style={{left:"5%"}}>
+                <div className="carousel-caption relative" style={{ left: "5%" }}>
                   {/* <h1>Our <br /> <strong className="black_bold">Latest </strong><br />
                     <strong className="yellow_bold">Product </strong></h1> */}
-                    <h1>Neon Flex</h1>
+                  <h1>Neon Flex</h1>
                   {/* <p>It is a long established fact that a r <br />
                     eader will be distracted by the readable content of a page </p> */}
-                    <p>Illuminate your space with vibrant Neon Flex, combining style and energy efficiency effortlessly.</p>
+                  <p>Illuminate your space with vibrant Neon Flex, combining style and energy efficiency effortlessly.</p>
                   {/* <Link to="/ledstrip">see more Products</Link> */}
                 </div>
               </div>
@@ -77,7 +77,7 @@ const Home = () => {
                 return <div className="carousel-item" key={carousel._id}>
                   <img src={carousel.file.url} className="d-block w-100" alt="..." />
                   <div className="container">
-                    <div className="carousel-caption relative" style={{left:"5%"}}>
+                    <div className="carousel-caption relative" style={{ left: "5%" }}>
                       {/* <h1>Our <br /> <strong className="black_bold">Latest </strong><br />
                         <strong className="yellow_bold">Product </strong></h1> */}
                       <h1 className="black_bold">{carousel.heading}</h1>
@@ -137,11 +137,11 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="choose_bg">
+      {/* <div className="choose_bg"> */}
         <div className="container">
-          <div className="white_bg">
+          {/* <div className="white_bg"> */}
 
-            <p> <big> Welcome to Arkaya Lighting, your ultimate destination for high-quality lights and accessories. We offer an extensive range of Lighting products to customize any lighting, illuminate your indoor and outdoor space in a stylish and efficient way. Discover our versatile selection of LED light strips, including COB LED strip, addressable LED strip, flex LED neon lights, etc. They create a vibrant and eye-catching ambiance effortlessly, perfect for adding a captivating glow to any room or accentuating architectural features. To ensure the perfect lighting experience, we offer LED strip diffuser which diffuses light evenly and reduces glare to give your space a polished look with dotless linear light. Additionally, our smart LED Controller and LED power supply systems ensure stable and efficient performance for your LED lighting control. Illuminate your home and commercial spaces with Super Lighting LED. Shop now and find the best LED lighting solution for your project.</big></p>
+            <p style={{ lineHeight: "2" }} className="text-justify"> <big> Welcome to Arkaya Lighting, your ultimate destination for high-quality lights and accessories. We offer an extensive range of Lighting products to customize any lighting, illuminate your indoor and outdoor space in a stylish and efficient way. Discover our versatile selection of LED light strips, including COB LED strip, addressable LED strip, flex LED neon lights, etc. They create a vibrant and eye-catching ambiance effortlessly, perfect for adding a captivating glow to any room or accentuating architectural features. To ensure the perfect lighting experience, we offer LED strip diffuser which diffuses light evenly and reduces glare to give your space a polished look with dotless linear light. Additionally, our smart LED Controller and LED power supply systems ensure stable and efficient performance for your LED lighting control. Illuminate your home and commercial spaces with Super Lighting LED. Shop now and find the best LED lighting solution for your project.</big></p>
 
 
 
@@ -176,8 +176,8 @@ const Home = () => {
               </div>
             </div> */}
           </div>
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
 
 
       <div className="service">
@@ -186,7 +186,7 @@ const Home = () => {
             <div className="col-md-8 offset-md-2">
               <div className="title">
                 <h2>Service <strong className="black">Process</strong></h2>
-                <span>Easy and effective way to get your device repair</span>
+                <span>Easy and effective way to get your lighting product</span>
               </div>
             </div>
           </div>
@@ -347,37 +347,39 @@ const Home = () => {
               <div className="carousel-inner">
                 <div className="carousel-item active">
                   <div className="container">
-                    <div className="carousel-caption text-bg">
+                    <div className="carousel-caption text-bg d-flex flex-column">
                       <div className="img_bg">
-                        <i><img src="images/lllll.png" /><span>Bayview<br /><strong className="date">12/05/2024</strong></span></i>
+                        <i><img src="images/Clients/bayview.PNG" /><span>Bayview<br /><strong className="date">12/05/2024</strong></span></i>
                       </div>
 
-                      <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
-                        You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p>
+                      {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
+                        You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
+                      <p>The DMX controllers offered unparalleled versatility and control over our stage lighting.</p>
                     </div>
                   </div>
                 </div>
                 <div className="carousel-item">
                   <div className="container">
-                    <div className="carousel-caption text-bg">
+                    <div className="carousel-caption text-bg d-flex flex-column">
                       <div className="img_bg">
-                        <i><img src="images/lllll.png" /><span>Kode<br /><strong className="date">06/03/2024</strong></span></i>
+                        <i><img src="images/Clients/kode.jpg" /><span>Kode<br /><strong className="date">06/03/2024</strong></span></i>
                       </div>
-
-                      <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
-                        You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p>
+                      {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
+                        You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
+                      <p>Impressed by the sleek design and incredible brightness of the LED panels.</p>
                     </div>
                   </div>
                 </div>
                 <div className="carousel-item">
                   <div className="container">
-                    <div className="carousel-caption text-bg">
+                    <div className="carousel-caption text-bg d-flex flex-column">
                       <div className="img_bg">
-                        <i><img src="images/lllll.png" /><span>FTV Club<br /><strong className="date">27/04/2024</strong></span></i>
+                        <i><img src="images/Clients/ftv.png" /><span>FTV Club<br /><strong className="date">27/04/2024</strong></span></i>
                       </div>
 
-                      <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
-                        You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p>
+                      {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
+                        You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
+                      <p>The Mini LED Moving Lights transformed our event with their stunning effects and compact size.</p>
                     </div>
                   </div>
                 </div>

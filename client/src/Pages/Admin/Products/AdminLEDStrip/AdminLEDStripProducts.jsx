@@ -10,6 +10,7 @@ const server = import.meta.env.VITE_SERVER;
 const AdminLEDStripProducts = () => {
 
   const { authorizationToken, ledstripProducts, getAllLEDStripProducts } = useAuth()
+  let count = 1
 
 
   const deleteProduct = async (id) => {
@@ -48,8 +49,11 @@ const AdminLEDStripProducts = () => {
         <table className="table">
           <thead>
             <tr>
+              <th>S.No</th>
               <th>Image URL</th>
               <th>Product Name</th>
+              <th>Model</th>
+              <th>Description</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -59,10 +63,32 @@ const AdminLEDStripProducts = () => {
               ledstripProducts.map((product) => {
                 // { console.log(product._id); }
                 return <tr key={product._id}>
+                  <td>{count++}</td>
                   <td className="message">{product.productfile.url}</td>
                   <td>{product.productname}</td>
+                  <td>{product.model}</td>
+                  <td>
+                    <table className="table border border-none">
+                      <tbody>
+                        <tr className="d-flex flex-column border-bottom-0" >
+                          <td>{product.description.des}</td>
+                          <td>{product.description.spec1}</td>
+                          <td>{product.description.spec2}</td>
+                          <td>{product.description.spec3}</td>
+                          <td>{product.description.spec4}</td>
+                          <td>{product.description.spec5}</td>
+                          <td>{product.description.spec6}</td>
+                          <td>{product.description.spec7}</td>
+                          <td>{product.description.spec8}</td>
+                          <td>{product.description.spec9}</td>
+                          <td>{product.description.spec10}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
                   <td><Link to="/editadminledstripproduct/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
+                  {/* {count++} */}
                 </tr>
               })
             }

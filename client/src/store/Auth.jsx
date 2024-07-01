@@ -136,6 +136,7 @@ const AuthProvider = ({ children }) => {
         method: "GET"
       })
       const res = await response.json()
+
       // console.log(res);
       setHomeProduct(res)
     } catch (error) {

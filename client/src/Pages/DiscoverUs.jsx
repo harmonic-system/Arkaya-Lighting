@@ -26,89 +26,34 @@ const DiscoverUs = () => {
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12">
               <div className="about_box">
                 <h3>Story</h3>
-                <p style={{lineHeight:"2"}} className="text-justify">
+                <p style={{ lineHeight: "2" }} className="text-justify">
                   Arkaya Lighting is a dynamic company specializing in the trading and distribution of cutting-edge lighting and video equipment. Renowned for their innovative solutions, Arkaya seamlessly blends technology and design, catering to diverse industries. With a commitment to excellence, they illuminate spaces and elevate experiences through their high-quality products and services.
                 </p>
               </div>
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-5">
+              <h2><strong>Who We are ?</strong></h2>
+              <p style={{ lineHeight: "2" }} className="text-justify">
+                Arkaya Lighting is an excellent online retailer specializing in Lighting products. At arkaya lighting, we offer smart Lighting for Everything.
+
+                Arkaya Lighting has been dedicated to helping customers get the best Lighting for their needs for years, and provides quality customization services to customers.
+
+                Arkaya Lighting offers a complete Lighting system . Our product line is comprehensive, including various LED light fixtures (LED strip lights, LED neon lights, LED module string lights, LED stair lights, LED wall washer lights, LED diffusers, LED channels, LED fiber optic lights, LED linear bar lights...), LED light control systems ( Miboxer, Skydance, Ltech, Bincolor ), LED power supply systems ( power adapter, switching power supply, lithium battery, waterproof / rainproof led power supply, CCTV power supply box ), and LED light accessories.
+              </p>
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-5">
+              <h2><strong>Why Choose Us </strong></h2>
+              <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Quality Assurance</span> - We test our products before we send them out to ensure that the items you receive are ready for use.</p>
+              <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Many years of experience in the LED lights industry, experienced.</span></p>
+              <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Product competitiveness & price competitiveness.</span> - Constantly optimize our products and prices.</p>
+              <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Pre-sales and after-sales service</span> - Provide professional lighting solution services to help customers make informed decisions about LED lighting.</p>
+              <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Product Certificate</span> - All LED products are RoHS compliant - environmental friendly.</p>
+              <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold"> Information Security</span> - Login to the website, all your information is private and secure.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="whyschose">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-7 offset-md-3">
-              <div className="title">
-                <h2>
-                  Case<strong className="black">Study</strong>
-                </h2>
-                <span>Fastest Lighting Service With Best Price!</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="choose_bg">
-        <div className="container">
-          <div className="white_bg">
-            <div className="row">
-              <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div className="for_box">
-                  <i>
-                    <img src="icon/1.png" />
-                  </i>
-                  <h3>Case - 1</h3>
-                  <p>
-                    Perspiciatis eos quos totam cum minima autPerspiciatis eos
-                    quos
-                  </p>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div className="for_box">
-                  <i>
-                    <img src="icon/2.png" />
-                  </i>
-                  <h3>Case - 2</h3>
-                  <p>
-                    Perspiciatis eos quos totam cum minima autPerspiciatis eos
-                    quos
-                  </p>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div className="for_box">
-                  <i>
-                    <img src="icon/3.png" />
-                  </i>
-                  <h3>Case - 3</h3>
-                  <p>
-                    Perspiciatis eos quos totam cum minima autPerspiciatis eos
-                    quos
-                  </p>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div className="for_box">
-                  <i>
-                    <img src="icon/4.png" />
-                  </i>
-                  <h3>Case - 4</h3>
-                  <p>
-                    Perspiciatis eos quos totam cum minima autPerspiciatis eos
-                    quos
-                  </p>
-                </div>
-              </div>
-              <div className="col-md-12">
-                <a className="read-more">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* <!-- end CHOOSE --> */}
 
       {/* <!-- service -->  */}
       <div className="service">
@@ -116,84 +61,52 @@ const DiscoverUs = () => {
           <div className="row">
             <div className="col-md-8 offset-md-2">
               <div className="title">
-                <h2>
-                  Service <strong className="black">Process</strong>
-                </h2>
-                <span>Easy And Effective Way To Get The Repairing Services At Your Doorstep.</span>
+                <h2>Service <strong className="black">Process</strong></h2>
+                <span>Easy and effective way to get your lighting product</span>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
-                <i>
-                  <img src="icon/service1.png" />
-                </i>
+                <i><img src="icon/service1.png" /></i>
                 <h3>Fast service</h3>
-                <p>
-                  Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
-                  ea{" "}
-                </p>
+                <p className="text-justify" >Our commitment to fast service ensures minimal waiting and maximum satisfaction, delivering results swiftly and effectively.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
-                <i>
-                  <img src="icon/service2.png" />
-                </i>
+                <i><img src="icon/service2.png" /></i>
                 <h3>Secure payments</h3>
-                <p>
-                  Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
-                  ea{" "}
-                </p>
+                <p className="text-justify" >Enjoy peace of mind with our secure payment system, safeguarding your transactions with advanced encryption.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
-                <i>
-                  <img src="icon/service3.png" />
-                </i>
+                <i><img src="icon/service3.png" /></i>
                 <h3>Expert team</h3>
-                <p>
-                  Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
-                  ea{" "}
-                </p>
+                <p className="text-justify" >Our expert team brings years of industry experience and specialized knowledge to deliver exceptional results.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
-                <i>
-                  <img src="icon/service4.png" />
-                </i>
+                <i><img src="icon/service4.png" /></i>
                 <h3>Affordable services</h3>
-                <p>
-                  Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
-                  ea{" "}
-                </p>
+                <p className="text-justify" >Our affordable services ensure value and reliability, making excellence accessible to all.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
-                <i>
-                  <img src="icon/service5.png" />
-                </i>
-                <h3>90 Days warranty</h3>
-                <p>
-                  Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
-                  ea{" "}
-                </p>
+                <i><img src="icon/service5.png" /></i>
+                <h3>High build quality</h3>
+                <p className="text-justify" >Experience superior durability and craftsmanship with our high build quality products.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="service-box">
-                <i>
-                  <img src="icon/service6.png" />
-                </i>
+                <i><img src="icon/service6.png" /></i>
                 <h3>Award winning</h3>
-                <p>
-                  Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
-                  ea{" "}
-                </p>
+                <p className="text-justify" >Proudly recognized for our excellence with prestigious industry awards, showcasing our commitment to quality.</p>
               </div>
             </div>
           </div>
