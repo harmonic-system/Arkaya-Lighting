@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Navbar from "./componants/Navbar/Navbar"
 import Footer from "./componants/Footer/Footer"
 import Home from "./Pages/Home"
+import Application from "./Pages/Application"
 import Contact from "./Pages/Contact"
 import Login from "./Pages/Login"
 import SignUp from "./Pages/SignUp"
@@ -61,6 +62,7 @@ import AddAdminHomeCarousel from "./Pages/Admin/AdminHomeContent/AdminHomeCarous
 
 import AdminHomeLProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/AdminHomeProducts"
 import AddAdminHomeProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/AddAdminHomeProducts"
+// import ProductDetails from "./Pages/ProductDetails"
 
 function App() {
 
@@ -71,6 +73,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/arkaya" element={<Home />} />
+          <Route path="/application" element={<Application />} />
 
 
           {/* Product Start */}

@@ -27,11 +27,9 @@ const Navbar = () => {
 
             <li>
               <div className="dropdown">
-
                 <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">PRODUCTS</a>
-
                 <ul className="dropdown-menu profile">
-                  <li><Link className="text-light" to="/interior">Interior</Link></li>
+                  <li><Link className="text-light" to="/">Interior</Link></li>
                   <li><Link className="text-light" to="/exterior">Exterior</Link></li>
                   <li><Link className="text-light" to="/decorative">Decorative</Link></li>
                   <li><Link className="text-light" to="/entertainment">Entertainment</Link></li>
@@ -59,7 +57,7 @@ const Navbar = () => {
               <div className="mega-box">
                 <div className="content">
                   <div className="pro">
-                    <header>FIXTURE</header>
+                    <header>LIGHTING FIXTURE</header>
                     <hr className="bg-secondary" />
 
                     <ul className="mega-links">
@@ -69,53 +67,87 @@ const Navbar = () => {
                           <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Architecture</a>
 
                           <ul className="dropdown-menu bg-dark">
-                            <li><Link className="dropdown-item" to="/">Interior</Link></li>
-                            <li><Link className="dropdown-item" to="/">Exterior</Link></li>
-                            <li><Link className="dropdown-item" to="/">Decorative</Link></li>
+                            <li><Link className="dropdown-item" to="/">Commercials</Link></li>
+                            <li><Link className="dropdown-item" to="/">Dynamic Facade</Link></li>
+                            <li><Link className="dropdown-item" to="/">Landscapes</Link></li>
+                            <li><Link className="dropdown-item" to="/">Museums</Link></li>
+                            <li><Link className="dropdown-item" to="/">Residentials</Link></li>
                           </ul>
                         </div>
                       </li>
 
-                      <li><Link to="/">Entertainment</Link></li>
+                      <li>
+                        <div className="dropdown">
+                          <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Entertainment</a>
+
+                          <ul className="dropdown-menu bg-dark">
+                            <li><Link className="dropdown-item" to="/">Moving Head Series - Lamp</Link></li>
+                            <li><Link className="dropdown-item" to="/">Moving Head Series - Led</Link></li>
+                            <li><Link className="dropdown-item" to="/">Static Led</Link></li>
+                            <li><Link className="dropdown-item" to="/">Effects Light</Link></li>
+                          </ul>
+                        </div>
+                      </li>
 
                       <li>
                         <div className="dropdown">
                           <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">LED Pixels</a>
 
                           <ul className="dropdown-menu bg-dark">
-                            <li><Link className="dropdown-item" to="/ledstrip">Led Strips</Link></li>
-                            <li><Link className="dropdown-item" to="/">Exterior</Link></li>
-                            <li><Link className="dropdown-item" to="/">Decorative</Link></li>
+                            <li><Link className="dropdown-item" to="/led_strip">Strips</Link></li>
+                            <li><Link className="dropdown-item" to="/">Dot Pixels</Link></li>
+                            <li><Link className="dropdown-item" to="/">LED Matrix</Link></li>
                           </ul>
                         </div>
                       </li>
 
-                      <li><Link to="/">Decorative</Link></li>
+                      <li>
+                        <div className="dropdown">
+                          <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Decorative</a>
+
+                          <ul className="dropdown-menu bg-dark">
+                            <li><Link className="dropdown-item" to="/">Chandellers</Link></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <li>
+                        <div className="dropdown">
+                          <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Threater, Studio, Television</a>
+
+                          <ul className="dropdown-menu bg-dark">
+                            <li><Link className="dropdown-item" to="/">Threater</Link></li>
+                            <li><Link className="dropdown-item" to="/">Studio</Link></li>
+                            <li><Link className="dropdown-item" to="/">Television</Link></li>
+                          </ul>
+                        </div>
+                      </li>
 
                     </ul>
 
                   </div>
 
                   <div className="pro">
-                    <header>Controllers & Automation</header>
+                    <header>Video Displays</header>
+                    <hr className="bg-secondary" />
+
+                    <ul className="mega-links">
+                      <li><Link to="/">Rental Series</Link></li>
+                      <li><Link to="/">Indoor Series</Link></li>
+                      <li><Link to="/">Outdoor Series</Link></li>
+                    </ul>
+                  </div>
+
+                  <div className="pro">
+                    <header>Controllers Distribution & Interfaces</header>
                     <hr className="bg-secondary" />
 
                     <ul className="mega-links">
                       <li><Link to="/">LED Controllers</Link></li>
-                      <li><Link to="/">Smart Home Automation</Link></li>
                       <li><Link to="/">DMX Controllers</Link></li>
-                    </ul>
-                  </div>
-
-                  <div className="pro">
-                    <header>Distribution & Dimmer</header>
-                    <hr className="bg-secondary" />
-
-                    <ul className="mega-links">
-                      <li><Link to="/">Single Distribution</Link></li>
-                      <li><Link to="/">Power Supply</Link></li>
-                      <li><Link to="/">Dimmers</Link></li>
-                      <li><Link to="/">Power Boxes</Link></li>
+                      <li><Link to="/">Signal Distribution</Link></li>
+                      <li><Link to="/">Decorders & Amplifiers</Link></li>
+                      <li><Link to="/">Processors</Link></li>
                     </ul>
                   </div>
 
@@ -128,19 +160,21 @@ const Navbar = () => {
                       <li><Link to="/">Clamps</Link></li>
                       <li><Link to="/">Alluminium Profile</Link></li>
                       <li><Link to="/">Silicon Profile</Link></li>
+                      <li><Link to="/">Stage Lighting Systems</Link></li>
+                      <li><Link to="/">Studio Lighting Systems</Link></li>
                     </ul>
                   </div>
 
                   <div className="pro">
-                    <header>Accessories</header>
+                    <header>Spaers & Accessories</header>
                     <hr className="bg-secondary" />
 
                     <ul className="mega-links">
                       <li><Link to="/">Connectors</Link></li>
-                      <li><Link to="/">Clamps</Link></li>
-                      <li><Link to="/">Clip</Link></li>
                     </ul>
                   </div>
+
+                  
 
                 </div>
               </div>
@@ -148,7 +182,8 @@ const Navbar = () => {
             {/* Products Mega Menu End */}
 
 
-            {/* <li><Link to="">BRANDS</Link></li> */}
+            {/* <li><Link to="/">BR66ANDS</Link></li> */}
+            <li><Link to="/application">APPLICATION</Link></li>
 
             <li>
               <Link className="desktop-item">RESOURCES</Link>

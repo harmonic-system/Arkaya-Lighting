@@ -9,7 +9,7 @@ const TopHeader = () => {
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                   <div className="top-box">
                     <ul className="sociel_link">
-                      <li> <a href="#"><i className="fa fa-facebook"></i></a></li>
+                      <li> <a href="#"><strong><i className="fa fa-facebook"></i></strong></a></li>
                       <li> <a href="#"><i className="fa fa-twitter"></i></a></li>
                       <li> <a href="#"><i className="fa fa-instagram"></i></a></li>
                       <li> <a href="#"><i className="fa fa-linkedin"></i></a></li>
@@ -18,7 +18,7 @@ const TopHeader = () => {
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                   <div className="top-box">
-                    <p><b><big>We Bright Your Space</big></b></p>
+                    <p><b><strong>We Bright Your Space</strong></b></p>
                   </div>
                 </div>
               </div>

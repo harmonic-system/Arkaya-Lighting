@@ -90,8 +90,8 @@ const deleteinteriorProduct = async (req, res, next) => {
 // Exterior Products
 
 const addexteriorProduct = async (req, res, next) => {
-  const { productfile, productname } = req.body
-  // console.log(productname,productfile);
+  const { productfile, productname, model, size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } = req.body
+  // console.log(productname,productfile,model,size,power,workingElectricity,controlMode,scheme,lampBeads,IPGrade,masterStroke,returnRoute,distanceFromCenter,lampshellFaceColor,noOfLight);
 
   try {
 
@@ -103,8 +103,8 @@ const addexteriorProduct = async (req, res, next) => {
     })
 
 
-    const product = await ExteriorProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname })
-    // console.log(product);
+    const product = await ExteriorProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } })
+    console.log(product);
 
     res.status(200).json({ message: "Exterior product created successfully", product })
 

@@ -19,7 +19,7 @@ const DiscoverUs = () => {
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12">
               <div className="about_box">
                 <figure>
-                  <img src="images/arkaya-logo.png" />
+                  <img src="images/arkaya-logo.png" className="p-5" />
                 </figure>
               </div>
             </div>
@@ -40,6 +40,22 @@ const DiscoverUs = () => {
 
                 Arkaya Lighting offers a complete Lighting system . Our product line is comprehensive, including various LED light fixtures (LED strip lights, LED neon lights, LED module string lights, LED stair lights, LED wall washer lights, LED diffusers, LED channels, LED fiber optic lights, LED linear bar lights...), LED light control systems ( Miboxer, Skydance, Ltech, Bincolor ), LED power supply systems ( power adapter, switching power supply, lithium battery, waterproof / rainproof led power supply, CCTV power supply box ), and LED light accessories.
               </p>
+
+              <p style={{ lineHeight: "2" }} className="text-justify mt-3">Arkaya Lighting is a Leading Supplier of Lights to Industrial, Commercial, Residential, Retail and Hospitality Projects in India. Light Concepts started its journey as a quality product supplier catering to all segments of customers.</p>
+              <p style={{ lineHeight: "2" }} className="text-justify mt-3 fw-bold">Over the years we have been able to win the trust and confidence of our Customers because of following attributes:</p>
+              <ul className="d-flex flex-wrap justify-content-start gap-5 align-items-center mt-5">
+                <li style={{ listStyleType: "disc" }}>Excellent Value for Money Preposition</li>
+                <li style={{ listStyleType: "disc" }}>Timely Deliveries</li>
+                <li style={{ listStyleType: "disc" }}>Customization as per the Client brief</li>
+                <li style={{ listStyleType: "disc" }}>Right Price for the right Product.</li>
+                <li style={{ listStyleType: "disc" }}>Timely Service.</li>
+                <li style={{ listStyleType: "disc" }}>Onsite Support in case of Any Challenges in execution of the project.</li>
+              </ul>
+              <p style={{ lineHeight: "2" }} className="text-justify mt-3">Due to the above attributes our customers treat us as part of their inhouse team, which helps them in timely execution of their projects. Our clients entrust us with their most challenging situations, to focus on other critical things and we deliver as per their expectations time and again.</p>
+              <p style={{ lineHeight: "2" }} className="text-justify mt-3">At Arkaya Lighting we believe in CVP - Customer Vendor Partnership. Which builds a trustworthy alliance focusing on deliverables.</p>
+              <p style={{ lineHeight: "2" }} className="text-justify mt-3"></p>
+              <p style={{ lineHeight: "2" }} className="text-justify mt-3"></p>
+
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-5">
               <h2><strong>Why Choose Us </strong></h2>

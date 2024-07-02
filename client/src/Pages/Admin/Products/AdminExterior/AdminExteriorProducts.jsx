@@ -10,6 +10,7 @@ const server = import.meta.env.VITE_SERVER;
 const AdminExteriorProducts = () => {
 
   const { authorizationToken, exteriorProducts, getAllExteriorProducts } = useAuth()
+  let count = 1
 
 
   const deleteProduct = async (id) => {
@@ -48,8 +49,11 @@ const AdminExteriorProducts = () => {
         <table className="table">
           <thead>
             <tr>
+              <th>Sr No.</th>
               <th>Image URL</th>
               <th>Product Name</th>
+              <th>Model</th>
+              <th>Description</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -59,8 +63,30 @@ const AdminExteriorProducts = () => {
               exteriorProducts.map((product) => {
                 // { console.log(product._id); }
                 return <tr key={product._id}>
+                  <td>{count++}</td>
                   <td className="message">{product.productfile.url}</td>
                   <td>{product.productname}</td>
+                  <td>{product.model}</td>
+                  <td>
+                    <table className="table border border-none">
+                      <tbody>
+                        <tr className="d-flex flex-column border-bottom-0" >
+                          <td>{product.description.size}</td>
+                          <td>{product.description.power}</td>
+                          <td>{product.description.workingElectricity}</td>
+                          <td>{product.description.controlMode}</td>
+                          <td>{product.description.scheme}</td>
+                          <td>{product.description.lampBeads}</td>
+                          <td>{product.description.IPGrade}</td>
+                          <td>{product.description.masterStroke}</td>
+                          <td>{product.description.returnRoute}</td>
+                          <td>{product.description.distanceFromCenter}</td>
+                          <td>{product.description.lampshellFaceColor}</td>
+                          <td>{product.description.noOfLight}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
                   <td><Link to="/editadminexteriorproduct/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
                 </tr>
