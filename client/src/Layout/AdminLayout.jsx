@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import "./AdminLayout.css"
 import { useAuth } from "../store/Auth";
 import { useEffect } from "react";
@@ -19,25 +19,28 @@ const AdminLayout = () => {
 
   return (
     <>
-      <section className="w-100">
-        <div className="w-100 admin_nav">
-          <ul className="d-flex p-5">
-            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_users">Users</Link></li>
-            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_contacts">Contact</Link></li>
-            <li className="btn btn-dark m-2"><a className="text-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Products</a></li>
-            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_productquerry">Product Querry</Link></li>
-            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_newsletter">NewsLetters</Link></li>
-          </ul>
-        </div>
-        <hr />
-        <div className="w-100 admin_nav">
-          <ul className="d-flex p-5">
-            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_carousel">Home Carousel</Link></li>
-            {/* <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_services">Home Services</Link></li> */}
-            <li className="btn btn-dark m-2"><Link className="text-light" to="/admin_products">Home Product</Link></li>
-          </ul>
-        </div>
-      </section>
+      <div className="container">
+        <section className="w-100">
+          <div className="w-100 admin_nav">
+            <ul className="d-flex p-5">
+              <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/users">Users</Link></li>
+              <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/contacts">Contact</Link></li>
+              <li className="btn btn-dark m-2"><a className="text-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Products</a></li>
+              <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/productquerry">Product Querry</Link></li>
+              <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/newsletter">NewsLetters</Link></li>
+            </ul>
+          </div>
+          <hr />
+          <div className="w-100 admin_nav">
+            <ul className="d-flex p-5">
+              <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/homecarousel">Home Carousel</Link></li>
+              {/* <li className="btn btn-dark m-2"><Link className="text-light" to="/services">Home Services</Link></li> */}
+              <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/homeproducts">Home Product</Link></li>
+            </ul>
+          </div>
+        </section>
+        <Outlet/>
+      </div>
 
 
       {/* Off Canvas Body After Trail We will use this so please don't delete */}
@@ -314,11 +317,11 @@ const AdminLayout = () => {
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body d-flex flex-column gap-2">
-          <Link className="bg-warning text-center p-2" to="/admininterior" >Interior</Link>
-          <Link className="bg-warning text-center p-2" to="/adminexterior" >Exterior</Link>
-          <Link className="bg-warning text-center p-2" to="/admindecorative" >Decorative</Link>
-          <Link className="bg-warning text-center p-2" to="/adminentertainment" >Entertainment</Link>
-          <Link className="bg-warning text-center p-2" to="/adminledstrip" >LED Strip</Link>
+          <Link className="bg-warning text-center p-2" to="/admin/interior" >Interior</Link>
+          <Link className="bg-warning text-center p-2" to="/admin/exterior" >Exterior</Link>
+          <Link className="bg-warning text-center p-2" to="/admin/decorative" >Decorative</Link>
+          <Link className="bg-warning text-center p-2" to="/admin/entertainment" >Entertainment</Link>
+          <Link className="bg-warning text-center p-2" to="/admin/ledstrip" >LED Strip</Link>
         </div>
       </div>
 

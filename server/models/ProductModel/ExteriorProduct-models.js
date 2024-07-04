@@ -13,7 +13,7 @@ const ExteriorProductSchema = new Schema({
   },
   productname: {
     type: String,
-    required: true
+    // required: true
   },
   model: {
     type: String,

@@ -1,20 +1,18 @@
 import { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import AdminLayout from "../../../../Layout/AdminLayout";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
-const server = import.meta.env.VITE_SERVER;
 
 const AdminHomeLProducts = () => {
 
-  const { authorizationToken, homeProduct, getAllHomeProduct } = useAuth()
+  const { authorizationToken, homeProduct, getAllHomeProduct, server } = useAuth()
 
 
   const deleteHomeProduct = async (id) => {
     try {
-      const response = await fetch(`${server}api/v1/adminhomecontent/deletehomeproduct/${id}`, {
+      const response = await fetch(`${server}/api/v1/adminhomecontent/deletehomeproduct/${id}`, {
         method: "DELETE",
         headers: {
           'Authorization': authorizationToken,
@@ -40,10 +38,9 @@ const AdminHomeLProducts = () => {
 
   return (
     <>
-      <AdminLayout />
       <div className="container my-5">
         <div className="w-100 d-flex justify-content-end my-5">
-          <Link className="btn btn-warning" to="/addadmin_products" >Add Product</Link>
+          <Link className="btn btn-warning" to="/admin/addhomeproducts" >Add Product</Link>
         </div>
         <table className="table">
           <thead>

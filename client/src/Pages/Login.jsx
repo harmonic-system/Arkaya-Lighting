@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify";
 import { useAuth } from "../store/Auth";
-const server = import.meta.env.VITE_SERVER;
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
@@ -13,7 +12,7 @@ const Login = () => {
     password: ""
   })
 
-  const { storeTokenInLocalStorage } = useAuth()
+  const { storeTokenInLocalStorage, server } = useAuth()
   const navigate = useNavigate()
   const [show, setShow] = useState(true)
   const [inputType, setInputType] = useState("password")
@@ -37,7 +36,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch(`${server}api/v1/auth/login`, {
+      const response = await fetch(`${server}/api/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +97,7 @@ const Login = () => {
                   </div>
                   <div className=" col-md-12">
                     <button type="submit" className="but rounded">Login</button>
-                    <p className="text-center mt-3">Not a User? <Link to="/signup" style={{color:"#ffc221"}}>SignUp</Link></p>
+                    <p className="text-center mt-3">Not a User? <Link to="/signup" style={{ color: "#ffc221" }}>SignUp</Link></p>
                   </div>
                 </div>
               </form>

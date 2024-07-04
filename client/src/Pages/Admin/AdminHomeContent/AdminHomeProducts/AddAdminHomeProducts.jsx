@@ -2,21 +2,20 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
-const server = import.meta.env.VITE_SERVER;
 
 const AddAdminHomeProducts = () => {
 
   const [img, setImg] = useState("")
   const [productname, setProductName] = useState("")
 
-  const { authorizationToken, getAllHomeProduct } = useAuth()
+  const { authorizationToken, getAllHomeProduct, server } = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}api/v1/adminhomecontent/addhomeproduct`, {
+      const response = await fetch(`${server}/api/v1/adminhomecontent/addhomeproduct`, {
         method: "POST",
         headers: {
           "Authorization": authorizationToken,

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { toast } from "react-toastify";
-const server = import.meta.env.VITE_SERVER;
+import { useAuth } from "../store/Auth";
 
 const ProductDetails = () => {
 
@@ -14,6 +14,7 @@ const ProductDetails = () => {
   })
 
   const [sent, setSent] = useState(false)
+  const { server } = useAuth()
 
 
   const handleChange = (e) => {
@@ -31,7 +32,7 @@ const ProductDetails = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}api/v1/productquerry/singalproduct`, {
+      const response = await fetch(`${server}/api/v1/productquerry/singalproduct`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

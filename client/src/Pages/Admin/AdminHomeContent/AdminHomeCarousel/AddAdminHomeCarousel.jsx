@@ -2,7 +2,6 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
-const server = import.meta.env.VITE_SERVER;
 
 const AddAdminHomeCarousel = () => {
 
@@ -10,14 +9,14 @@ const AddAdminHomeCarousel = () => {
   const [heading, setHeading] = useState("")
   const [des, setDes] = useState("")
 
-  const { authorizationToken, getAllHomeCarousel } = useAuth()
+  const { authorizationToken, getAllHomeCarousel, server } = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}api/v1/adminhomecontent/addhomecarousel`, {
+      const response = await fetch(`${server}/api/v1/adminhomecontent/addhomecarousel`, {
         method: "POST",
         headers: {
           "Authorization": authorizationToken,

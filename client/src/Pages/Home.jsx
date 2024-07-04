@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
 import { toast } from "react-toastify";
 import { useAuth } from "../store/Auth";
-const server = import.meta.env.VITE_SERVER;
 
 const Home = () => {
 
@@ -10,7 +8,7 @@ const Home = () => {
     newsletteremail: ""
   })
 
-  const { homeCarousel, homeProduct } = useAuth()
+  const { homeCarousel, homeProduct, server } = useAuth()
 
   const handleNewsletterInput = (e) => {
     const name = e.target.name
@@ -26,7 +24,7 @@ const Home = () => {
   const handleNewsletter = async (e) => {
     try {
       e.preventDefault()
-      const response = await fetch(`${server}api/v1/newsletter/subscribe`, {
+      const response = await fetch(`${server}/api/v1/newsletter/subscribe`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -138,12 +136,12 @@ const Home = () => {
         </div>
       </div>
       {/* <div className="choose_bg"> */}
-        <div className="container">
-          {/* <div className="white_bg"> */}
+      <div className="container">
+        {/* <div className="white_bg"> */}
 
-            <p style={{ lineHeight: "2" }} className="text-justify"> <big> Welcome to Arkaya Lighting, your ultimate destination for high-quality lights and accessories. We offer an extensive range of Lighting products to customize any lighting, illuminate your indoor and outdoor space in a stylish and efficient way. Discover our versatile selection of LED light strips, including COB LED strip, addressable LED strip, flex LED neon lights, etc. They create a vibrant and eye-catching ambiance effortlessly, perfect for adding a captivating glow to any room or accentuating architectural features. To ensure the perfect lighting experience, we offer LED strip diffuser which diffuses light evenly and reduces glare to give your space a polished look with dotless linear light. Additionally, our smart LED Controller and LED power supply systems ensure stable and efficient performance for your LED lighting control. Illuminate your home and commercial spaces with Super Lighting LED. Shop now and find the best LED lighting solution for your project.</big></p>
+        <p style={{ lineHeight: "2" }} className="text-justify"> <big> Welcome to Arkaya Lighting, your ultimate destination for high-quality lights and accessories. We offer an extensive range of Lighting products to customize any lighting, illuminate your indoor and outdoor space in a stylish and efficient way. Discover our versatile selection of LED light strips, including COB LED strip, addressable LED strip, flex LED neon lights, etc. They create a vibrant and eye-catching ambiance effortlessly, perfect for adding a captivating glow to any room or accentuating architectural features. To ensure the perfect lighting experience, we offer LED strip diffuser which diffuses light evenly and reduces glare to give your space a polished look with dotless linear light. Additionally, our smart LED Controller and LED power supply systems ensure stable and efficient performance for your LED lighting control. Illuminate your home and commercial spaces with Super Lighting LED. Shop now and find the best LED lighting solution for your project.</big></p>
 
-            {/* <div className="row">
+        {/* <div className="row">
               <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div className="for_box">
                   <i><img src="icon/1.png" /></i>
@@ -173,8 +171,8 @@ const Home = () => {
                 </div>
               </div>
             </div> */}
-          </div>
-        {/* </div> */}
+      </div>
+      {/* </div> */}
       {/* </div> */}
 
 

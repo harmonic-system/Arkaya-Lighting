@@ -2,21 +2,20 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
-const server = import.meta.env.VITE_SERVER;
 
 const AddAdminDecorativeProducts = () => {
 
   const [img, setImg] = useState("")
   const [productname, setProductname] = useState("")
 
-  const { authorizationToken, getAllDecorativeProducts } = useAuth()
+  const { authorizationToken, getAllDecorativeProducts, server } = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}api/v1/adminproducts/adddecorativeproducts`, {
+      const response = await fetch(`${server}/api/v1/adminproducts/adddecorativeproducts`, {
         method: "POST",
         headers: {
           "Authorization": authorizationToken,
@@ -62,6 +61,7 @@ const AddAdminDecorativeProducts = () => {
     <>
       <div className="container my-5">
         <form className="main_form" onSubmit={handleSubmit}>
+          <h2 className="fw-bold mb-3">Add Decorative Product</h2>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <input className="form-control rounded" onChange={handleImage} type="file" name="productfile" required />

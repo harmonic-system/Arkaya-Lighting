@@ -2,7 +2,6 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { useAuth } from "../store/Auth"
-const server = import.meta.env.VITE_SERVER;
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
@@ -16,7 +15,7 @@ const SignUp = () => {
     confirmPassword: ""
   })
 
-  const { storeTokenInLocalStorage } = useAuth()
+  const { storeTokenInLocalStorage, server } = useAuth()
 
   const navigate = useNavigate()
 
@@ -51,7 +50,7 @@ const SignUp = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}api/v1/auth/signup`, {
+      const response = await fetch(`${server}/api/v1/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../store/Auth";
-const server = import.meta.env.VITE_SERVER;
 
 const Contact = () => {
 
@@ -14,7 +13,7 @@ const Contact = () => {
   })
 
   const [sent, setSent] = useState(false)
-  const { user } = useAuth()
+  const { user ,server} = useAuth()
   const [userDetails, setUserDetails] = useState(true)
 
   if (user && userDetails) {
@@ -44,7 +43,7 @@ const Contact = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}api/v1/contact/form`, {
+      const response = await fetch(`${server}/api/v1/contact/form`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

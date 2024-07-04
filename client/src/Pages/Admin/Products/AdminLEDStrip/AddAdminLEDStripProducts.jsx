@@ -2,7 +2,7 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
-const server = import.meta.env.VITE_SERVER;
+import Spinner from "../../../../componants/Spinner/Spinner";
 
 const AddAdminLEDStripProducts = () => {
 
@@ -23,15 +23,18 @@ const AddAdminLEDStripProducts = () => {
     spec10: "",
   })
 
-  const { authorizationToken, getAllLEDStripProducts } = useAuth()
+
+  const { authorizationToken, getAllLEDStripProducts, server } = useAuth()
   const navigate = useNavigate()
+  const [spinner, setSpinner] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     // console.log(description);
+    setSpinner(true)
 
     try {
-      const response = await fetch(`${server}api/v1/adminproducts/addledstripproducts`, {
+      const response = await fetch(`${server}/api/v1/adminproducts/addledstripproducts`, {
         method: "POST",
         headers: {
           "Authorization": authorizationToken,
@@ -75,6 +78,7 @@ const AddAdminLEDStripProducts = () => {
         })
         toast.success("Product Added Successfully")
         getAllLEDStripProducts()
+        setSpinner(false)
         navigate("/adminledstrip")
 
       }
@@ -110,6 +114,7 @@ const AddAdminLEDStripProducts = () => {
   return (
     <>
       <div className="container my-5">
+        <h2 className="fw-bold mb-3">Add LED Strip</h2>
         <form className="main_form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -159,6 +164,7 @@ const AddAdminLEDStripProducts = () => {
             </div>
           </div>
         </form>
+        {spinner ? <Spinner /> : ""}
       </div>
     </>
   )

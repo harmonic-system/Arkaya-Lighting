@@ -2,7 +2,6 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
-const server = import.meta.env.VITE_SERVER;
 
 const AddAdminEntertainmentProducts = () => {
 
@@ -11,14 +10,14 @@ const AddAdminEntertainmentProducts = () => {
   const [category, setCategory] = useState("")
   const [des, setDes] = useState("")
 
-  const { authorizationToken, getAllEntertainmentProducts } = useAuth()
+  const { authorizationToken, getAllEntertainmentProducts,server } = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}api/v1/adminproducts/addentertainmentproducts`, {
+      const response = await fetch(`${server}/api/v1/adminproducts/addentertainmentproducts`, {
         method: "POST",
         headers: {
           "Authorization": authorizationToken,
@@ -67,6 +66,7 @@ const AddAdminEntertainmentProducts = () => {
   return (
     <>
       <div className="container my-5">
+      <h2 className="fw-bold mb-3">Add Entertainment Product</h2>
         <form className="main_form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">

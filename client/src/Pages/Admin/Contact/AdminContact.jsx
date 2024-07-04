@@ -2,17 +2,15 @@ import { MdDelete } from "react-icons/md";
 import { useAuth } from "../../../store/Auth";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import AdminLayout from "../../../Layout/AdminLayout";
-const server = import.meta.env.VITE_SERVER;
 
 const AdminContact = () => {
 
-  const { authorizationToken } = useAuth()
+  const { authorizationToken, server } = useAuth()
   const [allcontacts, setAllContacts] = useState([])
 
   const getAllContacts = async () => {
     try {
-      const response = await fetch(`${server}api/v1/admin/getcontacts`, {
+      const response = await fetch(`${server}/api/v1/admin/getcontacts`, {
         method: 'GET',
         headers: {
           'Authorization': authorizationToken,
@@ -28,7 +26,7 @@ const AdminContact = () => {
 
   const deleteContact = async (id) => {
     try {
-      const response = await fetch(`${server}api/v1/admin/deletecontact/${id}`, {
+      const response = await fetch(`${server}/api/v1/admin/deletecontact/${id}`, {
         method: "DELETE",
         headers: {
           'Authorization': authorizationToken,
@@ -50,8 +48,6 @@ const AdminContact = () => {
 
   return (
     <>
-      <AdminLayout />
-
       <div className="container mt-5">
         <table className="table">
           <thead>

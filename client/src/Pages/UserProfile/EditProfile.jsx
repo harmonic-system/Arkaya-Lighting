@@ -1,14 +1,13 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
-const server = import.meta.env.VITE_SERVER;
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../../store/Auth";
 
 const EditProfile = () => {
 
-  const { storeTokenInLocalStorage, authorizationToken, user } = useAuth()
+  const { storeTokenInLocalStorage, authorizationToken, user, server } = useAuth()
 
   const [userDetails, setUserDetails] = useState({
     name: "",
@@ -63,7 +62,7 @@ const EditProfile = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}api/v1/auth/edit/${user._id}`, {
+      const response = await fetch(`${server}/api/v1/auth/edit/${user._id}`, {
         method: "POST",
         headers: {
           "Authorization": authorizationToken,
@@ -117,20 +116,20 @@ const EditProfile = () => {
               <form className="main_form" onSubmit={handleSubmit} >
                 <div className="row">
                   <div className="col-md-12">
-                    <input className="form-control rounded" onChange={handleChange} value={userDetails.name} placeholder="Your name" type="text" name="name"  />
+                    <input className="form-control rounded" onChange={handleChange} value={userDetails.name} placeholder="Your name" type="text" name="name" />
                   </div>
                   <div className="col-md-12">
-                    <input className="form-control rounded" onChange={handleChange} value={userDetails.email} placeholder="Email" type="email" name="email"  />
+                    <input className="form-control rounded" onChange={handleChange} value={userDetails.email} placeholder="Email" type="email" name="email" />
                   </div>
                   <div className=" col-md-12">
-                    <input className="form-control rounded" onChange={handleChange} value={userDetails.phone} placeholder="Phone" type="text" name="phone"  />
+                    <input className="form-control rounded" onChange={handleChange} value={userDetails.phone} placeholder="Phone" type="text" name="phone" />
                   </div>
                   <div className="position-relative col-md-12">
-                    <input className="form-control rounded" onChange={handleChange} value={userDetails.password} placeholder="Password" type={inputTypePass} name="password"  />
+                    <input className="form-control rounded" onChange={handleChange} value={userDetails.password} placeholder="Password" type={inputTypePass} name="password" />
                     {showPass ? <FaEye className="text-dark position-absolute eye" onClick={toggleInputPass} /> : <FaEyeSlash className="text-dark position-absolute eye" onClick={toggleInputPass} />}
                   </div>
                   <div className="position-relative col-md-12">
-                    <input className="form-control rounded" onChange={handleChange} value={userDetails.confirmPassword} placeholder="Confirm Password" type={inputTypeConPass} name="confirmPassword"  />
+                    <input className="form-control rounded" onChange={handleChange} value={userDetails.confirmPassword} placeholder="Confirm Password" type={inputTypeConPass} name="confirmPassword" />
                     {showConPass ? <FaEye className="text-dark position-absolute eye" onClick={toggleInputConPass} /> : <FaEyeSlash className="text-dark position-absolute eye" onClick={toggleInputConPass} />}
                   </div>
                   <div className="col-md-12">

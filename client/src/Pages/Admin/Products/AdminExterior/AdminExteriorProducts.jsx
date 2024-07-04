@@ -1,21 +1,20 @@
 import { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import AdminLayout from "../../../../Layout/AdminLayout";
+// import AdminLayout from "../../../../Layout/AdminLayout";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
-const server = import.meta.env.VITE_SERVER;
 
 const AdminExteriorProducts = () => {
 
-  const { authorizationToken, exteriorProducts, getAllExteriorProducts } = useAuth()
+  const { authorizationToken, exteriorProducts, getAllExteriorProducts, server } = useAuth()
   let count = 1
 
 
   const deleteProduct = async (id) => {
     try {
-      const response = await fetch(`${server}api/v1/adminproducts/deleteexteriorproducts/${id}`, {
+      const response = await fetch(`${server}/api/v1/adminproducts/deleteexteriorproducts/${id}`, {
         method: "DELETE",
         headers: {
           'Authorization': authorizationToken,
@@ -41,10 +40,10 @@ const AdminExteriorProducts = () => {
 
   return (
     <>
-      <AdminLayout />
+      {/* <AdminLayout /> */}
       <div className="container my-5">
         <div className="w-100 d-flex justify-content-end my-5">
-          <Link className="btn btn-warning" to="/addadminexteriorproduct" >Add Product</Link>
+          <Link className="btn btn-warning" to="/admin/addexteriorproduct" >Add Product</Link>
         </div>
         <table className="table">
           <thead>
@@ -87,7 +86,7 @@ const AdminExteriorProducts = () => {
                       </tbody>
                     </table>
                   </td>
-                  <td><Link to="/editadminexteriorproduct/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                  <td><Link to={`/admin/editexteriorproduct/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
                 </tr>
               })

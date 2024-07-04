@@ -222,7 +222,7 @@ const Navbar = () => {
 
             <li>
               {
-                user.isAdmin ? <Link to="/adminlayout">Admin Section</Link> : ""
+                user.isAdmin ? <Link to="/admin">Admin Section</Link> : ""
 
               }
             </li>

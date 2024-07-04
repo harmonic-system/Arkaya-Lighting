@@ -114,6 +114,58 @@ const addexteriorProduct = async (req, res, next) => {
   }
 }
 
+
+const getsingalexteriorproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    // console.log(id);
+    const singleProduct = await ExteriorProduct.findOne({ _id: id })
+    // console.log(singleProduct);
+    res.status(200).json(singleProduct)
+  } catch (error) {
+    next(error)
+  }
+}
+
+
+const updateexteriorproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    const { productfile, imgpublicid, productname, model, size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } = req.body
+    console.log(productfile, imgpublicid, productname, model, size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight)
+    if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await ExteriorProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } } })
+
+      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+
+    } else {
+
+      const deletedImg = await cloudinary.uploader.destroy(imgpublicid)
+
+      if (deletedImg) {
+        const result = await cloudinary.uploader.upload(productfile, {
+          folder: "arkaya/products/exterior",
+          resource_type: 'auto',
+          width: 400,
+          height: 300,
+        })
+        const updatedata = await ExteriorProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } } })
+        return res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      } else {
+        return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
+      }
+
+
+
+
+
+    }
+
+  } catch (error) {
+    next(error)
+  }
+}
+
 const deleteexteriorProduct = async (req, res, next) => {
 
   try {
@@ -211,4 +263,10 @@ const deleteLEDStripProduct = async (req, res, next) => {
 }
 
 
-module.exports = { adddecorativeProduct, deletedecorativeProduct, addinteriorProduct, deleteinteriorProduct, addexteriorProduct, deleteexteriorProduct, addentertainmentProduct, deleteentertainmentProduct, addLEDStripProduct, deleteLEDStripProduct }
+module.exports = {
+  adddecorativeProduct, deletedecorativeProduct,
+  addinteriorProduct, deleteinteriorProduct,
+  addexteriorProduct, deleteexteriorProduct, getsingalexteriorproducts, updateexteriorproducts,
+  addentertainmentProduct, deleteentertainmentProduct,
+  addLEDStripProduct, deleteLEDStripProduct
+}

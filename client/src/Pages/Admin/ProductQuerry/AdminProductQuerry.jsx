@@ -2,17 +2,15 @@ import { MdDelete } from "react-icons/md";
 import { useAuth } from "../../../store/Auth";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import AdminLayout from "../../../Layout/AdminLayout";
-const server = import.meta.env.VITE_SERVER;
 
 const AdminProductQuerry = () => {
 
-  const { authorizationToken } = useAuth()
+  const { authorizationToken, server } = useAuth()
   const [allproductQuerries, setAllProductQuerries] = useState([])
 
   const getAllProductQuerries = async () => {
     try {
-      const response = await fetch(`${server}api/v1/admin/getproductquerries`, {
+      const response = await fetch(`${server}/api/v1/admin/getproductquerries`, {
         method: 'GET',
         headers: {
           'Authorization': authorizationToken,
@@ -28,7 +26,7 @@ const AdminProductQuerry = () => {
 
   const deleteProductQuerry = async (id) => {
     try {
-      const response = await fetch(`${server}api/v1/admin/deleteproductquerry/${id}`, {
+      const response = await fetch(`${server}/api/v1/admin/deleteproductquerry/${id}`, {
         method: "DELETE",
         headers: {
           'Authorization': authorizationToken,
@@ -50,8 +48,6 @@ const AdminProductQuerry = () => {
 
   return (
     <>
-      <AdminLayout />
-
       <div className="container mt-5">
         <table className="table">
           <thead>

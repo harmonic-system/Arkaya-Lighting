@@ -2,21 +2,20 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
-const server = import.meta.env.VITE_SERVER;
 
 const AddAdminInteriorProducts = () => {
 
   const [img, setImg] = useState("")
   const [productname, setProductname] = useState("")
 
-  const { authorizationToken, getAllInteriorProducts } = useAuth()
+  const { authorizationToken, getAllInteriorProducts, server } = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}api/v1/adminproducts/addinteriorproducts`, {
+      const response = await fetch(`${server}/api/v1/adminproducts/addinteriorproducts`, {
         method: "POST",
         headers: {
           "Authorization": authorizationToken,
@@ -61,6 +60,7 @@ const AddAdminInteriorProducts = () => {
   return (
     <>
       <div className="container my-5">
+        <h2 className="fw-bold mb-3">Add Interior Product</h2>
         <form className="main_form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">

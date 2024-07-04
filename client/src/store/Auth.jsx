@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
 
   const userAuthentication = async () => {
     try {
-      const response = await fetch(`${server}api/v1/auth/user`, {
+      const response = await fetch(`${server}/api/v1/auth/user`, {
         method: "GET",
         headers: {
           "Authorization": authorizationToken
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
 
   const getAllDecorativeProducts = async () => {
     try {
-      const response = await fetch(`${server}api/v1/products/getdecorativeproducts`, {
+      const response = await fetch(`${server}/api/v1/products/getdecorativeproducts`, {
         method: "GET",
       })
 
@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
 
   const getAllInteriorProducts = async () => {
     try {
-      const response = await fetch(`${server}api/v1/products/getinteriorproducts`, {
+      const response = await fetch(`${server}/api/v1/products/getinteriorproducts`, {
         method: "GET",
       })
 
@@ -79,7 +79,7 @@ const AuthProvider = ({ children }) => {
 
   const getAllExteriorProducts = async () => {
     try {
-      const response = await fetch(`${server}api/v1/products/getexteriorproducts`, {
+      const response = await fetch(`${server}/api/v1/products/getexteriorproducts`, {
         method: "GET",
       })
 
@@ -92,7 +92,7 @@ const AuthProvider = ({ children }) => {
 
   const getAllEntertainmentProducts = async () => {
     try {
-      const response = await fetch(`${server}api/v1/products/getentertainmentproducts`, {
+      const response = await fetch(`${server}/api/v1/products/getentertainmentproducts`, {
         method: "GET",
       })
 
@@ -105,7 +105,7 @@ const AuthProvider = ({ children }) => {
 
   const getAllLEDStripProducts = async () => {
     try {
-      const response = await fetch(`${server}api/v1/products/getledstripproducts`, {
+      const response = await fetch(`${server}/api/v1/products/getledstripproducts`, {
         method: "GET",
       })
 
@@ -119,7 +119,7 @@ const AuthProvider = ({ children }) => {
   const getAllHomeCarousel = async () => {
     try {
 
-      const response = await fetch(`${server}api/v1/homecontent/homecarousel`, {
+      const response = await fetch(`${server}/api/v1/homecontent/homecarousel`, {
         method: "GET"
       })
       const res = await response.json()
@@ -132,7 +132,7 @@ const AuthProvider = ({ children }) => {
 
   const getAllHomeProduct = async () => {
     try {
-      const response = await fetch(`${server}api/v1/homecontent/homeproduct`, {
+      const response = await fetch(`${server}/api/v1/homecontent/homeproduct`, {
         method: "GET"
       })
       const res = await response.json()
@@ -159,7 +159,7 @@ const AuthProvider = ({ children }) => {
 
 
   return (
-    <AuthContext.Provider value={{ storeTokenInLocalStorage, user, logoutUser, authorizationToken, decorativeProducts, getAllDecorativeProducts, interiorProducts, getAllInteriorProducts, exteriorProducts, getAllExteriorProducts, entertainmentProducts, getAllEntertainmentProducts, ledstripProducts, getAllLEDStripProducts, homeCarousel, getAllHomeCarousel, homeProduct, getAllHomeProduct }} >
+    <AuthContext.Provider value={{ server, storeTokenInLocalStorage, user, logoutUser, authorizationToken, decorativeProducts, getAllDecorativeProducts, interiorProducts, getAllInteriorProducts, exteriorProducts, getAllExteriorProducts, entertainmentProducts, getAllEntertainmentProducts, ledstripProducts, getAllLEDStripProducts, homeCarousel, getAllHomeCarousel, homeProduct, getAllHomeProduct }} >
       {children}
     </AuthContext.Provider>
   )

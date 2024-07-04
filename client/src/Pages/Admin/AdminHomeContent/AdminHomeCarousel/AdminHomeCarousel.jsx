@@ -1,20 +1,18 @@
 import { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import AdminLayout from "../../../../Layout/AdminLayout";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
-const server = import.meta.env.VITE_SERVER;
 
 const AdminHomeCarousel = () => {
 
-  const { authorizationToken, homeCarousel, getAllHomeCarousel } = useAuth()
+  const { authorizationToken, homeCarousel, getAllHomeCarousel, server } = useAuth()
 
 
   const deleteHomeCarousel = async (id) => {
     try {
-      const response = await fetch(`${server}api/v1/adminhomecontent/deletehomecarousel/${id}`, {
+      const response = await fetch(`${server}/api/v1/adminhomecontent/deletehomecarousel/${id}`, {
         method: "DELETE",
         headers: {
           'Authorization': authorizationToken,
@@ -40,10 +38,9 @@ const AdminHomeCarousel = () => {
 
   return (
     <>
-      <AdminLayout />
       <div className="container my-5">
         <div className="w-100 d-flex justify-content-end my-5">
-          <Link className="btn btn-warning" to="/addadmin_carousel" >Add Carousel</Link>
+          <Link className="btn btn-warning" to="/admin/addhomecarousel" >Add Carousel</Link>
         </div>
         <table className="table">
           <thead>
@@ -58,7 +55,6 @@ const AdminHomeCarousel = () => {
           <tbody>
             {
               homeCarousel.map((carousel) => {
-                // { console.log(carousel._id); }
                 return <tr key={carousel._id}>
                   <td className="message">{carousel.file.url}</td>
                   <td className="message">{carousel.heading}</td>

@@ -143,50 +143,51 @@ function App() {
 
           {/* Admin Section Start */}
 
-          <Route path="/adminlayout" element={<AdminLayout />} />
-          <Route path="/admin_users" element={<AdminUser />} />
-          <Route path="/admin_contacts" element={<AdminContact />} />
-          <Route path="/admin_newsletter" element={<AdminNewsLetter />} />
-          <Route path="/admin_productquerry" element={<AdminProductQuerry />} />
+          <Route path="/admin" element={<AdminLayout />} >
+            <Route path="users" element={<AdminUser />} />
+            <Route path="contacts" element={<AdminContact />} />
+            <Route path="newsletter" element={<AdminNewsLetter />} />
+            <Route path="productquerry" element={<AdminProductQuerry />} />
 
-          <Route path="/admin_carousel" element={< AdminHomeCarousel />} />
-          <Route path="/admin_products" element={< AdminHomeLProducts />} />
+            <Route path="homecarousel" element={< AdminHomeCarousel />} />
+            <Route path="homeproducts" element={< AdminHomeLProducts />} />
 
-          {/* Add & Edit Admin Home Content Start */}
+            {/* Add & Edit Admin Home Content Start */}
 
-          <Route path="/addadmin_carousel" element={< AddAdminHomeCarousel />} />
-          <Route path="/addadmin_products" element={< AddAdminHomeProducts />} />
+            <Route path="addhomecarousel" element={< AddAdminHomeCarousel />} />
+            <Route path="addhomeproducts" element={< AddAdminHomeProducts />} />
 
-          {/* Add Admin Home Content End */}
+            {/* Add Admin Home Content End */}
 
 
 
-          {/* Admin Products List Start */}
+            {/* Admin Products List Start */}
 
-          <Route path="/admininterior" element={< AdminInteriorProducts />} />
-          <Route path="/adminexterior" element={< AdminExteriorProducts />} />
-          <Route path="/admindecorative" element={< AdminDecorativeProducts />} />
-          <Route path="/adminentertainment" element={< AdminEntertainmentProducts />} />
-          <Route path="/adminledstrip" element={< AdminLEDStripProducts />} />
+            <Route path="interior" element={< AdminInteriorProducts />} />
+            <Route path="exterior" element={< AdminExteriorProducts />} />
+            <Route path="decorative" element={< AdminDecorativeProducts />} />
+            <Route path="entertainment" element={< AdminEntertainmentProducts />} />
+            <Route path="ledstrip" element={< AdminLEDStripProducts />} />
 
-          {/* Admin Products List End */}
+            {/* Admin Products List End */}
 
-          {/* Add & Edit Admin Products Start */}
+            {/* Add & Edit Admin Products Start */}
 
-          <Route path="/addadmindecorativeproduct" element={< AddAdminDecorativeProducts />} />
-          <Route path="/editadmindecorativeproduct/:id" element={< EditAdminDecorativeProducts />} />
+            <Route path="adddecorativeproduct" element={< AddAdminDecorativeProducts />} />
+            <Route path="editdecorativeproduct/:id" element={< EditAdminDecorativeProducts />} />
 
-          <Route path="/addadminentertainmentproduct" element={< AddAdminEntertainmentProducts />} />
-          <Route path="/editadminentertainmentproduct/:id" element={< EditAdminEntertainmentProducts />} />
+            <Route path="addentertainmentproduct" element={< AddAdminEntertainmentProducts />} />
+            <Route path="editentertainmentproduct/:id" element={< EditAdminEntertainmentProducts />} />
 
-          <Route path="/addadminexteriorproduct" element={< AddAdminExteriorProducts />} />
-          <Route path="/editadminexteriorproduct/:id" element={< EditAdminExteriorProducts />} />
+            <Route path="addexteriorproduct" element={< AddAdminExteriorProducts />} />
+            <Route path="editexteriorproduct/:id" element={< EditAdminExteriorProducts />} />
 
-          <Route path="/addadmininteriorproduct" element={< AddAdminInteriorProducts />} />
-          <Route path="/editadmininteriorproduct/:id" element={< EditAdminInteriorProducts />} />
+            <Route path="addinteriorproduct" element={< AddAdminInteriorProducts />} />
+            <Route path="editinteriorproduct/:id" element={< EditAdminInteriorProducts />} />
 
-          <Route path="/addadminledstripproduct" element={< AddAdminLEDStripProducts />} />
-          <Route path="/editadminledstripproduct/:id" element={< EditAdminLEDStripProducts />} />
+            <Route path="addledstripproduct" element={< AddAdminLEDStripProducts />} />
+            <Route path="editledstripproduct/:id" element={< EditAdminLEDStripProducts />} />
+          </Route>
 
           {/* Add Admin Products End */}
 

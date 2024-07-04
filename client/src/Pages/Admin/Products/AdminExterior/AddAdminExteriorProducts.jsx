@@ -2,7 +2,7 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
-const server = import.meta.env.VITE_SERVER;
+import Spinner from "../../../../componants/Spinner/Spinner";
 
 const AddAdminExteriorProducts = () => {
 
@@ -24,14 +24,16 @@ const AddAdminExteriorProducts = () => {
     noOfLight: ""
   })
 
-  const { authorizationToken, getAllExteriorProducts } = useAuth()
+  const { authorizationToken, getAllExteriorProducts, server } = useAuth()
   const navigate = useNavigate()
+  const [spinner, setSpinner] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setSpinner(true)
 
     try {
-      const response = await fetch(`${server}api/v1/adminproducts/addexteriorproducts`, {
+      const response = await fetch(`${server}/api/v1/adminproducts/addexteriorproducts`, {
         method: "POST",
         headers: {
           "Authorization": authorizationToken,
@@ -77,7 +79,8 @@ const AddAdminExteriorProducts = () => {
         })
         toast.success("Product Added Successfully")
         getAllExteriorProducts()
-        navigate("/adminexterior")
+        setSpinner(false)
+        navigate("/admin/exterior")
 
       }
 
@@ -111,13 +114,14 @@ const AddAdminExteriorProducts = () => {
   return (
     <>
       <div className="container my-5">
-        <form className="main_form" onSubmit={handleSubmit}>
+        <h2 className="fw-bold mb-3">Add Exterior Product</h2>
+        <form className="main_form mb-5" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <input className="form-control rounded" onChange={handleImage} type="file" name="productfile" required />
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={(e) => setProductname(e.target.value)} value={productname} placeholder="Product name" type="text" name="productname" required />
+              <input className="form-control rounded" onChange={(e) => setProductname(e.target.value)} value={productname} placeholder="Product name" type="text" name="productname" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <input className="form-control rounded" onChange={(e) => setModel(e.target.value)} value={model} placeholder="Product Model" type="text" name="model" required />
@@ -163,6 +167,7 @@ const AddAdminExteriorProducts = () => {
             </div>
           </div>
         </form>
+        {spinner ? <Spinner /> : ""}
       </div>
     </>
   )
