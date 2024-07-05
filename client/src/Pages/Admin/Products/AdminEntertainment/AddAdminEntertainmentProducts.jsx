@@ -2,6 +2,7 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../../../../componants/Spinner/Spinner";
 
 const AddAdminEntertainmentProducts = () => {
 
@@ -10,11 +11,13 @@ const AddAdminEntertainmentProducts = () => {
   const [category, setCategory] = useState("")
   const [des, setDes] = useState("")
 
-  const { authorizationToken, getAllEntertainmentProducts,server } = useAuth()
+  const { authorizationToken, getAllEntertainmentProducts, server } = useAuth()
   const navigate = useNavigate()
+  const [spinner, setSpinner] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setSpinner(true)
 
     try {
       const response = await fetch(`${server}/api/v1/adminproducts/addentertainmentproducts`, {
@@ -39,7 +42,8 @@ const AddAdminEntertainmentProducts = () => {
         setDes("")
         toast.success("Product Added Successfully")
         getAllEntertainmentProducts()
-        navigate("/adminentertainment")
+        setSpinner(false)
+        navigate("/admin/entertainment")
 
       }
 
@@ -66,7 +70,7 @@ const AddAdminEntertainmentProducts = () => {
   return (
     <>
       <div className="container my-5">
-      <h2 className="fw-bold mb-3">Add Entertainment Product</h2>
+        <h2 className="fw-bold mb-3">Add Entertainment Product</h2>
         <form className="main_form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -86,6 +90,7 @@ const AddAdminEntertainmentProducts = () => {
             </div>
           </div>
         </form>
+        {spinner ? <Spinner /> : ""}
       </div>
     </>
   )

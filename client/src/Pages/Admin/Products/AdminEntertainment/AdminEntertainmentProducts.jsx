@@ -42,6 +42,7 @@ const AdminEntertainmentProducts = () => {
     <>
       {/* <AdminLayout /> */}
       <div className="container my-5">
+      <h2 className="fw-bold mb-3">Admin Entertainment Products</h2>
         <div className="w-100 d-flex justify-content-end my-5">
           <Link className="btn btn-warning" to="/admin/addentertainmentproduct" >Add Product</Link>
         </div>
@@ -67,7 +68,7 @@ const AdminEntertainmentProducts = () => {
                   <td className="message">{product.productname}</td>
                   <td className="message">{product.category}</td>
                   <td className="message">{product.description}</td>
-                  <td><Link to="/admin/editentertainmentproduct/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                  <td><Link to={`/admin/editentertainmentproduct/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
                 </tr>
               })

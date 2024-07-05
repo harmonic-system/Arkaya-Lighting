@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-// import AdminLayout from "../../../../Layout/AdminLayout";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
@@ -9,6 +8,7 @@ import { useAuth } from "../../../../store/Auth";
 const AdminInteriorProducts = () => {
 
   const { authorizationToken, interiorProducts, getAllInteriorProducts, server } = useAuth()
+  let count = 1
 
 
   const deleteProduct = async (id) => {
@@ -39,14 +39,15 @@ const AdminInteriorProducts = () => {
 
   return (
     <>
-      {/* <AdminLayout /> */}
       <div className="container my-5">
+      <h2 className="fw-bold mb-3">Admin Interior Products</h2>
         <div className="w-100 d-flex justify-content-end my-5">
           <Link className="btn btn-warning" to="/admin/addinteriorproduct" >Add Product</Link>
         </div>
         <table className="table">
           <thead>
             <tr>
+              <th>Sr. No</th>
               <th>Image URL</th>
               <th>Product Name</th>
               <th>Edit</th>
@@ -58,9 +59,10 @@ const AdminInteriorProducts = () => {
               interiorProducts.map((product) => {
                 // { console.log(product._id); }
                 return <tr key={product._id}>
+                  <td>{count++}</td>
                   <td className="message">{product.productfile.url}</td>
                   <td>{product.productname}</td>
-                  <td><Link to="/admin/editinteriorproduct/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                  <td><Link to={`/admin/editinteriorproduct/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
                 </tr>
               })

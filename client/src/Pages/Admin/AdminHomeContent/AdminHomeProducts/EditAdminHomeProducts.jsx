@@ -1,31 +1,51 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useAuth } from "../../../../store/Auth"
+import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
-import { useAuth } from "../../../../store/Auth";
-import { useNavigate } from "react-router-dom";
-import Spinner from "../../../../componants/Spinner/Spinner";
+import Spinner from "../../../../componants/Spinner/Spinner"
 
-const AddAdminHomeProducts = () => {
+const EditAdminHomeProducts = () => {
 
+  const { id } = useParams()
   const [img, setImg] = useState("")
   const [productname, setProductName] = useState("")
+  const [imgpublicid, setImgPublicId] = useState("")
 
-  const { authorizationToken, getAllHomeProduct, server } = useAuth()
+  const { authorizationToken, server } = useAuth()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
+
+  const getsingalhomeproduct = async (id) => {
+    const response = await fetch(`${server}/api/v1/adminhomecontent/getsingalhomeproduct/${id}`, {
+      method: "GET",
+      headers: {
+        "Authorization": authorizationToken
+      }
+    })
+    const singlehomeproduct = await response.json()
+    // console.log(singlehomeproduct);
+    if (singlehomeproduct) {
+      setImg(singlehomeproduct.file.url)
+      setImgPublicId(singlehomeproduct.file.public_id)
+      setProductName(singlehomeproduct.productname)
+    }
+  }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSpinner(true)
 
     try {
-      const response = await fetch(`${server}/api/v1/adminhomecontent/addhomeproduct`, {
-        method: "POST",
+      const response = await fetch(`${server}/api/v1/adminhomecontent/edithomeproduct/${id}`, {
+        method: "PUT",
         headers: {
           "Authorization": authorizationToken,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           file: img,
+          imgpublicid: imgpublicid,
           productname: productname,
         })
       })
@@ -33,10 +53,10 @@ const AddAdminHomeProducts = () => {
 
       if (response.ok) {
         setImg("")
+        setImgPublicId("")
         setProductName("")
-        toast.success("Home Carousel Added Successfully")
-        getAllHomeProduct()
         setSpinner(false)
+        toast.success("Home Product Updated Successfully")
         navigate("/admin/homeproducts")
 
       }
@@ -61,20 +81,25 @@ const AddAdminHomeProducts = () => {
     }
   }
 
+  useEffect(() => {
+    getsingalhomeproduct(id)
+  }, [])
+
+
   return (
     <>
       <div className="container my-5">
-      <h2 className="fw-bold mb-3">Add Home Product</h2>
+        <h2 className="fw-bold mb-3">Edit Home Product</h2>
         <form className="main_form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handleImage} type="file" name="file" required />
+              <input className="form-control rounded" onChange={handleImage} type="file" name="file" />
             </div>
             <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
               <input className="form-control rounded" onChange={(e) => setProductName(e.target.value)} value={productname} placeholder="Product Name" type="text" name="productname" required />
             </div>
             <div className=" col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-              <button type="submit" className="but rounded">Add</button>
+              <button type="submit" className="but rounded">Update</button>
             </div>
           </div>
         </form>
@@ -84,4 +109,4 @@ const AddAdminHomeProducts = () => {
   )
 }
 
-export default AddAdminHomeProducts;
+export default EditAdminHomeProducts;

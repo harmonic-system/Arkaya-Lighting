@@ -2251,21 +2251,21 @@ ul.sociel li a:hover {
 .contact h3 {
 	color: #fff;
 	font-weight: 500;
-	font-size: 28px;
-	line-height: 30px;
+	font-size: 1.2rem;
+	/* line-height: 30px; */
 	padding-bottom: 30px;
 	text-transform: uppercase;
 }
 
 .contact span {
 	color: #fff;
-	font-size: 17px;
+	font-size: 0.9rem;
 	line-height: 27px;
 }
 
 ul.lik li a {
 	color: #fff;
-	font-size: 17px;
+	font-size: 0.9rem;
 	line-height: 27px;
 }
 

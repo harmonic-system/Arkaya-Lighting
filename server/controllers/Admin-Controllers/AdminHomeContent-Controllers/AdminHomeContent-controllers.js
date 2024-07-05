@@ -27,6 +27,54 @@ const addhomecarousel = async (req, res, next) => {
   }
 }
 
+const getsingalhomecarousel = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    // console.log(id);
+    const singlehomecarousel = await HomeCarousel.findOne({ _id: id })
+    // console.log(singleProduct);
+    res.status(200).json(singlehomecarousel)
+  } catch (error) {
+    next(error)
+  }
+}
+
+const updatehomecarousel = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    const { file, imgpublicid, heading, description } = req.body
+    // console.log(file, imgpublicid, heading, description)
+    if (file.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await HomeCarousel.updateOne({ _id: id }, { $set: { file: { public_id: imgpublicid, url: file }, heading, description } })
+
+      return res.status(200).json({ message: "Home Carousel Updated Successfully", updatedata })
+
+    } else {
+
+      const deletedImg = await cloudinary.uploader.destroy(imgpublicid)
+
+      if (deletedImg) {
+        const result = await cloudinary.uploader.upload(file, {
+          folder: "arkaya/home/carousel",
+          resource_type: 'auto',
+          width: 2100,
+          height: 720,
+        })
+
+
+        const updatedata = await HomeCarousel.updateOne({ _id: id }, { $set: { file: { public_id: result.public_id, url: result.secure_url }, heading, description } })
+        return res.status(200).json({ message: "Home Carousel Updated Successfully", updatedata })
+      } else {
+        return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
+      }
+
+    }
+
+  } catch (error) {
+    next(error)
+  }
+}
+
 const deletehomecarousel = async (req, res, next) => {
   try {
     const id = req.params.id
@@ -67,30 +115,69 @@ const addhomeproduct = async (req, res, next) => {
   }
 }
 
+const getsingalhomeproduct = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    // console.log(id);
+    const singlehomeproduct = await HomeProduct.findOne({ _id: id })
+    // console.log(singleProduct);
+    res.status(200).json(singlehomeproduct)
+  } catch (error) {
+    next(error)
+  }
+}
+
+const updatehomeproduct = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    const { file, imgpublicid, productname } = req.body
+    // console.log(file, imgpublicid, productname)
+    if (file.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await HomeProduct.updateOne({ _id: id }, { $set: { file: { public_id: imgpublicid, url: file }, productname } })
+
+      res.status(200).json({ message: "Home Product Updated Successfully", updatedata })
+
+    } else {
+
+      const deletedImg = await cloudinary.uploader.destroy(imgpublicid)
+
+      if (deletedImg) {
+        const result = await cloudinary.uploader.upload(file, {
+          folder: "arkaya/home/product",
+          resource_type: 'auto',
+          width: 400,
+          height: 300,
+        })
+
+
+        const updatedata = await HomeProduct.updateOne({ _id: id }, { $set: { file: { public_id: result.public_id, url: result.secure_url }, productname } })
+        return res.status(200).json({ message: "Home Product Updated Successfully", updatedata })
+      } else {
+        return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
+      }
+
+    }
+
+  } catch (error) {
+    next(error)
+  }
+}
+
 const deletehomeproduct = async (req, res, next) => {
   try {
-    // const public_id = req.params.public_id
     const id = req.params.id
-    // console.log(public_id);
 
-    // const deletedImage = await cloudinary.uploader.destroy(public_id)
-
-    // if (deletedImage) {
     const deletedProduct = await HomeProduct.deleteOne({ _id: id })
 
     if (deletedProduct) {
       return res.status(200).json({ message: "Home Product Deleted Successfully" })
     }
 
-    // }
-
-
-
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     next(error)
   }
 }
 
 
-module.exports = { addhomecarousel, deletehomecarousel, addhomeproduct, deletehomeproduct }
+module.exports = { addhomecarousel, getsingalhomecarousel, updatehomecarousel, deletehomecarousel, addhomeproduct, getsingalhomeproduct, updatehomeproduct, deletehomeproduct }

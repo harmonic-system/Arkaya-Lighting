@@ -18,6 +18,10 @@
         top: 22%;
         font-size: 1.2rem;
     }
+
+    .service-box{
+        height: 420px;
+    }
 }
 
 
@@ -221,6 +225,10 @@
         background: transparent;
     }
 
+    .service-box{
+        height: 300px;
+    }
+
     .eye {
         cursor: pointer;
         left: 85%;
@@ -243,6 +251,10 @@
     /* .mean-last {
         display: none !important;
     } */
+
+    .service-box{
+        height: 350px;
+    }
 
     .about .about-box h3 {
         font-size: 30px;
@@ -344,15 +356,12 @@
     .banner-main .carousel-caption h1 {
         color: #020000;
         font-size: 32px;
-
         line-height: 37px;
-
         padding-top: 0px;
     }
 
     .banner-main .carousel-caption p {
         font-size: 15px;
-
         padding: 1px 0px 1px 0px;
     }
 
@@ -393,7 +402,6 @@
     }
 
     .address {
-
         margin-bottom: 30px;
     }
 

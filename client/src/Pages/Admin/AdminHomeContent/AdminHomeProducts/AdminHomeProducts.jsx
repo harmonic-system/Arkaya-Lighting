@@ -39,6 +39,7 @@ const AdminHomeLProducts = () => {
   return (
     <>
       <div className="container my-5">
+      <h2 className="fw-bold mb-3">Admin Home Products</h2>
         <div className="w-100 d-flex justify-content-end my-5">
           <Link className="btn btn-warning" to="/admin/addhomeproducts" >Add Product</Link>
         </div>
@@ -54,12 +55,10 @@ const AdminHomeLProducts = () => {
           <tbody>
             {
               homeProduct.map((product) => {
-                { console.log(product._id) }
-                { console.log(product.file.public_id) }
                 return <tr key={product._id}>
                   <td className="message">{product.file.url}</td>
                   <td>{product.productname}</td>
-                  <td><Link to="/editadminhomeproducts/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                  <td><Link to={`/admin/edithomeproducts/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteHomeProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
                 </tr>
               })

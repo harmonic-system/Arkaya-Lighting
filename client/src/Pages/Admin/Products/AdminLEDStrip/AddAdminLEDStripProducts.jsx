@@ -79,7 +79,7 @@ const AddAdminLEDStripProducts = () => {
         toast.success("Product Added Successfully")
         getAllLEDStripProducts()
         setSpinner(false)
-        navigate("/adminledstrip")
+        navigate("/admin/ledstrip")
 
       }
 

@@ -67,14 +67,25 @@ button:focus-visible {
   }
 } */
 
-/* Toast Container Start */
 
-/* .toastBody {
-  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
-  font-size: 1.7rem;
-} */
 
-/* Toast Container End */
+
+
+/* Contact Box Start */
+
+.contact-box{
+  padding: 30px 20px;
+	/* box-shadow: #00000040 0px 0px 19px 0px; */
+	/* box-shadow: black 0px 0px 19px 0px; */
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.contact-box p{
+  font-size: 0.7rem;
+}
+
+/* Contact Box End */
 
 /*---Cart Section Start ---*/
 

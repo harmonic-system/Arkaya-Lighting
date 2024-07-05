@@ -51,7 +51,7 @@ const DiscoverUs = () => {
                 <li style={{ listStyleType: "disc" }}>Timely Service.</li>
                 <li style={{ listStyleType: "disc" }}>Onsite Support in case of Any Challenges in execution of the project.</li>
               </ul>
-              <p style={{ lineHeight: "2" }} className="text-justify mt-3">Due to the above attributes our customers treat us as part of their inhouse team, which helps them in timely execution of their projects. Our clients entrust us with their most challenging situations, to focus on other critical things and we deliver as per their expectations time and again.</p>
+              <p style={{ lineHeight: "2" }} className="text-justify mt-5">Due to the above attributes our customers treat us as part of their inhouse team, which helps them in timely execution of their projects. Our clients entrust us with their most challenging situations, to focus on other critical things and we deliver as per their expectations time and again.</p>
               <p style={{ lineHeight: "2" }} className="text-justify mt-3">At Arkaya Lighting we believe in CVP - Customer Vendor Partnership. Which builds a trustworthy alliance focusing on deliverables.</p>
               <p style={{ lineHeight: "2" }} className="text-justify mt-3"></p>
               <p style={{ lineHeight: "2" }} className="text-justify mt-3"></p>

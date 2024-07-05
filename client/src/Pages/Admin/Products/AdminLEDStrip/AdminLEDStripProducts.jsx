@@ -42,6 +42,7 @@ const AdminLEDStripProducts = () => {
     <>
       {/* <AdminLayout /> */}
       <div className="container my-5">
+      <h2 className="fw-bold mb-3">Admin LED Strip Products</h2>
         <div className="w-100 d-flex justify-content-end my-5">
           <Link className="btn btn-warning" to="/admin/addledstripproduct" >Add Product</Link>
         </div>
@@ -85,7 +86,7 @@ const AdminLEDStripProducts = () => {
                       </tbody>
                     </table>
                   </td>
-                  <td><Link to="/admin/editledstripproduct/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                  <td><Link to={`/admin/editledstripproduct/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
                   {/* {count++} */}
                 </tr>

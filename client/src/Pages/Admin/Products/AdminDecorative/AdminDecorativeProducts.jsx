@@ -9,6 +9,7 @@ import { useAuth } from "../../../../store/Auth";
 const product = () => {
 
   const { authorizationToken, decorativeProducts, getAllDecorativeProducts, server } = useAuth()
+  let count = 1
 
 
   const deleteProduct = async (id) => {
@@ -41,12 +42,14 @@ const product = () => {
     <>
       {/* <AdminLayout /> */}
       <div className="container my-5">
+      <h2 className="fw-bold mb-3">Admin Decorative Products</h2>
         <div className="w-100 d-flex justify-content-end my-5">
           <Link className="btn btn-warning" to="/admin/adddecorativeproduct" >Add Product</Link>
         </div>
         <table className="table">
           <thead>
             <tr>
+              <th>Sr. No</th>
               <th>Image URL</th>
               <th>Product Name</th>
               <th>Edit</th>
@@ -58,9 +61,10 @@ const product = () => {
               decorativeProducts.map((product) => {
                 // { console.log(product._id); }
                 return <tr key={product._id}>
+                  <td>{count++}</td>
                   <td className="message">{product.productfile.url}</td>
                   <td>{product.productname}</td>
-                  <td><Link to="/admin/editdecorativeproduct/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                  <td><Link to={`/admin/editdecorativeproduct/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
                 </tr>
               })

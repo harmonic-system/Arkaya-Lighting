@@ -59,9 +59,11 @@ import EditAdminLEDStripProducts from "./Pages/Admin/Products/AdminLEDStrip/Edit
 
 import AdminHomeCarousel from "./Pages/Admin/AdminHomeContent/AdminHomeCarousel/AdminHomeCarousel"
 import AddAdminHomeCarousel from "./Pages/Admin/AdminHomeContent/AdminHomeCarousel/AddAdminHomeCarousel"
+import EditAdminHomeCarousel from "./Pages/Admin/AdminHomeContent/AdminHomeCarousel/EditAdminHomeCarousel"
 
 import AdminHomeLProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/AdminHomeProducts"
 import AddAdminHomeProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/AddAdminHomeProducts"
+import EditAdminHomeProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/EditAdminHomeProducts"
 // import ProductDetails from "./Pages/ProductDetails"
 
 function App() {
@@ -155,7 +157,9 @@ function App() {
             {/* Add & Edit Admin Home Content Start */}
 
             <Route path="addhomecarousel" element={< AddAdminHomeCarousel />} />
+            <Route path="edithomecarousel/:id" element={< EditAdminHomeCarousel />} />
             <Route path="addhomeproducts" element={< AddAdminHomeProducts />} />
+            <Route path="edithomeproducts/:id" element={< EditAdminHomeProducts />} />
 
             {/* Add Admin Home Content End */}
 

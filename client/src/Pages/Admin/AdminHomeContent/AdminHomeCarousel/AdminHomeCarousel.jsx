@@ -39,6 +39,7 @@ const AdminHomeCarousel = () => {
   return (
     <>
       <div className="container my-5">
+        <h2 className="fw-bold mb-3">Admin Home Carousels</h2>
         <div className="w-100 d-flex justify-content-end my-5">
           <Link className="btn btn-warning" to="/admin/addhomecarousel" >Add Carousel</Link>
         </div>
@@ -59,7 +60,7 @@ const AdminHomeCarousel = () => {
                   <td className="message">{carousel.file.url}</td>
                   <td className="message">{carousel.heading}</td>
                   <td className="message">{carousel.description}</td>
-                  <td><Link to="/editadminhomecarousel/:id" className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                  <td><Link to={`/admin/edithomecarousel/${carousel._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                   <td><button className="bg-transparent" onClick={() => deleteHomeCarousel(carousel._id)} ><MdDelete className="bg-transparent" /></button></td>
                 </tr>
               })

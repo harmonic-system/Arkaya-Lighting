@@ -182,7 +182,7 @@ nav .wrapper {
   }
 
   .wrapper .top-logo {
-    width: 30%;
+    width: 200px;
     height: 100%;
   }
 
@@ -339,7 +339,14 @@ nav input {
 
 @media screen and (max-width: 720px) {
   .wrapper .top-logo {
-    width: 40%;
+    width: 200px;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .wrapper .top-logo {
+    width: 200px;
     height: 100%;
   }
 }

@@ -1,32 +1,54 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useAuth } from "../../../../store/Auth"
+import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
-import { useAuth } from "../../../../store/Auth";
-import { useNavigate } from "react-router-dom";
-import Spinner from "../../../../componants/Spinner/Spinner";
+import Spinner from "../../../../componants/Spinner/Spinner"
 
-const AddAdminHomeCarousel = () => {
+const EditAdminHomeCarousel = () => {
 
+  const { id } = useParams()
   const [img, setImg] = useState("")
   const [heading, setHeading] = useState("")
   const [des, setDes] = useState("")
+  const [imgpublicid, setImgPublicId] = useState("")
 
-  const { authorizationToken, getAllHomeCarousel, server } = useAuth()
+  const { authorizationToken, server } = useAuth()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
+
+  const getsingalhomecarousel = async (id) => {
+    const response = await fetch(`${server}/api/v1/adminhomecontent/getsingalhomecarousel/${id}`, {
+      method: "GET",
+      headers: {
+        "Authorization": authorizationToken
+      }
+    })
+    // console.log(response);
+    const singlehomecarousel = await response.json()
+    // console.log(singlehomecarousel);
+    if (singlehomecarousel) {
+      setImg(singlehomecarousel.file.url)
+      setImgPublicId(singlehomecarousel.file.public_id)
+      setHeading(singlehomecarousel.heading)
+      setDes(singlehomecarousel.description)
+    }
+  }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSpinner(true)
 
     try {
-      const response = await fetch(`${server}/api/v1/adminhomecontent/addhomecarousel`, {
-        method: "POST",
+      const response = await fetch(`${server}/api/v1/adminhomecontent/edithomecarousel/${id}`, {
+        method: "PUT",
         headers: {
           "Authorization": authorizationToken,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           file: img,
+          imgpublicid: imgpublicid,
           heading: heading,
           description: des,
         })
@@ -35,12 +57,12 @@ const AddAdminHomeCarousel = () => {
 
       if (response.ok) {
         setImg("")
+        setImgPublicId("")
         setHeading("")
         setDes("")
-        toast.success("Home Carousel Added Successfully")
         setSpinner(false)
-        getAllHomeCarousel()
-        navigate("/admin_carousel")
+        toast.success("Home Carousel Updated Successfully")
+        navigate("/admin/homecarousel")
 
       }
 
@@ -64,14 +86,19 @@ const AddAdminHomeCarousel = () => {
     }
   }
 
+  useEffect(() => {
+    getsingalhomecarousel(id)
+  }, [])
+
+
   return (
     <>
       <div className="container my-5">
-      <h2 className="fw-bold mb-3">Add Home Product</h2>
+        <h2 className="fw-bold mb-3">Edit Home Carousel</h2>
         <form className="main_form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handleImage} type="file" name="file" required />
+              <input className="form-control rounded" onChange={handleImage} type="file" name="file" />
             </div>
             <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
               <input className="form-control rounded" onChange={(e) => setHeading(e.target.value)} value={heading} placeholder="Heading" type="text" name="heading" required />
@@ -90,4 +117,4 @@ const AddAdminHomeCarousel = () => {
   )
 }
 
-export default AddAdminHomeCarousel;
+export default EditAdminHomeCarousel;

@@ -40,7 +40,7 @@ const EditAdminExteriorProducts = () => {
       }
     })
     const singleProduct = await response.json()
-    console.log(singleProduct)
+    // console.log(singleProduct)
     if (singleProduct) {
       setImg(singleProduct.productfile.url)
       setImgPublicId(singleProduct.productfile.public_id)
@@ -87,10 +87,6 @@ const EditAdminExteriorProducts = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSpinner(true)
-    console.log();
-    console.log();
-    console.log();
-    console.log();
 
     try {
       const response = await fetch(`${server}/api/v1/adminproducts/updateexteriorproducts/${id}`, {
@@ -140,7 +136,7 @@ const EditAdminExteriorProducts = () => {
           noOfLight: ""
         })
         const res = await response.json()
-        console.log(res);
+        // console.log(res);
         toast.success(res.message)
         setSpinner(false)
         navigate("/admin/exterior")

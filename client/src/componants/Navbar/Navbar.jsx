@@ -13,7 +13,7 @@ const Navbar = () => {
       <nav>
         <div className="wrapper">
           <div className="top-logo">
-            <Link to="/"><img src="./images/arkaya-logo.png" alt="Arkaya Logo" style={{ width: "100%", height: "100%" }} className="py-2" /></Link>
+            <Link to="/"><img src="./images/arkaya-logo1.png" alt="Arkaya Logo" style={{ width: "100%", height: "100%" }} className="py-2" /></Link>
           </div>
           <input type="radio" name="slider" id="menu-btn" />
           <input type="radio" name="slider" id="close-btn" />
@@ -29,7 +29,7 @@ const Navbar = () => {
               <div className="dropdown">
                 <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">PRODUCTS</a>
                 <ul className="dropdown-menu profile">
-                  <li><Link className="text-light" to="/">Interior</Link></li>
+                  <li><Link className="text-light" to="/interior">Interior</Link></li>
                   <li><Link className="text-light" to="/exterior">Exterior</Link></li>
                   <li><Link className="text-light" to="/decorative">Decorative</Link></li>
                   <li><Link className="text-light" to="/entertainment">Entertainment</Link></li>

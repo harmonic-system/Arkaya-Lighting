@@ -32,6 +32,52 @@ const adddecorativeProduct = async (req, res, next) => {
   }
 }
 
+const getsingaldecorativeproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    // console.log(id);
+    const singleProduct = await DecorativeProduct.findOne({ _id: id })
+    // console.log(singleProduct);
+    res.status(200).json(singleProduct)
+  } catch (error) {
+    next(error)
+  }
+}
+
+const updatedecorativeproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    const { productfile, imgpublicid, productname } = req.body
+    // console.log(productfile, imgpublicid, productname)
+    if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await DecorativeProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname } })
+
+      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+
+    } else {
+
+      const deletedImg = await cloudinary.uploader.destroy(imgpublicid)
+
+      if (deletedImg) {
+        const result = await cloudinary.uploader.upload(productfile, {
+          folder: "arkaya/products/decorative",
+          resource_type: 'auto',
+          width: 400,
+          height: 300,
+        })
+        const updatedata = await DecorativeProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname } })
+        return res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      } else {
+        return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
+      }
+
+    }
+
+  } catch (error) {
+    next(error)
+  }
+}
+
 const deletedecorativeProduct = async (req, res, next) => {
 
   try {
@@ -73,6 +119,52 @@ const addinteriorProduct = async (req, res, next) => {
   }
 }
 
+const getsingalinteriorproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    // console.log(id);
+    const singleProduct = await InteriorProduct.findOne({ _id: id })
+    // console.log(singleProduct);
+    res.status(200).json(singleProduct)
+  } catch (error) {
+    next(error)
+  }
+}
+
+const updateinteriorproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    const { productfile, imgpublicid, productname } = req.body
+    // console.log(productfile, imgpublicid, productname)
+    if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await InteriorProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname } })
+
+      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+
+    } else {
+
+      const deletedImg = await cloudinary.uploader.destroy(imgpublicid)
+
+      if (deletedImg) {
+        const result = await cloudinary.uploader.upload(productfile, {
+          folder: "arkaya/products/interior",
+          resource_type: 'auto',
+          width: 400,
+          height: 300,
+        })
+        const updatedata = await InteriorProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname } })
+        return res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      } else {
+        return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
+      }
+
+    }
+
+  } catch (error) {
+    next(error)
+  }
+}
+
 const deleteinteriorProduct = async (req, res, next) => {
 
   try {
@@ -104,7 +196,7 @@ const addexteriorProduct = async (req, res, next) => {
 
 
     const product = await ExteriorProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } })
-    console.log(product);
+    // console.log(product);
 
     res.status(200).json({ message: "Exterior product created successfully", product })
 
@@ -132,7 +224,7 @@ const updateexteriorproducts = async (req, res, next) => {
   try {
     const id = req.params.id
     const { productfile, imgpublicid, productname, model, size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } = req.body
-    console.log(productfile, imgpublicid, productname, model, size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight)
+    // console.log(productfile, imgpublicid, productname, model, size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight)
     if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
       const updatedata = await ExteriorProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } } })
 
@@ -154,10 +246,6 @@ const updateexteriorproducts = async (req, res, next) => {
       } else {
         return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
       }
-
-
-
-
 
     }
 
@@ -207,6 +295,52 @@ const addentertainmentProduct = async (req, res, next) => {
   }
 }
 
+const getsingalentertainmentproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    // console.log(id);
+    const singleProduct = await EntertainmentProduct.findOne({ _id: id })
+    // console.log(singleProduct);
+    res.status(200).json(singleProduct)
+  } catch (error) {
+    next(error)
+  }
+}
+
+const updateentertainmentproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    const { productfile, imgpublicid, productname, category, description } = req.body
+    // console.log(productfile, imgpublicid, productname, category, description)
+    if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await EntertainmentProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, category, description } })
+
+      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+
+    } else {
+
+      const deletedImg = await cloudinary.uploader.destroy(imgpublicid)
+
+      if (deletedImg) {
+        const result = await cloudinary.uploader.upload(productfile, {
+          folder: "arkaya/products/entertainment",
+          resource_type: 'auto',
+          width: 400,
+          height: 300,
+        })
+        const updatedata = await EntertainmentProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, category, description } })
+        return res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      } else {
+        return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
+      }
+
+    }
+
+  } catch (error) {
+    next(error)
+  }
+}
+
 const deleteentertainmentProduct = async (req, res, next) => {
 
   try {
@@ -248,6 +382,53 @@ const addLEDStripProduct = async (req, res, next) => {
   }
 }
 
+const getsingaLEDStripproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    // console.log(id);
+    const singleProduct = await LEDStripProduct.findOne({ _id: id })
+    // console.log(singleProduct);
+    res.status(200).json(singleProduct)
+  } catch (error) {
+    next(error)
+  }
+}
+
+
+const updateLEDStripproducts = async (req, res, next) => {
+  try {
+    const id = req.params.id
+    const { productfile, imgpublicid, productname, model, des, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
+    // console.log(productfile, imgpublicid, productname, model, des, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10)
+    if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await LEDStripProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { des, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
+
+      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+
+    } else {
+
+      const deletedImg = await cloudinary.uploader.destroy(imgpublicid)
+
+      if (deletedImg) {
+        const result = await cloudinary.uploader.upload(productfile, {
+          folder: "arkaya/products/ledstrip",
+          resource_type: 'auto',
+          width: 400,
+          height: 300,
+        })
+        const updatedata = await LEDStripProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { des, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
+        return res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      } else {
+        return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
+      }
+
+    }
+
+  } catch (error) {
+    next(error)
+  }
+}
+
 const deleteLEDStripProduct = async (req, res, next) => {
 
   try {
@@ -264,9 +445,9 @@ const deleteLEDStripProduct = async (req, res, next) => {
 
 
 module.exports = {
-  adddecorativeProduct, deletedecorativeProduct,
-  addinteriorProduct, deleteinteriorProduct,
-  addexteriorProduct, deleteexteriorProduct, getsingalexteriorproducts, updateexteriorproducts,
-  addentertainmentProduct, deleteentertainmentProduct,
-  addLEDStripProduct, deleteLEDStripProduct
+  adddecorativeProduct, getsingaldecorativeproducts, updatedecorativeproducts, deletedecorativeProduct,
+  addinteriorProduct, getsingalinteriorproducts, updateinteriorproducts, deleteinteriorProduct,
+  addexteriorProduct, getsingalexteriorproducts, updateexteriorproducts, deleteexteriorProduct,
+  addentertainmentProduct, getsingalentertainmentproducts, updateentertainmentproducts, deleteentertainmentProduct,
+  addLEDStripProduct, getsingaLEDStripproducts, updateLEDStripproducts, deleteLEDStripProduct
 }

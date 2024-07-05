@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-// import AdminLayout from "../../../../Layout/AdminLayout";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
@@ -40,8 +39,8 @@ const AdminExteriorProducts = () => {
 
   return (
     <>
-      {/* <AdminLayout /> */}
       <div className="container my-5">
+      <h2 className="fw-bold mb-3">Admin Exterior Products</h2>
         <div className="w-100 d-flex justify-content-end my-5">
           <Link className="btn btn-warning" to="/admin/addexteriorproduct" >Add Product</Link>
         </div>

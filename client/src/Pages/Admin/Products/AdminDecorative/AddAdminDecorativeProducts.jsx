@@ -2,6 +2,7 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../../../../componants/Spinner/Spinner";
 
 const AddAdminDecorativeProducts = () => {
 
@@ -10,9 +11,11 @@ const AddAdminDecorativeProducts = () => {
 
   const { authorizationToken, getAllDecorativeProducts, server } = useAuth()
   const navigate = useNavigate()
+  const [spinner, setSpinner] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setSpinner(true)
 
     try {
       const response = await fetch(`${server}/api/v1/adminproducts/adddecorativeproducts`, {
@@ -33,7 +36,8 @@ const AddAdminDecorativeProducts = () => {
         setProductname("")
         toast.success("Product Added Successfully")
         getAllDecorativeProducts()
-        navigate("/admindecorative")
+        setSpinner(false)
+        navigate("/admin/decorative")
 
       }
 
@@ -60,6 +64,7 @@ const AddAdminDecorativeProducts = () => {
   return (
     <>
       <div className="container my-5">
+      <h2 className="fw-bold mb-3">Add Decorative Product</h2>
         <form className="main_form" onSubmit={handleSubmit}>
           <h2 className="fw-bold mb-3">Add Decorative Product</h2>
           <div className="row">
@@ -74,6 +79,7 @@ const AddAdminDecorativeProducts = () => {
             </div>
           </div>
         </form>
+        {spinner ? <Spinner /> : ""}
       </div>
     </>
   )
