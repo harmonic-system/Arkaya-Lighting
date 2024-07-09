@@ -8,8 +8,8 @@ const cloudinary = require("../../../utils/cloudinary")
 // Decorative Products
 
 const adddecorativeProduct = async (req, res, next) => {
-  const { productfile, productname } = req.body
-  // console.log(productname,productfile);
+  const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
+  // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11);
 
   try {
 
@@ -21,7 +21,7 @@ const adddecorativeProduct = async (req, res, next) => {
     })
 
 
-    const product = await DecorativeProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname })
+    const product = await DecorativeProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } })
     // console.log(product);
 
     res.status(200).json({ message: "Decorative product created successfully", product })
@@ -47,10 +47,10 @@ const getsingaldecorativeproducts = async (req, res, next) => {
 const updatedecorativeproducts = async (req, res, next) => {
   try {
     const id = req.params.id
-    const { productfile, imgpublicid, productname } = req.body
+    const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
     // console.log(productfile, imgpublicid, productname)
     if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
-      const updatedata = await DecorativeProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname } })
+      const updatedata = await DecorativeProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
 
       res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
@@ -65,7 +65,7 @@ const updatedecorativeproducts = async (req, res, next) => {
           width: 400,
           height: 300,
         })
-        const updatedata = await DecorativeProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname } })
+        const updatedata = await DecorativeProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
         return res.status(200).json({ message: "Product Updated Successfully", updatedata })
       } else {
         return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })

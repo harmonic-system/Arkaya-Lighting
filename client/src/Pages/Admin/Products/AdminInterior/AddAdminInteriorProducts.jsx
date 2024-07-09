@@ -9,7 +9,7 @@ const AddAdminInteriorProducts = () => {
   const [img, setImg] = useState("")
   const [productname, setProductname] = useState("")
 
-  const { authorizationToken, getAllInteriorProducts, server } = useAuth()
+  const { authorizationToken, server } = useAuth()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
 
@@ -35,7 +35,6 @@ const AddAdminInteriorProducts = () => {
         setImg("")
         setProductname("")
         toast.success("Product Added Successfully")
-        getAllInteriorProducts()
         setSpinner(false)
         navigate("/admin/interior")
 

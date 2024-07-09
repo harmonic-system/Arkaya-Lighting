@@ -11,7 +11,7 @@ const AddAdminEntertainmentProducts = () => {
   const [category, setCategory] = useState("")
   const [des, setDes] = useState("")
 
-  const { authorizationToken, getAllEntertainmentProducts, server } = useAuth()
+  const { authorizationToken, server } = useAuth()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
 
@@ -41,7 +41,6 @@ const AddAdminEntertainmentProducts = () => {
         setCategory("")
         setDes("")
         toast.success("Product Added Successfully")
-        getAllEntertainmentProducts()
         setSpinner(false)
         navigate("/admin/entertainment")
 

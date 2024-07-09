@@ -15,6 +15,45 @@ const DecorativeProductSchema = new Schema({
     type: String,
     required: true
   },
+  model: {
+    type: String,
+    required: true
+  },
+  description: {
+    spec1: {
+      type: String
+    },
+    spec2: {
+      type: String
+    },
+    spec3: {
+      type: String
+    },
+    spec4: {
+      type: String
+    },
+    spec5: {
+      type: String
+    },
+    spec6: {
+      type: String
+    },
+    spec7: {
+      type: String
+    },
+    spec8: {
+      type: String
+    },
+    spec9: {
+      type: String
+    },
+    spec10: {
+      type: String
+    },
+    spec11: {
+      type: String
+    },
+  }
 })
 
 const DecorativeProduct = new model('DecorativeProduct', DecorativeProductSchema)

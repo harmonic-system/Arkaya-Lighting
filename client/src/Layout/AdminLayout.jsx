@@ -11,7 +11,7 @@ const AdminLayout = () => {
 
 
   useEffect(() => {
-    if (!user.isAdmin) {
+    if (!user?.isAdmin) {
       navigate("/")
     }
   }, [])
@@ -26,7 +26,7 @@ const AdminLayout = () => {
               <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/users">Users</Link></li>
               <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/contacts">Contact</Link></li>
               <li className="btn btn-dark m-2"><a className="text-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Products</a></li>
-              <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/productquerry">Product Querry</Link></li>
+              <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/productquerry">Querry</Link></li>
               <li className="btn btn-dark m-2"><Link className="text-light" to="/admin/newsletter">NewsLetters</Link></li>
             </ul>
           </div>

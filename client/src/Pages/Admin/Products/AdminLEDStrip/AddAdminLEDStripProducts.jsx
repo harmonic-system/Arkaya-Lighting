@@ -24,7 +24,7 @@ const AddAdminLEDStripProducts = () => {
   })
 
 
-  const { authorizationToken, getAllLEDStripProducts, server } = useAuth()
+  const { authorizationToken, server } = useAuth()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
 
@@ -77,7 +77,6 @@ const AddAdminLEDStripProducts = () => {
           spec10: "",
         })
         toast.success("Product Added Successfully")
-        getAllLEDStripProducts()
         setSpinner(false)
         navigate("/admin/ledstrip")
 

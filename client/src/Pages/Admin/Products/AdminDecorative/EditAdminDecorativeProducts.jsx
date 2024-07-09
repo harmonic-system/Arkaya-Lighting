@@ -16,6 +16,20 @@ const EditAdminDecorativeProducts = () => {
   const [img, setImg] = useState("")
   const [imgpublicid, setImgPublicId] = useState("")
   const [productname, setProductname] = useState("")
+  const [model, setModel] = useState("")
+  const [description, setDescription] = useState({
+    spec1: "",
+    spec2: "",
+    spec3: "",
+    spec4: "",
+    spec5: "",
+    spec6: "",
+    spec7: "",
+    spec8: "",
+    spec9: "",
+    spec10: "",
+    spec11: "",
+  })
 
   const getSingleDecorativeProduct = async (id) => {
     const response = await fetch(`${server}/api/v1/adminproducts/getsingaldecorativeproducts/${id}`, {
@@ -30,6 +44,20 @@ const EditAdminDecorativeProducts = () => {
       setImg(singleProduct.productfile.url)
       setImgPublicId(singleProduct.productfile.public_id)
       setProductname(singleProduct.productname)
+      setModel(singleProduct.model)
+      setDescription({
+        spec1: singleProduct.description.spec1,
+        spec2: singleProduct.description.spec2,
+        spec3: singleProduct.description.spec3,
+        spec4: singleProduct.description.spec4,
+        spec5: singleProduct.description.spec5,
+        spec6: singleProduct.description.spec6,
+        spec7: singleProduct.description.spec7,
+        spec8: singleProduct.description.spec8,
+        spec9: singleProduct.description.spec9,
+        spec10: singleProduct.description.spec10,
+        spec11: singleProduct.description.spec11,
+      })
     }
   }
 
@@ -62,6 +90,18 @@ const EditAdminDecorativeProducts = () => {
           productfile: img,
           imgpublicid: imgpublicid,
           productname: productname,
+          model: model,
+          spec1: description.spec1,
+          spec2: description.spec2,
+          spec3: description.spec3,
+          spec4: description.spec4,
+          spec5: description.spec5,
+          spec6: description.spec6,
+          spec7: description.spec7,
+          spec8: description.spec8,
+          spec9: description.spec9,
+          spec10: description.spec10,
+          spec11: description.spec11,
         })
       })
 
@@ -70,6 +110,20 @@ const EditAdminDecorativeProducts = () => {
         setImg("")
         setImgPublicId("")
         setProductname("")
+        setModel("")
+        setDescription({
+          spec1: "",
+          spec2: "",
+          spec3: "",
+          spec4: "",
+          spec5: "",
+          spec6: "",
+          spec7: "",
+          spec8: "",
+          spec9: "",
+          spec10: "",
+          spec11: "",
+        })
         const res = await response.json()
         // console.log(res);
         toast.success(res.message)
@@ -83,6 +137,13 @@ const EditAdminDecorativeProducts = () => {
     }
   }
 
+  const handlechange = (e) => {
+    setDescription({
+      ...description,
+      [e.target.name]: e.target.value,
+    })
+  }
+
   useEffect(() => {
     getSingleDecorativeProduct(id)
   }, [])
@@ -94,7 +155,7 @@ const EditAdminDecorativeProducts = () => {
   return (
     <>
       <div className="container my-5">
-          <h2 className="fw-bold mb-3">Edit Decorative Product</h2>
+        <h2 className="fw-bold mb-3">Edit Decorative Product</h2>
         <form className="main_form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -102,6 +163,42 @@ const EditAdminDecorativeProducts = () => {
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <input className="form-control rounded" onChange={(e) => setProductname(e.target.value)} value={productname} placeholder="Product name" type="text" name="productname" required />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={(e) => setModel(e.target.value)} value={model} placeholder="Product Model" type="text" name="model" required />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec1} placeholder="Product Spec 1" type="text" name="spec1" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec2} placeholder="Product Spec 2" type="text" name="spec2" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec3} placeholder="Product Spec 3" type="text" name="spec3" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec4} placeholder="Product Spec 4" type="text" name="spec4" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec5} placeholder="Product Spec 5" type="text" name="spec5" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec6} placeholder="Product Spec 6" type="text" name="spec6" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec7} placeholder="Product Spec 7" type="text" name="spec7" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec8} placeholder="Product Spec 8" type="text" name="spec8" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec9} placeholder="Product Spec 9" type="text" name="spec9" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec10} placeholder="Product Spec 10" type="text" name="spec10" />
+            </div>
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input className="form-control rounded" onChange={handlechange} value={description.spec11} placeholder="Product Spec 11" type="text" name="spec11" />
             </div>
             <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <button type="submit" className="but rounded">Update</button>

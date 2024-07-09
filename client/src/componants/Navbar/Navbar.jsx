@@ -25,7 +25,7 @@ const Navbar = () => {
 
 
 
-            <li>
+            {/* <li>
               <div className="dropdown">
                 <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">PRODUCTS</a>
                 <ul className="dropdown-menu profile">
@@ -36,7 +36,7 @@ const Navbar = () => {
                   <li><Link className="text-light" to="/led_strip">LED Strip</Link></li>
                 </ul>
               </div>
-            </li>
+            </li> */}
 
 
 
@@ -50,7 +50,7 @@ const Navbar = () => {
 
 
             {/* Products Mega Menu Start */}
-            {/* <li>
+            <li>
               <Link className="desktop-item">PRODUCTS</Link>
               <input type="checkbox" id="showMega" />
               <label htmlFor="showMega" className="mobile-item">PRODUCTS</label>
@@ -178,7 +178,7 @@ const Navbar = () => {
 
                 </div>
               </div>
-            </li> */}
+            </li>
             {/* Products Mega Menu End */}
 
 
@@ -208,7 +208,7 @@ const Navbar = () => {
 
                   <div className="dropdown">
 
-                    <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{user.name.toUpperCase()}</a>
+                    <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{user?.name.toUpperCase()}</a>
 
                     <ul className="dropdown-menu profile">
                       <li><Link className="text-light" to="/userprofile">Profile</Link></li>
@@ -222,7 +222,7 @@ const Navbar = () => {
 
             <li>
               {
-                user.isAdmin ? <Link to="/admin">Admin Section</Link> : ""
+                user?.isAdmin ? <Link to="/admin">Admin Section</Link> : ""
 
               }
             </li>

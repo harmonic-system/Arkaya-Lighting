@@ -32,7 +32,7 @@ const DiscoverUs = () => {
               </div>
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-5">
-              <h2><strong>Who We are ?</strong></h2>
+              <h2><strong>Know About Us ?</strong></h2>
               <p style={{ lineHeight: "2" }} className="text-justify">
                 Arkaya Lighting is an excellent online retailer specializing in Lighting products. At arkaya lighting, we offer smart Lighting for Everything.
 

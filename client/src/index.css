@@ -67,7 +67,14 @@ button:focus-visible {
   }
 } */
 
+/* Placeholer Start */
 
+::placeholder{
+  font-size: 0.8rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Placeholer End */
 
 
 

@@ -31,10 +31,10 @@ const Home = () => {
         },
         body: JSON.stringify(newsubscriber)
       })
-      console.log(response);
+      // console.log(response);
 
       const res = await response.json()
-      console.log(res);
+      // console.log(res);
 
       if (response.ok) {
         setNewSubscriber({
@@ -350,7 +350,7 @@ const Home = () => {
 
                       {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
-                      <p>The DMX controllers offered unparalleled versatility and control over our stage lighting.</p>
+                      <p style={{height:"150px"}}>The DMX controllers offered unparalleled versatility and control over our stage lighting.</p>
                     </div>
                   </div>
                 </div>
@@ -362,7 +362,7 @@ const Home = () => {
                       </div>
                       {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
-                      <p>Impressed by the sleek design and incredible brightness of the LED panels.</p>
+                      <p style={{height:"150px"}}>Impressed by the sleek design and incredible brightness of the LED panels.</p>
                     </div>
                   </div>
                 </div>
@@ -375,7 +375,7 @@ const Home = () => {
 
                       {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
-                      <p>The Mini LED Moving Lights transformed our event with their stunning effects and compact size.</p>
+                      <p style={{height:"150px"}}>The Mini LED Moving Lights transformed our event with their stunning effects and compact size.</p>
                     </div>
                   </div>
                 </div>

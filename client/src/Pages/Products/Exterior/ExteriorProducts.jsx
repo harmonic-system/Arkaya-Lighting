@@ -44,23 +44,23 @@ const ExteriorProducts = () => {
                     <div className="product-box row">
                       <h2 className="text-start"><b><big>{product.model}</big></b></h2>
                       <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex proimgspec">
-                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 proimgheight" style={{ height: "280px" }}>
+                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 proimgheight" style={{ height: "320px" }}>
                           <img src={product.productfile.url} className="w-100 p-0 m-auto h-100" />
                         </div>
-                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "280px" }}>
+                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "320px" }}>
                           {/* <h4 className="text-start">{product.description.des}</h4> */}
-                          <p>{product.description.size}</p>
-                          <p>{product.description.power}</p>
-                          <p>{product.description.workingElectricity}</p>
-                          <p>{product.description.controlMode}</p>
-                          <p>{product.description.scheme}</p>
-                          <p>{product.description.lampBeads}</p>
-                          <p>{product.description.IPGrade}</p>
-                          <p>{product.description.masterStroke}</p>
-                          <p>{product.description.returnRoute}</p>
-                          <p>{product.description.distanceFromCenter}</p>
-                          <p>{product.description.lampshellFaceColor}</p>
-                          <p>{product.description.noOfLight}</p>
+                          <p>{product?.description?.size}</p>
+                          <p>{product?.description?.power}</p>
+                          <p>{product?.description?.workingElectricity}</p>
+                          <p>{product?.description?.controlMode}</p>
+                          <p>{product?.description?.scheme}</p>
+                          <p>{product?.description?.lampBeads}</p>
+                          <p>{product?.description?.IPGrade}</p>
+                          <p>{product?.description?.masterStroke}</p>
+                          <p>{product?.description?.returnRoute}</p>
+                          <p>{product?.description?.distanceFromCenter}</p>
+                          <p>{product?.description?.lampshellFaceColor}</p>
+                          <p>{product?.description?.noOfLight}</p>
                         </div>
                       </div>
                       <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">

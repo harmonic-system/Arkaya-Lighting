@@ -24,7 +24,7 @@ const AddAdminExteriorProducts = () => {
     noOfLight: ""
   })
 
-  const { authorizationToken, getAllExteriorProducts, server } = useAuth()
+  const { authorizationToken, server } = useAuth()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
 
@@ -78,7 +78,6 @@ const AddAdminExteriorProducts = () => {
           noOfLight: ""
         })
         toast.success("Product Added Successfully")
-        getAllExteriorProducts()
         setSpinner(false)
         navigate("/admin/exterior")
 

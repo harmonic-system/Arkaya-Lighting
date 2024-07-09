@@ -190,6 +190,10 @@
         flex-direction: column !important;
     }
 
+    .proimgheight{
+        height: auto !important;
+    }
+
 }
 
 
