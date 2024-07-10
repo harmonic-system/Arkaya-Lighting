@@ -18,6 +18,8 @@ const homecontentRoutes = require("./routes/homecontent-routes")
 
 const adminhomecontentRoutes = require("./routes/Admin-Routes/AdminHomeContent-Routes/Adminhomecontent-routes")
 
+const adminEntertainmentRoutes = require("./routes/Admin-Routes/AdminProduct-Routes/AdminLightingFixtures-Routes/AdminEntertainment-Routes/AdminEntertainment-Routes")
+
 const app = express()
 
 const corsOption = {
@@ -41,13 +43,17 @@ app.use("/api/v1/newsletter", newsletterRoute)
 
 app.use("/api/v1/admin", adminRoutes)
 
-app.use("/api/v1/products", productRoutes)
-
-app.use("/api/v1/adminproducts", adminproductsRoute)
-
 app.use("/api/v1/homecontent", homecontentRoutes)
 
 app.use("/api/v1/adminhomecontent", adminhomecontentRoutes)
+
+
+app.use("/api/v1/adminproducts", adminproductsRoute)
+
+
+app.use("/api/v1/products", productRoutes)
+
+app.use("/api/v1/lightingfixture/adminentertainment", adminEntertainmentRoutes)
 
 
 app.use(errormiddleware)

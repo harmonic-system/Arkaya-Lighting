@@ -64,6 +64,10 @@ import EditAdminHomeCarousel from "./Pages/Admin/AdminHomeContent/AdminHomeCarou
 import AdminHomeLProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/AdminHomeProducts"
 import AddAdminHomeProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/AddAdminHomeProducts"
 import EditAdminHomeProducts from "./Pages/Admin/AdminHomeContent/AdminHomeProducts/EditAdminHomeProducts"
+
+
+import Architecture from "./Pages/Products/LightingFixtures/Architecture/Architecture"
+import Entertainment from "./Pages/Products/LightingFixtures/Entertainment/Entertainment"
 // import ProductDetails from "./Pages/ProductDetails"
 
 function App() {
@@ -76,6 +80,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/arkaya" element={<Home />} />
           <Route path="/application" element={<Application />} />
+
+          <Route path="/architecture" element={<Architecture />} />
+          <Route path="/entertainment" element={<Entertainment />} />
 
 
           {/* Product Start */}
@@ -98,7 +105,7 @@ function App() {
           <Route path="/interior" element={< InteriorProducts />} />
           <Route path="/exterior" element={<ExteriorProducts />} />
           <Route path="/decorative" element={< DecorativeProducts />} />
-          <Route path="/entertainment" element={< EntertainmentProducts />} />
+          <Route path="/entertainment1" element={< EntertainmentProducts />} />
           <Route path="/led_strip" element={<LedStripProducts />} />
 
           {/* Product V1 End */}

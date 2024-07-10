@@ -56,7 +56,7 @@ const Navbar = () => {
               <label htmlFor="showMega" className="mobile-item">PRODUCTS</label>
               <div className="mega-box">
                 <div className="content">
-                  <div className="pro">
+                  {/* <div className="pro">
                     <header>LIGHTING FIXTURE</header>
                     <hr className="bg-secondary" />
 
@@ -125,6 +125,19 @@ const Navbar = () => {
 
                     </ul>
 
+                  </div> */}
+
+                  <div className="pro">
+                    <header>LIGHTING FIXTURE</header>
+                    <hr className="bg-secondary" />
+
+                    <ul className="mega-links">
+                      <li><Link to="/architecture">Architecture</Link></li>
+                      <li><Link to="/entertainment">Entertainment</Link></li>
+                      <li><Link to="/">LED Pixels</Link></li>
+                      <li><Link to="/">Decorative</Link></li>
+                      <li><Link to="/">Threater, Studio, Television</Link></li>
+                    </ul>
                   </div>
 
                   <div className="pro">
@@ -174,7 +187,7 @@ const Navbar = () => {
                     </ul>
                   </div>
 
-                  
+
 
                 </div>
               </div>

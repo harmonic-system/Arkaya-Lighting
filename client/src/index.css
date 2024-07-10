@@ -69,7 +69,7 @@ button:focus-visible {
 
 /* Placeholer Start */
 
-::placeholder{
+::placeholder {
   font-size: 0.8rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -80,15 +80,15 @@ button:focus-visible {
 
 /* Contact Box Start */
 
-.contact-box{
+.contact-box {
   padding: 30px 20px;
-	/* box-shadow: #00000040 0px 0px 19px 0px; */
-	/* box-shadow: black 0px 0px 19px 0px; */
-	margin-bottom: 30px;
-	text-align: center;
+  /* box-shadow: #00000040 0px 0px 19px 0px; */
+  /* box-shadow: black 0px 0px 19px 0px; */
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.contact-box p{
+.contact-box p {
   font-size: 0.7rem;
 }
 
@@ -219,7 +219,7 @@ button:focus-visible {
   border-bottom: 2px solid gray !important;
 }
 
-.message{
+.message {
   word-break: break-all;
 }
 
@@ -289,3 +289,38 @@ button:focus-visible {
 }
 
 /* Table CSS End */
+
+
+
+
+/* Product Start */
+
+.products-image {
+  background: #fff;
+  padding-top: 90px;
+}
+
+.products-image .products-image-box {
+  padding: 30px 20px;
+  box-shadow: #00000040 0px 0px 19px 0px;
+  margin-bottom: 30px;
+  text-align: center;
+  height: 300px;
+}
+
+.products-image .products-image-box img {
+  height: 80%;
+  border-radius: 20px;
+  /* width: 100%; */
+}
+
+.products-image .products-image-box h3 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 22px;
+  color: #050000;
+  padding: 20px 0px;
+}
+
+
+/* Product End */

@@ -51,6 +51,49 @@ const AuthProvider = ({ children }) => {
     return localStorage.removeItem("Token")
   }
 
+  const getAllHomeCarousel = async () => {
+    try {
+
+      const response = await fetch(`${server}/api/v1/homecontent/homecarousel`, {
+        method: "GET"
+      })
+      const res = await response.json()
+      // console.log(res);
+      setHomeCarousel(res)
+    } catch (error) {
+      toast.error("Failed to get Home Carousels")
+    }
+  }
+
+  const getAllHomeProduct = async () => {
+    try {
+      const response = await fetch(`${server}/api/v1/homecontent/homeproduct`, {
+        method: "GET"
+      })
+      const res = await response.json()
+
+      // console.log(res);
+      setHomeProduct(res)
+    } catch (error) {
+      toast.error("Failed to get Home Products")
+    }
+  }
+
+
+  // Get Products Of Lighting Fixtures
+
+  // Entertainment Products List
+
+  // Moving Head Series Lamp
+
+  const getAllEntertainmentMovingHeadSeriesLampProducts = async()=>{
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
+
   const getAllDecorativeProducts = async () => {
     try {
       const response = await fetch(`${server}/api/v1/products/getdecorativeproducts`, {
@@ -116,33 +159,7 @@ const AuthProvider = ({ children }) => {
     }
   }
 
-  const getAllHomeCarousel = async () => {
-    try {
-
-      const response = await fetch(`${server}/api/v1/homecontent/homecarousel`, {
-        method: "GET"
-      })
-      const res = await response.json()
-      // console.log(res);
-      setHomeCarousel(res)
-    } catch (error) {
-      toast.error("Failed to get Home Carousels")
-    }
-  }
-
-  const getAllHomeProduct = async () => {
-    try {
-      const response = await fetch(`${server}/api/v1/homecontent/homeproduct`, {
-        method: "GET"
-      })
-      const res = await response.json()
-
-      // console.log(res);
-      setHomeProduct(res)
-    } catch (error) {
-      toast.error("Failed to get Home Products")
-    }
-  }
+  
 
 
 
