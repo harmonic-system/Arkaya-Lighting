@@ -6,8 +6,8 @@ const signupSchema = require("../validators/auth-validator")
 
 const router = express.Router()
 
-router.route("/signup").post(signUP)
-// router.route("/signup").post(validate(signupSchema), signUP)
+// router.route("/signup").post(signUP)
+router.route("/signup").post(validate(signupSchema), signUP)
 
 router.route("/login").post(login)
 

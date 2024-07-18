@@ -96,7 +96,7 @@ const SignUp = () => {
             <input type="text" placeholder="Name" onChange={handleChange} value={user.name} name="name" required />
             <input type="email" placeholder="Email" onChange={handleChange} value={user.email} name="email" required />
             <input type="number" placeholder="Phone" onChange={handleChange} value={user.phone} name="phone" required />
-            <input type="text" placeholder="Organization (optional)" onChange={handleChange} value={user.phone} name="organization" />
+            <input type="text" placeholder="Organization (optional)" onChange={handleChange} value={user.organization} name="organization" />
             <div className="position-relative mt-2">
               <input className="form-control rounded" onChange={handleChange} value={user.password} placeholder="Password" type={inputTypePass} name="password" required />
               {showPass ? <FaEye className="text-dark position-absolute eye" onClick={toggleInputPass} /> : <FaEyeSlash className="text-dark position-absolute eye" onClick={toggleInputPass} />}
