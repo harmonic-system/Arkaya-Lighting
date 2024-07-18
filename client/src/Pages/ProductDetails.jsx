@@ -4,13 +4,13 @@ import { useAuth } from "../store/Auth";
 
 const ProductDetails = () => {
 
-  const [querryData, setQuerryData] = useState({
+  const [queryData, setQueryData] = useState({
     productName: "",
     name: "",
     email: "",
     phone: "",
     organization: "",
-    querry: ""
+    query: ""
   })
 
   const [sent, setSent] = useState(false)
@@ -21,8 +21,8 @@ const ProductDetails = () => {
     const name = e.target.name
     const value = e.target.value
 
-    setQuerryData({
-      ...querryData,
+    setQueryData({
+      ...queryData,
       [name]: value
     })
   }
@@ -32,22 +32,22 @@ const ProductDetails = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}/api/v1/productquerry/singalproduct`, {
+      const response = await fetch(`${server}/api/v1/productquery/singalproduct`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(querryData)
+        body: JSON.stringify(queryData)
       })
 
       if (response.ok) {
-        setQuerryData({
+        setQueryData({
           productName: "",
           name: "",
           email: "",
           phone: "",
           organization: "",
-          querry: ""
+          query: ""
         })
         setSent(true)
       }
@@ -63,18 +63,18 @@ const ProductDetails = () => {
     <>
       <div className="container my-5">
         {sent ?
-          <div className="row choose_bg p-3 d-flex justify-content-center align-items-center">
-            <p className="text-center text-success fw-bold">Thanks For Raising Querry About This Product In Arkaya Lighting !!! Our Executive Will Contact You Soon.</p>
-          </div>
+          (<div className="row choose_bg p-3 d-flex justify-content-center align-items-center">
+            <p className="text-center text-success fw-bold">Thanks For Raising Query About This Product In Arkaya Lighting !!! Our Executive Will Contact You Soon.</p>
+          </div>)
           :
-          <div className="row choose_bg p-3 d-flex justify-content-evenly align-items-center">
+          (<div className="row choose_bg p-3 d-flex justify-content-evenly align-items-center">
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex justify-content-around align-items-center">
               <h3>To get More Details Please Click On Enquiry</h3>
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-around align-items-center">
               <button type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Enquiry</button>
             </div>
-          </div>
+          </div>)
         }
 
 
@@ -94,22 +94,22 @@ const ProductDetails = () => {
                         <form className="main_form" onSubmit={handleSubmit}>
                           <div className="row">
                             <div className="col-md-12">
-                              <input className="form-control rounded" onChange={handleChange} value={querryData.productName} placeholder="Product For Enquiry" type="text" name="productName" required />
+                              <input className="form-control rounded" onChange={handleChange} value={queryData.productName} placeholder="Product For Enquiry" type="text" name="productName" required />
                             </div>
                             <div className="col-md-12">
-                              <input className="form-control rounded" onChange={handleChange} value={querryData.name} placeholder="Your name" type="text" name="name" required />
+                              <input className="form-control rounded" onChange={handleChange} value={queryData.name} placeholder="Your name" type="text" name="name" required />
                             </div>
                             <div className="col-md-12">
-                              <input className="form-control rounded" onChange={handleChange} value={querryData.email} placeholder="Email" type="email" name="email" required />
+                              <input className="form-control rounded" onChange={handleChange} value={queryData.email} placeholder="Email" type="email" name="email" required />
                             </div>
                             <div className=" col-md-12">
-                              <input className="form-control rounded" onChange={handleChange} value={querryData.phone} placeholder="Phone" type="text" name="phone" required />
+                              <input className="form-control rounded" onChange={handleChange} value={queryData.phone} placeholder="Phone" type="text" name="phone" required />
                             </div>
                             <div className=" col-md-12">
-                              <input className="form-control rounded" onChange={handleChange} value={querryData.organization} placeholder="Organization Name (optional)" type="text" name="organization" />
+                              <input className="form-control rounded" onChange={handleChange} value={queryData.organization} placeholder="Organization Name (optional)" type="text" name="organization" />
                             </div>
                             <div className=" col-md-12">
-                              <textarea className="form-control rounded" onChange={handleChange} value={querryData.querry} placeholder="Your Querry" name="querry" ></textarea>
+                              <textarea className="form-control rounded" onChange={handleChange} value={queryData.query} placeholder="Your Query" name="query" ></textarea>
                             </div>
                             <div className=" col-md-12">
                               <button type="submit" className="but rounded">Submit</button>

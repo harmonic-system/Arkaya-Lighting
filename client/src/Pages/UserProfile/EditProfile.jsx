@@ -82,7 +82,7 @@ const EditProfile = () => {
           confirmPassword: ""
         })
 
-        console.log(res);
+        // console.log(res);
 
         storeTokenInLocalStorage(res.token)
         toast.success(res.message)
@@ -92,7 +92,7 @@ const EditProfile = () => {
         toast.error(res.message)
       }
 
-      console.log(res);
+      // console.log(res);
     } catch (error) {
       toast.error(error.message)
     }

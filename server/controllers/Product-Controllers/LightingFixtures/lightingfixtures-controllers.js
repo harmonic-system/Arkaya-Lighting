@@ -31,7 +31,7 @@ const getcommercials = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -46,7 +46,7 @@ const getdynamicfacade = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -61,7 +61,7 @@ const getlandscapes = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -76,7 +76,7 @@ const getmuseums = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -91,7 +91,7 @@ const getresidentials = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -110,7 +110,7 @@ const getmovingheadserieslamp = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -125,7 +125,7 @@ const getmovingheadseriesled = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -140,7 +140,7 @@ const getstaticled = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -155,7 +155,7 @@ const geteffectslight = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -174,7 +174,7 @@ const getstrips = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -189,7 +189,7 @@ const getdotpixels = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -204,7 +204,7 @@ const getledmatrix = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -225,7 +225,7 @@ const getchandeliers = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -245,7 +245,7 @@ const getthreater = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -260,7 +260,7 @@ const getstudio = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -275,7 +275,7 @@ const gettelevision = async (req, res, next) => {
       return res.status(100).json({ message: "No Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }

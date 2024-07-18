@@ -58,12 +58,11 @@ const DiscoverUs = () => {
 
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-5">
-              <h2><strong>Why Choose Us </strong></h2>
+              <h2><strong>Our Key Points</strong></h2>
               <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Quality Assurance</span> - We test our products before we send them out to ensure that the items you receive are ready for use.</p>
               <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Many years of experience in the LED lights industry, experienced.</span></p>
               <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Product competitiveness & price competitiveness.</span> - Constantly optimize our products and prices.</p>
               <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Pre-sales and after-sales service</span> - Provide professional lighting solution services to help customers make informed decisions about LED lighting.</p>
-              <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold">Product Certificate</span> - All LED products are RoHS compliant - environmental friendly.</p>
               <p style={{ lineHeight: "2" }} className="text-justify"><span className="fw-bold"> Information Security</span> - Login to the website, all your information is private and secure.</p>
             </div>
           </div>

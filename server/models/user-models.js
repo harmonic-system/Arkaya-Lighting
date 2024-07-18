@@ -20,6 +20,10 @@ const userSchema = new Schema({
     required: true
   },
 
+  organization: {
+    type: String,
+  },
+
   password: {
     type: String,
     required: true

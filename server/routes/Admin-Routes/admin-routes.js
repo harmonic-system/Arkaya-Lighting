@@ -1,7 +1,7 @@
 const express = require("express")
 const authMiddleware = require("../../middleware/auth-middleware")
 const adminMiddleware = require("../../middleware/admin-middleware")
-const { getAllUsers, deleteUser, getAllContacts, deleteContact, getAllNewsLetter, deleteNewsLetter, getAllProductQuerry, deleteProductQuerry } = require("../../controllers/Admin-Controllers/Admin-controllers")
+const { getAllUsers, deleteUser, getAllContacts, deleteContact, getAllNewsLetter, deleteNewsLetter, getAllProductQuery, deleteProductQuery } = require("../../controllers/Admin-Controllers/Admin-controllers")
 
 const router = express.Router()
 
@@ -17,8 +17,8 @@ router.route("/getnewsletters").get(authMiddleware, adminMiddleware, getAllNewsL
 
 router.route("/deletenewsletter/:id").delete(authMiddleware, adminMiddleware, deleteNewsLetter)
 
-router.route("/getproductquerries").get(authMiddleware, adminMiddleware, getAllProductQuerry)
+router.route("/getproductqueries").get(authMiddleware, adminMiddleware, getAllProductQuery)
 
-router.route("/deleteproductquerry/:id").delete(authMiddleware, adminMiddleware, deleteProductQuerry)
+router.route("/deleteproductquery/:id").delete(authMiddleware, adminMiddleware, deleteProductQuery)
 
 module.exports = router

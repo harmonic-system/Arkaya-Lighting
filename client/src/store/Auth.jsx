@@ -10,14 +10,10 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("")
   const authorizationToken = `Bearer ${token}`
 
-  const [decorativeProducts, setDecorativeProducts] = useState([])
-  const [interiorProducts, setInteriorProducts] = useState([])
-  const [exteriorProducts, setExteriorProducts] = useState([])
-  const [entertainmentProducts, setEntertainmentProducts] = useState([])
-  const [ledstripProducts, setLEDStripProducts] = useState([])
   const [homeCarousel, setHomeCarousel] = useState([])
   const [homeProduct, setHomeProduct] = useState([])
 
+  const [application, setApplication] = useState([])
 
 
   const storeTokenInLocalStorage = (serverToken) => {
@@ -80,107 +76,37 @@ const AuthProvider = ({ children }) => {
   }
 
 
-  // Get Products Of Lighting Fixtures
-
-  // Entertainment Products List
-
-  // Moving Head Series Lamp
-
-  const getAllEntertainmentMovingHeadSeriesLampProducts = async()=>{
+  const getAllApplications = async () => {
     try {
-      
-    } catch (error) {
-      
-    }
-  }
-
-  const getAllDecorativeProducts = async () => {
-    try {
-      const response = await fetch(`${server}/api/v1/products/getdecorativeproducts`, {
+      const response = await fetch(`${server}/api/v1/application/getapplication`, {
         method: "GET",
       })
 
       const res = await response.json()
-      setDecorativeProducts(res)
+      setApplication(res)
     } catch (error) {
-      toast.error("Failed to get products")
+      toast.error("Failed to get Applications")
     }
   }
-
-  const getAllInteriorProducts = async () => {
-    try {
-      const response = await fetch(`${server}/api/v1/products/getinteriorproducts`, {
-        method: "GET",
-      })
-
-      const res = await response.json()
-      setInteriorProducts(res)
-    } catch (error) {
-      toast.error("Failed to get products")
-    }
-  }
-
-  const getAllExteriorProducts = async () => {
-    try {
-      const response = await fetch(`${server}/api/v1/products/getexteriorproducts`, {
-        method: "GET",
-      })
-
-      const res = await response.json()
-      setExteriorProducts(res)
-    } catch (error) {
-      toast.error("Failed to get products")
-    }
-  }
-
-  const getAllEntertainmentProducts = async () => {
-    try {
-      const response = await fetch(`${server}/api/v1/products/getentertainmentproducts`, {
-        method: "GET",
-      })
-
-      const res = await response.json()
-      setEntertainmentProducts(res)
-    } catch (error) {
-      toast.error("Failed to get products")
-    }
-  }
-
-  const getAllLEDStripProducts = async () => {
-    try {
-      const response = await fetch(`${server}/api/v1/products/getledstripproducts`, {
-        method: "GET",
-      })
-
-      const res = await response.json()
-      setLEDStripProducts(res)
-    } catch (error) {
-      toast.error("Failed to get products")
-    }
-  }
-
-  
-
-
-
-
-
 
 
   useEffect(() => {
     userAuthentication()
-    // getAllDecorativeProducts()
     getAllHomeCarousel()
     getAllHomeProduct()
   }, [])
 
 
   return (
-    <AuthContext.Provider value={{ server, storeTokenInLocalStorage, user, logoutUser, authorizationToken, decorativeProducts, getAllDecorativeProducts, interiorProducts, getAllInteriorProducts, exteriorProducts, getAllExteriorProducts, entertainmentProducts, getAllEntertainmentProducts, ledstripProducts, getAllLEDStripProducts, homeCarousel, getAllHomeCarousel, homeProduct, getAllHomeProduct }} >
+    <AuthContext.Provider value={{
+      server, storeTokenInLocalStorage, user, logoutUser, authorizationToken, homeCarousel, getAllHomeCarousel, homeProduct, getAllHomeProduct, application, getAllApplications,
+    }} >
       {children}
     </AuthContext.Provider>
   )
 }
+
+
 
 const useAuth = () => {
 
@@ -193,7 +119,7 @@ const useAuth = () => {
   return AuthContextValue
 }
 
-export { AuthContext, AuthProvider, useAuth }
+export { AuthContext, AuthProvider, useAuth } 
 
 
 

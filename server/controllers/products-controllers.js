@@ -12,7 +12,7 @@ const getdecorativeProduct = async (req, res, next) => {
       return res.status(100).json({ message: "No Decorative Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -26,7 +26,7 @@ const getinteriorProduct = async (req, res, next) => {
       return res.status(100).json({ message: "No Interior Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -40,7 +40,7 @@ const getexteriorProduct = async (req, res, next) => {
       return res.status(100).json({ message: "No Exterior Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -54,7 +54,7 @@ const getentertainmentProduct = async (req, res, next) => {
       return res.status(100).json({ message: "No Entertainment Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }
@@ -68,7 +68,7 @@ const getledstripProduct = async (req, res, next) => {
       return res.status(100).json({ message: "No LED Strip Products Found" })
     }
 
-    res.status(200).json(products)
+    return res.status(200).json(products)
   } catch (error) {
     next(error)
   }

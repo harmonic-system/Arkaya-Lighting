@@ -20,7 +20,8 @@ const AdminUser = () => {
       const data = await response.json();
       setAllUsers(data)
     } catch (error) {
-      console.error('Error:', error);
+      toast.error(error.message)
+      // console.error('Error:', error);
     }
   }
 

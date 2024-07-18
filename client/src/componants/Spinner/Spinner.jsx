@@ -9,6 +9,7 @@ const Spinner = () => {
         height={10}
         speedMultiplier={1}
         width="100%"
+        className="mt-5"
       />
     </>
   )

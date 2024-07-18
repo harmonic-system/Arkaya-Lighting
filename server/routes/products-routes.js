@@ -1,10 +1,21 @@
 const express = require("express")
+
 const { getdecorativeProduct, getinteriorProduct, getexteriorProduct, getentertainmentProduct, getledstripProduct } = require("../controllers/products-controllers")
+
 const { getcommercials, getdynamicfacade, getlandscapes, getmuseums, getresidentials,
   getmovingheadserieslamp, getmovingheadseriesled, getstaticled, geteffectslight,
   getstrips, getdotpixels, getledmatrix,
   getchandeliers,
   getthreater, getstudio, gettelevision } = require("../controllers/Product-Controllers/LightingFixtures/lightingfixtures-controllers")
+
+
+const { getrentalseries, getindoorseries, getoutdoorseries } = require("../controllers/Product-Controllers/VideoDisplays/videodisplay-controllers")
+
+const { getledcontrollers, getdmxcontrollers, getsignaldistribution, getdecorderandamplifiers, getprocessors } = require("../controllers/Product-Controllers/ControllerDistributionAndInterfaces/controllersdistibutionandinterfaces-controllers")
+
+const { gettruss, getclamps, getalluminiumprofile, getsiliconprofile, getstagelightingsystem, getstudiolightingsystem } = require("../controllers/Product-Controllers/Rigging/rigging-controllers")
+
+const { getconnector } = require("../controllers/Product-Controllers/SpaersAndAccessories/spaceandaccessories-controllers")
 
 const router = express.Router()
 
@@ -52,34 +63,36 @@ router.route("/gettelevision").get(gettelevision)
 
 
 // Video Displays
-// router.route("/get")
+router.route("/getrentalseries").get(getrentalseries)
+router.route("/getindoorseries").get(getindoorseries)
+router.route("/getoutdoorseries").get(getoutdoorseries)
 
 
 
 
 // Controllers Distribution And Interfaces
-// router.route("/get")
+router.route("/getledcontrollers").get(getledcontrollers)
+router.route("/getdmxcontrollers").get(getdmxcontrollers)
+router.route("/getsignaldistribution").get(getsignaldistribution)
+router.route("/getdecorderandamplifiers").get(getdecorderandamplifiers)
+router.route("/getprocessors").get(getprocessors)
 
 
 
 
 // Rigging
-// router.route("/get")
+router.route("/gettruss").get(gettruss)
+router.route("/getclamps").get(getclamps)
+router.route("/getalluminiumprofile").get(getalluminiumprofile)
+router.route("/getsiliconprofile").get(getsiliconprofile)
+router.route("/getstagelightingsystem").get(getstagelightingsystem)
+router.route("/getstudiolightingsystem").get(getstudiolightingsystem)
 
 
 
 
 // Spaers And Accessories
-// router.route("/get")
-
-
-
-
-
-
-
-
-
+router.route("/getconnector").get(getconnector)
 
 
 

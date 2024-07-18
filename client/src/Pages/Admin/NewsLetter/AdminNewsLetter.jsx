@@ -19,7 +19,8 @@ const AdminNewsLetter = () => {
       // console.log(data);
       setAllNewsLetters(data)
     } catch (error) {
-      console.error('Error:', error);
+      toast.error(error.message)
+      // console.error('Error:', error);
     }
   }
 

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
 
-const product = () => {
+const AdminDecorativeProduct = () => {
 
   const { authorizationToken, decorativeProducts, getAllDecorativeProducts, server } = useAuth()
   let count = 1
@@ -99,4 +99,4 @@ const product = () => {
   )
 }
 
-export default product;
+export default AdminDecorativeProduct;

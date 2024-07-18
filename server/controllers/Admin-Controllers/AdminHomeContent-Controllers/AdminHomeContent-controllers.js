@@ -9,7 +9,7 @@ const addhomecarousel = async (req, res, next) => {
   try {
 
     const result = await cloudinary.uploader.upload(file, {
-      folder: "arkaya/home/carousel",
+      folder: "arkayalighting/home/carousel",
       resource_type: 'auto',
       width: 2100,
       height: 720,
@@ -19,7 +19,7 @@ const addhomecarousel = async (req, res, next) => {
     const carousel = await HomeCarousel.create({ file: { public_id: result.public_id, url: result.secure_url }, heading, description })
     // console.log(product);
 
-    res.status(200).json({ message: "Home Carousel created successfully", carousel })
+    return res.status(200).json({ message: "Home Carousel created successfully", carousel })
 
 
   } catch (error) {
@@ -33,7 +33,7 @@ const getsingalhomecarousel = async (req, res, next) => {
     // console.log(id);
     const singlehomecarousel = await HomeCarousel.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singlehomecarousel)
+    return res.status(200).json(singlehomecarousel)
   } catch (error) {
     next(error)
   }
@@ -55,7 +55,7 @@ const updatehomecarousel = async (req, res, next) => {
 
       if (deletedImg) {
         const result = await cloudinary.uploader.upload(file, {
-          folder: "arkaya/home/carousel",
+          folder: "arkayalighting/home/carousel",
           resource_type: 'auto',
           width: 2100,
           height: 720,
@@ -97,7 +97,7 @@ const addhomeproduct = async (req, res, next) => {
   try {
 
     const result = await cloudinary.uploader.upload(file, {
-      folder: "arkaya/home/product",
+      folder: "arkayalighting/home/product",
       resource_type: 'auto',
       width: 400,
       height: 300,
@@ -107,7 +107,7 @@ const addhomeproduct = async (req, res, next) => {
     const product = await HomeProduct.create({ file: { public_id: result.public_id, url: result.secure_url }, productname })
     // console.log(product);
 
-    res.status(200).json({ message: "Home Product created successfully", product })
+    return res.status(200).json({ message: "Home Product created successfully", product })
 
 
   } catch (error) {
@@ -121,7 +121,7 @@ const getsingalhomeproduct = async (req, res, next) => {
     // console.log(id);
     const singlehomeproduct = await HomeProduct.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singlehomeproduct)
+    return res.status(200).json(singlehomeproduct)
   } catch (error) {
     next(error)
   }
@@ -135,7 +135,7 @@ const updatehomeproduct = async (req, res, next) => {
     if (file.startsWith("https://res.cloudinary.com/arkaya")) {
       const updatedata = await HomeProduct.updateOne({ _id: id }, { $set: { file: { public_id: imgpublicid, url: file }, productname } })
 
-      res.status(200).json({ message: "Home Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Home Product Updated Successfully", updatedata })
 
     } else {
 
@@ -143,7 +143,7 @@ const updatehomeproduct = async (req, res, next) => {
 
       if (deletedImg) {
         const result = await cloudinary.uploader.upload(file, {
-          folder: "arkaya/home/product",
+          folder: "arkayalighting/home/product",
           resource_type: 'auto',
           width: 400,
           height: 300,

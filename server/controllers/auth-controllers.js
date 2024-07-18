@@ -2,7 +2,7 @@ const User = require("../models/user-models")
 
 const signUP = async (req, res, next) => {
   try {
-    const { name, email, phone, password, confirmPassword } = req.body
+    const { name, email, phone, organization, password, confirmPassword } = req.body
 
     const existedUser = await User.findOne({ email })
 
@@ -14,7 +14,7 @@ const signUP = async (req, res, next) => {
       return res.status(400).json({ message: "Password Must Be Same" })
     }
 
-    const user = await User.create({ name: name.toLowerCase().trim(), email: email.toLowerCase().trim(), phone: phone.trim(), password: password.trim(), confirmPassword: confirmPassword.trim() })
+    const user = await User.create({ name: name.toLowerCase().trim(), email: email.toLowerCase().trim(), phone: phone.trim(), organization: organization.trim(), password: password.trim(), confirmPassword: confirmPassword.trim() })
 
     // const options = {
     //   httpOnly: true,
@@ -22,7 +22,7 @@ const signUP = async (req, res, next) => {
     // }
 
     // res.status(201).cookie("Token", await user.generateToken(), options).json({ message: "Registration Successful", token: await user.generateToken(), userId: user._id.toString() })
-    res.status(201).json({ message: "Registration Successful", token: await user.generateToken(), userId: user._id.toString() })
+    return res.status(201).json({ message: "Registration Successful", token: await user.generateToken(), userId: user._id.toString() })
 
   }
 
@@ -46,10 +46,10 @@ const login = async (req, res, next) => {
     const user = await userExist.comparePassword(password)
 
     if (user) {
-      res.status(200).json({ message: "Login Successfully", token: await userExist.generateToken(), userId: userExist._id.toString() })
+      return res.status(200).json({ message: "Login Successfully", token: await userExist.generateToken(), userId: userExist._id.toString() })
     }
     else {
-      res.status(401).json({ message: "Invalid Email Id or Password" })
+      return res.status(401).json({ message: "Invalid Email Id or Password" })
     }
 
   } catch (error) {
@@ -61,12 +61,7 @@ const login = async (req, res, next) => {
 const user = async (req, res, next) => {
   try {
     const userData = req.user
-
-    // console.log(userData);
-    // console.log(userData._id.toString());
-
     return res.status(200).json({ userData: userData })
-
   }
   catch (error) {
     next(error)
@@ -84,7 +79,7 @@ const user = async (req, res, next) => {
 //     // const updateUser = await User.findByIdAndUpdate({ _id: id }, { $set: { name: name, email: email, phone: phone, password: password, confirmPassword: confirmPassword } })
 
 //     if (updatedUser) {
-//       res.status(200).json({ message: "Profile Updated Successfully", updatedUser })
+//       return res.status(200).json({ message: "Profile Updated Successfully", updatedUser })
 //     }
 
 //   } catch (error) {

@@ -9,33 +9,33 @@ const newsLetter = async (req, res, next) => {
       host: "smtp.gmail.com",
       port: 587,
       auth: {
-        user: "ananddwivedi1313@gmail.com",
-        pass: "dmuoadpxddarwhbo"
+        user: "arkayalighting@gmail.com",
+        pass: "qztiixbfbwqrskja"
       }
     })
 
     let mailOption = {
-      from: "ananddwivedi1313@gmail.com",
+      from: "arkayalighting@gmail.com",
       to: newsletteremail,
       subject: "Thanks For Subscribing Our NewsLetter",
       html: `
       <h1>Thankyou For Joining Us</h1>
-      <p>Now youn will get regular Updates regarding our new Products and Offers</p>
+      <p>Now you will get regular Updates regarding our new Products and Offers</p>
       `
     }
 
     transporter.sendMail(mailOption, (error) => {
       if (error) {
-        console.log(error, "to client")
-        res.status(500).json({ message: "Failed to send Email" })
+        // console.log(error, "to client")
+        return res.status(500).json({ message: "Failed to send Email" })
       }
       else {
-        res.status(200).json({ message: "Email Sent Successfully" })
+        return res.status(200).json({ message: "Email Sent Successfully" })
       }
     })
 
     mailOption = {
-      to: "ananddwivedi1313@gmail.com",
+      to: "arkayalighting@gmail.com",
       subject: "New Subscriber",
       html: `
       <p>${newsletteremail} is our new subscriber</p>
@@ -44,12 +44,12 @@ const newsLetter = async (req, res, next) => {
 
     transporter.sendMail(mailOption, (error) => {
       if (error) {
-        console.log(error, "to admin")
-        res.status(500).json({ message: "Failed to send Email" })
+        // console.log(error, "to admin")
+        return res.status(500).json({ message: "Failed to send Email" })
       }
       else {
-        console.log("New Subscriber Email Sent")
-        res.status(200).json({ message: "New Subscriber Email Sent" })
+        // console.log("New Subscriber Email Sent")
+        return res.status(200).json({ message: "New Subscriber Email Sent" })
       }
     })
 

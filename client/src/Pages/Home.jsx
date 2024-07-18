@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../store/Auth";
+import useOnLine from "../Utils/useOnline";
+import Offline from "./Offline";
 
 const Home = () => {
 
@@ -49,6 +51,12 @@ const Home = () => {
       toast.error(error.message)
     }
   }
+
+  const isOnline = useOnLine()
+
+    if (!isOnline) {
+        return <Offline />
+    }
 
   return (
     <>
@@ -329,7 +337,8 @@ const Home = () => {
             <div className="row">
               <div className="col-md-12">
                 <div className="title">
-                  <h3>What Clients Say?</h3>
+                  {/* <h3>What Clients Say?</h3> */}
+                  <h3>Testimonials</h3>
                 </div>
               </div>
             </div>
@@ -350,7 +359,7 @@ const Home = () => {
 
                       {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
-                      <p style={{height:"150px"}}>The DMX controllers offered unparalleled versatility and control over our stage lighting.</p>
+                      <p style={{height:"200px"}}>The DMX controllers offered unparalleled versatility and control over our stage lighting.</p>
                     </div>
                   </div>
                 </div>
@@ -362,7 +371,7 @@ const Home = () => {
                       </div>
                       {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
-                      <p style={{height:"150px"}}>Impressed by the sleek design and incredible brightness of the LED panels.</p>
+                      <p style={{height:"200px"}}>Impressed by the sleek design and incredible brightness of the LED panels.</p>
                     </div>
                   </div>
                 </div>
@@ -375,7 +384,7 @@ const Home = () => {
 
                       {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
-                      <p style={{height:"150px"}}>The Mini LED Moving Lights transformed our event with their stunning effects and compact size.</p>
+                      <p style={{height:"200px"}}>The Mini LED Moving Lights transformed our event with their stunning effects and compact size.</p>
                     </div>
                   </div>
                 </div>

@@ -24,7 +24,7 @@ const adddecorativeProduct = async (req, res, next) => {
     const product = await DecorativeProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } })
     // console.log(product);
 
-    res.status(200).json({ message: "Decorative product created successfully", product })
+    return res.status(200).json({ message: "Decorative product created successfully", product })
 
 
   } catch (error) {
@@ -38,7 +38,7 @@ const getsingaldecorativeproducts = async (req, res, next) => {
     // console.log(id);
     const singleProduct = await DecorativeProduct.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singleProduct)
+    return res.status(200).json(singleProduct)
   } catch (error) {
     next(error)
   }
@@ -52,7 +52,7 @@ const updatedecorativeproducts = async (req, res, next) => {
     if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
       const updatedata = await DecorativeProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
 
-      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
     } else {
 
@@ -111,7 +111,7 @@ const addinteriorProduct = async (req, res, next) => {
     const product = await InteriorProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname })
     // console.log(product);
 
-    res.status(200).json({ message: "Interior product created successfully", product })
+    return res.status(200).json({ message: "Interior product created successfully", product })
 
 
   } catch (error) {
@@ -125,7 +125,7 @@ const getsingalinteriorproducts = async (req, res, next) => {
     // console.log(id);
     const singleProduct = await InteriorProduct.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singleProduct)
+    return res.status(200).json(singleProduct)
   } catch (error) {
     next(error)
   }
@@ -139,7 +139,7 @@ const updateinteriorproducts = async (req, res, next) => {
     if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
       const updatedata = await InteriorProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname } })
 
-      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
     } else {
 
@@ -198,7 +198,7 @@ const addexteriorProduct = async (req, res, next) => {
     const product = await ExteriorProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } })
     // console.log(product);
 
-    res.status(200).json({ message: "Exterior product created successfully", product })
+    return res.status(200).json({ message: "Exterior product created successfully", product })
 
 
   } catch (error) {
@@ -213,7 +213,7 @@ const getsingalexteriorproducts = async (req, res, next) => {
     // console.log(id);
     const singleProduct = await ExteriorProduct.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singleProduct)
+    return res.status(200).json(singleProduct)
   } catch (error) {
     next(error)
   }
@@ -228,7 +228,7 @@ const updateexteriorproducts = async (req, res, next) => {
     if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
       const updatedata = await ExteriorProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { size, power, workingElectricity, controlMode, scheme, lampBeads, IPGrade, masterStroke, returnRoute, distanceFromCenter, lampshellFaceColor, noOfLight } } })
 
-      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
     } else {
 
@@ -287,7 +287,7 @@ const addentertainmentProduct = async (req, res, next) => {
     const product = await EntertainmentProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, category, description })
     // console.log(product);
 
-    res.status(200).json({ message: "Entertainment product created successfully", product })
+    return res.status(200).json({ message: "Entertainment product created successfully", product })
 
 
   } catch (error) {
@@ -301,7 +301,7 @@ const getsingalentertainmentproducts = async (req, res, next) => {
     // console.log(id);
     const singleProduct = await EntertainmentProduct.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singleProduct)
+    return res.status(200).json(singleProduct)
   } catch (error) {
     next(error)
   }
@@ -315,7 +315,7 @@ const updateentertainmentproducts = async (req, res, next) => {
     if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
       const updatedata = await EntertainmentProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, category, description } })
 
-      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
     } else {
 
@@ -374,7 +374,7 @@ const addLEDStripProduct = async (req, res, next) => {
     const product = await LEDStripProduct.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { des, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } })
     // console.log(product);
 
-    res.status(200).json({ message: "LED Strip product created successfully", product })
+    return res.status(200).json({ message: "LED Strip product created successfully", product })
 
 
   } catch (error) {
@@ -388,7 +388,7 @@ const getsingaLEDStripproducts = async (req, res, next) => {
     // console.log(id);
     const singleProduct = await LEDStripProduct.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singleProduct)
+    return res.status(200).json(singleProduct)
   } catch (error) {
     next(error)
   }
@@ -403,7 +403,7 @@ const updateLEDStripproducts = async (req, res, next) => {
     if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
       const updatedata = await LEDStripProduct.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { des, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
 
-      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
     } else {
 

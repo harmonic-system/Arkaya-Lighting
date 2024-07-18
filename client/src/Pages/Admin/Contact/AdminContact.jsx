@@ -20,7 +20,8 @@ const AdminContact = () => {
       // console.log(data);
       setAllContacts(data)
     } catch (error) {
-      console.error('Error:', error);
+      toast.error(error.message)
+      // console.error('Error:', error);
     }
   }
 

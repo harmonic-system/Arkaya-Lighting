@@ -1,10 +1,11 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../store/Auth";
 import { useState } from "react";
 
 const UserProfile = () => {
 
   const { user } = useAuth()
+  // console.log(user)
 
   const [details, setDetails] = useState(true)
 
@@ -53,8 +54,11 @@ const UserProfile = () => {
                   <div className=" col-md-12">
                     <input className="form-control rounded" value={profileDetails.phone} placeholder="Phone" type="text" name="phone" required readOnly />
                   </div>
+                  <div className=" col-md-12">
+                    <input className="form-control rounded" value={profileDetails.organization} placeholder="Organization" type="text" name="organization" readOnly />
+                  </div>
                   {/* <div className=" col-md-12">
-                    <Link to="/editprofile" className="but rounded text-center">Edit Profile</Link>
+                    <Link to={`/editprofile/${}`} className="but rounded text-center">Edit Profile</Link>
                   </div> */}
                 </div>
               </form>
@@ -62,7 +66,6 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-      <Outlet />
 
 
     </>

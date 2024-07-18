@@ -5,24 +5,10 @@ const {
   addmovingheadlamp, getsingalmovingheadlamp, updatemovingheadlamp, deletemovingheadlamp,
   addmovingheadled, getsingalmovingheadled, updatemovingheadled, deletemovingheadled,
   addstaticled, getsingalstaticled, updatestaticled, deletestaticled,
-  addeffectlight, getsingaleffectlight, updateeffectlight, deleteeffectlight,
-} = require("../../../../../controllers/Admin-Controllers/AdminProduct-Controllers/AdminEntertainment-controllers/AdminEntertainment-controllers")
+  addeffectlight, getsingaleffectlight, updateeffectlight, deleteeffectlight } = require("../../../../../controllers/Admin-Controllers/AdminProduct-Controllers/LightingFixture/AdminEntertainment-controllers/AdminEntertainment-controllers")
 
 
 const router = express.Router()
-
-
-
-// Lightin Fixtures
-
-
-// Architecture
-
-
-
-
-
-
 
 // Entertainment
 
@@ -68,27 +54,6 @@ router.route("/updateeffectlight/:id").put(authMiddleware, adminMiddleware, upda
 router.route("/deleteeffectlight/:id").delete(authMiddleware, adminMiddleware, deleteeffectlight)
 
 
-
-// Video Displays
-// router.route("/get")
-
-
-
-
-// Controllers Distribution And Interfaces
-// router.route("/get")
-
-
-
-
-// Rigging
-// router.route("/get")
-
-
-
-
-// Spaers And Accessories
-// router.route("/get")
 
 
 module.exports = router

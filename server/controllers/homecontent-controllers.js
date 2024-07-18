@@ -9,7 +9,7 @@ const homeCarousel = async (req, res, next) => {
       return res.status(100).json({ message: "No Home Carousels Found" })
     }
 
-    res.status(200).json(carousels)
+    return res.status(200).json(carousels)
   } catch (error) {
     next(error)
   }
@@ -24,7 +24,7 @@ const homeProducts = async (req, res, next) => {
       return res.status(100).json({ message: "No Home Products Found" })
     }
 
-    res.status(200).json(homeproducts)
+    return res.status(200).json(homeproducts)
   } catch (error) {
     next(error)
   }

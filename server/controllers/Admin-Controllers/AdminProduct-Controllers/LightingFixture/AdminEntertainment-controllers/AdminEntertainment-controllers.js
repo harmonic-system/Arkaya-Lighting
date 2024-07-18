@@ -10,23 +10,23 @@ const cloudinary = require("../../../../../utils/cloudinary")
 
 
 const addmovingheadlamp = async (req, res, next) => {
-  const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
-  // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11);
+  const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
+  // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
 
   try {
 
     const result = await cloudinary.uploader.upload(productfile, {
-      folder: "arkayalighting/products/entertainment/lamp",
+      folder: "arkayalighting/products/lightingfixture/entertainment/lamp",
       resource_type: 'auto',
       width: 400,
       height: 300,
     })
 
 
-    const product = await MHSLamp.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } })
+    const product = await MHSLamp.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } })
     // console.log(product);
 
-    res.status(200).json({ message: "Moving Head Series Lamp product created successfully", product })
+    return res.status(200).json({ message: "Moving Head Series Lamp product created successfully", product })
 
 
   } catch (error) {
@@ -41,7 +41,7 @@ const getsingalmovingheadlamp = async (req, res, next) => {
     // console.log(id);
     const singleProduct = await MHSLamp.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singleProduct)
+    return res.status(200).json(singleProduct)
   } catch (error) {
     next(error)
   }
@@ -51,12 +51,12 @@ const getsingalmovingheadlamp = async (req, res, next) => {
 const updatemovingheadlamp = async (req, res, next) => {
   try {
     const id = req.params.id
-    const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
+    const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
     // console.log(productfile, imgpublicid, productname)
-    if (productfile.startsWith("https://res.cloudinary.com/arkayalighting")) {
-      const updatedata = await MHSLamp.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
+    if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await MHSLamp.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
 
-      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
     } else {
 
@@ -64,12 +64,12 @@ const updatemovingheadlamp = async (req, res, next) => {
 
       if (deletedImg) {
         const result = await cloudinary.uploader.upload(productfile, {
-          folder: "arkayalighting/products/entertainment/lamp",
+          folder: "arkayalighting/products/lightingfixture/entertainment/lamp",
           resource_type: 'auto',
           width: 400,
           height: 300,
         })
-        const updatedata = await MHSLamp.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
+        const updatedata = await MHSLamp.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
         return res.status(200).json({ message: "Product Updated Successfully", updatedata })
       } else {
         return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
@@ -101,23 +101,23 @@ const deletemovingheadlamp = async (req, res, next) => {
 //  Moving Head Led Series
 
 const addmovingheadled = async (req, res, next) => {
-  const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
-  // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11);
+  const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
+  // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
 
   try {
 
     const result = await cloudinary.uploader.upload(productfile, {
-      folder: "arkayalighting/products/entertainment/led",
+      folder: "arkayalighting/products/lightingfixture/entertainment/led",
       resource_type: 'auto',
       width: 400,
       height: 300,
     })
 
 
-    const product = await MHSLed.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } })
+    const product = await MHSLed.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } })
     // console.log(product);
 
-    res.status(200).json({ message: "Moving Head Series Led product created successfully", product })
+    return res.status(200).json({ message: "Moving Head Series Led product created successfully", product })
 
 
   } catch (error) {
@@ -132,7 +132,7 @@ const getsingalmovingheadled = async (req, res, next) => {
     // console.log(id);
     const singleProduct = await MHSLed.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singleProduct)
+    return res.status(200).json(singleProduct)
   } catch (error) {
     next(error)
   }
@@ -142,12 +142,12 @@ const getsingalmovingheadled = async (req, res, next) => {
 const updatemovingheadled = async (req, res, next) => {
   try {
     const id = req.params.id
-    const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
+    const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
     // console.log(productfile, imgpublicid, productname)
-    if (productfile.startsWith("https://res.cloudinary.com/arkayalighting")) {
-      const updatedata = await MHSLed.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
+    if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await MHSLed.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
 
-      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
     } else {
 
@@ -155,12 +155,12 @@ const updatemovingheadled = async (req, res, next) => {
 
       if (deletedImg) {
         const result = await cloudinary.uploader.upload(productfile, {
-          folder: "arkayalighting/products/entertainment/led",
+          folder: "arkayalighting/products/lightingfixture/entertainment/led",
           resource_type: 'auto',
           width: 400,
           height: 300,
         })
-        const updatedata = await MHSLed.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
+        const updatedata = await MHSLed.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
         return res.status(200).json({ message: "Product Updated Successfully", updatedata })
       } else {
         return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
@@ -192,23 +192,23 @@ const deletemovingheadled = async (req, res, next) => {
 //  Static Led Series
 
 const addstaticled = async (req, res, next) => {
-  const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
-  // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11);
+  const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
+  // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
 
   try {
 
     const result = await cloudinary.uploader.upload(productfile, {
-      folder: "arkayalighting/products/entertainment/staticled",
+      folder: "arkayalighting/products/lightingfixture/entertainment/staticled",
       resource_type: 'auto',
       width: 400,
       height: 300,
     })
 
 
-    const product = await StaticLed.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } })
+    const product = await StaticLed.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } })
     // console.log(product);
 
-    res.status(200).json({ message: "Static Led product created successfully", product })
+    return res.status(200).json({ message: "Static Led product created successfully", product })
 
 
   } catch (error) {
@@ -223,7 +223,7 @@ const getsingalstaticled = async (req, res, next) => {
     // console.log(id);
     const singleProduct = await StaticLed.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singleProduct)
+    return res.status(200).json(singleProduct)
   } catch (error) {
     next(error)
   }
@@ -233,12 +233,12 @@ const getsingalstaticled = async (req, res, next) => {
 const updatestaticled = async (req, res, next) => {
   try {
     const id = req.params.id
-    const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
+    const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
     // console.log(productfile, imgpublicid, productname)
-    if (productfile.startsWith("https://res.cloudinary.com/arkayalighting")) {
-      const updatedata = await StaticLed.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
+    if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await StaticLed.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
 
-      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
     } else {
 
@@ -246,12 +246,12 @@ const updatestaticled = async (req, res, next) => {
 
       if (deletedImg) {
         const result = await cloudinary.uploader.upload(productfile, {
-          folder: "arkayalighting/products/entertainment/staticled",
+          folder: "arkayalighting/products/lightingfixture/entertainment/staticled",
           resource_type: 'auto',
           width: 400,
           height: 300,
         })
-        const updatedata = await StaticLed.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
+        const updatedata = await StaticLed.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
         return res.status(200).json({ message: "Product Updated Successfully", updatedata })
       } else {
         return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
@@ -283,23 +283,23 @@ const deletestaticled = async (req, res, next) => {
 //  Effect Light
 
 const addeffectlight = async (req, res, next) => {
-  const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
-  // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11);
+  const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
+  // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
 
   try {
 
     const result = await cloudinary.uploader.upload(productfile, {
-      folder: "arkayalighting/products/entertainment/effectlight",
+      folder: "arkayalighting/products/lightingfixture/entertainment/effectlight",
       resource_type: 'auto',
       width: 400,
       height: 300,
     })
 
 
-    const product = await EffectLight.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } })
+    const product = await EffectLight.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } })
     // console.log(product);
 
-    res.status(200).json({ message: "Effect Light product created successfully", product })
+    return res.status(200).json({ message: "Effect Light product created successfully", product })
 
 
   } catch (error) {
@@ -314,7 +314,7 @@ const getsingaleffectlight = async (req, res, next) => {
     // console.log(id);
     const singleProduct = await EffectLight.findOne({ _id: id })
     // console.log(singleProduct);
-    res.status(200).json(singleProduct)
+    return res.status(200).json(singleProduct)
   } catch (error) {
     next(error)
   }
@@ -324,12 +324,12 @@ const getsingaleffectlight = async (req, res, next) => {
 const updateeffectlight = async (req, res, next) => {
   try {
     const id = req.params.id
-    const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } = req.body
+    const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
     // console.log(productfile, imgpublicid, productname)
-    if (productfile.startsWith("https://res.cloudinary.com/arkayalighting")) {
-      const updatedata = await EffectLight.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
+    if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+      const updatedata = await EffectLight.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
 
-      res.status(200).json({ message: "Product Updated Successfully", updatedata })
+      return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
     } else {
 
@@ -337,12 +337,12 @@ const updateeffectlight = async (req, res, next) => {
 
       if (deletedImg) {
         const result = await cloudinary.uploader.upload(productfile, {
-          folder: "arkayalighting/products/entertainment/effectlight",
+          folder: "arkayalighting/products/lightingfixture/entertainment/effectlight",
           resource_type: 'auto',
           width: 400,
           height: 300,
         })
-        const updatedata = await EffectLight.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10, spec11 } } })
+        const updatedata = await EffectLight.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
         return res.status(200).json({ message: "Product Updated Successfully", updatedata })
       } else {
         return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })

@@ -1,77 +1,102 @@
-import { useAuth } from "../../../../../../store/Auth"
+import { useEffect } from "react";
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuth } from "../../../../../../store/Auth";
+import { useLightingFixtures } from "../../../../../../store/Product/LightingFixture";
 
-const AdminStaticLed = ()=>{
-  const { authorizationToken, entertainmentProducts, getAllEntertainmentProducts, server } = useAuth()
-  let count = 1
+const AdminStaticLed = () => {
 
+    const { authorizationToken, server } = useAuth()
+    const { staticLed, getAllStaticLedProducts } = useLightingFixtures()
 
-  const deleteProduct = async (id) => {
-    try {
-      const response = await fetch(`${server}/api/v1/adminproducts/deleteentertainmentproducts/${id}`, {
-        method: "DELETE",
-        headers: {
-          'Authorization': authorizationToken,
-        }
-      })
-
-      if (response.ok) {
-        const res = await response.json()
-        toast.success(res.message)
-        getAllEntertainmentProducts()
-      }
-    } catch (error) {
-      toast.error('Failed to Delete Product');
-    }
-  }
+    let count = 1
 
 
+    const deleteProduct = async (id) => {
+        try {
+            const response = await fetch(`${server}/api/v1/lightingfixture/adminentertainment/deletestaticled/${id}`, {
+                method: "DELETE",
+                headers: {
+                    'Authorization': authorizationToken,
+                }
+            })
 
-  useEffect(() => {
-    getAllEntertainmentProducts()
-  }, [])
-
-
-  return (
-    <>
-      {/* <AdminLayout /> */}
-      <div className="container my-5">
-      <h2 className="fw-bold mb-3">Admin Entertainment Products</h2>
-        <div className="w-100 d-flex justify-content-end my-5">
-          <Link className="btn btn-warning" to="/admin/addentertainmentproduct" >Add Product</Link>
-        </div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Image URL</th>
-              <th>Product Name</th>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              entertainmentProducts.map((product) => {
-                // { console.log(product._id); }
-                return <tr key={product._id}>
-                  <td>{count++}</td>
-                  <td className="message">{product.productfile.url}</td>
-                  <td className="message">{product.productname}</td>
-                  <td className="message">{product.category}</td>
-                  <td className="message">{product.description}</td>
-                  <td><Link to={`/admin/editentertainmentproduct/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
-                  <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
-                </tr>
-              })
+            if (response.ok) {
+                const res = await response.json()
+                toast.success(res.message)
+                getAllStaticLedProducts()
             }
-          </tbody>
-        </table>
+        } catch (error) {
+            toast.error('Failed to Delete Product');
+        }
+    }
 
-      </div>
-    </>
-  )
+
+
+    useEffect(() => {
+        getAllStaticLedProducts()
+    }, [])
+
+
+    return (
+        <>
+            <div className="container my-5">
+                <h2 className="fw-bold mb-3">Admin Static Led Products</h2>
+                <div className="w-100 d-flex justify-content-end my-5">
+                    <Link className="btn btn-warning" to="/admin/addstaticled" >Add Product</Link>
+                </div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No</th>
+                            <th>Image URL</th>
+                            <th>Product Name</th>
+                            <th>Model</th>
+                            <th>Description</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            staticLed.map((product) => {
+                                // { console.log(product._id); }
+                                return <tr key={product._id}>
+                                    <td>{count++}</td>
+                                    <td className="message">{product.productfile.url}</td>
+                                    <td>{product.productname}</td>
+                                    <td>{product.model}</td>
+                                    <td>
+                                        <table className="table border border-none">
+                                            <tbody>
+                                                <tr className="d-flex flex-column border-bottom-0">
+                                                    <td className="message">{product.description.spec1}</td>
+                                                    <td className="message">{product.description.spec2}</td>
+                                                    <td className="message">{product.description.spec3}</td>
+                                                    <td className="message">{product.description.spec4}</td>
+                                                    <td className="message">{product.description.spec5}</td>
+                                                    <td className="message">{product.description.spec6}</td>
+                                                    <td className="message">{product.description.spec7}</td>
+                                                    <td className="message">{product.description.spec8}</td>
+                                                    <td className="message">{product.description.spec9}</td>
+                                                    <td className="message">{product.description.spec10}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td><Link to={`/admin/editstaticled/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                                    <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
+                                </tr>
+                            })
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </>
+    )
 }
 
 export default AdminStaticLed;

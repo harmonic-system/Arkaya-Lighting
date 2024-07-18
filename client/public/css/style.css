@@ -770,6 +770,7 @@ nav.main-menu {
 }
 
 .header-search input {
+	background-color: red !important;
 	width: 100%;
 	min-height: 45px;
 	border-radius: 0px;
@@ -2297,7 +2298,7 @@ ul.lik li a:hover {
 ---------------------------------------------------------------------*/
 .brand_color .titlepage h2 {
 	font-weight: bold;
-	font-size: 40px !important;
+	font-size: 2.5vw !important;
 	text-transform: uppercase;
 }
 
@@ -2307,8 +2308,8 @@ ul.lik li a:hover {
 }
 
 .brand_color .titlepage {
-	margin-top: 70px;
-	padding-bottom: 70px;
+	margin-top: 3vw;
+	margin-bottom: 3vw;
 	text-align: center;
 }
 

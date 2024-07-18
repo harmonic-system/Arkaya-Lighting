@@ -1,6 +1,6 @@
 const Contact = require("../../models/contact-models")
 const NewsLetter = require("../../models/newsLetter-models")
-const ProductQuerry = require("../../models/productQuerry-models")
+const ProductQuery = require("../../models/productQuery-models")
 const User = require("../../models/user-models")
 
 const getAllUsers = async (req, res, next) => {
@@ -11,7 +11,7 @@ const getAllUsers = async (req, res, next) => {
       return res.status(100).json({ message: "No Users Found" })
     }
 
-    res.status(200).json(users)
+    return res.status(200).json(users)
 
   } catch (error) {
     next(error)
@@ -39,7 +39,7 @@ const getAllContacts = async (req, res, next) => {
       return res.status(100).json({ message: "No Contacts Found" })
     }
 
-    res.status(200).json(contacts)
+    return res.status(200).json(contacts)
 
   } catch (error) {
     next(error)
@@ -67,7 +67,7 @@ const getAllNewsLetter = async (req, res, next) => {
       return res.status(100).json({ message: "No NewsLetter Found" })
     }
 
-    res.status(200).json(newsLetters)
+    return res.status(200).json(newsLetters)
 
   } catch (error) {
     next(error)
@@ -87,32 +87,32 @@ const deleteNewsLetter = async (req, res, next) => {
   }
 }
 
-const getAllProductQuerry = async (req, res, next) => {
+const getAllProductQuery = async (req, res, next) => {
 
   try {
-    const productquerries = await ProductQuerry.find()
-    if (!productquerries || productquerries.length === 0) {
+    const productqueries = await ProductQuery.find()
+    if (!productqueries || productqueries.length === 0) {
       return res.status(100).json({ message: "No Product Querry Found" })
     }
 
-    res.status(200).json(productquerries)
+    return res.status(200).json(productqueries)
 
   } catch (error) {
     next(error)
   }
 }
 
-const deleteProductQuerry = async (req, res, next) => {
+const deleteProductQuery = async (req, res, next) => {
   try {
     const id = req.params.id
 
-    const deletedProductQuerry = await ProductQuerry.deleteOne({ _id: id })
-    if (deletedProductQuerry) {
-      return res.status(200).json({ message: "Product Querry Deleted Successfully" })
+    const deletedProductQuery = await ProductQuery.deleteOne({ _id: id })
+    if (deletedProductQuery) {
+      return res.status(200).json({ message: "Product Query Deleted Successfully" })
     }
   } catch (error) {
     next(error)
   }
 }
 
-module.exports = { getAllUsers, deleteUser, getAllContacts, deleteContact, getAllNewsLetter, deleteNewsLetter, getAllProductQuerry, deleteProductQuerry }
+module.exports = { getAllUsers, deleteUser, getAllContacts, deleteContact, getAllNewsLetter, deleteNewsLetter, getAllProductQuery, deleteProductQuery }

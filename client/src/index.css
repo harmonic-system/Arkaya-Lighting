@@ -324,3 +324,36 @@ button:focus-visible {
 
 
 /* Product End */
+
+
+/* Application Start */
+
+.application-image {
+  background: #fff;
+  padding-top: 90px;
+}
+
+.application-image .application-image-box {
+  padding: 30px 20px;
+  box-shadow: #00000040 0px 0px 19px 0px;
+  margin-bottom: 30px;
+  text-align: center;
+  height: 600px;
+}
+
+.application-image .application-image-box img {
+  height: auto;
+  border-radius: 20px;
+  /* width: 100%; */
+}
+
+.application-image .application-image-box h3 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 22px;
+  color: #050000;
+  padding: 20px 0px;
+}
+
+
+/* Application End */
