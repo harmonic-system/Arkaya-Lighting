@@ -70,7 +70,6 @@ const SignUp = () => {
         })
 
         // console.log(res);
-
         storeTokenInLocalStorage(res.token)
         toast.success(res.message)
         navigate("/")
@@ -78,9 +77,9 @@ const SignUp = () => {
       else {
         toast.error(res.message)
       }
-
       // console.log(res);
     } catch (error) {
+      // console.log(error);
       toast.error(error.message)
     }
   }

@@ -2,6 +2,7 @@ const DecorderAndAmplifier = require("../../../models/ProductModel/ControllerDis
 const DMXController = require("../../../models/ProductModel/ControllerDistributionAndInterfaces-models/DMXControllers/DMXControllers-models")
 const LEDController = require("../../../models/ProductModel/ControllerDistributionAndInterfaces-models/LEDController/LEDControllers-models")
 const Processor = require("../../../models/ProductModel/ControllerDistributionAndInterfaces-models/Processors/Processors-models")
+const PowerSupply = require("../../../models/ProductModel/ControllerDistributionAndInterfaces-models/SignalDistribution/PowerSypply-models")
 const SignalDistribution = require("../../../models/ProductModel/ControllerDistributionAndInterfaces-models/SignalDistribution/SignalDistribution-models")
 
 
@@ -53,6 +54,21 @@ const getsignaldistribution = async (req, res, next) => {
 }
 
 
+const getpowersupply = async (req, res, next) => {
+    try {
+        const products = await PowerSupply.find()
+        // console.log(products);
+        if (!products || products.length === 0) {
+            return res.status(100).json({ message: "No Products Found" })
+        }
+
+        return res.status(200).json(products)
+    } catch (error) {
+        next(error)
+    }
+}
+
+
 const getdecorderandamplifiers = async (req, res, next) => {
     try {
         const products = await DecorderAndAmplifier.find()
@@ -85,4 +101,4 @@ const getprocessors = async (req, res, next) => {
 
 
 
-module.exports = { getledcontrollers, getdmxcontrollers, getsignaldistribution, getdecorderandamplifiers, getprocessors }
+module.exports = { getledcontrollers, getdmxcontrollers, getsignaldistribution, getpowersupply, getdecorderandamplifiers, getprocessors }

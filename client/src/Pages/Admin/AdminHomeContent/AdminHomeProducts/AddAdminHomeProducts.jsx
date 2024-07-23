@@ -32,9 +32,10 @@ const AddAdminHomeProducts = () => {
 
 
       if (response.ok) {
+        const homeProductRes = await response.json()
         setImg("")
         setProductName("")
-        toast.success("Home Carousel Added Successfully")
+        toast.success(homeProductRes.message)
         getAllHomeProduct()
         setSpinner(false)
         navigate("/admin/homeproducts")

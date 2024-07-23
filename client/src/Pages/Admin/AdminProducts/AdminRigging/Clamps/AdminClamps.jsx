@@ -87,7 +87,29 @@ const AdminClamps = () => {
                                         </table>
                                     </td>
                                     <td><Link to={`/admin/editclamps/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
-                                    <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td>
+                                    {/* <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td> */}
+                                    <td>
+                                        <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><MdDelete className="bg-transparent" /></button>
+
+                                        {/* Modal */}
+                                        <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div className="modal-dialog modal-dialog-centered">
+                                                <div className="modal-content">
+                                                    <div className="modal-header">
+                                                        <h1 className="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div className="modal-body">
+                                                        <h1 className="" style={{ fontSize: "12px" }}>Are you sure you want to delete this product?</h1>
+                                                    </div>
+                                                    <div className="modal-footer">
+                                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" className="btn btn-warning" onClick={() => deleteProduct(product._id)} >Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                             })
                         }

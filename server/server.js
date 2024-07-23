@@ -40,7 +40,7 @@ const adminOutdoorSeriesRoutes = require("./routes/Admin-Routes/AdminProduct-Rou
 // controller distribution & interfaces
 const adminLedControllersRoutes = require("./routes/Admin-Routes/AdminProduct-Routes/AdminControllerDistributionAndInterfaces-Routes/AdminLEDControllers-Routes/AdminLEDControllers-Routes")
 const adminDmxControllersRoutes = require("./routes/Admin-Routes/AdminProduct-Routes/AdminControllerDistributionAndInterfaces-Routes/AdminDMXControllers-Routes/AdminDMXControllers-Routes")
-const adminSignalDistributionRoutes = require("./routes/Admin-Routes/AdminProduct-Routes/AdminControllerDistributionAndInterfaces-Routes/AdminSignalDistribution-Routes/AdminSignalDistribution-Routes")
+const adminsignaldistributionandpowersupplyRoutes = require("./routes/Admin-Routes/AdminProduct-Routes/AdminControllerDistributionAndInterfaces-Routes/AdminSignalDistribution&PowerSupply-Routes/AdminSignalDistributionAndPowerSupply-Routes")
 const adminDecorderAmplifiersRoutes = require("./routes/Admin-Routes/AdminProduct-Routes/AdminControllerDistributionAndInterfaces-Routes/AdminDecorderAndAmplifier-Routes/AdminDecorderAndAmplifier-Routes")
 const adminProcessorsRoutes = require("./routes/Admin-Routes/AdminProduct-Routes/AdminControllerDistributionAndInterfaces-Routes/AdminProcessor-Routes/AdminProcessor-Routes")
 
@@ -111,7 +111,7 @@ app.use("/api/v1/videodisplays/adminrentalseries", adminRentalSeriesRoutes)
 // controller distribution & interfaces
 app.use("/api/v1/controllerdistributioninterfaces/adminledcontrollers", adminLedControllersRoutes)
 app.use("/api/v1/controllerdistributioninterfaces/admindmxcontrollers", adminDmxControllersRoutes)
-app.use("/api/v1/controllerdistributioninterfaces/adminsignaldistribution", adminSignalDistributionRoutes)
+app.use("/api/v1/controllerdistributioninterfaces/adminsignaldistributionandpowersupply", adminsignaldistributionandpowersupplyRoutes)
 app.use("/api/v1/controllerdistributioninterfaces/admindecorderamplifiers", adminDecorderAmplifiersRoutes)
 app.use("/api/v1/controllerdistributioninterfaces/adminprocessors", adminProcessorsRoutes)
 

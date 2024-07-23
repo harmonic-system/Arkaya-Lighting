@@ -14,7 +14,7 @@ const addledcontroller = async (req, res, next) => {
         const result = await cloudinary.uploader.upload(productfile, {
             folder: "arkayalighting/products/controllerdistributioninterfaces/ledcontroller",
             resource_type: 'auto',
-            width: 400,
+            width: 300,
             height: 300,
         })
 

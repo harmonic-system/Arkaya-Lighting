@@ -30,7 +30,19 @@ const Application = () => {
 
             {
               application.map((application) => {
-                return <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12" key={application._id}>
+                return <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12" key={application._id}>
+                  <div className="application-image-box">
+                    <img src={application.applicationfile.url} />
+                    <h3>{application.heading}</h3>
+                    <span><small className="text-secondary">{application.about}</small></span>
+                  </div>
+                </div>
+              })
+            }
+            
+            {
+              application.map((application) => {
+                return <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12" key={application._id}>
                   <div className="application-image-box">
                     <img src={application.applicationfile.url} />
                     <h3>{application.heading}</h3>

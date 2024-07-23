@@ -1,10 +1,10 @@
 const express = require("express")
 const newsLetter = require("../controllers/newsLetter-controllers")
-const bodyParser = require("body-parser")
-const encoder = bodyParser.urlencoded()
+// const bodyParser = require("body-parser")
+// const encoder = bodyParser.urlencoded()
 
 const router = express.Router()
 
-router.route("/subscribe").post(encoder, newsLetter)
+router.route("/subscribe").post(newsLetter)
 
 module.exports = router

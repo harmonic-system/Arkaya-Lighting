@@ -12,10 +12,13 @@ const CDIProvider = ({ children }) => {
     const [ledControllers, setLedControllers] = useState([])
     const [dmxControllers, setDmxControllers] = useState([])
     const [signalDistribution, setSignalDistribution] = useState([])
+    const [powerSupply, setPowerSupply] = useState([])
     const [decorderAndAmplifiers, setDecorderAndAmplifiers] = useState([])
     const [processors, setProcessors] = useState([])
 
     // Get Products Of Controllers Distribution & Interfaces
+
+    // Led Controllers
 
     const getAllLedControllersProducts = async () => {
         try {
@@ -30,6 +33,8 @@ const CDIProvider = ({ children }) => {
         }
     }
 
+    // DMX Controllers
+
     const getAllDmxControllersProducts = async () => {
         try {
             const response = await fetch(`${server}/api/v1/products/getdmxcontrollers`, {
@@ -42,6 +47,10 @@ const CDIProvider = ({ children }) => {
             toast.error("Failed to get products")
         }
     }
+
+    // Signal Distribution And Power Supply
+
+    // Signal Distribution
 
     const getAllSignalDistributionProducts = async () => {
         try {
@@ -56,6 +65,23 @@ const CDIProvider = ({ children }) => {
         }
     }
 
+    // Power Supply
+
+    const getAllPowerSupplyProducts = async () => {
+        try {
+            const response = await fetch(`${server}/api/v1/products/getpowersupply`, {
+                method: "GET",
+            })
+
+            const res = await response.json()
+            setPowerSupply(res)
+        } catch (error) {
+            toast.error("Failed to get products")
+        }
+    }
+
+    // Decorders And Amplifiers
+
     const getAllDecorderAndAmplifiersProducts = async () => {
         try {
             const response = await fetch(`${server}/api/v1/products/getdecorderandamplifiers`, {
@@ -68,6 +94,8 @@ const CDIProvider = ({ children }) => {
             toast.error("Failed to get products")
         }
     }
+
+    // Processors
 
     const getAllProcessorsProducts = async () => {
         try {
@@ -85,7 +113,7 @@ const CDIProvider = ({ children }) => {
 
 
     return (
-        <CDIContext.Provider value={{ ledControllers, getAllLedControllersProducts, dmxControllers, getAllDmxControllersProducts, signalDistribution, getAllSignalDistributionProducts, decorderAndAmplifiers, getAllDecorderAndAmplifiersProducts, processors, getAllProcessorsProducts, }} >
+        <CDIContext.Provider value={{ ledControllers, getAllLedControllersProducts, dmxControllers, getAllDmxControllersProducts, signalDistribution, getAllSignalDistributionProducts, powerSupply, getAllPowerSupplyProducts, decorderAndAmplifiers, getAllDecorderAndAmplifiersProducts, processors, getAllProcessorsProducts, }} >
             {children}
         </CDIContext.Provider>
     )

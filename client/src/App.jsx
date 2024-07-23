@@ -72,9 +72,15 @@ import OutdoorSeries from "./Pages/Products/VideoDisplays/OutdoorSeries/OutdoorS
 // Controllers Distribution And Interfaces
 
 import LEDControllers from "./Pages/Products/ControllersDistributionInterfaces/LEDControllers/LEDControllers"
+
 import DMXControllers from "./Pages/Products/ControllersDistributionInterfaces/DMXControllers/DMXControllers"
-import SignalDistribution from "./Pages/Products/ControllersDistributionInterfaces/SignalDistribution/SignalDistribution"
+
+import SignalDistributionAndPowerSupply from "./Pages/Products/ControllersDistributionInterfaces/SignalDistribution&PowerSupply/SignalDistribution&PowerSupply"
+import SignalDistribution from "./Pages/Products/ControllersDistributionInterfaces/SignalDistribution&PowerSupply/SignalDistribution"
+import PowerSupply from "./Pages/Products/ControllersDistributionInterfaces/SignalDistribution&PowerSupply/PowerSupply"
+
 import DecorderAndAmplifiers from "./Pages/Products/ControllersDistributionInterfaces/DecorderAndAmplifires/DecorderAndAmplifires"
+
 import Processors from "./Pages/Products/ControllersDistributionInterfaces/Processors/Processors"
 
 // Rigging
@@ -177,9 +183,13 @@ import AddAdminDMXControllers from "./Pages/Admin/AdminProducts/AdminControllers
 import AdminDMXControllers from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/DMXControllers/AdminDMXControllers"
 import EditAdminDMXControllers from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/DMXControllers/EditAdminDMXControllers"
 
-import AddAdminSignalDistribution from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/SignalDistribution/AddAdminSignalDistribution"
-import AdminSignalDistribution from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/SignalDistribution/AdminSignalAdminDistribution"
-import EditAdminSignalDistribution from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/SignalDistribution/EditAdminSignalDistribution"
+import AddAdminSignalDistribution from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/SignalDistributionAndPowerSupply/SignalDistribution/AddAdminSignalDistribution"
+import AdminSignalDistribution from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/SignalDistributionAndPowerSupply/SignalDistribution/AdminSignalAdminDistribution"
+import EditAdminSignalDistribution from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/SignalDistributionAndPowerSupply/SignalDistribution/EditAdminSignalDistribution"
+
+import AddAdminPowerSupply from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/SignalDistributionAndPowerSupply/PowerSupply/AddAdminPowerSupply"
+import AdminPowerSupply from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/SignalDistributionAndPowerSupply/PowerSupply/AdminPowerSupply"
+import EditAdminPowerSupply from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/SignalDistributionAndPowerSupply/PowerSupply/EditAdminPowerSupply"
 
 import AddAdminDecorderAndAmplifiers from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/DecorderAndAmplifires/AddAdminDecorderAndAmplifiers"
 import AdminDecorderAndAmplifiers from "./Pages/Admin/AdminProducts/AdminControllersDistributionInterfaces/DecorderAndAmplifires/AdminDecorderAndAmplifiers"
@@ -224,6 +234,9 @@ import QueryBox from "./componants/QuerryBox/QueryBox"
 import AdminApplication from "./Pages/Admin/Application/AdminApplication"
 import AddAdminApplication from "./Pages/Admin/Application/AddAdminApplication"
 import EditAdminApplication from "./Pages/Admin/Application/EditAdminApplication"
+
+
+
 
 
 
@@ -282,7 +295,9 @@ function App() {
 
           <Route path="/ledcontrollers" element={< LEDControllers />} />
           <Route path="/dmxcontrollers" element={< DMXControllers />} />
+          <Route path="/signaldistributionandpowersupply" element={<SignalDistributionAndPowerSupply />} />
           <Route path="/signaldistribution" element={<SignalDistribution />} />
+          <Route path="/powersupply" element={<PowerSupply />} />
           <Route path="/decorderandamplifier" element={<DecorderAndAmplifiers />} />
           <Route path="/processors" element={<Processors />} />
 
@@ -403,6 +418,7 @@ function App() {
             <Route path="ledcontrollers" element={<AdminLEDControllers />} />
             <Route path="dmxcontrollers" element={<AdminDMXControllers />} />
             <Route path="signaldistribution" element={< AdminSignalDistribution />} />
+            <Route path="powersupply" element={< AdminPowerSupply />} />
             <Route path="decorderandamplifier" element={< AdminDecorderAndAmplifiers />} />
             <Route path="processors" element={< AdminProcessoers />} />
 
@@ -492,6 +508,9 @@ function App() {
 
             <Route path="addsignaldistribution" element={< AddAdminSignalDistribution />} />
             <Route path="editsignaldistribution/:id" element={< EditAdminSignalDistribution />} />
+
+            <Route path="addpowersupply" element={< AddAdminPowerSupply />} />
+            <Route path="editpowersupply/:id" element={< EditAdminPowerSupply />} />
 
             <Route path="adddecorderandamplifiers" element={< AddAdminDecorderAndAmplifiers />} />
             <Route path="editdecorderandamplifiers/:id" element={< EditAdminDecorderAndAmplifiers />} />

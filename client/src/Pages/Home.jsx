@@ -3,22 +3,22 @@ import { toast } from "react-toastify";
 import { useAuth } from "../store/Auth";
 import useOnLine from "../Utils/useOnline";
 import Offline from "./Offline";
+import Loading from "../componants/Loading/Loading";
 
 const Home = () => {
 
   const [newsubscriber, setNewSubscriber] = useState({
     newsletteremail: ""
   })
+  const [loading, setLoading] = useState(false)
 
   const { homeCarousel, homeProduct, server } = useAuth()
 
   const handleNewsletterInput = (e) => {
-    const name = e.target.name
-    const value = e.target.value
 
     setNewSubscriber({
       ...newsubscriber,
-      [name]: value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -26,6 +26,7 @@ const Home = () => {
   const handleNewsletter = async (e) => {
     try {
       e.preventDefault()
+      setLoading(true)
       const response = await fetch(`${server}/api/v1/newsletter/subscribe`, {
         method: "POST",
         headers: {
@@ -33,16 +34,15 @@ const Home = () => {
         },
         body: JSON.stringify(newsubscriber)
       })
-      // console.log(response);
 
       const res = await response.json()
-      // console.log(res);
 
       if (response.ok) {
         setNewSubscriber({
           newsletteremail: ""
         })
         toast.success(res.message)
+        setLoading(false)
       }
       else {
         toast.error("Already Subscribed From This Email Id")
@@ -54,9 +54,9 @@ const Home = () => {
 
   const isOnline = useOnLine()
 
-    if (!isOnline) {
-        return <Offline />
-    }
+  if (!isOnline) {
+    return <Offline />
+  }
 
   return (
     <>
@@ -359,7 +359,7 @@ const Home = () => {
 
                       {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
-                      <p style={{height:"200px"}}>The DMX controllers offered unparalleled versatility and control over our stage lighting.</p>
+                      <p style={{ height: "200px" }}>The DMX controllers offered unparalleled versatility and control over our stage lighting.</p>
                     </div>
                   </div>
                 </div>
@@ -371,7 +371,7 @@ const Home = () => {
                       </div>
                       {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
-                      <p style={{height:"200px"}}>Impressed by the sleek design and incredible brightness of the LED panels.</p>
+                      <p style={{ height: "200px" }}>Impressed by the sleek design and incredible brightness of the LED panels.</p>
                     </div>
                   </div>
                 </div>
@@ -384,7 +384,7 @@ const Home = () => {
 
                       {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
-                      <p style={{height:"200px"}}>The Mini LED Moving Lights transformed our event with their stunning effects and compact size.</p>
+                      <p style={{ height: "200px" }}>The Mini LED Moving Lights transformed our event with their stunning effects and compact size.</p>
                     </div>
                   </div>
                 </div>
@@ -414,6 +414,9 @@ const Home = () => {
                 <button type="submit" className="form-control rounded bg-dark text-light">Subcribe</button>
               </div>
             </form>
+            <div className="w-100 d-flex justify-content-center">
+              {loading && <Loading />}
+            </div>
           </div>
         </div>
       </div>

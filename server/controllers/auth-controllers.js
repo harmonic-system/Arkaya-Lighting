@@ -4,6 +4,8 @@ const signUP = async (req, res, next) => {
   try {
     const { name, email, phone, organization, password, confirmPassword } = req.body
 
+    // console.log(name, email, phone, organization, password, confirmPassword);
+
     const existedUser = await User.findOne({ email })
 
     if (existedUser) {
@@ -14,7 +16,7 @@ const signUP = async (req, res, next) => {
       return res.status(400).json({ message: "Password Must Be Same" })
     }
 
-    const user = await User.create({ name: name.toLowerCase().trim(), email: email.toLowerCase().trim(), phone: phone.trim(), organization: organization.trim(), password: password.trim(), confirmPassword: confirmPassword.trim() })
+    const user = await User.create({ name: name.trim().toLowerCase(), email: email.trim().toLowerCase(), phone: phone.trim(), organization: organization.trim(), password: password.trim(), confirmPassword: confirmPassword.trim() })
 
     // const options = {
     //   httpOnly: true,

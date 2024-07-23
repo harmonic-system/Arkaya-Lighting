@@ -19,8 +19,20 @@
         font-size: 1.2rem;
     }
 
-    .service-box{
+    .service-box {
         height: 420px;
+    }
+
+    .application-image-box {
+        height: 700px !important;
+    }
+}
+
+
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+    .application-image-box {
+        height: 700px !important;
     }
 }
 
@@ -121,12 +133,30 @@
         font-size: 1.2rem;
     }
 
-    .proimgheight{
+    .proimgheight {
         height: auto !important;
     }
 
-    .proimgspec{
+    .proimgspec {
         flex-direction: column;
+    }
+
+    .proimgheight img {
+        height: 250px !important;
+        width: 200px !important;
+    }
+
+    .proimgheight :first-child {
+        margin-top: 50px !important;
+    }
+
+    .product-bg .product-bg-white .product-box p {
+        padding-left: 20px !important;
+    }
+
+    .rect-imgheight img {
+        height: 150px !important;
+        width: 250px !important;
     }
 }
 
@@ -186,14 +216,31 @@
         top: 0;
     }
 
-    .proimgspec{
+    .proimgspec {
         flex-direction: column !important;
     }
 
-    .proimgheight{
+    .proimgheight {
         height: auto !important;
     }
 
+    .proimgheight img {
+        height: 250px !important;
+        width: 200px !important;
+    }
+
+    .proimgheight :first-child {
+        margin-top: 50px !important;
+    }
+
+    .product-bg .product-bg-white .product-box p {
+        padding-left: 20px !important;
+    }
+
+    .rect-imgheight img {
+        height: 150px !important;
+        width: 250px !important;
+    }
 }
 
 
@@ -205,7 +252,7 @@
         font-size: 1.2rem;
     }
 
-    .proimgspec{
+    .proimgspec {
         flex-direction: column !important;
     }
 }
@@ -218,7 +265,7 @@
         font-size: 1.2rem;
     }
 
-    .proimgspec{
+    .proimgspec {
         flex-direction: column !important;
     }
 }
@@ -229,7 +276,7 @@
         background: transparent;
     }
 
-    .service-box{
+    .service-box {
         height: 300px;
     }
 
@@ -256,7 +303,7 @@
         display: none !important;
     } */
 
-    .service-box{
+    .service-box {
         height: 350px;
     }
 
@@ -327,6 +374,9 @@
         font-size: 1.2rem;
     }
 
+    /* .proimgheight{
+        height: auto !important;
+    } */
 
 }
 

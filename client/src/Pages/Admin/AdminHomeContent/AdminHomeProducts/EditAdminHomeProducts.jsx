@@ -52,11 +52,12 @@ const EditAdminHomeProducts = () => {
 
 
       if (response.ok) {
+        const updatedHomeProduct = await response.json()
         setImg("")
         setImgPublicId("")
         setProductName("")
         setSpinner(false)
-        toast.success("Home Product Updated Successfully")
+        toast.success(updatedHomeProduct.message)
         navigate("/admin/homeproducts")
 
       }

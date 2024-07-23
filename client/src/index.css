@@ -338,7 +338,8 @@ button:focus-visible {
   box-shadow: #00000040 0px 0px 19px 0px;
   margin-bottom: 30px;
   text-align: center;
-  height: 600px;
+  height: 620px;
+  border-radius: 20px;
 }
 
 .application-image .application-image-box img {

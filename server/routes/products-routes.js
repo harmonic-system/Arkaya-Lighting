@@ -11,7 +11,7 @@ const { getcommercials, getdynamicfacade, getlandscapes, getmuseums, getresident
 
 const { getrentalseries, getindoorseries, getoutdoorseries } = require("../controllers/Product-Controllers/VideoDisplays/videodisplay-controllers")
 
-const { getledcontrollers, getdmxcontrollers, getsignaldistribution, getdecorderandamplifiers, getprocessors } = require("../controllers/Product-Controllers/ControllerDistributionAndInterfaces/controllersdistibutionandinterfaces-controllers")
+const { getledcontrollers, getdmxcontrollers, getsignaldistribution, getpowersupply, getdecorderandamplifiers, getprocessors } = require("../controllers/Product-Controllers/ControllerDistributionAndInterfaces/controllersdistibutionandinterfaces-controllers")
 
 const { gettruss, getclamps, getalluminiumprofile, getsiliconprofile, getstagelightingsystem, getstudiolightingsystem } = require("../controllers/Product-Controllers/Rigging/rigging-controllers")
 
@@ -74,6 +74,7 @@ router.route("/getoutdoorseries").get(getoutdoorseries)
 router.route("/getledcontrollers").get(getledcontrollers)
 router.route("/getdmxcontrollers").get(getdmxcontrollers)
 router.route("/getsignaldistribution").get(getsignaldistribution)
+router.route("/getpowersupply").get(getpowersupply)
 router.route("/getdecorderandamplifiers").get(getdecorderandamplifiers)
 router.route("/getprocessors").get(getprocessors)
 

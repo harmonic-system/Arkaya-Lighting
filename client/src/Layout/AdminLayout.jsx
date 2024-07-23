@@ -134,7 +134,28 @@ const AdminLayout = () => {
             <h3><b>Controllers,Distribution & Interfaces</b></h3>
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/ledcontrollers">Led Controllers</Link></li>
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/dmxcontrollers">Dmx Controllers</Link></li>
-            <li><Link className="btn btn-warning w-100 mb-3" to="/admin/signaldistribution">Signal Distribution</Link></li>
+
+
+
+
+            {/* <li><Link className="btn btn-warning w-100 mb-3" to="/admin/signaldistribution">Signal Distribution</Link></li> */}
+            <li className="list-group-item">
+              <div className="dropdown">
+                <a className="btn btn-warning dropdown-toggle w-100" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Signal Distribution & Power Supply
+                </a>
+
+                <ul className="dropdown-menu">
+                  <li><Link className="dropdown-item" to="/admin/signaldistribution">Signal Distribution</Link></li>
+                  <li><Link className="dropdown-item" to="/admin/powersupply">Power Supply</Link></li>
+                </ul>
+              </div>
+            </li>
+
+
+
+
+
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/decorderandamplifier">Decorders And Amplifiers</Link></li>
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/processors">Processors</Link></li>
 

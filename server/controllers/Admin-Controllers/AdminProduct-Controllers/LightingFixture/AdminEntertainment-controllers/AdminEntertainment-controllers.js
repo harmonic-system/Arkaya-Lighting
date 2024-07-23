@@ -18,7 +18,7 @@ const addmovingheadlamp = async (req, res, next) => {
     const result = await cloudinary.uploader.upload(productfile, {
       folder: "arkayalighting/products/lightingfixture/entertainment/lamp",
       resource_type: 'auto',
-      width: 400,
+      width: 200,
       height: 300,
     })
 
@@ -66,7 +66,7 @@ const updatemovingheadlamp = async (req, res, next) => {
         const result = await cloudinary.uploader.upload(productfile, {
           folder: "arkayalighting/products/lightingfixture/entertainment/lamp",
           resource_type: 'auto',
-          width: 400,
+          width: 200,
           height: 300,
         })
         const updatedata = await MHSLamp.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })

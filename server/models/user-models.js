@@ -79,7 +79,7 @@ userSchema.methods.generateToken = function () {
       email: this.email,
       isAdmin: this.isAdmin,
     }, process.env.JWT_SECRET_KEY, {
-      expiresIn: "30d"
+      expiresIn: "1d"
     })
 
   } catch (error) {

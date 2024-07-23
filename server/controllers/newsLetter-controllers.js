@@ -27,10 +27,10 @@ const newsLetter = async (req, res, next) => {
     transporter.sendMail(mailOption, (error) => {
       if (error) {
         // console.log(error, "to client")
-        return res.status(500).json({ message: "Failed to send Email" })
+        return res.status(500).json({ message: "Failed To Subscribe" })
       }
       else {
-        return res.status(200).json({ message: "Email Sent Successfully" })
+        return res.status(200).json({ message: "Thanks For Subscribing" })
       }
     })
 
@@ -45,11 +45,11 @@ const newsLetter = async (req, res, next) => {
     transporter.sendMail(mailOption, (error) => {
       if (error) {
         // console.log(error, "to admin")
-        return res.status(500).json({ message: "Failed to send Email" })
+        return res.status(500).json({ message: "Failed To Subscribe" })
       }
       else {
         // console.log("New Subscriber Email Sent")
-        return res.status(200).json({ message: "New Subscriber Email Sent" })
+        return res.status(200).json({ message: "Thanks For Subscribing" })
       }
     })
 

@@ -27,7 +27,7 @@ const Navbar = () => {
       <nav>
         <div className="wrapper">
           <div className="top-logo">
-            <Link to="/"><img src="./images/arkaya-logo1.png" alt="Arkaya Logo" style={{ width: "100%", height: "100%" }} className="py-2" /></Link>
+            <Link to="/"><img src="./images/arkaya-logo-transformed.png" alt="Arkaya Logo" style={{ width: "100%", height: "100%" }} className="py-2" /></Link>
           </div>
           <input type="radio" name="slider" id="menu-btn" />
           <input type="radio" name="slider" id="close-btn" />
@@ -74,7 +74,7 @@ const Navbar = () => {
                     <ul className="mega-links">
                       <li><Link to="/ledcontrollers">LED Controllers</Link></li>
                       <li><Link to="/dmxcontrollers">DMX Controllers</Link></li>
-                      <li><Link to="/signaldistribution">Signal Distribution</Link></li>
+                      <li><Link to="/signaldistributionandpowersupply">Signal Distribution & Power Supply</Link></li>
                       <li><Link to="/decorderandamplifier">Decorders & Amplifiers</Link></li>
                       <li><Link to="/processors">Processors</Link></li>
                     </ul>

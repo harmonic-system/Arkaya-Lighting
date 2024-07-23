@@ -20,7 +20,7 @@ const Footer = () => {
               <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div className="contact">
                   <h3>conatct us</h3>
-                  <span>101, Chaudhary Market,<br /> Main Patparganj Road,<br />Mayur Vihar Phase 1,<br/> New Delhi<br />+91 1234567890</span>
+                  <span>142, Main Patparganj Road,<br />Mayur Vihar Phase 1,<br/> New Delhi<br />+91 1234567890</span>
                 </div>
               </div>
               <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">

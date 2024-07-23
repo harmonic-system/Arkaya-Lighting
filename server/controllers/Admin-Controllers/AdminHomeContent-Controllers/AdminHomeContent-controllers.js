@@ -165,14 +165,14 @@ const updatehomeproduct = async (req, res, next) => {
 
 const deletehomeproduct = async (req, res, next) => {
   try {
-    const id = req.params.id
+    const id = req.params.id;
 
     const deletedProduct = await HomeProduct.deleteOne({ _id: id })
 
     if (deletedProduct) {
       return res.status(200).json({ message: "Home Product Deleted Successfully" })
-    }
 
+    }
   } catch (error) {
     // console.log(error);
     next(error)

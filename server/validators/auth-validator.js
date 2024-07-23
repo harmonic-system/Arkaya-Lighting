@@ -1,6 +1,6 @@
 const { z } = require("zod");
 
-// Creating an object schema
+// Creating an object schema for signup
 const signupSchema = z.object({
     name: z
         .string({ required_error: "Name is required" })
@@ -18,6 +18,9 @@ const signupSchema = z.object({
         .trim()
         .min(10, { message: "Phone must be of 10 characters" })
         .max(10, { message: "Phone must be of 10 characters" }),
+    organization: z
+        .string()
+        .trim(),
     password: z
         .string({ required_error: "Password is required" })
         .min(5, { message: "Password must be at least of 5 characters" })
@@ -28,4 +31,18 @@ const signupSchema = z.object({
         .max(30, { message: " Confirm Password can't be greater than 30 characters" }),
 });
 
-module.exports = signupSchema; 
+// Creating an object schema for login
+const loginSchema = z.object({
+    email: z
+        .string({ required_error: "Email is required" })
+        .trim()
+        .email({ message: "Invalid email address" })
+        .min(3, { message: "Email must be at least of 3 characters" })
+        .max(30, { message: "Email must not be more than 30 characters" }),
+    password: z
+        .string({ required_error: "Password is required" })
+        .min(5, { message: "Password must be at least of 5 characters" })
+        .max(30, { message: "Password can't be greater than 30 characters" }),
+});
+
+module.exports = { signupSchema, loginSchema }; 
