@@ -359,6 +359,11 @@ button:focus-visible {
 
 /* Application End */
 
+
+
+/* Product View Container Start */
+
+
 .container-product {
   width: 100%;
   padding-right: var( 0.75rem);
@@ -420,3 +425,5 @@ button:focus-visible {
     max-width: 1800px;
   }
 }
+
+/* Product View Container End */

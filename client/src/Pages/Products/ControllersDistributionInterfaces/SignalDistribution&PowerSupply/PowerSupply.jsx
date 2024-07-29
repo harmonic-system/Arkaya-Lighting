@@ -33,7 +33,7 @@ const PowerSupply = () => {
                                     // return <Link to="/productDetails" className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >
                                     return <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >
                                         <div className="product-box row rounded">
-                                            <h3 className="text-start"><b><big>{product.productname}</big></b></h3>
+                                            <h3 className="text-start" style={{ height: "100px" }}><b><big>{product.productname}</big></b></h3>
                                             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex proimgspec">
                                                 <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight rect-imgheight d-flex justify-content-center align-content-center" style={{ height: "200px" }}>
                                                     <img src={product.productfile.url} className="w-100 p-0 m-auto rounded" />
