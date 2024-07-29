@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 const FAQs = () => {
+
   return (
     <>
       <div className="container my-5">
@@ -31,7 +34,7 @@ const FAQs = () => {
                       </h2>
                       <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp;We have the lowest prices. We cut out the middle man and sell at wholesale prices directly to the public. This means big savings on quality products. Show us a lower price on lights or any item we sell. At Arkaya Lighting, we sell only the finest quality merchandise. Our lights products have been sold in the Worldwide. Brilliant brand lights are a superior product and second to none. We guarantee it or your money back! </p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp;We have the lowest prices. We cut out the middle man and sell at wholesale prices directly to the public. This means big savings on quality products. Show us a lower price on lights or any item we sell. At Arkaya Lighting, we sell only the finest quality merchandise. Our lights products have been sold in the Worldwide.</p>
                         </div>
                       </div>
                     </div>
@@ -43,7 +46,7 @@ const FAQs = () => {
                       </h2>
                       <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; We believe in the timeliness of customer service, and will do everything possible to satisfy our customers. If you have any problems, comments, or suggestions, please contact our customer service representatives. Click here For any questions, We normally respond to all enquiries within 1 working day expect the holiday</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; We believe in the timeliness of customer service, and will do everything possible to satisfy our customers. If you have any problems, comments, or suggestions, please contact our customer service representatives. Click <Link to="/contact"><b>here</b></Link> for any questions, We normally respond to all enquiries within 1 working day expect the holiday</p>
                         </div>
                       </div>
                     </div>
@@ -55,7 +58,7 @@ const FAQs = () => {
                       </h2>
                       <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; We do not cheat any customers. We have engaged in online retail products for years. We hope do business with you for long terms and create a pleasant shopping experience so that you will get your friends about us. That you can be rest assured buy from us</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; We do not cheat any customers. We have engaged in online retail products for years. We hope do business with you for long terms and create a pleasant shopping experience so that you will get your contact about us. That you can be rest assured buy from us</p>
                         </div>
                       </div>
                     </div>
@@ -79,7 +82,8 @@ const FAQs = () => {
                       </h2>
                       <div id="collapseSix" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; We accept credit cards(via Paypal), T/T, Western Union. you can choose your favorite method when you check out.</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; We're working on our payment methods. Soon You can Order Lighting Products from website</p>
+                          {/* <p className="text-secondary"><strong>Answer:</strong>&nbsp; We accept credit cards(via Paypal), T/T, Western Union. you can choose your favorite method when you check out.</p> */}
                         </div>
                       </div>
                     </div>
@@ -103,28 +107,32 @@ const FAQs = () => {
                       </h2>
                       <div id="collapseEight" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; Most of the orders are processed and shipped within 2-5 days. However there could be delay if error happens.</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; Most of the orders are processed and shipped within 2-5 days. However there could be delay if any error happens.</p>
                         </div>
                       </div>
                     </div>
                     <div className="accordion-item">
                       <h2 className="accordion-header">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                          <strong>9. Question: </strong>&nbsp;What is the process if I buy your product?
+                          <strong>9. Question: </strong>&nbsp;What is the process if I want to buy your product?
                         </button>
                       </h2>
                       <div id="collapseNine" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
+                          <p className="text-secondary mb-3"><strong>Answer:</strong><strong>1</strong>&nbsp; For now you have to follow these steps </p>
+                          <p className="text-secondary px-4 mb-2"><strong>Step 1 - :&nbsp;</strong>&nbsp; When you want to buy the product you find, get the product name or product model then fill the query box and send to us.</p>
+                        </div>
+                        {/* <div className="accordion-body">
                           <p className="text-secondary mb-3"><strong>Answer:</strong><strong>1</strong>&nbsp; Please see the 5 steps - </p>
                           <p className="text-secondary px-4 mb-2"><strong>Step 1 - :&nbsp;</strong>&nbsp; When you want to buy the product you find, choose the appropriate quantities, sizes, etc. then add the items to your cart. </p>
                           <p className="text-secondary px-4 mb-2"><strong>Step 2 - :&nbsp;</strong>&nbsp; When you want to checkout, click the Checkout button on the shopping cart page.</p>
                           <p className="text-secondary px-4 mb-2"><strong>Step 3 - :&nbsp;</strong>&nbsp; Fill all of the required information on the shipping and billing pages.</p>
                           <p className="text-secondary px-4 mb-2"><strong>Step 4 - :&nbsp;</strong>&nbsp; Review your order before submitting, to verify all information is correct and to get your total order.</p>
                           <p className="text-secondary px-4 mb-2"><strong>Step 5 - :&nbsp;</strong>&nbsp; We will ship your Product in 48 hours after your payment by PAYPAL or Credit card.</p>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
-                    <div className="accordion-item">
+                    {/* <div className="accordion-item">
                       <h2 className="accordion-header">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
                           <strong>10. Question: </strong>&nbsp;How do I know if you have shipped my order?
@@ -135,7 +143,7 @@ const FAQs = () => {
                           <p className="text-secondary"><strong>Answer:</strong>&nbsp;After we shipped your order, we will send you a tracking number, and you can track online, which will show you where your order is</p>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="accordion-item">
                       <h2 className="accordion-header">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
@@ -144,7 +152,7 @@ const FAQs = () => {
                       </h2>
                       <div id="collapseEleven" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp;All international shipments are shipped via DHL,UPS,TNT,FedEx express. Save more money now enjoying real brand new quality</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp;All international shipments are shipped via DHL,UPS,TNT,FedEx express. Save more money now enjoying real brand new quality .</p>
                         </div>
                       </div>
                     </div>
@@ -156,7 +164,8 @@ const FAQs = () => {
                       </h2>
                       <div id="collapseTwelve" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp;When your order shipping address differs from the billing address, we will send a confirm email to ask for your confirmation. After we confirm your order details, we will deliver merchandise ASAP!</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp;To change your address after order or any issue regarding address, you can <a href="mailto:arkayalighting@gmail.com"><b>mail</b></a> us or <a href="tel:+912255889966"><b>make a call</b></a> to our support executive</p>
+                          {/* <p className="text-secondary"><strong>Answer:</strong>&nbsp;When your order shipping address differs from the billing address, we will send a confirm email to ask for your confirmation. After we confirm your order details, we will deliver merchandise ASAP!</p> */}
                         </div>
                       </div>
                     </div>
@@ -168,7 +177,8 @@ const FAQs = () => {
                       </h2>
                       <div id="collapseThirteen" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp;Normally, when we deliver items, you will receive the tracking number via e-mail. And you can check it on line.</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp;Soon we'll launch this features in our website.</p>
+                          {/* <p className="text-secondary"><strong>Answer:</strong>&nbsp;Normally, when we deliver items, you will receive the tracking number via e-mail. And you can check it on line.</p> */}
                         </div>
                       </div>
                     </div>

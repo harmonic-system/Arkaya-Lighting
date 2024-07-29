@@ -14,25 +14,26 @@ const Privacy_Policy = () => {
                   <p className="p-4 text-dark">Thanks for placing orders on our arkayalighting online store. We sincerely wish you have a great shopping experience here. And we have committed to protecting the privacy of our customers. </p>
                   <div className="cart-section">
                     <h3 className="p-4 text-dark">CONTACT OUR AFTER-SALES SUPPORT TEAM</h3>
-                    <p className="p-4 text-dark">Please mail our dedicated After-Sales Support Email at <a href="mailto:">sales@arkayalighting.com</a> for immediate help with: Technical issues, Installation questions, returns, and product exchanges.</p>
+                    <p className="p-4 text-dark">Please mail our dedicated After-Sales Support Email at <a href="mailto:sales@arkayalighting.com"><b>sales@arkayalighting.com</b></a> for immediate help with: Technical issues, Installation questions, returns, and product exchanges.</p>
                     <p className="p-4 text-dark">Alternatively, fill out this form and we'll get back to you within one business day.</p>
-                    <p className="p-4 text-dark">Help us assist you better:&nbsp;<Link to="/contact">Contact</Link></p>
+                    <p className="p-4 text-dark">Help us assist you better:&nbsp;<Link to="/contact"><b>Contact</b></Link></p>
                     <p className="p-4 text-dark">For returns and exchanges, list the products and the reason for the return. Please also understand our terms before you submit.</p>
                   </div>
                 </div>
                 <div className="col-md-12 col-sm-12 mt-3">
                   <div className="cart-section">
                     <h3 className="p-4 text-dark">Your Privacy Information:</h3>
-                    <p className="p-4 text-dark">We value your privacy information, so your privacy information will be protected, Our arkayalighting online store is committed to safeguarding your privacy when making online purchases. When registering our account, users shall provide the personal registration information. And as part of the order process, we only collect following essential customer information: Name, Shipping/Billing Address, Email Address, Phone Number, Credit/Debit Card Information. The contact information is only used to get in touch with you when necessary. The information you provide to us is not given or sold to any outside party except for the shipping company delivering your order. We only share your shipping address and phone number with the shipping company. The information we collect from you is used only to process and ship your order. Your email address is used only to provide you with an order confirmation and tracking number. Your phone number is used to contact you in case of a problem with the fulfillment or delivery of your order. Your Credit Card information is only used to confirm whether the billing address is the same with the shipping address.</p>
+                    <p className="p-4 text-dark">We value your privacy information, so your privacy information will be protected, Our arkayalighting online store is committed to safeguarding your privacy when making online purchases. When registering our account, users shall provide the personal registration information. And as part of the order process, we only collect following essential customer information: Name, Email, Phone Number. The contact information is only used to get in touch with you when necessary. The information you provide to us is not given or sold to any outside party except for the shipping company delivering your order. We only share your shipping address and phone number with the shipping company. The information we collect from you is used only to process and ship your order. Your email address is used only to provide you with an order confirmation and tracking number. Your phone number is used to contact you in case of a problem with the fulfillment or delivery of your order. </p>
+                    {/* <p className="p-4 text-dark">We value your privacy information, so your privacy information will be protected, Our arkayalighting online store is committed to safeguarding your privacy when making online purchases. When registering our account, users shall provide the personal registration information. And as part of the order process, we only collect following essential customer information: Name, Shipping/Billing Address, Email Address, Phone Number, Credit/Debit Card Information. The contact information is only used to get in touch with you when necessary. The information you provide to us is not given or sold to any outside party except for the shipping company delivering your order. We only share your shipping address and phone number with the shipping company. The information we collect from you is used only to process and ship your order. Your email address is used only to provide you with an order confirmation and tracking number. Your phone number is used to contact you in case of a problem with the fulfillment or delivery of your order. Your Credit Card information is only used to confirm whether the billing address is the same with the shipping address.</p> */}
                     <p className="p-4 text-dark"></p>
                   </div>
                 </div>
-                <div className="col-md-12 col-sm-12 mt-3">
+                {/* <div className="col-md-12 col-sm-12 mt-3">
                   <div className="cart-section">
                     <h3 className="p-4 text-dark">Your Cookies:</h3>
                     <p className="p-4 text-dark">Cookies are alphanumeric identifier text files that we transfer to your computer's hard drive through your Web browser to enable our systems to recognize your browser and to provide features such as storage of items in your Shopping Cart between visits</p>
                   </div>
-                </div>
+                </div> */}
                 <div className="col-md-12 col-sm-12 mt-3">
                   <div className="cart-section">
                     <h3 className="p-4 text-dark">Automatic Information collected by us:</h3>
@@ -42,7 +43,7 @@ const Privacy_Policy = () => {
                 <div className="col-md-12 col-sm-12 mt-3">
                   <div className="cart-section">
                     <h3 className="p-4 text-dark">Security:</h3>
-                    <p className="p-4 text-dark">Our Web site protects the security of personal information you transmit to us by using Secure Sockets Layer (SSL) software, which encrypts the information you input during the transmission to us. We do not reveal your credit card number when we confirm your order. In order to protect against unauthorized access to your account you should sign off when you finish visiting our site.</p>
+                    <p className="p-4 text-dark">Our Web site protects the security of personal information you transmit to us by using Secure Sockets Layer (SSL) software, which encrypts the information you input during the transmission to us. We do not reveal your personal information when we confirm your order. In order to protect against unauthorized access to your account you should sign off when you finish visiting our site.</p>
                   </div>
                 </div>
                 <div className="col-md-12 col-sm-12 mt-3">

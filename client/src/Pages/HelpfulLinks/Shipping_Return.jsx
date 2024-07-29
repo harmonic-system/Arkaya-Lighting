@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Shipping_Return = () => {
   return (
     <>
@@ -10,9 +12,10 @@ const Shipping_Return = () => {
                   <h1>Shipping & Returns</h1>
                   <hr />
                   <div className="cart-section">
-                    <p className="p-4 text-dark">Arkaya Lighting products are shipped out every day, from Monday to Friday, except holidays. Most orders placed will be dispatched within 1-5 business days (except the products with "Delivery lead time"),You will receive an e-mail confirmation with your tracking number (if you choose shipping by carrier like DHL,UPS). Please check your junk box if you can't receive the e-mails, after you receive your tracking number, you will be able to track your order online. </p>
-                    <p className="p-4 text-dark">If your goods were shipped by air cargo, please contact us at <a href="mailto:mailid">mail id</a>, should there be a delay.</p>
-                    <p className="p-4 text-dark">Please feel free to contact us, should you encounter any difficulties while trying to track your goods on line.</p>
+                    <p className="p-4 text-dark">Arkaya Lighting products are shipped out every day, from Monday to Friday, except holidays. Most orders placed will be dispatched within 1-5 business days (except the products with "Delivery lead time"). </p>
+                    {/* <p className="p-4 text-dark">Arkaya Lighting products are shipped out every day, from Monday to Friday, except holidays. Most orders placed will be dispatched within 1-5 business days (except the products with "Delivery lead time"),You will receive an e-mail confirmation with your tracking number (if you choose shipping by carrier like DHL,UPS). Please check your junk box if you can't receive the e-mails, after you receive your tracking number, you will be able to track your order online. </p> */}
+                    <p className="p-4 text-dark">If your goods were shipped by air cargo, please contact us at <a href="mailto:sales@arkayalighting.com"><b>sales@arkayalighting.com</b></a>, should there be a delay.</p>
+                    <p className="p-4 text-dark">Please feel free to <Link to="/contact"><b>contact us</b></Link> , should you encounter any difficulties while trying to track your goods on line.</p>
                   </div>
                 </div>
                 <div className="col-md-12 col-sm-12 mt-3">
@@ -20,7 +23,7 @@ const Shipping_Return = () => {
                   <hr />
                   <div className="cart-section">
                     <p className="p-4 text-dark">Your satisfaction is the goal we are after. If you are not satisfied with the merchandise you have bought, you may return within 30 days from shipping date. All returned merchandise must be in original package and must have all original tags attached. Refunds will not include shipping charges. <br />
-                      Exchanges are only acceptable for the same series merchandise in a different available type. We cannot exchange completely different merchandise. Exchanged merchandise can only be shipped out after we receive the returned goods and have a quality check. Customers are responsible for the shipping cost back to us, and we will cover the shipping cost back to you.</p>
+                      Exchanges are only acceptable for the same series merchandise in a different available type. We cannot exchange completely different merchandise. Exchanged merchandise can only be shipped out after we receive the returned goods and have a quality check. Customers are responsible for the shipping cost back to us, and we will not cover the shipping cost back to you.</p>
                   </div>
                 </div>
                 <div className="col-md-12 col-sm-12 mt-3">
@@ -43,8 +46,9 @@ const Shipping_Return = () => {
                       </h2>
                       <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; Hongkong Post Air Mail with Tracking Number (Under 1 KG) $12.0 for All over the world<br />
-                            Worldwide Express(UPS,DHL): Strating at $25. Please give us your phone number, because Express required for this information.</p>
+                          {/* <p className="text-secondary"><strong>Answer:</strong>&nbsp; Hongkong Post Air Mail with Tracking Number (Under 1 KG) $12.0 for All over the world<br />
+                            Worldwide Express(UPS,DHL): Strating at $25. Please give us your phone number, because Express required for this information.</p> */}
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; While ordering the product our, executive will give all these details.</p>
                         </div>
                       </div>
                     </div>
@@ -56,7 +60,8 @@ const Shipping_Return = () => {
                       </h2>
                       <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; Our ordering system immediately emails you a copy of your latest order once you're placed an order through our online order form. You will also receive another email from us in about 1-5 business days to inform you of the status of your order. Please ensure that you are using your correct email account to view your email copy(i.e. the same email address you specified when filling out our online order form).</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; Our ordering system immediately emails you a copy of your latest order once you're placed an order . You will also receive another email from us in about 1-5 business days to inform you of the status of your order. Please ensure that you are using your correct email account to view your email copy(i.e. the same email address you specified while ordering).</p>
+                          {/* <p className="text-secondary"><strong>Answer:</strong>&nbsp; Our ordering system immediately emails you a copy of your latest order once you're placed an order through our online order form. You will also receive another email from us in about 1-5 business days to inform you of the status of your order. Please ensure that you are using your correct email account to view your email copy(i.e. the same email address you specified when filling out our online order form).</p> */}
                         </div>
                       </div>
                     </div>
@@ -104,7 +109,7 @@ const Shipping_Return = () => {
                       </h2>
                       <div id="collapseSix" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; yes,you can specify a future delivery date. please contact us.</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; yes,you can specify a future delivery date. please <Link to="/contact"><b>contact us.</b></Link></p>
                         </div>
                       </div>
                     </div>
@@ -148,7 +153,7 @@ const Shipping_Return = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="accordion-item">
+                    {/* <div className="accordion-item">
                       <h2 className="accordion-header">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
                           <strong>10. Question: </strong>&nbsp;What payments do you accept?
@@ -160,7 +165,7 @@ const Shipping_Return = () => {
                             We accept credit cards(via Paypal), T/T, Western Union. you can choose your favorite method when you check out. </p>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="accordion-item">
                       <h2 className="accordion-header">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
@@ -206,7 +211,7 @@ const Shipping_Return = () => {
                       </h2>
                       <div id="collapseFourteen" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; You should have received an acknowledgement approximately the status of your order in about 1-5 business days after you had placed your order. This message will inform you whether your package has been dispatched or of available options in the rare event that your order cannot be processed. Please ensure that you are using the correct email account to view our acknowledgement email directed to you(i.e. the same email address you specified when filling out our online order form).</p>
+                          <p className="text-secondary"><strong>Answer:</strong>&nbsp; You should have received an acknowledgement approximately the status of your order in about 1-5 business days after you had placed your order. This message will inform you whether your package has been dispatched or of available options in the rare event that your order cannot be processed. Please ensure that you are using the correct email account to view our acknowledgement email directed to you(i.e. the same email address you specified while ordering ).</p>
                         </div>
                       </div>
                     </div>
