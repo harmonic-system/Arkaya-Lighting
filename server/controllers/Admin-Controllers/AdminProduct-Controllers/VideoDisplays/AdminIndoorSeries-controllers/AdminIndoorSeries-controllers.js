@@ -2,12 +2,11 @@ const Indoor = require("../../../../../models/ProductModel/VideoDisplays-models/
 const cloudinary = require("../../../../../utils/cloudinary")
 
 
-
 // Indoor Series
 
 const addindoorseries = async (req, res, next) => {
-    const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
-    // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
+    const { productfile, productname, model, moduleSize, pixelPitch, pixelDensity, configuration, mode, resolution, driveType, refFreq, scanMode, portType, brigthness, renFix } = req.body
+    // console.log(productfile, productname, model, moduleSize, pixelPitch, pixelDensity, configuration, mode, resolution, driveType, refFreq, scanMode, portType,brigthness,renFix);
 
     try {
 
@@ -19,7 +18,7 @@ const addindoorseries = async (req, res, next) => {
         })
 
 
-        const product = await Indoor.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } })
+        const product = await Indoor.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { moduleSize, pixelPitch, pixelDensity, configuration, mode, resolution, driveType, refFreq, scanMode, portType, brigthness, renFix } })
         // console.log(product);
 
         res.status(200).json({ message: "Indoor Series Product Created Successfully", product })
@@ -47,10 +46,10 @@ const getsingalindoorseries = async (req, res, next) => {
 const updateindoorseries = async (req, res, next) => {
     try {
         const id = req.params.id
-        const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
-        // console.log(productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10)
+        const { productfile, imgpublicid, productname, model, moduleSize, pixelPitch, pixelDensity, configuration, mode, resolution, driveType, refFreq, scanMode, portType, brigthness, renFix } = req.body
+        // console.log(productfile, imgpublicid, productname, model, moduleSize, pixelPitch, pixelDensity, configuration, mode, resolution, driveType, refFreq, scanMode, portType,brigthness,renFix)
         if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
-            const updatedata = await Indoor.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
+            const updatedata = await Indoor.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { moduleSize, pixelPitch, pixelDensity, configuration, mode, resolution, driveType, refFreq, scanMode, portType, brigthness, renFix } } })
 
             res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
@@ -65,7 +64,7 @@ const updateindoorseries = async (req, res, next) => {
                     width: 400,
                     height: 300,
                 })
-                const updatedata = await Indoor.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
+                const updatedata = await Indoor.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { moduleSize, pixelPitch, pixelDensity, configuration, mode, resolution, driveType, refFreq, scanMode, portType, brigthness, renFix } } })
                 return res.status(200).json({ message: "Product Updated Successfully", updatedata })
             } else {
                 return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })

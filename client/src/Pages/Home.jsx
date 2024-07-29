@@ -45,7 +45,8 @@ const Home = () => {
         setLoading(false)
       }
       else {
-        toast.error("Already Subscribed From This Email Id")
+        toast.error(res.message)
+        setLoading(false)
       }
     } catch (error) {
       toast.error(error.message)
@@ -196,42 +197,42 @@ const Home = () => {
           </div>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-              <div className="service-box">
+              <div className="service-box rounded">
                 <i><img src="icon/service1.png" /></i>
                 <h3>Fast service</h3>
                 <p className="text-justify" >Our commitment to fast service ensures minimal waiting and maximum satisfaction, delivering results swiftly and effectively.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-              <div className="service-box">
+              <div className="service-box rounded">
                 <i><img src="icon/service2.png" /></i>
                 <h3>Secure payments</h3>
                 <p className="text-justify" >Enjoy peace of mind with our secure payment system, safeguarding your transactions with advanced encryption.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-              <div className="service-box">
+              <div className="service-box rounded">
                 <i><img src="icon/service3.png" /></i>
                 <h3>Expert team</h3>
                 <p className="text-justify" >Our expert team brings years of industry experience and specialized knowledge to deliver exceptional results.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-              <div className="service-box">
+              <div className="service-box rounded">
                 <i><img src="icon/service4.png" /></i>
                 <h3>Affordable services</h3>
                 <p className="text-justify" >Our affordable services ensure value and reliability, making excellence accessible to all.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-              <div className="service-box">
+              <div className="service-box rounded">
                 <i><img src="icon/service5.png" /></i>
                 <h3>High build quality</h3>
                 <p className="text-justify" >Experience superior durability and craftsmanship with our high build quality products.</p>
               </div>
             </div>
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-              <div className="service-box">
+              <div className="service-box rounded">
                 <i><img src="icon/service6.png" /></i>
                 <h3>Award winning</h3>
                 <p className="text-justify" >Proudly recognized for our excellence with prestigious industry awards, showcasing our commitment to quality.</p>
@@ -262,8 +263,8 @@ const Home = () => {
               {
                 homeProduct.map((product) => {
                   return <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12" key={product._id}>
-                    <div className="product-box">
-                      <i><img src={product.file.url} /></i>
+                    <div className="product-box rounded">
+                      <i><img src={product.file.url} className="rounded" /></i>
                       <h3>{product.productname}</h3>
                       {/* <span>$25.00</span> */}
                     </div>
@@ -405,7 +406,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="yellow_bg mt-0">
+          <div className="yellow_bg mt-0 rounded">
             <form className="row d-flex justify-content-center align-content-center" onSubmit={handleNewsletter}>
               <div className="col-xl-7 col-lg-7 col-md-7 col-sm-12">
                 <input className="form-control rounded" placeholder="Enter Your Email To Subscribe" type="email" name="newsletteremail" required onChange={handleNewsletterInput} value={newsubscriber.newsletteremail} />

@@ -92,7 +92,7 @@ const Contact = () => {
         <div className="container">
           <div className="row p-4">
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-              <div className="contact-box bg-secondary-subtle">
+              <div className="contact-box bg-secondary-subtle rounded">
                 <a href=""><IoLocationSharp className="fs-1" /></a>
                 <h6>Address</h6>
                 <p className="text-justify" >B-22 Patpar Ganj, Mayur Vihar Phase-1, New Delhi</p>
@@ -101,17 +101,17 @@ const Contact = () => {
             <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
               <div className="row">
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                  <div className="contact-box bg-secondary-subtle">
-                    <a href="mailto:arkayalightinh.com"><MdAlternateEmail className="fs-1" /></a>
+                  <div className="contact-box bg-secondary-subtle rounded">
+                    <a href="mailto:arkayalighting@gmail.com"><MdAlternateEmail className="fs-1" /></a>
                     <h6>Email Us</h6>
                     <p className="text-justify" >arkayalighting@gmail.com</p>
                   </div>
                 </div>
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                  <div className="contact-box bg-secondary-subtle">
+                  <div className="contact-box bg-secondary-subtle rounded">
                     <a href="tel:+912255889966"><IoCall className="fs-1" /></a>
                     <h6>Call Us</h6>
-                    <p className="text-justify" >+919988552233</p>
+                    <p className="text-justify" >+919654612012</p>
                   </div>
                 </div>
               </div>
@@ -128,19 +128,19 @@ const Contact = () => {
               <form className="main_form" onSubmit={handleSubmit} >
                 <div className="row">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <input className="form-control" onChange={handleChange} value={contactData.name} placeholder="Your name" type="text" name="name" required />
+                    <input className="form-control rounded" onChange={handleChange} value={contactData.name} placeholder="Your name" type="text" name="name" required />
                   </div>
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <input className="form-control" onChange={handleChange} value={contactData.email} placeholder="Email" type="text" name="email" required />
+                    <input className="form-control rounded" onChange={handleChange} value={contactData.email} placeholder="Email" type="text" name="email" required />
                   </div>
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <input className="form-control" onChange={handleChange} value={contactData.phone} placeholder="Phone" type="text" name="phone" required />
+                    <input className="form-control rounded" onChange={handleChange} value={contactData.phone} placeholder="Phone" type="text" name="phone" required />
                   </div>
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <input className="form-control" onChange={handleChange} value={contactData.organization} placeholder="Organization Name (optinal)" type="text" name="organization" />
+                    <input className="form-control rounded" onChange={handleChange} value={contactData.organization} placeholder="Organization Name (optinal)" type="text" name="organization" />
                   </div>
                   <div className="col-md-12">
-                    <textarea className="textarea" onChange={handleChange} value={contactData.message} placeholder="Message" name="message" required></textarea>
+                    <textarea className="textarea rounded" onChange={handleChange} value={contactData.message} placeholder="Message" name="message" required></textarea>
                   </div>
                   <div className=" col-md-12">
                     <button type="submit" className="but">Send</button>

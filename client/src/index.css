@@ -358,3 +358,65 @@ button:focus-visible {
 
 
 /* Application End */
+
+.container-product {
+  width: 100%;
+  padding-right: var( 0.75rem);
+  padding-left: var( 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 0px) {
+  .container-product {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .container-product {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-product {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-product {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-product {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-product {
+    max-width: 1300px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container-product {
+    max-width: 1500px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container-product {
+    max-width: 1700px;
+  }
+}
+
+@media (min-width: 2100px) {
+  .container-product {
+    max-width: 1800px;
+  }
+}

@@ -10,16 +10,18 @@ const AddAdminIndoorSeries = () => {
     const [productname, setProductname] = useState("")
     const [model, setModel] = useState("")
     const [description, setDescription] = useState({
-        spec1: "",
-        spec2: "",
-        spec3: "",
-        spec4: "",
-        spec5: "",
-        spec6: "",
-        spec7: "",
-        spec8: "",
-        spec9: "",
-        spec10: "",
+        moduleSize: "",
+        pixelPitch: "",
+        pixelDensity: "",
+        configuration: "",
+        mode: "",
+        resolution: "",
+        driveType: "",
+        refFreq: "",
+        scanMode: "",
+        portType: "",
+        brigthness: "",
+        renFix: "",
     })
 
     const { authorizationToken, server } = useAuth()
@@ -41,16 +43,18 @@ const AddAdminIndoorSeries = () => {
                     productfile: img,
                     productname: productname,
                     model: model,
-                    spec1: description.spec1,
-                    spec2: description.spec2,
-                    spec3: description.spec3,
-                    spec4: description.spec4,
-                    spec5: description.spec5,
-                    spec6: description.spec6,
-                    spec7: description.spec7,
-                    spec8: description.spec8,
-                    spec9: description.spec9,
-                    spec10: description.spec10,
+                    moduleSize: description.moduleSize,
+                    pixelPitch: description.pixelPitch,
+                    pixelDensity: description.pixelDensity,
+                    configuration: description.configuration,
+                    mode: description.mode,
+                    resolution: description.resolution,
+                    driveType: description.driveType,
+                    refFreq: description.refFreq,
+                    scanMode: description.scanMode,
+                    portType: description.portType,
+                    brigthness: description.brigthness,
+                    renFix: description.renFix,
                 })
             })
 
@@ -60,16 +64,18 @@ const AddAdminIndoorSeries = () => {
                 setProductname("")
                 setModel("")
                 setDescription({
-                    spec1: "",
-                    spec2: "",
-                    spec3: "",
-                    spec4: "",
-                    spec5: "",
-                    spec6: "",
-                    spec7: "",
-                    spec8: "",
-                    spec9: "",
-                    spec10: "",
+                    moduleSize: "",
+                    pixelPitch: "",
+                    pixelDensity: "",
+                    configuration: "",
+                    mode: "",
+                    resolution: "",
+                    driveType: "",
+                    refFreq: "",
+                    scanMode: "",
+                    portType: "",
+                    brigthness: "",
+                    renFix: "",
                 })
                 const res = await response.json()
                 toast.success(res.message)
@@ -120,34 +126,40 @@ const AddAdminIndoorSeries = () => {
                             <input className="form-control rounded" onChange={(e) => setModel(e.target.value)} value={model} placeholder="Product Model" type="text" name="model" required />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec1} placeholder="Product Spec 1" type="text" name="spec1" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.moduleSize} placeholder="Module Size" type="text" name="moduleSize" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec2} placeholder="Product Spec 2" type="text" name="spec2" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.pixelPitch} placeholder="Pixel Pitch" type="text" name="pixelPitch" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec3} placeholder="Product Spec 3" type="text" name="spec3" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.pixelDensity} placeholder="Pixel Density" type="text" name="pixelDensity" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec4} placeholder="Product Spec 4" type="text" name="spec4" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.configuration} placeholder="Configuration" type="text" name="configuration" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec5} placeholder="Product Spec 5" type="text" name="spec5" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.mode} placeholder="Mode" type="text" name="mode" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec6} placeholder="Product Spec 6" type="text" name="spec6" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.resolution} placeholder="Resolution" type="text" name="resolution" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec7} placeholder="Product Spec 7" type="text" name="spec7" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.driveType} placeholder="Drive Type" type="text" name="driveType" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec8} placeholder="Product Spec 8" type="text" name="spec8" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.refFreq} placeholder="Refference Frequency" type="text" name="refFreq" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec9} placeholder="Product Spec 9" type="text" name="spec9" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.scanMode} placeholder="Scan Mode" type="text" name="scanMode" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handlechange} value={description.spec10} placeholder="Product Spec 10" type="text" name="spec10" />
+                            <input className="form-control rounded" onChange={handlechange} value={description.portType} placeholder="Port Type" type="text" name="portType" />
+                        </div>
+                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <input className="form-control rounded" onChange={handlechange} value={description.brigthness} placeholder="Brigthness" type="text" name="brigthness" />
+                        </div>
+                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <input className="form-control rounded" onChange={handlechange} value={description.renFix} placeholder="Rental / Fixed" type="text" name="renFix" />
                         </div>
                         <div className=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button type="submit" className="but rounded">Add</button>

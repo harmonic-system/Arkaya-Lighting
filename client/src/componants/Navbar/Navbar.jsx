@@ -2,23 +2,23 @@ import { Link, Outlet } from "react-router-dom"
 import "./Navbar.css"
 import TopHeader from "../../Pages/TopHeader"
 import { useAuth } from "../../store/Auth"
-import Search from "../Search/Search"
-import { useEffect } from "react"
-import { FaSearch } from "react-icons/fa";
+// import Search from "../Search/Search"
+// import { useEffect } from "react"
+// import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
 
   const { user } = useAuth()
 
   // Open the full screen search box
-  function openSearch() {
-    document.getElementById("myOverlay").style.display = "block";
-  }
+  // function openSearch() {
+  //   document.getElementById("myOverlay").style.display = "block";
+  // }
 
   // Close the full screen search box
-  function closeSearch() {
-    document.getElementById("myOverlay").style.display = "none";
-  }
+  // function closeSearch() {
+  //   document.getElementById("myOverlay").style.display = "none";
+  // }
 
 
   return (
@@ -111,7 +111,8 @@ const Navbar = () => {
             {/* Products Mega Menu End */}
 
 
-            {/* <li><Link to="/">BRANDS</Link></li> */}
+            <li><Link to="/brands">BRANDS PATNERS</Link></li>
+
             <li><Link to="/application">APPLICATION</Link></li>
 
             <li>

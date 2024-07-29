@@ -3,8 +3,21 @@ import { Link } from "react-router-dom"
 const HowToBuy = () => {
   return (
     <>
-      <div className="container my-5">
-        <div className="choose_bg">
+
+      <div className="container" style={{ height: "80vh" }}>
+        <div className="d-flex justify-content-center align-items-start flex-column h-100">
+          <h1>Coming Soon: Exciting New Features!</h1>
+
+          <p className="fs-5" style={{ fontFamily: "cursive" }}>We're currently working hard to enhance this section of our website to provide you with an even better experience. Please check back soon for updates. Thank you for your patience and understanding!
+
+            For any immediate inquiries, feel free to <Link to="/contact"><span className="text-warning">contact us.</span></Link> </p>
+        </div>
+      </div>
+
+
+
+      {/* <div className="container my-5">
+        <div className="choose_bg rounded">
           <div className="container">
             <div className="white_bg">
               <div className="row">
@@ -12,7 +25,7 @@ const HowToBuy = () => {
                   <h1>How To Buy</h1>
                   <hr />
                   <h5>Checkout in just 3 steps</h5>
-                  <div className="cart-section">
+                  <div className="cart-section rounded">
                     <p className="p-4 text-dark"><strong>1.</strong> After confirming the purchase, please <Link to="/signup">register</Link> on our website, old users please <Link to="/login"> log</Link> directly ; </p>
                     <p className="p-4 text-dark"><strong>2.</strong>The delivery address can be changed in step 1-2 of the checkout page, and the system can add 5 delivery addresses;</p>
                     <p className="p-4 text-dark"><strong>3.</strong>Add the products and accessories options you need to the shopping cart according to your project requirements;</p>
@@ -23,10 +36,10 @@ const HowToBuy = () => {
                 </div>
                 <div className="col-md-12 col-sm-12 mt-5">
                   <h5>Please note points:</h5>
-                  <div className="cart-section">
-                    <p className="p-4 text-dark"><strong>1.</strong>The delivery address can be changed in step 1-2 of the checkout page, and the system can add 5 <a href="">delivery addresses</a></p>
+                  <div className="cart-section  rounded">
+                    <p className="p-4 text-dark"><strong>1.</strong>The delivery address can be changed in step 1-2 of the checkout page, and the system can add 5 <Link to="">delivery addresses</Link></p>
                     <p className="p-4 text-dark"><strong>2.</strong>Your registration information will be kept confidential, and we will not send you any promotional information;</p>
-                    <p className="p-4 text-dark"><strong>3.</strong>We can also help you create a shopping cart based on your project or confirm whether your list is correct, please <a href="">contact us</a></p>
+                    <p className="p-4 text-dark"><strong>3.</strong>We can also help you create a shopping cart based on your project or confirm whether your list is correct, please <Link to="/contact">contact us</Link></p>
                     <p className="p-4 text-dark"><strong>4.</strong>Please choose the free shipping channel for more than $199 orders;</p>
                     <p className="p-4 text-dark"><strong>5.</strong>It is recommended to use PayPal for personal or orders not exceeding $3000, for company accounts and large amounts, please choose <a href="">bank transfer</a></p>
                     <p className="p-4 text-dark"><strong>6.</strong><a href="">My account</a> can check the order processing status, the previous purchase list.</p>
@@ -36,7 +49,7 @@ const HowToBuy = () => {
                   <h5>How to Pay:</h5>
                   <p>You have three ways to pay for this order</p>
                   <p className="p-4 text-dark"><strong>1.</strong>You can pay through our website,</p>
-                  <div className="cart-section">
+                  <div className="cart-section  rounded">
                     <p className="p-4 text-dark"><strong>1.</strong>Log in to your account, If you are logging in for the first time, please <strong><a href="">register</a></strong> our website.</p>
                     <p className="p-4 text-dark"><strong>2.</strong>please add all the items to your shopping cart, and checkout.</p>
                     <p className="p-4 text-dark"><strong>3.</strong>Please choose the free shipping channel for more than $199 orders;</p>
@@ -45,7 +58,7 @@ const HowToBuy = () => {
                 </div>
                 <div className="col-md-12 col-sm-12 mt-5">
                   <p className="p-4 text-dark"><strong>2.</strong>Transfer to us via paypal.me</p>
-                  <div className="cart-section">
+                  <div className="cart-section  rounded">
                     <p className="p-4 text-dark"><strong>1.</strong>If you want a customized order, the website link cannot calculate your price, or you don't know how to check out, you can also transfer to us directly through paypal, such as your order total is 520.25 USD</p>
                     <p className="p-4 text-dark"><strong>2.</strong>payment link:</p>
                     <p className="p-4 text-dark"><strong>3.</strong><a href="" >arkayalighting payment account link</a></p>
@@ -59,7 +72,7 @@ const HowToBuy = () => {
                 </div>
                 <div className="col-md-12 col-sm-12 mt-5">
                   <p className="p-4 text-dark"><strong>3.</strong>T/T bank transfer</p>
-                  <div className="cart-section">
+                  <div className="cart-section  rounded">
                     <p className="p-4 text-dark"><strong>1.</strong>If you are a corporate buyer or a country that is not allowed to use PayPal, you can also transfer funds to our company account</p>
                     <p className="p-4 text-dark"><strong>2.</strong>Hello esteemed Customer,</p>
                     <p className="p-4 text-dark"><strong>3.</strong>For the payment of goods, please make a SWIFT(T/T) or CHATS(HK Local) Payment of:</p>
@@ -172,7 +185,7 @@ const HowToBuy = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
     </>
   )

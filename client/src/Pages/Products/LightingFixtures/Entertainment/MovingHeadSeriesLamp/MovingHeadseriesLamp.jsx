@@ -1,3 +1,4 @@
+import Breadcrumb from "../../../../../componants/Breadcrumb/Breadcrumb"
 import { useLightingFixtures } from "../../../../../store/Product/LightingFixture"
 import { useEffect } from "react"
 
@@ -12,7 +13,7 @@ const MovingHeadSeriesLamp = () => {
 
     return (
         <>
-            <div className="brand_color">
+            {/* <div className="brand_color">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
@@ -22,11 +23,13 @@ const MovingHeadSeriesLamp = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+
+            <Breadcrumb first={"Products"} second={"/Lighting Fixtures"} third={"/Entertainment"} last={"/Moving Head Series Lamp"} />
 
             <div className="product-bg">
                 <div className="product-bg-white">
-                    <div className="container">
+                    <div className="container-product">
                         <div className="row">
                             {
                                 movingHeadSeriesLamp.map((product) => {
@@ -35,10 +38,10 @@ const MovingHeadSeriesLamp = () => {
                                         <div className="product-box row rounded">
                                             <h3 className="text-start"><b><big>{product.productname}</big></b></h3>
                                             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex proimgspec">
-                                                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight" style={{ height: "250px" }}>
+                                                <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 proimgheight" style={{ height: "250px" }}>
                                                     <img src={product.productfile.url} className="w-100 p-0 m-auto h-100 rounded" />
                                                 </div>
-                                                <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "300px" }}>
+                                                <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "300px" }}>
                                                     <p className="message" >{product?.description?.spec1}</p>
                                                     <p className="message" >{product?.description?.spec2}</p>
                                                     <p className="message" >{product?.description?.spec3}</p>

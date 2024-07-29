@@ -20,7 +20,7 @@ const Footer = () => {
               <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div className="contact">
                   <h3>conatct us</h3>
-                  <span>142, Main Patparganj Road,<br />Mayur Vihar Phase 1,<br/> New Delhi<br />+91 1234567890</span>
+                  <span>142, Main Patparganj Road,<br />Mayur Vihar Phase 1,<br/> New Delhi<br/><a href="mailto:arkayalighting@gmail.com" className="text-light">arkayalighting@gmail.com</a><br /><a href="tel:+919654612012" className="text-light">+91 9654612012</a></span>
                 </div>
               </div>
               <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
@@ -43,7 +43,7 @@ const Footer = () => {
                     <li> <Link to="/howtobuy">How to Buy</Link></li>
                     <li> <Link to="/datasheet">Data Sheet</Link></li>
                     <li> <Link to="/solution">Solution Support</Link></li>
-                    <li> <Link to="/technical">Technical support</Link></li>
+                    {/* <li> <Link to="/contact">Technical support</Link></li> */}
                   </ul>
                 </div>
               </div>

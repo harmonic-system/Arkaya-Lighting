@@ -72,16 +72,18 @@ const AdminOutdoorSeries = () => {
                                         <table className="table border border-none">
                                             <tbody>
                                                 <tr className="d-flex flex-column border-bottom-0">
-                                                    <td className="message">{product.description.spec1}</td>
-                                                    <td className="message">{product.description.spec2}</td>
-                                                    <td className="message">{product.description.spec3}</td>
-                                                    <td className="message">{product.description.spec4}</td>
-                                                    <td className="message">{product.description.spec5}</td>
-                                                    <td className="message">{product.description.spec6}</td>
-                                                    <td className="message">{product.description.spec7}</td>
-                                                    <td className="message">{product.description.spec8}</td>
-                                                    <td className="message">{product.description.spec9}</td>
-                                                    <td className="message">{product.description.spec10}</td>
+                                                    <td className="message">{product.description.moduleSize}</td>
+                                                    <td className="message">{product.description.pixelPitch}</td>
+                                                    <td className="message">{product.description.pixelDensity}</td>
+                                                    <td className="message">{product.description.configuration}</td>
+                                                    <td className="message">{product.description.mode}</td>
+                                                    <td className="message">{product.description.resolution}</td>
+                                                    <td className="message">{product.description.driveType}</td>
+                                                    <td className="message">{product.description.refFreq}</td>
+                                                    <td className="message">{product.description.scanMode}</td>
+                                                    <td className="message">{product.description.portType}</td>
+                                                    <td className="message">{product.description.brigthness}</td>
+                                                    <td className="message">{product.description.renFix}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

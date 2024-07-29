@@ -7,6 +7,7 @@ import Contact from "./Pages/Contact"
 import Login from "./Pages/Login-Signup/Login"
 import Logout from "./Pages/Login-Signup/Logout"
 import SignUp from "./Pages/Login-Signup/SignUp"
+import Brands from "./componants/Brands/Brands"
 import DiscoverUs from "./Pages/DiscoverUs"
 import Error from "./Pages/Error"
 import Cart from "./Pages/Cart"
@@ -240,8 +241,8 @@ import EditAdminApplication from "./Pages/Admin/Application/EditAdminApplication
 
 
 
-
 function App() {
+
 
   return (
     <>
@@ -329,6 +330,7 @@ function App() {
 
 
 
+          <Route path="/brands" element={<Brands />} />
           <Route path="/discover" element={<DiscoverUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />

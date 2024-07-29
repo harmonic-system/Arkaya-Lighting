@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const Error = () => {
   return (
     <>
-      <div className="brand_color">
+      {/* <div className="brand_color">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -13,10 +13,9 @@ const Error = () => {
             </div>
           </div>
         </div>
+      </div> */}
 
-      </div>
-
-      <div className="container">
+      {/* <div className="container">
         <div className="row mt-2">
           <div className="col-md-8 offset-md-2">
             <div className="title">
@@ -33,8 +32,14 @@ const Error = () => {
             </div>
           </div>
         </div>
+      </div> */}
+      <div className="container" style={{ height: "80vh" }}>
+        <div className="d-flex justify-content-center align-items-start flex-column h-100">
+          <h1>It looks like the URL you entered is incorrect or the page may have been moved.</h1>
+
+          <p className="fs-5" style={{ fontFamily: "cursive" }}>Please check the URL and try again. If you need help, feel free to <Link to="/contact"><span className="text-warning">contact us</span></Link> or return to our<Link to="/"><span className="text-warning"> homepage.</span></Link> </p>
+        </div>
       </div>
-      {/* Done */}
     </>
   )
 }

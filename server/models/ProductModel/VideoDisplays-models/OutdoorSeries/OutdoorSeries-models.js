@@ -20,37 +20,40 @@ const outdoorseriesSchema = new Schema({
     required: true
   },
   description: {
-    des: {
+    moduleSize: {
       type: String,
     },
-    spec1: {
+    pixelPitch: {
       type: String,
     },
-    spec2: {
+    pixelDensity: {
       type: String,
     },
-    spec3: {
+    configuration: {
       type: String,
     },
-    spec4: {
+    mode: {
       type: String,
     },
-    spec5: {
+    resolution: {
       type: String,
     },
-    spec6: {
+    driveType: {
       type: String,
     },
-    spec7: {
+    refFreq: {
       type: String,
     },
-    spec8: {
+    scanMode: {
       type: String,
     },
-    spec9: {
+    portType: {
       type: String,
     },
-    spec10: {
+    brigthness: {
+      type: String,
+    },
+    renFix: {
       type: String,
     },
   },

@@ -26,7 +26,7 @@ const Residentails = () => {
 
             <div className="product-bg">
                 <div className="product-bg-white">
-                    <div className="container">
+                    <div className="container-product">
                         <div className="row">
                             {
                                 residential.map((product) => {
