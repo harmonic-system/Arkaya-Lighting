@@ -35,10 +35,10 @@ const DMXControllers = () => {
                                     <div className="product-box row rounded">
                                         <h2 className="text-start" style={{ height: "100px" }}><b><big>{product.productname}</big></b></h2>
                                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex proimgspec">
-                                            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight rect-imgheight" style={{ height: "250px" }}>
+                                            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight rect-imgheight" style={{ height: "200px" }}>
                                                 <img src={product.productfile.url} className="w-100 p-0 m-auto rounded" />
                                             </div>
-                                            <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "300px" }}>
+                                            <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "250px" }}>
                                                 <p className="text-dark fw-bold" ><b>Technical Parameters</b></p>
                                                 <p className="message text-justify" >{product?.description?.spec1}</p>
                                                 {/* <p className="message" >{product?.description?.spec2}</p>
