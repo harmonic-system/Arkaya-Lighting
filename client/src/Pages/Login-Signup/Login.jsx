@@ -43,13 +43,15 @@ const Login = () => {
       })
 
       const res = await response.json()
+      // console.log(res);
+
 
       if (response.ok) {
         setUser({
           email: "",
           password: ""
         })
-        storeTokenInLocalStorage(res.token)
+        storeTokenInLocalStorage(res.token, res.user)
         toast.success(res.message)
         navigate("/")
       } else {
@@ -59,6 +61,7 @@ const Login = () => {
       toast.error(error.message)
       // console.log(error.message);
     }
+
   }
 
   return (

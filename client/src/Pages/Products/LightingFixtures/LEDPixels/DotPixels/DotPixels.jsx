@@ -38,7 +38,7 @@ const DotPixels = () => {
                                                 <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12 proimgheight">
                                                     <img src={product.productfile.url} className="w-100 p-0 m-auto h-100" />
                                                 </div>
-                                                <div className="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight">
+                                                <div className="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight prod-spec">
                                                     <p className="message" >{product?.description?.spec1}</p>
                                                     <p className="message" >{product?.description?.spec2}</p>
                                                     <p className="message" >{product?.description?.spec3}</p>

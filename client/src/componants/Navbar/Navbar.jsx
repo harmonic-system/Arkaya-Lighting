@@ -2,24 +2,20 @@ import { Link, Outlet } from "react-router-dom"
 import "./Navbar.css"
 import TopHeader from "../../Pages/TopHeader"
 import { useAuth } from "../../store/Auth"
-// import Search from "../Search/Search"
-// import { useEffect } from "react"
-// import { FaSearch } from "react-icons/fa";
+import { useEffect, useState } from "react"
 
 const Navbar = () => {
 
-  const { user } = useAuth()
+  const { isLoggedIn, auth } = useAuth()
+  const [username, setUsername] = useState("")
+  const [isAdmin, setIsAdmin] = useState(false)
 
-  // Open the full screen search box
-  // function openSearch() {
-  //   document.getElementById("myOverlay").style.display = "block";
-  // }
-
-  // Close the full screen search box
-  // function closeSearch() {
-  //   document.getElementById("myOverlay").style.display = "none";
-  // }
-
+  useEffect(() => {
+    if (auth) {
+      setUsername(auth.name);
+      setIsAdmin(auth.isAdmin);
+    }
+  }, [auth]);
 
   return (
     <>
@@ -132,47 +128,31 @@ const Navbar = () => {
             <li><Link to="/contact">CONTACT</Link></li>
 
             <li>
-              {
-                !user ? <Link to="/login">LOGIN</Link>
-                  :
-
-                  <div className="dropdown">
-
-                    <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{user?.name.length < 10 ? user?.name.toUpperCase() : user?.name?.slice(0, 10).toUpperCase()}</a>
-
-                    <ul className="dropdown-menu profile">
-                      <li><Link className="text-light" to="/userprofile">Profile</Link></li>
-                      <li><Link className="text-light" to="/cart">Cart</Link></li>
-                      <li><Link className="text-light" to="/logout">Logout</Link></li>
-                    </ul>
-                  </div>
-
-              }
+              {isLoggedIn ? (
+                <div className="dropdown">
+                  <a className="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                    {username?.length < 10 ? username?.toUpperCase() : username?.slice(0, 10).toUpperCase()}
+                  </a>
+                  <ul className="dropdown-menu profile">
+                    <li><Link className="text-light" to="/userprofile">Profile</Link></li>
+                    <li><Link className="text-light" to="/cart">Cart</Link></li>
+                    <li><Link className="text-light" to="/logout">Logout</Link></li>
+                  </ul>
+                </div>
+              ) : (
+                <Link to="/login">LOGIN</Link>
+              )}
             </li>
 
             <li>
               {
-                user?.isAdmin ? <Link to="/admin">Admin Section</Link> : ""
-
+                isAdmin ? (<Link to="/admin">Admin Section</Link>) : ("")
               }
             </li>
 
           </ul>
 
           <label htmlFor="menu-btn" className="btn menu-btn"><i className="fa fa-bars"></i></label>
-
-          {/* <FaSearch className="openBtn" onClick={openSearch} />
-            <div id="myOverlay" className="overlay">
-              <span className="closebtn" onClick={closeSearch} title="Close Overlay">x</span>
-              <div className="overlay-content">
-                <form action="action_page.php">
-                  <input type="text" placeholder="Search.." name="search" />
-                  <button type="submit"><i className="fa fa-search"></i></button>
-                </form>
-              </div>
-            </div> */}
-
-
 
         </div>
       </nav>

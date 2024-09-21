@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { ToastContainer } from 'react-toastify';
@@ -11,14 +11,14 @@ import { CDIProvider } from './store/Product/CDI.jsx';
 import { RiggingProvider } from './store/Product/Rigging.jsx';
 import { SpaersProvider } from './store/Product/Spaers.jsx';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')).render(
   <AuthProvider>
     <LightingFixtureProvider>
       <VideoDisplaysProvider>
         <CDIProvider>
           <RiggingProvider>
             <SpaersProvider>
-              <React.StrictMode>
+              <StrictMode>
                 <App />
                 <ToastContainer
                   position="top-right"
@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   draggable
                   pauseOnHover
                   theme="colored" />
-              </React.StrictMode>
+              </StrictMode>
             </SpaersProvider>
           </RiggingProvider>
         </CDIProvider>

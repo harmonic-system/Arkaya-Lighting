@@ -235,6 +235,7 @@ import QueryBox from "./componants/QuerryBox/QueryBox"
 import AdminApplication from "./Pages/Admin/Application/AdminApplication"
 import AddAdminApplication from "./Pages/Admin/Application/AddAdminApplication"
 import EditAdminApplication from "./Pages/Admin/Application/EditAdminApplication"
+// import AddProduct from "./Pages/AddProduct"
 
 
 
@@ -249,6 +250,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          {/* <Route path="/addproduct" element={<AddProduct />} /> */}
           <Route path="/" element={<Home />} />
           <Route path="/arkaya" element={<Home />} />
 

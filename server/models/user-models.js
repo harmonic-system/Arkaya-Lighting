@@ -29,11 +29,6 @@ const userSchema = new Schema({
     required: true
   },
 
-  confirmPassword: {
-    type: String,
-    required: true
-  },
-
   isAdmin: {
     type: Boolean,
     default: false
@@ -54,9 +49,9 @@ userSchema.pre("save", async function (next) {
   try {
     const salt = bcrypt.genSaltSync(10);
     const hashPassword = await bcrypt.hashSync(this.password, salt)
-    const hashconfirm_password = await bcrypt.hashSync(this.confirmPassword, salt)
+    // const hashconfirm_password = await bcrypt.hashSync(this.confirmPassword, salt)
     this.password = hashPassword
-    this.confirmPassword = hashconfirm_password
+    // this.confirmPassword = hashconfirm_password
   }
   catch (error) {
     next(error)

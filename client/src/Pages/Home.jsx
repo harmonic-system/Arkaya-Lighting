@@ -383,7 +383,7 @@ const Home = () => {
                         <i><img src="images/Clients/ftv.png" /><span>FTV Club<br /><strong className="date">27/04/2024</strong></span></i>
                       </div>
 
-                      {/* <p>You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
+                      {/* <p>You guys rock! Thank you! for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am really satisfied with my first laptop service.<br />
                         You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. I am </p> */}
                       <p style={{ height: "200px" }}>The Mini LED Moving Lights transformed our event with their stunning effects and compact size.</p>
                     </div>

@@ -39,7 +39,7 @@ const MovingHeadSeriesLed = () => {
                                                 <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight rect-imgheight" style={{ height: "250px" }}>
                                                     <img src={product.productfile.url} className="w-100 p-0 m-auto h-100 rounded" />
                                                 </div>
-                                                <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "300px" }}>
+                                                <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight prod-spec" style={{ height: "300px" }}>
                                                     <p className="text-dark fw-bold" ><b>Technical Parameters</b></p>
                                                     <p className="message text-justify" >{product?.description?.spec1}</p>
                                                     {/* <p className="message" >{product?.description?.spec2}</p>

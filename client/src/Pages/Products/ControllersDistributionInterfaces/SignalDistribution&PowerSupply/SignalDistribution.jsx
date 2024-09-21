@@ -38,7 +38,7 @@ const SignalDistribution = () => {
                                                 <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight rect-imgheight d-flex justify-content-center align-content-center" style={{ height: "200px" }}>
                                                     <img src={product.productfile.url} className="w-100 p-0 m-auto rounded" />
                                                 </div>
-                                                <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "280px" }}>
+                                                <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight prod-spec" style={{ height: "280px" }}>
                                                     <p className="message" >{product?.description?.spec1}</p>
                                                     <p className="message" >{product?.description?.spec2}</p>
                                                     <p className="message" >{product?.description?.spec3}</p>

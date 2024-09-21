@@ -56,8 +56,10 @@ const SignUp = () => {
         },
         body: JSON.stringify(user)
       })
-
+      
       const res = await response.json()
+      // console.log(res);
+      
 
       if (response.ok) {
         setUser({

@@ -7,7 +7,6 @@ const AuthContext = createContext()
 const AuthProvider = ({ children }) => {
 
   const [token, setToken] = useState(localStorage.getItem("Token"))
-  const [user, setUser] = useState("")
   const authorizationToken = `Bearer ${token}`
 
   const [homeCarousel, setHomeCarousel] = useState([])
@@ -15,37 +14,45 @@ const AuthProvider = ({ children }) => {
 
   const [application, setApplication] = useState([])
 
+  const [auth, setAuth] = useState(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user")) || {};
+    return {
+      name: storedUser.name || "",
+      email: storedUser.email || "",
+      phone: storedUser.phone || "",
+      organization: storedUser.organization || "",
+      isAdmin: storedUser.isAdmin || "",
+    };
+  });
 
-  const storeTokenInLocalStorage = (serverToken) => {
+  // console.log(auth);
+
+  const storeTokenInLocalStorage = (serverToken, user) => {
     setToken(serverToken)
-    return localStorage.setItem("Token", serverToken)
+    setAuth({
+      name:user.name,
+      email:user.email,
+      phone:user.phone,
+      organization:user.organization,
+      isAdmin:user.isAdmin
+    })
+
+    localStorage.setItem("Token", serverToken);
+
+    // Store the user object as a JSON string in localStorage
+    localStorage.setItem("user", JSON.stringify({
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      organization: user.organization,
+      isAdmin: user.isAdmin
+      
+    }));
+    // return localStorage.setItem("Token", serverToken)
   }
 
-  const userAuthentication = async () => {
-    try {
-      const response = await fetch(`${server}/api/v1/auth/user`, {
-        method: "GET",
-        headers: {
-          "Authorization": authorizationToken
-        }
-      })
-      // console.log(response);
+  let isLoggedIn = !!token;
 
-      if (response.ok) {
-        const userData = await response.json()
-        setUser(userData.userData);
-        // console.log(userData.userData);
-      }
-    } catch (error) {
-      toast.error(error.message)
-    }
-  }
-
-  const logoutUser = () => {
-    setToken("")
-    toast.success("Logout Succesfully")
-    return localStorage.removeItem("Token")
-  }
 
   const getAllHomeCarousel = async () => {
     try {
@@ -54,7 +61,6 @@ const AuthProvider = ({ children }) => {
         method: "GET"
       })
       const res = await response.json()
-      // console.log(res);
       setHomeCarousel(res)
     } catch (error) {
       toast.error("Failed to get Home Carousels")
@@ -68,7 +74,6 @@ const AuthProvider = ({ children }) => {
       })
       const res = await response.json()
 
-      // console.log(res);
       setHomeProduct(res)
     } catch (error) {
       toast.error("Failed to get Home Products")
@@ -91,7 +96,6 @@ const AuthProvider = ({ children }) => {
 
 
   useEffect(() => {
-    userAuthentication()
     getAllHomeCarousel()
     getAllHomeProduct()
   }, [])
@@ -99,7 +103,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{
-      server, storeTokenInLocalStorage, user, logoutUser, authorizationToken, homeCarousel, getAllHomeCarousel, homeProduct, getAllHomeProduct, application, getAllApplications,
+      auth, setAuth, isLoggedIn, server, storeTokenInLocalStorage, authorizationToken, setToken, homeCarousel, getAllHomeCarousel, homeProduct, getAllHomeProduct, application, getAllApplications,
     }} >
       {children}
     </AuthContext.Provider>
@@ -119,7 +123,7 @@ const useAuth = () => {
   return AuthContextValue
 }
 
-export { AuthContext, AuthProvider, useAuth } 
+export { AuthContext, AuthProvider, useAuth }
 
 
 

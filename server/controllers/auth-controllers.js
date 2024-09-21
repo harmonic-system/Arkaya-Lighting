@@ -16,15 +16,17 @@ const signUP = async (req, res, next) => {
       return res.status(400).json({ message: "Password Must Be Same" })
     }
 
-    const user = await User.create({ name: name.trim().toLowerCase(), email: email.trim().toLowerCase(), phone: phone.trim(), organization: organization.trim(), password: password.trim(), confirmPassword: confirmPassword.trim() })
+    const usercreated = await User.create({ name: name.trim().toLowerCase(), email: email.trim().toLowerCase(), phone: phone.trim(), organization: organization.trim(), password: password.trim() })
 
+
+    const user = await User.findById(usercreated._id).select('-password');
     // const options = {
     //   httpOnly: true,
     //   secure: true
     // }
 
     // res.status(201).cookie("Token", await user.generateToken(), options).json({ message: "Registration Successful", token: await user.generateToken(), userId: user._id.toString() })
-    return res.status(201).json({ message: "Registration Successful", token: await user.generateToken(), userId: user._id.toString() })
+    return res.status(201).json({ message: "Registration Successful", token: await user.generateToken(), user: user })
 
   }
 
@@ -33,22 +35,27 @@ const signUP = async (req, res, next) => {
   }
 }
 
-
 const login = async (req, res, next) => {
 
   try {
+    
     const { email, password } = req.body
 
     const userExist = await User.findOne({ email })
+    // console.log(userExist);
+    
 
     if (!userExist) {
       return res.status(400).json({ message: "Invalid Credentials" })
     }
 
-    const user = await userExist.comparePassword(password)
+    const isPasswordCorrect = await userExist.comparePassword(password)
+    // console.log(user);
+    
 
-    if (user) {
-      return res.status(200).json({ message: "Login Successfully", token: await userExist.generateToken(), userId: userExist._id.toString() })
+    if (isPasswordCorrect) {
+      const user = await User.findById(userExist.id).select('-password')
+      return res.status(200).json({ message: "Login Successfully", token: await userExist.generateToken(), user: user })
     }
     else {
       return res.status(401).json({ message: "Invalid Email Id or Password" })
@@ -60,15 +67,15 @@ const login = async (req, res, next) => {
 
 }
 
-const user = async (req, res, next) => {
-  try {
-    const userData = req.user
-    return res.status(200).json({ userData: userData })
-  }
-  catch (error) {
-    next(error)
-  }
-}
+// const user = async (req, res, next) => {
+//   try {
+//     const userData = req.user
+//     return res.status(200).json({ userData: userData })
+//   }
+//   catch (error) {
+//     next(error)
+//   }
+// }
 
 // const editprofile = async (req, res, next) => {
 //   try {
@@ -90,4 +97,4 @@ const user = async (req, res, next) => {
 // }
 
 
-module.exports = { signUP, login, user }
+module.exports = { signUP, login }

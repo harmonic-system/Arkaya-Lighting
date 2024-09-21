@@ -41,7 +41,7 @@ const OutdoorSeries = () => {
                                                 <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight rect-imgheight" style={{ height: "200px" }}>
                                                     <img src={product.productfile.url} className="w-100 p-0 m-auto h-100 rounded" />
                                                 </div>
-                                                <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "250px" }}>
+                                                <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight prod-spec" style={{ height: "250px" }}>
                                                     <p className="message" ><b>Model Size</b>&emsp;{product?.description?.moduleSize}</p>
                                                     <p className="message" ><b>Pixel Pitch</b>&emsp;{product?.description?.pixelPitch}</p>
                                                     <p className="message" ><b>Pixels Density</b>&emsp;{product?.description?.pixelDensity}</p>

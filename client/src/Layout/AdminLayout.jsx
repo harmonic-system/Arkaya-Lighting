@@ -5,13 +5,12 @@ import { useEffect } from "react";
 
 const AdminLayout = () => {
 
-  const { user } = useAuth()
-  // console.log(user);
   const navigate = useNavigate()
-
+  const { auth } = useAuth()
+  // console.log(auth);
 
   useEffect(() => {
-    if (!user?.isAdmin) {
+    if (!auth?.isAdmin) {
       navigate("/")
     }
   }, [])

@@ -35,9 +35,48 @@
         height: 700px !important;
     }
 
-    /* .proimgspec{
-        height: 300px !important;
+    /* .proimgheight{
+        height: auto !important;
     } */
+
+}
+
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    /* .application-image-box {
+        height: 700px !important;
+    } */
+
+    /* .proimgheight{
+        height: auto !important;
+    } */
+
+    .proimgspec {
+        flex-direction: column;
+    }
+
+    .proimgheight {
+        width: 100%;
+    }
+
+    .proimgheight img {
+        width: 250px !important;
+        height: 250px;
+    }
+
+    .rect-imgheight img {
+        width: 300px !important;
+        height: 200px;
+    }
+
+    /* .proimgheight :first-child {
+        margin-top: 50px !important;
+    } */
+
+    .prod-spec{
+        margin-top: 50px !important;
+    }
+
 }
 
 

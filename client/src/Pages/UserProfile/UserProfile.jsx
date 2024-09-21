@@ -1,30 +1,30 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../store/Auth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const UserProfile = () => {
 
-  const { user } = useAuth()
-  // console.log(user)
-
-  const [details, setDetails] = useState(true)
+  const { auth } = useAuth()
+  // console.log(auth)
 
   const [profileDetails, setProfileDetails] = useState({
     name: "",
     email: "",
     phone: "",
+    organization:""
   })
 
-  if (user && details) {
-    setProfileDetails({
-      name: user.name,
-      email: user.email,
-      phone: user.phone,
-    })
-    setDetails(false)
-  }
-
-
+  useEffect(()=>{
+    if(auth){
+      setProfileDetails({
+        name: auth.name,
+        email: auth.email,
+        phone: auth.phone,
+        organization: auth.organization
+      })
+    }
+  },[auth])
+  
   return (
     <>
       <div className="brand_color">

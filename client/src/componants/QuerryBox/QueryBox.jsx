@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './QueryBox.css';
 import { MdMessage } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from 'react-toastify';
 import { useAuth } from '../../store/Auth';
 import { RiWhatsappLine } from "react-icons/ri";
+import { FaArrowAltCircleUp } from "react-icons/fa";
 
 const QueryBox = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const scrollTopRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
-    const { user, server } = useAuth()
+    const { auth, server } = useAuth()
 
 
     const toggleChatBox = () => {
@@ -24,19 +27,18 @@ const QueryBox = () => {
         query: ""
     })
 
-    const [userDetails, setUserDetails] = useState(true)
-
-    if (user && userDetails) {
-        setQueryData({
-            productName: "",
-            name: user.name,
-            email: user.email,
-            phone: user.phone,
-            organization: "",
-            query: ""
-        })
-        setUserDetails(false)
-    }
+    useEffect(() => {
+        if (auth) {
+            setQueryData({
+                productName: "",
+                name: auth.name,
+                email: auth.email,
+                phone: auth.phone,
+                organization: auth.organization,
+                query: ""
+            })
+        }
+    }, [auth])
 
     const handleChange = (e) => {
         setQueryData({
@@ -76,11 +78,45 @@ const QueryBox = () => {
         } catch (error) {
             toast.error("Something went wrong")
         }
+
+
     }
+
+    // Function to handle scroll and toggle button visibility
+    const handleScroll = () => {
+        if (window.scrollY > 100) {
+            setIsVisible(true);
+        } else {
+            setIsVisible(false);
+        }
+    };
+
+    // Scroll to top smoothly
+    const handleClick = (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    useEffect(() => {
+        // Attach scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Call handleScroll initially to set the correct state
+        handleScroll();
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+
+    }, []);
 
     return (
         <div className="chat-box-container d-flex gap-3">
-            <a className="whatsapp-icon" href="https://wa.me/+919873241041" title='Click To Chat On Whatsapp' target='_blank'><RiWhatsappLine style={{color:"#00a884"}}/></a>
+            <a className="whatsapp-icon" href="https://wa.me/+919873241041" title='Click To Chat On Whatsapp' target='_blank'><RiWhatsappLine style={{ color: "#00a884" }} /></a>
             <div className="chat-icon" onClick={toggleChatBox} title='Click To Fill Enquiry Form'>
                 {/* 💬 */}
                 <MdMessage />
@@ -123,6 +159,11 @@ const QueryBox = () => {
                     </div>
                 </div>
             )}
+            <a
+                ref={scrollTopRef}
+                className={`scroll-top ${isVisible ? 'active' : ''} scroll-top d-flex align-items-center justify-content-center rounded`} onClick={handleClick} >
+                <i className="bi bi-arrow-up-short"><FaArrowAltCircleUp /></i>
+            </a>
         </div>
     );
 };

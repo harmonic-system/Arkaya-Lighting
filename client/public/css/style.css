@@ -47,7 +47,7 @@ body {
 	line-height: 1.80857;
 	font-weight: normal;
 	overflow-x: hidden;
-	user-select: none;
+	/* user-select: none; */
 }
 
 body::-webkit-scrollbar {

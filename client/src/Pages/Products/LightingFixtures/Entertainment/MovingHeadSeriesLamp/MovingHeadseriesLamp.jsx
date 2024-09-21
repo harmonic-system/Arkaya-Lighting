@@ -41,7 +41,7 @@ const MovingHeadSeriesLamp = () => {
                                                 <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 proimgheight" style={{ height: "250px" }}>
                                                     <img src={product.productfile.url} className="w-100 p-0 m-auto h-100 rounded" />
                                                 </div>
-                                                <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight" style={{ height: "300px" }}>
+                                                <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight prod-spec" style={{ height: "300px" }}>
                                                     <p className="message" >{product?.description?.spec1}</p>
                                                     <p className="message" >{product?.description?.spec2}</p>
                                                     <p className="message" >{product?.description?.spec3}</p>
