@@ -47,7 +47,7 @@ const AdminLayout = () => {
       <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div className="offcanvas-header">
           <h2 className="offcanvas-title" id="offcanvasExampleLabel"><b>Products List</b></h2>
-          <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" className="btn-close adminLayoutNavCloseButton" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body product_nav">
           <ul className="list-group mt-5">
@@ -59,11 +59,18 @@ const AdminLayout = () => {
                 </a>
 
                 <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="/admin/commercial">Commercials</Link></li>
+                  {/* <li><Link className="dropdown-item" to="/admin/commercial">Commercials</Link></li>
                   <li><Link className="dropdown-item" to="/admin/dynamicfacade">Dynamic Facade</Link></li>
                   <li><Link className="dropdown-item" to="/admin/landscapes">Landscapes</Link></li>
                   <li><Link className="dropdown-item" to="/admin/museums">Museums</Link></li>
                   <li><Link className="dropdown-item" to="/admin/residential">Residentials</Link></li>
+                  <li><Link className="dropdown-item" to="/admin/pointsource">Point Source</Link></li> */}
+                  <li><Link className="dropdown-item" to="/admin/floodlight">Flood Lights</Link></li>
+                  <li><Link className="dropdown-item" to="/admin/undergroundlight">Underground Lights</Link></li>
+                  <li><Link className="dropdown-item" to="/admin/underwaterlight">Underwater Lights</Link></li>
+                  <li><Link className="dropdown-item" to="/admin/wallwasher">Wall Washer Lights</Link></li>
+                  <li><Link className="dropdown-item" to="/admin/treehanging">Tree Hanging Lights</Link></li>
+                  <li><Link className="dropdown-item" to="/admin/mediapixel">Media Pixels</Link></li>
                 </ul>
               </div>
             </li>

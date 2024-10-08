@@ -1,14 +1,14 @@
 import { useLightingFixtures } from "../../../../../store/Product/LightingFixture"
 import { useEffect } from "react"
 
-const Commercial = () => {
+const PointSource = () => {
 
-    const { commercial, getAllCommercialProducts } = useLightingFixtures()
-    console.log(commercial);
+    const { pointSource, getAllPointSourceProducts } = useLightingFixtures()
+    console.log(pointSource);
 
 
     useEffect(() => {
-        getAllCommercialProducts()
+        getAllPointSourceProducts()
     }, [])
 
 
@@ -19,7 +19,7 @@ const Commercial = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="titlepage">
-                                <h2>Commercial Products</h2>
+                                <h2>Point Source Products</h2>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@ const Commercial = () => {
                     <div className="container-product">
                         <div className="row">
                             {
-                                commercial.map((product) => {
+                                pointSource.map((product) => {
                                     // return <Link to="/productDetails" className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >
                                     return <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >
                                         <div className="product-box row rounded">
@@ -69,7 +69,7 @@ const Commercial = () => {
     )
 }
 
-export default Commercial
+export default PointSource
 
 
 

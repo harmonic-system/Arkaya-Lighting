@@ -14,6 +14,15 @@ const LightingFixtureProvider = ({ children }) => {
     const [landscapes, setLandscapes] = useState([])
     const [museum, setMuseum] = useState([])
     const [residential, setResidential] = useState([])
+    const [pointSource, setPointSource] = useState([])
+
+    // temp
+    const [floodLight, setFloodLight] = useState([])
+    const [undergroundLight, setUndergroundLight] = useState([])
+    const [underwaterLight, setUnderwaterLight] = useState([])
+    const [wallwasherLight, setWallwasherLight] = useState([])
+    const [treehanging, setTreehanging] = useState([])
+    const [mediapixel, setMediapixel] = useState([])
 
     // For - Lighting Fixture / Entertainment
     const [movingHeadSeriesLamp, setMovingHeadSeriesLamp] = useState([])
@@ -100,6 +109,99 @@ const LightingFixtureProvider = ({ children }) => {
 
             const res = await response.json()
             setResidential(res)
+        } catch (error) {
+            toast.error("Failed to get products")
+        }
+    }
+
+    const getAllPointSourceProducts = async () => {
+        try {
+            const response = await fetch(`${server}/api/v1/products/getpointsource`, {
+                method: "GET",
+            })
+
+            const res = await response.json()
+            setPointSource(res)
+        } catch (error) {
+            toast.error("Failed to get products")
+        }
+    }
+
+
+    // temp
+    const getAllFloodProducts = async () => {
+        try {
+            const response = await fetch(`${server}/api/v1/products/getfloodlight`, {
+                method: "GET",
+            })
+
+            const res = await response.json()
+            setFloodLight(res)
+        } catch (error) {
+            toast.error("Failed to get products")
+        }
+    }
+
+    const getAllUnderGroundProducts = async () => {
+        try {
+            const response = await fetch(`${server}/api/v1/products/getundergroundlight`, {
+                method: "GET",
+            })
+
+            const res = await response.json()
+            setUndergroundLight(res)
+        } catch (error) {
+            toast.error("Failed to get products")
+        }
+    }
+
+    const getAllUnderWaterProducts = async () => {
+        try {
+            const response = await fetch(`${server}/api/v1/products/getunderwaterlight`, {
+                method: "GET",
+            })
+
+            const res = await response.json()
+            setUnderwaterLight(res)
+        } catch (error) {
+            toast.error("Failed to get products")
+        }
+    }
+
+    const getAllWallWasherProducts = async () => {
+        try {
+            const response = await fetch(`${server}/api/v1/products/getwallwasherlight`, {
+                method: "GET",
+            })
+
+            const res = await response.json()
+            setWallwasherLight(res)
+        } catch (error) {
+            toast.error("Failed to get products")
+        }
+    }
+
+    const getAllTreeHangingProducts = async () => {
+        try {
+            const response = await fetch(`${server}/api/v1/products/gettreehanginglight`, {
+                method: "GET",
+            })
+
+            const res = await response.json()
+            setTreehanging(res)
+        } catch (error) {
+            toast.error("Failed to get products")
+        }
+    }
+
+    const getAllMediaPixelProducts = async () => {
+        try {
+            const response = await fetch(`${server}/api/v1/products/getmediapixellight`, {
+                method: "GET",
+            })
+
+            const res = await response.json()
+            setMediapixel(res)
         } catch (error) {
             toast.error("Failed to get products")
         }
@@ -264,7 +366,8 @@ const LightingFixtureProvider = ({ children }) => {
 
     return (
         <LightingFixturesContext.Provider value={{
-            commercial, getAllCommercialProducts, dynamicFacade, getAllDynamicFacadeProducts, landscapes, getAllLandscapesProducts, museum, getAllMuseumProducts, residential, getAllResidentialProducts,
+            commercial, getAllCommercialProducts, dynamicFacade, getAllDynamicFacadeProducts, landscapes, getAllLandscapesProducts, museum, getAllMuseumProducts, residential, getAllResidentialProducts, pointSource, getAllPointSourceProducts,
+            floodLight, getAllFloodProducts, undergroundLight, getAllUnderGroundProducts, underwaterLight, getAllUnderWaterProducts, wallwasherLight, getAllWallWasherProducts, treehanging, getAllTreeHangingProducts, mediapixel, getAllMediaPixelProducts,
             movingHeadSeriesLamp, getAllMovingHeadSeriesLampProducts, movingHeadSeriesLed, getAllMovingHeadSeriesLedProducts, staticLed, getAllStaticLedProducts, effectlight, getAllEffectsLightProducts,
             strip, getAllStripProducts, dotPixel, getAllDotPixelProducts, ledMatrix, getAllLedMatrixProducts,
             chandeliers, getAllChandeliersProducts,

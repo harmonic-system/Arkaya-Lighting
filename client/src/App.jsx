@@ -44,6 +44,7 @@ import DynamicFacade from "./Pages/Products/LightingFixtures/Architecture/Dynami
 import Landscapes from "./Pages/Products/LightingFixtures/Architecture/Landscapes/Landscapes"
 import Museums from "./Pages/Products/LightingFixtures/Architecture/Museums/Museums"
 import Residentails from "./Pages/Products/LightingFixtures/Architecture/Residentials/Residentials"
+import PointSource from "./Pages/Products/LightingFixtures/Architecture/PointSource/PointSource"
 
 import Entertainment from "./Pages/Products/LightingFixtures/Entertainment/Entertainment"
 import MovingHeadSeriesLamp from "./Pages/Products/LightingFixtures/Entertainment/MovingHeadSeriesLamp/MovingHeadseriesLamp"
@@ -119,6 +120,10 @@ import AddAdminMuseums from "./Pages/Admin/AdminProducts/AdminLightingFixtures/A
 import AdminResidentials from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Residentials/AdminResidentials"
 import AddAdminResidentials from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Residentials/AddAdminResidentials"
 import EditAdminResidentials from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Residentials/EditAdminResidentials"
+
+import AddAdminPointSource from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Point Source/AddAdminPointSource"
+import AdminPointSource from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Point Source/AdminPointSource"
+import EditAdminPointSource from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Point Source/EditAdminPointSource"
 
 import AddAdminEffectsLights from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Entertainment/EffectsLight/AddAdminEffectsLights"
 import AdminEffectsLights from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Entertainment/EffectsLight/AdminEffectsLights"
@@ -235,6 +240,35 @@ import QueryBox from "./componants/QuerryBox/QueryBox"
 import AdminApplication from "./Pages/Admin/Application/AdminApplication"
 import AddAdminApplication from "./Pages/Admin/Application/AddAdminApplication"
 import EditAdminApplication from "./Pages/Admin/Application/EditAdminApplication"
+
+// temp
+import FloodLight from "./Pages/Products/LightingFixtures/Architecture/temp/FloodLight"
+import UnderGround from "./Pages/Products/LightingFixtures/Architecture/temp/UnderGround"
+import UnderWater from "./Pages/Products/LightingFixtures/Architecture/temp/UnderWater"
+import WallWasher from "./Pages/Products/LightingFixtures/Architecture/temp/WallWasher"
+import TreeHanging from "./Pages/Products/LightingFixtures/Architecture/temp/TreeHanging"
+import MediaPixels from "./Pages/Products/LightingFixtures/Architecture/temp/MediaPixels"
+import TempArchitecture from "./Pages/Products/LightingFixtures/Architecture/TempArchitecture"
+import AdminFloodLight from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/FloodLight/AdminFloodLight"
+import AdminUnderGroundLight from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/UnderGroundLight/AdminUnderGroundLight"
+import AdminUnderWaterLight from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/UnderWaterLight/AdminUnderWaterLight"
+import AdminWallWasher from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/WallWasher/AdminWallWasher"
+import AdminTreeHanging from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/TreeHanging/AdminTreeHanging"
+import AdminMediaPixel from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/MediaPixel/AdminMediaPixel"
+import AddAdminFloodLight from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/FloodLight/AddAdminFloodLight"
+import EditAdminFloodLight from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/FloodLight/EditAdminFloodLight"
+import AddAdminUnderGroundLight from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/UnderGroundLight/AddAdminUnderGroundLight"
+import EditAdminUnderGroundLight from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/UnderGroundLight/EditAdminUnderGroundLight"
+import AddAdminUnderWaterLight from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/UnderWaterLight/AddAdminUnderWaterLight"
+import EditAdminUnderWaterLight from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/UnderWaterLight/EditAdminUnderWaterLight"
+import AddAdminWallWasher from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/WallWasher/AddAdminWallWasher"
+import EditAdminWallWasher from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/WallWasher/EditAdminWallWasher"
+import AddAdminTreeHanging from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/TreeHanging/AddAdminTreeHanging"
+import EditAdminTreeHanging from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/TreeHanging/EditAdminTreeHanging"
+import AddAdminMediaPixel from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/MediaPixel/AddAdminMediaPixel"
+import EditAdminMediaPixel from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/temp/MediaPixel/EditAdminMediaPixel"
+
+
 // import AddProduct from "./Pages/AddProduct"
 
 
@@ -262,6 +296,15 @@ function App() {
           <Route path="/landscapes" element={<Landscapes />} />
           <Route path="/museums" element={< Museums />} />
           <Route path="/residential" element={< Residentails />} />
+          <Route path="/pointsource" element={< PointSource />} />
+
+          <Route path="/temparchitecture" element={< TempArchitecture />} />
+          <Route path="/floodlight" element={< FloodLight />} />
+          <Route path="/undergroundlight" element={< UnderGround />} />
+          <Route path="/underwaterlight" element={< UnderWater />} />
+          <Route path="/wallwasher" element={< WallWasher />} />
+          <Route path="/treehanging" element={< TreeHanging />} />
+          <Route path="/mediapixel" element={< MediaPixels />} />
 
 
 
@@ -385,11 +428,23 @@ function App() {
 
             {/* Lighting Fixtures */}
 
-            <Route path="commercial" element={< AdminCommercial />} />
+            {/* <Route path="commercial" element={< AdminCommercial />} />
             <Route path="dynamicfacade" element={<AdminDynamicFacade />} />
             <Route path="landscapes" element={<AdminLandscapes />} />
             <Route path="museums" element={< AdminMuseums />} />
             <Route path="residential" element={< AdminResidentials />} />
+            <Route path="pointsource" element={< AdminPointSource />} /> */}
+
+
+
+
+            {/* temp */}
+            <Route path="floodlight" element={< AdminFloodLight />} />
+            <Route path="undergroundlight" element={<AdminUnderGroundLight />} />
+            <Route path="underwaterlight" element={<AdminUnderWaterLight />} />
+            <Route path="wallwasher" element={< AdminWallWasher />} />
+            <Route path="treehanging" element={< AdminTreeHanging />} />
+            <Route path="mediapixel" element={< AdminMediaPixel />} />
 
 
             <Route path="movingheadserieslamp" element={<AdminMovingHeadSeriesLamp />} />
@@ -443,7 +498,7 @@ function App() {
 
             {/* Lighting Fixtures */}
 
-            <Route path="addcommercial" element={< AddAdminCommercial />} />
+            {/* <Route path="addcommercial" element={< AddAdminCommercial />} />
             <Route path="editcommercial/:id" element={< EditAdminCommercial />} />
 
             <Route path="adddynamicfacade" element={< AddAdminDynamicFacade />} />
@@ -457,6 +512,28 @@ function App() {
 
             <Route path="addresidential" element={<AddAdminResidentials />} />
             <Route path="editresidential/:id" element={<EditAdminResidentials />} />
+
+            <Route path="addpointsource" element={<AddAdminPointSource />} />
+            <Route path="editpointsource/:id" element={<EditAdminPointSource />} /> */}
+
+            {/* temp */}
+            <Route path="addfloodlight" element={< AddAdminFloodLight />} />
+            <Route path="editfloodlight/:id" element={< EditAdminFloodLight />} />
+
+            <Route path="addundergroundlight" element={< AddAdminUnderGroundLight />} />
+            <Route path="editundergroundlight/:id" element={<EditAdminUnderGroundLight />} />
+
+            <Route path="addunderwaterlight" element={<AddAdminUnderWaterLight />} />
+            <Route path="editunderwaterlight/:id" element={<EditAdminUnderWaterLight />} />
+
+            <Route path="addwallwasher" element={< AddAdminWallWasher />} />
+            <Route path="editwallwasher/:id" element={< EditAdminWallWasher />} />
+
+            <Route path="addtreehanging" element={<AddAdminTreeHanging />} />
+            <Route path="edittreehanging/:id" element={<EditAdminTreeHanging />} />
+
+            <Route path="addmediapixel" element={<AddAdminMediaPixel />} />
+            <Route path="editmediapixel/:id" element={<EditAdminMediaPixel />} />
 
             <Route path="addmovingheadserieslamp" element={<AddAdminMovingHeadSeriesLamp />} />
             <Route path="editmovingheadserieslamp/:id" element={< EditAdminMovingHeadSeriesLamp />} />

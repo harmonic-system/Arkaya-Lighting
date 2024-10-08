@@ -3,6 +3,7 @@ const DynamicFacade = require("../../../models/ProductModel/LightingFixtures-mod
 const Landscape = require("../../../models/ProductModel/LightingFixtures-models/Architecture/Landscapes-models")
 const Museum = require("../../../models/ProductModel/LightingFixtures-models/Architecture/Museum-models")
 const Residential = require("../../../models/ProductModel/LightingFixtures-models/Architecture/Residential-models")
+const PointSource = require("../../../models/ProductModel/LightingFixtures-models/Architecture/PointSource-models")
 const Chandelier = require("../../../models/ProductModel/LightingFixtures-models/Decorative/Chandelier-models")
 const EffectLight = require("../../../models/ProductModel/LightingFixtures-models/Entertainment/EffectsLight-models")
 const MHSLamp = require("../../../models/ProductModel/LightingFixtures-models/Entertainment/MHSLamp-models")
@@ -86,6 +87,21 @@ const getmuseums = async (req, res, next) => {
 const getresidentials = async (req, res, next) => {
   try {
     const products = await Residential.find()
+    // console.log(products);
+    if (!products || products.length === 0) {
+      return res.status(100).json({ message: "No Products Found" })
+    }
+
+    return res.status(200).json(products)
+  } catch (error) {
+    next(error)
+  }
+}
+
+
+const getpointsource = async (req, res, next) => {
+  try {
+    const products = await PointSource.find()
     // console.log(products);
     if (!products || products.length === 0) {
       return res.status(100).json({ message: "No Products Found" })
@@ -286,7 +302,7 @@ const gettelevision = async (req, res, next) => {
 
 
 module.exports = {
-  getcommercials, getdynamicfacade, getlandscapes, getmuseums, getresidentials,
+  getcommercials, getdynamicfacade, getlandscapes, getmuseums, getresidentials,getpointsource,
   getmovingheadserieslamp, getmovingheadseriesled, getstaticled, geteffectslight,
   getstrips, getdotpixels, getledmatrix,
   getchandeliers,

@@ -3,20 +3,20 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useAuth } from "../../../../../../store/Auth";
-import { useLightingFixtures } from "../../../../../../store/Product/LightingFixture";
+import { useAuth } from "../../../../../../../store/Auth";
+import { useLightingFixtures } from "../../../../../../../store/Product/LightingFixture";
 
-const AdminCommercial = () => {
+const AdminFloodLight = () => {
 
     const { authorizationToken, server } = useAuth()
-    const { commercial, getAllCommercialProducts } = useLightingFixtures()
+    const { floodLight, getAllFloodProducts } = useLightingFixtures()
 
     let count = 1
 
 
     const deleteProduct = async (id) => {
         try {
-            const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/deletecommercial/${id}`, {
+            const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/deletefloodlight/${id}`, {
                 method: "DELETE",
                 headers: {
                     'Authorization': authorizationToken,
@@ -26,7 +26,7 @@ const AdminCommercial = () => {
             if (response.ok) {
                 const res = await response.json()
                 toast.success(res.message)
-                getAllCommercialProducts()
+                getAllFloodProducts()
             }
         } catch (error) {
             toast.error('Failed to Delete Product');
@@ -36,16 +36,16 @@ const AdminCommercial = () => {
 
 
     useEffect(() => {
-        getAllCommercialProducts()
+        getAllFloodProducts()
     }, [])
 
 
     return (
         <>
             <div className="container my-5">
-                <h2 className="fw-bold mb-3">Admin Commercial Products</h2>
+                <h2 className="fw-bold mb-3">Admin Flood Light Products</h2>
                 <div className="w-100 d-flex justify-content-end my-5">
-                    <Link className="btn btn-warning" to="/admin/addcommercial" >Add Product</Link>
+                    <Link className="btn btn-warning" to="/admin/addfloodlight" >Add Product</Link>
                 </div>
                 <table className="table">
                     <thead>
@@ -53,7 +53,7 @@ const AdminCommercial = () => {
                             <th>Sr. No</th>
                             <th>Image URL</th>
                             <th>Product Name</th>
-                            <th>Category</th>
+                            <th>Model</th>
                             <th>Description</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -61,33 +61,33 @@ const AdminCommercial = () => {
                     </thead>
                     <tbody>
                         {
-                            commercial.map((product) => {
+                            floodLight.map((product) => {
                                 // { console.log(product._id); }
                                 return <tr key={product._id}>
                                     <td>{count++}</td>
                                     <td className="message">{product.productfile.url}</td>
                                     <td>{product.productname}</td>
-                                    <td>{product.category}</td>
+                                    <td>{product.model}</td>
                                     <td>
                                         <table className="table border border-none">
                                             <tbody>
                                                 <tr className="d-flex flex-column border-bottom-0">
-                                                    <td className="message">{product.description.size}</td>
-                                                    <td className="message">{product.description.shape}</td>
-                                                    <td className="message">{product.description.installation}</td>
-                                                    <td className="message">{product.description.direction}</td>
-                                                    <td className="message">{product.description.power}</td>
-                                                    <td className="message">{product.description.leds}</td>
-                                                    <td className="message">{product.description.cri}</td>
-                                                    <td className="message">{product.description.cct}</td>
-                                                    <td className="message">{product.description.efficiency}</td>
-                                                    <td className="message">{product.description.beamAngle}</td>
-                                                    <td className="message">{product.description.housingColor}</td>
+                                                    <td className="message">{product.description.des}</td>
+                                                    <td className="message">{product.description.spec1}</td>
+                                                    <td className="message">{product.description.spec2}</td>
+                                                    <td className="message">{product.description.spec3}</td>
+                                                    <td className="message">{product.description.spec4}</td>
+                                                    <td className="message">{product.description.spec5}</td>
+                                                    <td className="message">{product.description.spec6}</td>
+                                                    <td className="message">{product.description.spec7}</td>
+                                                    <td className="message">{product.description.spec8}</td>
+                                                    <td className="message">{product.description.spec9}</td>
+                                                    <td className="message">{product.description.spec10}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </td>
-                                    <td><Link to={`/admin/editcommercial/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
+                                    <td><Link to={`/admin/editfloodlight/${product._id}`} className="bg-transparent" ><FaEdit className="bg-transparent" /></Link></td>
                                     {/* <td><button className="bg-transparent" onClick={() => deleteProduct(product._id)} ><MdDelete className="bg-transparent" /></button></td> */}
                                     <td>
                                         <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><MdDelete className="bg-transparent" /></button>
@@ -122,4 +122,4 @@ const AdminCommercial = () => {
     )
 }
 
-export default AdminCommercial;
+export default AdminFloodLight;

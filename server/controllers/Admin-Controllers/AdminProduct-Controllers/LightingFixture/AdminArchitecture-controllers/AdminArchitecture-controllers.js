@@ -2,6 +2,7 @@ const Commercial = require("../../../../../models/ProductModel/LightingFixtures-
 const DynamicFacade = require("../../../../../models/ProductModel/LightingFixtures-models/Architecture/DynamicFacade-models")
 const Landscape = require("../../../../../models/ProductModel/LightingFixtures-models/Architecture/Landscapes-models")
 const Museum = require("../../../../../models/ProductModel/LightingFixtures-models/Architecture/Museum-models")
+const PointSource = require("../../../../../models/ProductModel/LightingFixtures-models/Architecture/PointSource-models")
 const Residential = require("../../../../../models/ProductModel/LightingFixtures-models/Architecture/Residential-models")
 const cloudinary = require("../../../../../utils/cloudinary")
 
@@ -11,8 +12,8 @@ const cloudinary = require("../../../../../utils/cloudinary")
 
 
 const addcommercial = async (req, res, next) => {
-    const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
-    // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
+    const { productfile, productname, category, size, shape, installation, direction, power, leds, cri, cct, efficiency, beamAngle, housingColor } = req.body
+    // console.log(productfile, productname, category, size, shape, installation, direction, power, leds, cri, cct, efficiency, beamAngle, housingColor);
 
     try {
 
@@ -24,7 +25,7 @@ const addcommercial = async (req, res, next) => {
         })
 
 
-        const product = await Commercial.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } })
+        const product = await Commercial.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, category, description: { size, shape, installation, direction, power, leds, cri, cct, efficiency, beamAngle, housingColor } })
         // console.log(product);
 
         return res.status(200).json({ message: "Commercial Product Created Successfully", product })
@@ -51,10 +52,10 @@ const getsingalcommercial = async (req, res, next) => {
 const updatecommercial = async (req, res, next) => {
     try {
         const id = req.params.id
-        const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
-        // console.log(productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10)
+        const { productfile, imgpublicid, productname, category, size, shape, installation, direction, power, leds, cri, cct, efficiency, beamAngle, housingColor } = req.body
+        // console.log(productfile, imgpublicid, productname, category, size, shape, installation, direction, power, leds, cri, cct, efficiency, beamAngle, housingColor)
         if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
-            const updatedata = await Commercial.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
+            const updatedata = await Commercial.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, category, description: { size, shape, installation, direction, power, leds, cri, cct, efficiency, beamAngle, housingColor } } })
 
             return res.status(200).json({ message: "Product Updated Successfully", updatedata })
 
@@ -69,7 +70,7 @@ const updatecommercial = async (req, res, next) => {
                     width: 400,
                     height: 300,
                 })
-                const updatedata = await Commercial.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
+                const updatedata = await Commercial.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, category, description: { size, shape, installation, direction, power, leds, cri, cct, efficiency, beamAngle, housingColor } } })
                 return res.status(200).json({ message: "Product Updated Successfully", updatedata })
             } else {
                 return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
@@ -458,6 +459,96 @@ const deleteresidential = async (req, res, next) => {
 
 
 
+//  Residentials
+
+const addpointsource = async (req, res, next) => {
+    const { productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
+    // console.log(productfile, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10);
+
+    try {
+
+        const result = await cloudinary.uploader.upload(productfile, {
+            folder: "arkayalighting/products/lightingfixture/architecture/pointsource",
+            resource_type: 'auto',
+            width: 400,
+            height: 300,
+        })
+
+
+        const product = await PointSource.create({ productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } })
+        // console.log(product);
+
+        return res.status(200).json({ message: "Point Source Product Created Successfully", product })
+
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+const getsingalpointsource = async (req, res, next) => {
+    try {
+        const id = req.params.id
+        // console.log(id);
+        const singleProduct = await PointSource.findOne({ _id: id })
+        // console.log(singleProduct);
+        return res.status(200).json(singleProduct)
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+const updatepointsource = async (req, res, next) => {
+    try {
+        const id = req.params.id
+        const { productfile, imgpublicid, productname, model, spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } = req.body
+        // console.log(productfile, imgpublicid, productname)
+        if (productfile.startsWith("https://res.cloudinary.com/arkaya")) {
+            const updatedata = await PointSource.updateOne({ _id: id }, { $set: { productfile: { public_id: imgpublicid, url: productfile }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
+
+            return res.status(200).json({ message: "Product Updated Successfully", updatedata })
+
+        } else {
+
+            const deletedImg = await cloudinary.uploader.destroy(imgpublicid)
+
+            if (deletedImg) {
+                const result = await cloudinary.uploader.upload(productfile, {
+                    folder: "arkayalighting/products/lightingfixture/architecture/pointsource",
+                    resource_type: 'auto',
+                    width: 400,
+                    height: 300,
+                })
+                const updatedata = await PointSource.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
+                return res.status(200).json({ message: "Product Updated Successfully", updatedata })
+            } else {
+                return res.status(500).json({ message: "Failed to Delete Image From Cloudinary" })
+            }
+
+        }
+
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+const deletepointsource = async (req, res, next) => {
+    try {
+        const id = req.params.id
+
+        const deletedProduct = await PointSource.deleteOne({ _id: id })
+        if (deletedProduct) {
+            return res.status(200).json({ message: "Product Deleted Successfully" })
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+
 
 module.exports = {
     addcommercial, getsingalcommercial, updatecommercial, deletecommercial,
@@ -465,4 +556,5 @@ module.exports = {
     addlandscapes, getsingallandscapes, updatelandscapes, deletelandscapes,
     addmuseum, getsingalmuseum, updatemuseum, deletemuseum,
     addresidential, getsingalresidential, updateresidential, deleteresidential,
+    addpointsource, getsingalpointsource, updatepointsource, deletepointsource,
 }

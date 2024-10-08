@@ -5,8 +5,19 @@ const { addcommercial, getsingalcommercial, updatecommercial, deletecommercial,
     adddynamicfacade, getsingaldynamicfacade, updatedynamicfacade, deletedynamicfacade,
     addlandscapes, getsingallandscapes, updatelandscapes, deletelandscapes,
     addmuseum, getsingalmuseum, updatemuseum, deletemuseum,
-    addresidential, getsingalresidential, updateresidential, deleteresidential
+    addresidential, getsingalresidential, updateresidential, deleteresidential,
+    addpointsource, getsingalpointsource, updatepointsource, deletepointsource,
 } = require("../../../../../controllers/Admin-Controllers/AdminProduct-Controllers/LightingFixture/AdminArchitecture-controllers/AdminArchitecture-controllers")
+
+
+
+const { addfloodlight, getsingalfloodlight, updatefloodlight, deletefloodlight,
+    addundergroundlight, getsingalundergroundlight, updateundergroundlight, deleteundergroundlight,
+    addunderwaterlight, getsingalunderwaterlight, updateunderwaterlight, deleteunderwaterlight,
+    addwallwasherlight, getsingalwallwasherlight, updatewallwasherlight, deletewallwasherlight,
+    addtreehanginglight, getsingaltreehanginglight, updatetreehanginglight, deletetreehanginglight,
+    addmediapixel, getsingalmediapixel, updatemediapixel, deletemediapixel,
+} = require("../../../../../controllers/Admin-Controllers/AdminProduct-Controllers/LightingFixture/AdminArchitecture-controllers/temp/tempAdminArchetecture-controllers")
 
 const router = express.Router()
 
@@ -63,6 +74,93 @@ router.route("/getsingalresidential/:id").get(authMiddleware, adminMiddleware, g
 router.route("/updateresidential/:id").put(authMiddleware, adminMiddleware, updateresidential)
 
 router.route("/deleteresidential/:id").delete(authMiddleware, adminMiddleware, deleteresidential)
+
+
+
+
+router.route("/addpointsource").post(authMiddleware, adminMiddleware, addpointsource)
+
+router.route("/getsingalpointsource/:id").get(authMiddleware, adminMiddleware, getsingalpointsource)
+
+router.route("/updatepointsource/:id").put(authMiddleware, adminMiddleware, updatepointsource)
+
+router.route("/deletepointsource/:id").delete(authMiddleware, adminMiddleware, deletepointsource)
+
+
+
+
+
+
+
+
+
+
+
+// temp
+
+
+router.route("/addfloodlight").post(authMiddleware, adminMiddleware, addfloodlight)
+
+router.route("/getsingalfloodlight/:id").get(authMiddleware, adminMiddleware, getsingalfloodlight)
+
+router.route("/updatefloodlight/:id").put(authMiddleware, adminMiddleware, updatefloodlight)
+
+router.route("/deletefloodlight/:id").delete(authMiddleware, adminMiddleware, deletefloodlight)
+
+
+
+
+router.route("/addundergroundlight").post(authMiddleware, adminMiddleware, addundergroundlight)
+
+router.route("/getsingalundergroundlight/:id").get(authMiddleware, adminMiddleware, getsingalundergroundlight)
+
+router.route("/updateundergroundlight/:id").put(authMiddleware, adminMiddleware, updateundergroundlight)
+
+router.route("/deleteundergroundlight/:id").delete(authMiddleware, adminMiddleware, deleteundergroundlight)
+
+
+
+
+router.route("/addunderwaterlight").post(authMiddleware, adminMiddleware, addunderwaterlight)
+
+router.route("/getsingalunderwaterlight/:id").get(authMiddleware, adminMiddleware, getsingalunderwaterlight)
+
+router.route("/updateunderwaterlight/:id").put(authMiddleware, adminMiddleware, updateunderwaterlight)
+
+router.route("/deleteunderwaterlight/:id").delete(authMiddleware, adminMiddleware, deleteunderwaterlight)
+
+
+
+
+router.route("/addwallwasherlight").post(authMiddleware, adminMiddleware, addwallwasherlight)
+
+router.route("/getsingalwallwasherlight/:id").get(authMiddleware, adminMiddleware, getsingalwallwasherlight)
+
+router.route("/updatewallwasherlight/:id").put(authMiddleware, adminMiddleware, updatewallwasherlight)
+
+router.route("/deletewallwasherlight/:id").delete(authMiddleware, adminMiddleware, deletewallwasherlight)
+
+
+
+
+router.route("/addtreehanginglight").post(authMiddleware, adminMiddleware, addtreehanginglight)
+
+router.route("/getsingaltreehanginglight/:id").get(authMiddleware, adminMiddleware, getsingaltreehanginglight)
+
+router.route("/updatetreehanginglight/:id").put(authMiddleware, adminMiddleware, updatetreehanginglight)
+
+router.route("/deletetreehanginglight/:id").delete(authMiddleware, adminMiddleware, deletetreehanginglight)
+
+
+
+
+router.route("/addmediapixel").post(authMiddleware, adminMiddleware, addmediapixel)
+
+router.route("/getsingalmediapixel/:id").get(authMiddleware, adminMiddleware, getsingalmediapixel)
+
+router.route("/updatemediapixel/:id").put(authMiddleware, adminMiddleware, updatemediapixel)
+
+router.route("/deletemediapixel/:id").delete(authMiddleware, adminMiddleware, deletemediapixel)
 
 
 

@@ -427,3 +427,11 @@ button:focus-visible {
 }
 
 /* Product View Container End */
+
+/* Admin Layout SideNav Close Button Start */
+
+.adminLayoutNavCloseButton{
+  margin-right: 20px !important;
+}
+
+/* Admin Layout SideNav Close Button End */

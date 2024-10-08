@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../../../store/Auth";
 import Spinner from "../../../../../../componants/Spinner/Spinner";
 
-const AddAdminCommercial = () => {
+const AddAdminPointSource = () => {
 
     const [img, setImg] = useState("")
     const [productname, setProductname] = useState("")
@@ -31,10 +31,10 @@ const AddAdminCommercial = () => {
         e.preventDefault()
         setSpinner(true)
         // console.log(img,productname,category,description);
-        
+
 
         try {
-            const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/addcommercial`, {
+            const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/addpointsource`, {
                 method: "POST",
                 headers: {
                     "Authorization": authorizationToken,
@@ -79,7 +79,7 @@ const AddAdminCommercial = () => {
                 const res = await response.json()
                 toast.success(res.message)
                 setSpinner(false)
-                navigate("/admin/commercial")
+                navigate("/admin/pointsource")
 
             }
 
@@ -113,7 +113,7 @@ const AddAdminCommercial = () => {
     return (
         <>
             <div className="container my-5">
-                <h2 className="fw-bold mb-3">Add Commercial Product</h2>
+                <h2 className="fw-bold mb-3">Add Point Source Product</h2>
                 <form className="main_form" onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -169,4 +169,4 @@ const AddAdminCommercial = () => {
     )
 }
 
-export default AddAdminCommercial;
+export default AddAdminPointSource;

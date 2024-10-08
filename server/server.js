@@ -71,6 +71,10 @@ app.use(express.json())
 
 const PORT = 8000
 
+app.get("/", (req, res) => {
+  res.send("Welcome To Arkaya Lighting System,<br><br>Server Is Running...")
+})
+
 app.use("/api/v1/auth", authRoute)
 
 app.use("/api/v1/contact", contactRoute)

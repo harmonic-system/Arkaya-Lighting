@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose")
 
-const commercialSchema = new Schema({
+const underWaterLightSchema = new Schema({
   productfile: {
     public_id: {
       type: String,
@@ -15,48 +15,48 @@ const commercialSchema = new Schema({
     type: String,
     required: true
   },
-  category: {
+  model: {
     type: String,
     required: true
   },
   description: {
-    size: {
+    des: {
       type: String,
     },
-    shape: {
+    spec1: {
       type: String,
     },
-    installation: {
+    spec2: {
       type: String,
     },
-    direction: {
+    spec3: {
       type: String,
     },
-    power: {
+    spec4: {
       type: String,
     },
-    leds: {
+    spec5: {
       type: String,
     },
-    cri: {
+    spec6: {
       type: String,
     },
-    cct: {
+    spec7: {
       type: String,
     },
-    efficiency: {
+    spec8: {
       type: String,
     },
-    beamAngle: {
+    spec9: {
       type: String,
     },
-    housingColor: {
+    spec10: {
       type: String,
-    },
-  },
-})
+    }
+  }
+}, { timestamps: true })
 
 
-const Commercial = new model("Commercial", commercialSchema)
+const UnderWaterLight = new model("UnderWaterLight", underWaterLightSchema)
 
-module.exports = Commercial
+module.exports = UnderWaterLight

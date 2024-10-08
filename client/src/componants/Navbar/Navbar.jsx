@@ -44,7 +44,8 @@ const Navbar = () => {
                     <hr className="bg-secondary" />
 
                     <ul className="mega-links">
-                      <li><Link to="/architecture">Architecture</Link></li>
+                      <li><Link to="/temparchitecture">Architecture</Link></li>
+                      {/* <li><Link to="/architecture">Architecture</Link></li> */}
                       <li><Link to="/entertainment">Entertainment</Link></li>
                       <li><Link to="/ledpixels">LED Pixels</Link></li>
                       <li><Link to="/decorative">Decorative</Link></li>

@@ -2,11 +2,13 @@ const express = require("express")
 
 const { getdecorativeProduct, getinteriorProduct, getexteriorProduct, getentertainmentProduct, getledstripProduct } = require("../controllers/products-controllers")
 
-const { getcommercials, getdynamicfacade, getlandscapes, getmuseums, getresidentials,
+const { getcommercials, getdynamicfacade, getlandscapes, getmuseums, getresidentials, getpointsource,
   getmovingheadserieslamp, getmovingheadseriesled, getstaticled, geteffectslight,
   getstrips, getdotpixels, getledmatrix,
   getchandeliers,
   getthreater, getstudio, gettelevision } = require("../controllers/Product-Controllers/LightingFixtures/lightingfixtures-controllers")
+
+  const {getfloodlight,getundergroundlight,getunderwaterlight,getwallwasherlight,gettreehanginglight,getmediapixellight} = require("../controllers/Product-Controllers/LightingFixtures/temp/temp-controllers")
 
 
 const { getrentalseries, getindoorseries, getoutdoorseries } = require("../controllers/Product-Controllers/VideoDisplays/videodisplay-controllers")
@@ -38,6 +40,16 @@ router.route("/getdynamicfacade").get(getdynamicfacade)
 router.route("/getlandscapes").get(getlandscapes)
 router.route("/getmuseums").get(getmuseums)
 router.route("/getresidentials").get(getresidentials)
+router.route("/getpointsource").get(getpointsource)
+
+
+// Architecture Temp
+router.route("/getfloodlight").get(getfloodlight)
+router.route("/getundergroundlight").get(getundergroundlight)
+router.route("/getunderwaterlight").get(getunderwaterlight)
+router.route("/getwallwasherlight").get(getwallwasherlight)
+router.route("/gettreehanginglight").get(gettreehanginglight)
+router.route("/getmediapixellight").get(getmediapixellight)
 
 // Entertainment
 router.route("/getmovingheadserieslamp").get(getmovingheadserieslamp)

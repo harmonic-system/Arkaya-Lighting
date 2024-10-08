@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose")
 
-const commercialSchema = new Schema({
+const pointsourceSchema = new Schema({
   productfile: {
     public_id: {
       type: String,
@@ -57,6 +57,6 @@ const commercialSchema = new Schema({
 })
 
 
-const Commercial = new model("Commercial", commercialSchema)
+const PointSource = new model("PointSource", pointsourceSchema)
 
-module.exports = Commercial
+module.exports = PointSource

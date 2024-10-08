@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
-import { useAuth } from "../../../../../../store/Auth"
-import Spinner from "../../../../../../componants/Spinner/Spinner"
+import { useAuth } from "../../../../../../../store/Auth"
+import Spinner from "../../../../../../../componants/Spinner/Spinner"
 
-const EditAdminCommercial = () => {
+const EditAdminUnderWaterLight = () => {
 
   const { id } = useParams()
   // console.log(id);
@@ -16,23 +16,24 @@ const EditAdminCommercial = () => {
   const [img, setImg] = useState("")
   const [imgpublicid, setImgPublicId] = useState("")
   const [productname, setProductname] = useState("")
-  const [category, setCategory] = useState("")
+  const [model, setModel] = useState("")
   const [description, setDescription] = useState({
-    size: "",
-    shape: "",
-    installation: "",
-    direction: "",
-    power: "",
-    leds: "",
-    cri: "",
-    cct: "",
-    efficiency: "",
-    beamAngle: "",
-    housingColor: ""
+    des: "",
+    spec1: "",
+    spec2: "",
+    spec3: "",
+    spec4: "",
+    spec5: "",
+    spec6: "",
+    spec7: "",
+    spec8: "",
+    spec9: "",
+    spec10: "",
   })
 
+
   const getSingleProduct = async (id) => {
-    const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/getsingalcommercial/${id}`, {
+    const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/getsingalunderwaterlight/${id}`, {
       method: "GET",
       headers: {
         "Authorization": authorizationToken
@@ -44,19 +45,19 @@ const EditAdminCommercial = () => {
       setImg(singleProduct.productfile.url)
       setImgPublicId(singleProduct.productfile.public_id)
       setProductname(singleProduct.productname)
-      setCategory(singleProduct.category)
+      setModel(singleProduct.model)
       setDescription({
-        size: singleProduct.description.size,
-        shape: singleProduct.description.shape,
-        installation: singleProduct.description.installation,
-        direction: singleProduct.description.direction,
-        power: singleProduct.description.power,
-        leds: singleProduct.description.leds,
-        cri: singleProduct.description.cri,
-        cct: singleProduct.description.cct,
-        efficiency: singleProduct.description.efficiency,
-        beamAngle: singleProduct.description.beamAngle,
-        housingColor: singleProduct.description.housingColor,
+        des: singleProduct.description.des,
+        spec1: singleProduct.description.spec1,
+        spec2: singleProduct.description.spec2,
+        spec3: singleProduct.description.spec3,
+        spec4: singleProduct.description.spec4,
+        spec5: singleProduct.description.spec5,
+        spec6: singleProduct.description.spec6,
+        spec7: singleProduct.description.spec7,
+        spec8: singleProduct.description.spec8,
+        spec9: singleProduct.description.spec9,
+        spec10: singleProduct.description.spec10,
       })
     }
   }
@@ -80,7 +81,7 @@ const EditAdminCommercial = () => {
     setSpinner(true)
 
     try {
-      const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/updatecommercial/${id}`, {
+      const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/updateunderwaterlight/${id}`, {
         method: "PUT",
         headers: {
           "Authorization": authorizationToken,
@@ -90,18 +91,18 @@ const EditAdminCommercial = () => {
           productfile: img,
           imgpublicid: imgpublicid,
           productname: productname,
-          category: category,
-          size: description.size,
-          shape: description.shape,
-          installation: description.installation,
-          direction: description.direction,
-          power: description.power,
-          leds: description.leds,
-          cri: description.cri,
-          cct: description.cct,
-          efficiency: description.efficiency,
-          beamAngle: description.beamAngle,
-          housingColor: description.housingColor
+          model: model,
+          des: description.des,
+          spec1: description.spec1,
+          spec2: description.spec2,
+          spec3: description.spec3,
+          spec4: description.spec4,
+          spec5: description.spec5,
+          spec6: description.spec6,
+          spec7: description.spec7,
+          spec8: description.spec8,
+          spec9: description.spec9,
+          spec10: description.spec10,
         })
       })
 
@@ -110,25 +111,25 @@ const EditAdminCommercial = () => {
         setImg("")
         setImgPublicId("")
         setProductname("")
-        setCategory("")
+        setModel("")
         setDescription({
-          size: "",
-          shape: "",
-          installation: "",
-          direction: "",
-          power: "",
-          leds: "",
-          cri: "",
-          cct: "",
-          efficiency: "",
-          beamAngle: "",
-          housingColor: ""
+          des: "",
+          spec1: "",
+          spec2: "",
+          spec3: "",
+          spec4: "",
+          spec5: "",
+          spec6: "",
+          spec7: "",
+          spec8: "",
+          spec9: "",
+          spec10: "",
         })
         const res = await response.json()
         // console.log(res);
         toast.success(res.message)
         setSpinner(false)
-        navigate("/admin/commercial")
+        navigate("/admin/underwaterlight")
 
       }
 
@@ -155,7 +156,7 @@ const EditAdminCommercial = () => {
   return (
     <>
       <div className="container my-5">
-        <h2 className="fw-bold mb-3">Edit Commercial Product</h2>
+        <h2 className="fw-bold mb-3">Edit Under Water Product</h2>
         <form className="main_form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -165,40 +166,40 @@ const EditAdminCommercial = () => {
               <input className="form-control rounded" onChange={(e) => setProductname(e.target.value)} value={productname} placeholder="Product name" type="text" name="productname" required />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={(e) => setCategory(e.target.value)} value={category} placeholder="Product category" type="text" name="category" required />
+              <input className="form-control rounded" onChange={(e) => setModel(e.target.value)} value={model} placeholder="Product Model" type="text" name="model" required />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.size} placeholder="Size" type="text" name="size" />
+              <input className="form-control rounded" onChange={handlechange} value={description.des} placeholder="Description" type="text" name="des" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.shape} placeholder="Shape" type="text" name="shape" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec1} placeholder="Product Spec 1" type="text" name="spec1" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.installation} placeholder="Installation" type="text" name="installation" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec2} placeholder="Product Spec 2" type="text" name="spec2" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.direction} placeholder="Direction" type="text" name="direction" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec3} placeholder="Product Spec 3" type="text" name="spec3" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.power} placeholder="Power" type="text" name="power" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec4} placeholder="Product Spec 4" type="text" name="spec4" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.leds} placeholder="Leds" type="text" name="leds" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec5} placeholder="Product Spec 5" type="text" name="spec5" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.cri} placeholder="CRI" type="text" name="cri" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec6} placeholder="Product Spec 6" type="text" name="spec6" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.cct} placeholder="CCT" type="text" name="cct" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec7} placeholder="Product Spec 7" type="text" name="spec7" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.efficiency} placeholder="Efficiency" type="text" name="efficiency" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec8} placeholder="Product Spec 8" type="text" name="spec8" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.beamAngle} placeholder="Beam Angle" type="text" name="beamAngle" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec9} placeholder="Product Spec 9" type="text" name="spec9" />
             </div>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input className="form-control rounded" onChange={handlechange} value={description.housingColor} placeholder="Housing Color" type="text" name="housingColor" />
+              <input className="form-control rounded" onChange={handlechange} value={description.spec10} placeholder="Product Spec 10" type="text" name="spec10" />
             </div>
             <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <button type="submit" className="but rounded">Update</button>
@@ -211,4 +212,4 @@ const EditAdminCommercial = () => {
   )
 }
 
-export default EditAdminCommercial;
+export default EditAdminUnderWaterLight;

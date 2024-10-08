@@ -1,12 +1,20 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../../../../../store/Auth";
-import Spinner from "../../../../../../componants/Spinner/Spinner";
+import { useAuth } from "../../../../../../store/Auth"
+import Spinner from "../../../../../../componants/Spinner/Spinner"
 
-const AddAdminCommercial = () => {
+const EditAdminPointSource = () => {
+
+    const { id } = useParams()
+    // console.log(id);
+    const { authorizationToken, server } = useAuth()
+    const navigate = useNavigate()
+    const [spinner, setSpinner] = useState(false)
+
 
     const [img, setImg] = useState("")
+    const [imgpublicid, setImgPublicId] = useState("")
     const [productname, setProductname] = useState("")
     const [category, setCategory] = useState("")
     const [description, setDescription] = useState({
@@ -23,25 +31,64 @@ const AddAdminCommercial = () => {
         housingColor: ""
     })
 
-    const { authorizationToken, server } = useAuth()
-    const navigate = useNavigate()
-    const [spinner, setSpinner] = useState(false)
+    const getSingleProduct = async (id) => {
+        const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/getsingalpointsource/${id}`, {
+            method: "GET",
+            headers: {
+                "Authorization": authorizationToken
+            }
+        })
+        const singleProduct = await response.json()
+        // console.log(singleProduct)
+        if (singleProduct) {
+            setImg(singleProduct.productfile.url)
+            setImgPublicId(singleProduct.productfile.public_id)
+            setProductname(singleProduct.productname)
+            setCategory(singleProduct.category)
+            setDescription({
+                size: singleProduct.description.size,
+                shape: singleProduct.description.shape,
+                installation: singleProduct.description.installation,
+                direction: singleProduct.description.direction,
+                power: singleProduct.description.power,
+                leds: singleProduct.description.leds,
+                cri: singleProduct.description.cri,
+                cct: singleProduct.description.cct,
+                efficiency: singleProduct.description.efficiency,
+                beamAngle: singleProduct.description.beamAngle,
+                housingColor: singleProduct.description.housingColor,
+            })
+        }
+    }
+
+    const handleImage = (e) => {
+        const file = e.target.files[0]
+        transforFile(file)
+    }
+
+    const transforFile = (file) => {
+        const reader = new FileReader()
+
+        reader.readAsDataURL(file)
+        reader.onloadend = () => {
+            setImg(reader.result);
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setSpinner(true)
-        // console.log(img,productname,category,description);
-        
 
         try {
-            const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/addcommercial`, {
-                method: "POST",
+            const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/updatepointsource/${id}`, {
+                method: "PUT",
                 headers: {
                     "Authorization": authorizationToken,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                     productfile: img,
+                    imgpublicid: imgpublicid,
                     productname: productname,
                     category: category,
                     size: description.size,
@@ -61,6 +108,7 @@ const AddAdminCommercial = () => {
 
             if (response.ok) {
                 setImg("")
+                setImgPublicId("")
                 setProductname("")
                 setCategory("")
                 setDescription({
@@ -77,29 +125,15 @@ const AddAdminCommercial = () => {
                     housingColor: ""
                 })
                 const res = await response.json()
+                // console.log(res);
                 toast.success(res.message)
                 setSpinner(false)
-                navigate("/admin/commercial")
+                navigate("/admin/pointsource")
 
             }
 
-
         } catch (error) {
-            toast.error("Failed to Add Product")
-        }
-    }
-
-    const handleImage = (e) => {
-        const file = e.target.files[0]
-        transforFile(file)
-    }
-
-    const transforFile = (file) => {
-        const reader = new FileReader()
-
-        reader.readAsDataURL(file)
-        reader.onloadend = () => {
-            setImg(reader.result);
+            toast.error("Failed to Update Product")
         }
     }
 
@@ -110,20 +144,28 @@ const AddAdminCommercial = () => {
         })
     }
 
+    useEffect(() => {
+        getSingleProduct(id)
+    }, [])
+
+
+
+
+
     return (
         <>
             <div className="container my-5">
-                <h2 className="fw-bold mb-3">Add Commercial Product</h2>
+                <h2 className="fw-bold mb-3">Edit Point Source Product</h2>
                 <form className="main_form" onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={handleImage} type="file" name="productfile" required />
+                            <input className="form-control rounded" onChange={handleImage} type="file" name="productfile" />
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <input className="form-control rounded" onChange={(e) => setProductname(e.target.value)} value={productname} placeholder="Product name" type="text" name="productname" required />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={(e) => setCategory(e.target.value)} value={category} placeholder="Product Category" type="text" name="category" required />
+                            <input className="form-control rounded" onChange={(e) => setCategory(e.target.value)} value={category} placeholder="Product category" type="text" name="category" required />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <input className="form-control rounded" onChange={handlechange} value={description.size} placeholder="Size" type="text" name="size" />
@@ -158,8 +200,8 @@ const AddAdminCommercial = () => {
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <input className="form-control rounded" onChange={handlechange} value={description.housingColor} placeholder="Housing Color" type="text" name="housingColor" />
                         </div>
-                        <div className=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <button type="submit" className="but rounded">Add</button>
+                        <div className=" col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <button type="submit" className="but rounded">Update</button>
                         </div>
                     </div>
                 </form>
@@ -169,4 +211,4 @@ const AddAdminCommercial = () => {
     )
 }
 
-export default AddAdminCommercial;
+export default EditAdminPointSource;
