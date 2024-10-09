@@ -17,7 +17,7 @@ const connectorSchema = new Schema({
   },
   model: {
     type: String,
-    required: true
+    // required: true
   },
   description: {
     des: {

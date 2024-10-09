@@ -14,7 +14,7 @@ const addchandeliers = async (req, res, next) => {
         const result = await cloudinary.uploader.upload(productfile, {
             folder: "arkayalighting/products/lightingfixture/decorative/chandeliers",
             resource_type: 'auto',
-            width: 400,
+            width: 300,
             height: 300,
         })
 
@@ -62,7 +62,7 @@ const updatechandeliers = async (req, res, next) => {
                 const result = await cloudinary.uploader.upload(productfile, {
                     folder: "arkayalighting/products/lightingfixture/decorative/chandeliers",
                     resource_type: 'auto',
-                    width: 400,
+                    width: 300,
                     height: 300,
                 })
                 const updatedata = await Chandelier.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })

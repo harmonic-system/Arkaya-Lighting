@@ -130,7 +130,7 @@ const AdminLayout = () => {
 
           <ul className="list-group mt-5">
             <h3><b>Video Displays</b></h3>
-            <li><Link className="btn btn-warning w-100 mb-3" to="/admin/rentalseries">Rental Series</Link></li>
+            {/* <li><Link className="btn btn-warning w-100 mb-3" to="/admin/rentalseries">Rental Series</Link></li> */}
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/indoorseries">Indoor Series</Link></li>
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/outdoorseries">Outdoor Series</Link></li>
 

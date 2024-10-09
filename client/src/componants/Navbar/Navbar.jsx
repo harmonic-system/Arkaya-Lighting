@@ -58,7 +58,7 @@ const Navbar = () => {
                     <hr className="bg-secondary" />
 
                     <ul className="mega-links">
-                      <li><Link to="/rentalseries">Rental Series</Link></li>
+                      {/* <li><Link to="/rentalseries">Rental Series</Link></li> */}
                       <li><Link to="/indoorseries">Indoor Series</Link></li>
                       <li><Link to="/outdoorseries">Outdoor Series</Link></li>
                     </ul>
@@ -130,16 +130,16 @@ const Navbar = () => {
 
             <li>
               {isLoggedIn ? (
-                <div className="dropdown">
-                  <a className="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
-                    {username?.length < 10 ? username?.toUpperCase() : username?.slice(0, 10).toUpperCase()}
-                  </a>
-                  <ul className="dropdown-menu profile">
-                    <li><Link className="text-light" to="/userprofile">Profile</Link></li>
-                    <li><Link className="text-light" to="/cart">Cart</Link></li>
-                    <li><Link className="text-light" to="/logout">Logout</Link></li>
+                <span>
+                  <Link className="desktop-item">{username?.length < 10 ? username?.toUpperCase() : username?.slice(0, 10).toUpperCase()}</Link>
+                  <input type="checkbox" id="showDrop-profile" />
+                  <label htmlFor="showDrop-profile" className="mobile-item">{username?.length < 10 ? username?.toUpperCase() : username?.slice(0, 10).toUpperCase()}</label>
+                  <ul className="drop-menu-profile">
+                    <li><Link to="/userprofile">Profile</Link></li>
+                    {/* <li><Link to="/cart">Cart</Link></li> */}
+                    <li><Link to="/logout">Logout</Link></li>
                   </ul>
-                </div>
+                </span>
               ) : (
                 <Link to="/login">LOGIN</Link>
               )}

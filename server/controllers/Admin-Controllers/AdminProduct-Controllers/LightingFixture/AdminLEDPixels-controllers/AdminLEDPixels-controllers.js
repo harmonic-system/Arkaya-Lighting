@@ -18,7 +18,7 @@ const addstrip = async (req, res, next) => {
             folder: "arkayalighting/products/lightingfixture/ledpixel/strip",
             resource_type: 'auto',
             width: 400,
-            height: 300,
+            height: 400,
         })
 
 
@@ -66,7 +66,7 @@ const updatestrip = async (req, res, next) => {
                     folder: "arkayalighting/products/lightingfixture/ledpixel/strip",
                     resource_type: 'auto',
                     width: 400,
-                    height: 300,
+                    height: 400,
                 })
                 const updatedata = await Strip.updateOne({ _id: id }, { $set: { productfile: { public_id: result.public_id, url: result.secure_url }, productname, model, description: { spec1, spec2, spec3, spec4, spec5, spec6, spec7, spec8, spec9, spec10 } } })
                 return res.status(200).json({ message: "Product Updated Successfully", updatedata })
