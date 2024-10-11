@@ -5,7 +5,7 @@ import BackButton from "../../../../../componants/BackButton";
 const TreeHanging = () => {
 
     const { treehanging, getAllTreeHangingProducts } = useLightingFixtures()
-    console.log(treehanging);
+    // console.log(treehanging);
 
 
     useEffect(() => {

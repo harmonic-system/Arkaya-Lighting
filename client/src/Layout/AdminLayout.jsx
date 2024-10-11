@@ -8,7 +8,7 @@ const AdminLayout = () => {
 
   const navigate = useNavigate()
   const { user } = useAuthContext()
-  // console.log(auth);
+  // console.log(user);
 
   useEffect(() => {
     if (!user?.isAdmin) {

@@ -5,7 +5,7 @@ import BackButton from "../../../../../componants/BackButton";
 const MediaPixels = () => {
 
     const { mediapixel, getAllMediaPixelProducts } = useLightingFixtures()
-    console.log(mediapixel);
+    // console.log(mediapixel);
 
 
     useEffect(() => {

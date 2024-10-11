@@ -5,7 +5,7 @@ import BackButton from "../../../../../componants/BackButton";
 const UnderGround = () => {
 
     const { undergroundLight, getAllUnderGroundProducts } = useLightingFixtures()
-    console.log(undergroundLight);
+    // console.log(undergroundLight);
 
 
     useEffect(() => {

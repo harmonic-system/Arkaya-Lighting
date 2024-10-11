@@ -5,7 +5,7 @@ import { useEffect } from "react"
 const PointSource = () => {
 
     const { pointSource, getAllPointSourceProducts } = useLightingFixtures()
-    console.log(pointSource);
+    // console.log(pointSource);
 
 
     useEffect(() => {

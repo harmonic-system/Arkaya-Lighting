@@ -56,39 +56,6 @@ const SignUp = () => {
     } catch (error) {
       console.log(error); 
     }
-
-    // try {
-    //   const response = await fetch(`${server}/api/v1/auth/signup`, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(user)
-    //   })
-      
-    //   const res = await response.json()
-      
-
-    //   if (response.ok) {
-    //     setUser({
-    //       name: "",
-    //       email: "",
-    //       phone: "",
-    //       organization: "",
-    //       password: "",
-    //       confirmPassword: ""
-    //     })
-
-    //     storeTokenInLocalStorage(res.token)
-    //     toast.success(res.message)
-    //     navigate("/")
-    //   }
-    //   else {
-    //     toast.error(res.message)
-    //   }
-    // } catch (error) {
-    //   toast.error(error.message)
-    // }
   }
 
   return (

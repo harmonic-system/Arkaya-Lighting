@@ -5,7 +5,7 @@ import BackButton from "../../../../../componants/BackButton";
 const UnderWater = () => {
 
     const { underwaterLight, getAllUnderWaterProducts } = useLightingFixtures()
-    console.log(underwaterLight);
+    // console.log(underwaterLight);
 
 
     useEffect(() => {

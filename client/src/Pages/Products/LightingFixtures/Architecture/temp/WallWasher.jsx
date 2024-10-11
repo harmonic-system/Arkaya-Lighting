@@ -5,7 +5,7 @@ import BackButton from "../../../../../componants/BackButton";
 const WallWasher = () => {
 
     const { wallwasherLight, getAllWallWasherProducts } = useLightingFixtures()
-    console.log(wallwasherLight);
+    // console.log(wallwasherLight);
 
 
     useEffect(() => {

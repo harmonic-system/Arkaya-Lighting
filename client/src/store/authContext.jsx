@@ -93,7 +93,7 @@ const AuthProvider = ({ children }) => {
                     }
                 }
             )
-            console.log(response.data);
+            // console.log(response.data);
 
             const { token, data } = response.data
 

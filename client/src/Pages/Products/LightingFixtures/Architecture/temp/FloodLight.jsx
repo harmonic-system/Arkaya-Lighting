@@ -5,7 +5,7 @@ import BackButton from "../../../../../componants/BackButton";
 const FloodLight = () => {
 
     const { floodLight, getAllFloodProducts } = useLightingFixtures()
-    console.log(floodLight);
+    // console.log(floodLight);
 
 
     useEffect(() => {

@@ -42,33 +42,6 @@ const Login = () => {
     } catch (error) {
       console.log(error);
     }
-    // try {
-    //   const response = await fetch(`${server}/api/v1/auth/login`, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(user)
-    //   })
-
-    //   const res = await response.json()
-    //   // console.log(res);
-
-
-    //   if (response.ok) {
-    //     setUser({
-    //       email: "",
-    //       password: ""
-    //     })
-    //     storeTokenInLocalStorage(res.token, res.user)
-    //     toast.success(res.message)
-    //     navigate("/")
-    //   } else {
-    //     toast.error(res.message)
-    //   }
-    // } catch (error) {
-    //   toast.error(error.message)
-    // }
 
   }
 

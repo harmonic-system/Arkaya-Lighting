@@ -91,6 +91,7 @@ const EditAdminOutdoorSeries = () => {
                 },
                 body: JSON.stringify({
                     productfile: img,
+                    imgpublicid: imgpublicid,
                     productname: productname,
                     model: model,
                     moduleSize: description.moduleSize,
