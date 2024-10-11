@@ -9,13 +9,13 @@ const BackButton = () => {
 
     return (
         <button onClick={handleBackClick} style={buttonStyle}>
-            Go Back
+            Back
         </button>
     );
 };
 
 const buttonStyle = {
-    padding: '10px 20px',
+    padding: '15px 30px',
     backgroundColor: '#ffc221',
     color: 'white',
     border: 'none',
