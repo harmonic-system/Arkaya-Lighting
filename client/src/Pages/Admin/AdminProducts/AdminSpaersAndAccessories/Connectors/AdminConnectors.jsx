@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../../store/Auth";
 import { useSpaers } from "../../../../../store/Product/Spaers";
+import { useAuthContext } from "../../../../../store/authContext";
 
 const AdminConnectors = () => {
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const { connectors, getAllConnectorsProducts } = useSpaers()
 
     let count = 1
@@ -19,7 +20,7 @@ const AdminConnectors = () => {
             const response = await fetch(`${server}/api/v1/spaersaccessroies/adminconnectors/deleteconnector/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

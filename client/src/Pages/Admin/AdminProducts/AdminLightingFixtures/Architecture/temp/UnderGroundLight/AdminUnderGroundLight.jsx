@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../../../../store/Auth";
 import { useLightingFixtures } from "../../../../../../../store/Product/LightingFixture";
+import { useAuthContext } from "../../../../../../../store/authContext";
 
 const AdminUnderGroundLight = () => {
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const { undergroundLight, getAllUnderGroundProducts } = useLightingFixtures()
 
     let count = 1
@@ -19,7 +20,7 @@ const AdminUnderGroundLight = () => {
             const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/deleteundergroundlight/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

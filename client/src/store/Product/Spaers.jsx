@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify"
-import { useAuth } from "../Auth";
+import { useAuthContext } from "../authContext";
 
 const SpaersContext = createContext()
 
 const SpaersProvider = ({ children }) => {
 
-    const { server } = useAuth()
+    const { server } = useAuthContext()
 
     // For - Spaers & Accessories
     const [connectors, setConnectors] = useState([])

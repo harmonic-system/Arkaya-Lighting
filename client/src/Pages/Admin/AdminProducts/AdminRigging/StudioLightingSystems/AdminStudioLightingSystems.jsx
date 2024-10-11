@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../../store/Auth";
 import { useRigging } from "../../../../../store/Product/Rigging";
+import { useAuthContext } from "../../../../../store/authContext";
 
 const AdminStudioLightingSystems = () => {
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const { studioLightingSystem, getAllStudioLightingSystemProducts } = useRigging()
 
     let count = 1
@@ -19,7 +20,7 @@ const AdminStudioLightingSystems = () => {
             const response = await fetch(`${server}/api/v1/rigging/adminstudiolightingsystem/deletestudiolightingsystem/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

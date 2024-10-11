@@ -30,11 +30,11 @@ const AuthProvider = ({ children }) => {
   const storeTokenInLocalStorage = (serverToken, user) => {
     setToken(serverToken)
     setAuth({
-      name:user.name,
-      email:user.email,
-      phone:user.phone,
-      organization:user.organization,
-      isAdmin:user.isAdmin
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      organization: user.organization,
+      isAdmin: user.isAdmin
     })
 
     localStorage.setItem("Token", serverToken);
@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
       phone: user.phone,
       organization: user.organization,
       isAdmin: user.isAdmin
-      
+
     }));
     // return localStorage.setItem("Token", serverToken)
   }

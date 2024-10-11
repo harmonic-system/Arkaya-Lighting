@@ -1,3 +1,4 @@
+import BackButton from "../../../../../componants/BackButton"
 import { useLightingFixtures } from "../../../../../store/Product/LightingFixture"
 import { useEffect } from "react"
 
@@ -27,13 +28,14 @@ const EffectsLight = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 effectlight.map((product) => {
                                     // return <Link to="/productDetails" className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >
                                     return <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >
                                         <div className="product-box row rounded">
-                                            <h2 className="text-start" style={{height:"100px"}}><b><big>{product.productname}</big></b></h2>
+                                            <h2 className="text-start" style={{ height: "100px" }}><b><big>{product.productname}</big></b></h2>
                                             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex proimgspec">
                                                 <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight rect-imgheight" style={{ height: "250px" }}>
                                                     <img src={product.productfile.url} className="w-100 p-0 m-auto h-100 rounded" />

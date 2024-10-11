@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../store/Auth";
 import { useState, useEffect } from "react";
+import { useAuthContext } from "../../store/authContext";
 
 const UserProfile = () => {
 
-  const { auth } = useAuth()
-  // console.log(auth)
+  const { user } = useAuthContext()
+  // console.log(user)
 
   const [profileDetails, setProfileDetails] = useState({
     name: "",
@@ -15,15 +15,15 @@ const UserProfile = () => {
   })
 
   useEffect(()=>{
-    if(auth){
+    if(user){
       setProfileDetails({
-        name: auth.name,
-        email: auth.email,
-        phone: auth.phone,
-        organization: auth.organization
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        organization: user.organization
       })
     }
-  },[auth])
+  },[user])
   
   return (
     <>

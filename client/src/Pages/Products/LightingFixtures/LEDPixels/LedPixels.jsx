@@ -14,7 +14,7 @@ const LEDPixels = () => {
             </Link>
             <Link to="/dotpixels" className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <div className="products-image-box">
-                <img src="images/products/LEDPixels/dotpixel.jpg" />
+                <img src="images/products/LEDPixels/dotpixel.jpeg" />
                 <h3>DOT Pixels</h3>
               </div>
             </Link>

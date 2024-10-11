@@ -2,19 +2,23 @@ import { MdDelete } from "react-icons/md";
 import { useAuth } from "../../../store/Auth";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useAuthContext } from "../../../store/authContext";
+import { useNavigate } from "react-router-dom";
 // import AdminLayout from "../../../Layout/AdminLayout";
 
 const AdminUser = () => {
 
-  const { authorizationToken, server } = useAuth()
+  const { token, server } = useAuthContext()
   const [allusers, setAllUsers] = useState([])
+
+  const navigate = useNavigate()
 
   const getAllUsers = async () => {
     try {
       const response = await fetch(`${server}/api/v1/admin/getusers`, {
         method: 'GET',
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         },
       });
       const data = await response.json();
@@ -30,13 +34,14 @@ const AdminUser = () => {
       const response = await fetch(`${server}/api/v1/admin/deleteuser/${id}`, {
         method: "DELETE",
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         }
       })
 
       if (response.ok) {
         toast.success('User Deleted Successfully')
         getAllUsers()
+        navigate("/admin/users")
       }
     } catch (error) {
       toast.error('Failed to Delete User');

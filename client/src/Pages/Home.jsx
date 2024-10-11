@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { useAuth } from "../store/Auth";
+// import { useAuth } from "../store/Auth";
 import useOnLine from "../Utils/useOnline";
 import Offline from "./Offline";
 import Loading from "../componants/Loading/Loading";
+import { useAuthContext } from "../store/authContext";
+import { useHome } from "../store/Product/Home";
 
 const Home = () => {
 
@@ -12,7 +14,9 @@ const Home = () => {
   })
   const [loading, setLoading] = useState(false)
 
-  const { homeCarousel, homeProduct, server } = useAuth()
+  const { server } = useAuthContext()
+  const {homeCarousel, homeProduct} = useHome()
+  // const { homeCarousel, homeProduct, server } = useAuth()
 
   const handleNewsletterInput = (e) => {
 
@@ -243,7 +247,7 @@ const Home = () => {
       </div>
 
 
-      <div className="product">
+      {/* <div className="product">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -254,9 +258,10 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      
       <div className="product-bg">
-        <div className="product-bg-white">
+        {/* <div className="product-bg-white">
           <div className="container">
             <div className="row">
 
@@ -266,14 +271,12 @@ const Home = () => {
                     <div className="product-box rounded">
                       <i><img src={product.file.url} className="rounded" /></i>
                       <h3>{product.productname}</h3>
-                      {/* <span>$25.00</span> */}
                     </div>
                   </div>
                 })
               }
 
-
-              {/* <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+              <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div className="product-box">
                   <i><img src="icon/p1.png" /></i>
                   <h3>Norton Internet Security</h3>
@@ -328,11 +331,12 @@ const Home = () => {
                   <h3>Norton Internet Security</h3>
                   <span>$25.00</span>
                 </div>
-              </div> */}
+              </div>
 
             </div>
           </div>
-        </div>
+        </div> */}
+
         <div className="Clients_bg_white">
           <div className="container">
             <div className="row">

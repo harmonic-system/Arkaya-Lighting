@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../../store/Auth";
 import { useCDI } from "../../../../../store/Product/CDI";
+import { useAuthContext } from "../../../../../store/authContext";
 
 const AdminDMXControllers = () => {
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const { dmxControllers, getAllDmxControllersProducts } = useCDI()
 
     let count = 1
@@ -19,7 +20,7 @@ const AdminDMXControllers = () => {
             const response = await fetch(`${server}/api/v1/controllerdistributioninterfaces/adminDMXcontrollers/deletedmxcontroller/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

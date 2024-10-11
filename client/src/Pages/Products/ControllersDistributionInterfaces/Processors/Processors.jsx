@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useCDI } from "../../../../store/Product/CDI"
+import BackButton from "../../../../componants/BackButton"
 
 const Processors = () => {
 
@@ -27,6 +28,7 @@ const Processors = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 processors.map((product) => {

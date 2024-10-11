@@ -1,3 +1,4 @@
+import BackButton from "../../../../../componants/BackButton"
 import { useLightingFixtures } from "../../../../../store/Product/LightingFixture"
 import { useEffect } from "react"
 
@@ -27,7 +28,7 @@ const MovingHeadSeriesLed = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
-                        {/* <h1>Moving Head Series Led</h1> */}
+                        <BackButton />
                         <div className="row">
                             {
                                 movingHeadSeriesLed.map((product) => {

@@ -29,7 +29,6 @@ const DecorativeProducts = () => {
         <div className="product-bg-white">
           <div className="container">
             <div className="row">
-
               {
                 decorativeProducts.map((product) => {
                   // return <Link to="/productDetails" className="col-xl-3 col-lg-3 col-md-6 col-sm-12" key={product._id} >

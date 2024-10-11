@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify"
-import { useAuth } from "../Auth";
+import { useAuthContext } from "../authContext";
 
 const VideoDisplaysContext = createContext()
 
 const VideoDisplaysProvider = ({ children }) => {
 
-    const { server } = useAuth()
+    const { server } = useAuthContext()
 
     // For - Video Displays
     const [rentalSeries, setRentalSeries] = useState([])

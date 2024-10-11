@@ -1,16 +1,17 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import "./AdminLayout.css"
-import { useAuth } from "../store/Auth";
+// import { useAuth } from "../store/Auth";
 import { useEffect } from "react";
+import { useAuthContext } from "../store/authContext";
 
 const AdminLayout = () => {
 
   const navigate = useNavigate()
-  const { auth } = useAuth()
+  const { user } = useAuthContext()
   // console.log(auth);
 
   useEffect(() => {
-    if (!auth?.isAdmin) {
+    if (!user?.isAdmin) {
       navigate("/")
     }
   }, [])
@@ -112,7 +113,7 @@ const AdminLayout = () => {
                 </ul>
               </div>
             </li>
-            <li className="list-group-item">
+            {/* <li className="list-group-item">
               <div className="dropdown">
                 <a className="btn btn-warning dropdown-toggle w-100" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Threater Studio & Television
@@ -124,7 +125,7 @@ const AdminLayout = () => {
                   <li><Link className="dropdown-item" to="/admin/television">Televison</Link></li>
                 </ul>
               </div>
-            </li>
+            </li> */}
           </ul>
 
 
@@ -163,7 +164,7 @@ const AdminLayout = () => {
 
 
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/decorderandamplifier">Decorders And Amplifiers</Link></li>
-            <li><Link className="btn btn-warning w-100 mb-3" to="/admin/processors">Processors</Link></li>
+            {/* <li><Link className="btn btn-warning w-100 mb-3" to="/admin/processors">Processors</Link></li> */}
 
           </ul>
 
@@ -173,8 +174,8 @@ const AdminLayout = () => {
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/clamps">Clamps</Link></li>
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/alluminiumprofile">Alluminium Profile</Link></li>
             <li><Link className="btn btn-warning w-100 mb-3" to="/admin/siliconprofile">Silicon Profile</Link></li>
-            <li><Link className="btn btn-warning w-100 mb-3" to="/admin/stagelightingsystem">Stage Lighting System</Link></li>
-            <li><Link className="btn btn-warning w-100 mb-3" to="/admin/studiolightingsystem">Studio Lighting System</Link></li>
+            {/* <li><Link className="btn btn-warning w-100 mb-3" to="/admin/stagelightingsystem">Stage Lighting System</Link></li> */}
+            {/* <li><Link className="btn btn-warning w-100 mb-3" to="/admin/studiolightingsystem">Studio Lighting System</Link></li> */}
 
           </ul>
 

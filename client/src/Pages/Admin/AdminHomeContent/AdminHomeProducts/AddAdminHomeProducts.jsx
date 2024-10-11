@@ -3,13 +3,16 @@ import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../../../../componants/Spinner/Spinner";
+import { useAuthContext } from "../../../../store/authContext";
+import { useHome } from "../../../../store/Product/Home";
 
 const AddAdminHomeProducts = () => {
 
   const [img, setImg] = useState("")
   const [productname, setProductName] = useState("")
 
-  const { authorizationToken, getAllHomeProduct, server } = useAuth()
+  const { token, server } = useAuthContext()
+  const { getAllHomeProduct } = useHome()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
 
@@ -21,7 +24,7 @@ const AddAdminHomeProducts = () => {
       const response = await fetch(`${server}/api/v1/adminhomecontent/addhomeproduct`, {
         method: "POST",
         headers: {
-          "Authorization": authorizationToken,
+          "Authorization": token,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({

@@ -2,10 +2,11 @@ import { MdDelete } from "react-icons/md";
 import { useAuth } from "../../../store/Auth";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useAuthContext } from "../../../store/authContext";
 
 const AdminProductQuery = () => {
 
-  const { authorizationToken, server } = useAuth()
+  const { token, server } = useAuthContext()
   const [allproductQueries, setAllProductQueries] = useState([])
 
   const getAllProductQueries = async () => {
@@ -13,7 +14,7 @@ const AdminProductQuery = () => {
       const response = await fetch(`${server}/api/v1/admin/getproductqueries`, {
         method: 'GET',
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         },
       });
       const data = await response.json();
@@ -30,7 +31,7 @@ const AdminProductQuery = () => {
       const response = await fetch(`${server}/api/v1/admin/deleteproductquery/${id}`, {
         method: "DELETE",
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         }
       })
 

@@ -5,10 +5,11 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
+import { useAuthContext } from "../../../../store/authContext";
 
 const AdminDecorativeProduct = () => {
 
-  const { authorizationToken, decorativeProducts, getAllDecorativeProducts, server } = useAuth()
+  const { token, decorativeProducts, getAllDecorativeProducts, server } = useAuthContext()
   let count = 1
 
 
@@ -17,7 +18,7 @@ const AdminDecorativeProduct = () => {
       const response = await fetch(`${server}/api/v1/adminproducts/deletedecorativeproducts/${id}`, {
         method: "DELETE",
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         }
       })
 

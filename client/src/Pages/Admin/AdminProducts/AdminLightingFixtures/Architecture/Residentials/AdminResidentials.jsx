@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../../../store/Auth";
 import { useLightingFixtures } from "../../../../../../store/Product/LightingFixture";
+import { useAuthContext } from "../../../../../../store/authContext";
 
 const AdminResidentials = () => {
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const { residential, getAllResidentialProducts } = useLightingFixtures()
 
     let count = 1
@@ -19,7 +20,7 @@ const AdminResidentials = () => {
             const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/deleteresidential/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

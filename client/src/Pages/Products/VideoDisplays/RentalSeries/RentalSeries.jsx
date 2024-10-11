@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useVideoDisplays } from "../../../../store/Product/VideoDisplay"
+import BackButton from "../../../../componants/BackButton"
 
 const RentalSeries = () => {
 
@@ -27,6 +28,7 @@ const RentalSeries = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 rentalSeries.map((product) => {

@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useRigging } from "../../../../store/Product/Rigging"
+import BackButton from "../../../../componants/BackButton"
 
 const StudioLightingSystems = () => {
 
@@ -27,6 +28,7 @@ const StudioLightingSystems = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 studioLightingSystem.map((product) => {

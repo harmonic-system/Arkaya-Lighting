@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
 import { toast } from "react-toastify"
-import { useAuth } from "../store/Auth";
 import { IoLocationSharp } from "react-icons/io5";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
+import { useAuthContext } from "../store/authContext";
 
 const Contact = () => {
 
-  const { auth, server } = useAuth()
+  const { user, server } = useAuthContext()
   const [sent, setSent] = useState(false)
 
   const [contactData, setContactData] = useState({
@@ -19,16 +19,16 @@ const Contact = () => {
   })
 
   useEffect(()=>{
-    if(auth){
+    if(user){
       setContactData({
-        name: auth.name,
-        email: auth.email,
-        phone: auth.phone,
-        organization: auth.organization,
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        organization: user.organization,
         message: ""
       })
     }
-  },[auth])
+  },[user])
 
   const handleChange = (e) => {
     const name = e.target.name

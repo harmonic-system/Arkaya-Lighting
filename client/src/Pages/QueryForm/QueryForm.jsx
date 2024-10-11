@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { useAuth } from "../../store/Auth"
+// import { useAuth } from "../../store/Auth"
 import { toast } from "react-toastify"
+import { useAuthContext } from "../../store/authContext"
 
 const QueryForm = ({ productname }) => {
     // console.log(productname);
@@ -21,7 +22,7 @@ const QueryForm = ({ productname }) => {
     }
 
     // const [sent, setSent] = useState(false)
-    const { server } = useAuth()
+    const { server } = useAuthContext()
 
 
     const handleChange = (e) => {

@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../../store/Auth";
 import "./Login-Signup.css";
+import { useAuthContext } from "../../store/authContext";
 
 const SignUp = () => {
 
@@ -17,7 +18,8 @@ const SignUp = () => {
     confirmPassword: ""
   })
 
-  const { storeTokenInLocalStorage, server } = useAuth()
+  const { signup } = useAuthContext()
+  // const { storeTokenInLocalStorage, server } = useAuth()
 
   const navigate = useNavigate()
 
@@ -49,41 +51,44 @@ const SignUp = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch(`${server}/api/v1/auth/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(user)
-      })
-      
-      const res = await response.json()
-      // console.log(res);
-      
-
-      if (response.ok) {
-        setUser({
-          name: "",
-          email: "",
-          phone: "",
-          organization: "",
-          password: "",
-          confirmPassword: ""
-        })
-
-        // console.log(res);
-        storeTokenInLocalStorage(res.token)
-        toast.success(res.message)
-        navigate("/")
-      }
-      else {
-        toast.error(res.message)
-      }
-      // console.log(res);
+      await signup(user)
+      navigate("/")
     } catch (error) {
-      // console.log(error);
-      toast.error(error.message)
+      console.log(error); 
     }
+
+    // try {
+    //   const response = await fetch(`${server}/api/v1/auth/signup`, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(user)
+    //   })
+      
+    //   const res = await response.json()
+      
+
+    //   if (response.ok) {
+    //     setUser({
+    //       name: "",
+    //       email: "",
+    //       phone: "",
+    //       organization: "",
+    //       password: "",
+    //       confirmPassword: ""
+    //     })
+
+    //     storeTokenInLocalStorage(res.token)
+    //     toast.success(res.message)
+    //     navigate("/")
+    //   }
+    //   else {
+    //     toast.error(res.message)
+    //   }
+    // } catch (error) {
+    //   toast.error(error.message)
+    // }
   }
 
   return (

@@ -4,10 +4,14 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
+import { useAuthContext } from "../../../../store/authContext";
+import { useHome } from "../../../../store/Product/Home";
 
 const AdminHomeLProducts = () => {
 
-  const { authorizationToken, homeProduct, getAllHomeProduct, server } = useAuth()
+  const { token, server } = useAuthContext()
+
+  const { homeProduct, getAllHomeProduct } = useHome()
   let count = 1
 
 
@@ -16,7 +20,7 @@ const AdminHomeLProducts = () => {
       const response = await fetch(`${server}/api/v1/adminhomecontent/deletehomeproduct/${id}`, {
         method: "DELETE",
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         }
       })
 

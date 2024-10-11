@@ -3,6 +3,8 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../store/Auth";
 import Spinner from "../../../componants/Spinner/Spinner";
+import { useAuthContext } from "../../../store/authContext";
+import { useHome } from "../../../store/Product/Home";
 
 const AddAdminApplication = () => {
 
@@ -12,7 +14,8 @@ const AddAdminApplication = () => {
         about: ""
     })
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
+    const { getAllApplications } = useHome()
     const navigate = useNavigate()
     const [spinner, setSpinner] = useState(false)
 
@@ -24,7 +27,7 @@ const AddAdminApplication = () => {
             const response = await fetch(`${server}/api/v1/adminapplication/addapplication`, {
                 method: "POST",
                 headers: {
-                    "Authorization": authorizationToken,
+                    "Authorization": token,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
@@ -43,6 +46,7 @@ const AddAdminApplication = () => {
                 })
                 const res = await response.json()
                 toast.success(res.message)
+                getAllApplications()
                 setSpinner(false)
                 navigate("/admin/application")
 

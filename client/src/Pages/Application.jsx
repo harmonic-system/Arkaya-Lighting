@@ -1,9 +1,11 @@
 import { useEffect } from "react";
-import { useAuth } from "../store/Auth";
+// import { useAuth } from "../store/Auth";
+// import { useAuthContext } from "../store/authContext";
+import { useHome } from "../store/Product/Home";
 
 const Application = () => {
 
-  const { application, getAllApplications } = useAuth()
+  const { application, getAllApplications } = useHome()
 
   useEffect(() => {
     getAllApplications()

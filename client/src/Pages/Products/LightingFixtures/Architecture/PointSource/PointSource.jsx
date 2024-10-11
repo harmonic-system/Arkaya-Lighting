@@ -1,3 +1,4 @@
+import BackButton from "../../../../../componants/BackButton";
 import { useLightingFixtures } from "../../../../../store/Product/LightingFixture"
 import { useEffect } from "react"
 
@@ -29,6 +30,7 @@ const PointSource = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 pointSource.map((product) => {

@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useCDI } from "../../../../store/Product/CDI"
+import BackButton from "../../../../componants/BackButton"
 
 const DMXControllers = () => {
 
@@ -27,21 +28,22 @@ const DMXControllers = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 dmxControllers.map((product) => {
                                     // return <Link to="/productDetails" className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >
                                     return <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >
-                                    <div className="product-box row rounded">
-                                        <h2 className="text-start" style={{ height: "100px" }}><b><big>{product.productname}</big></b></h2>
-                                        <div className="w-100 d-flex proimgspec">
-                                            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight rect-imgheight" style={{ height: "200px" }}>
-                                                <img src={product.productfile.url} className="w-100 p-0 m-auto rounded" />
-                                            </div>
-                                            <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight prod-spec" style={{ height: "250px" }}>
-                                                <p className="text-dark fw-bold" ><b>Technical Parameters</b></p>
-                                                <p className="message text-justify" >{product?.description?.spec1}</p>
-                                                {/* <p className="message" >{product?.description?.spec2}</p>
+                                        <div className="product-box row rounded">
+                                            <h2 className="text-start" style={{ height: "100px" }}><b><big>{product.productname}</big></b></h2>
+                                            <div className="w-100 d-flex proimgspec">
+                                                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 proimgheight rect-imgheight" style={{ height: "200px" }}>
+                                                    <img src={product.productfile.url} className="w-100 p-0 m-auto rounded" />
+                                                </div>
+                                                <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 d-flex align-items-center flex-column justify-content-start proimgheight prod-spec" style={{ height: "250px" }}>
+                                                    <p className="text-dark fw-bold" ><b>Technical Parameters</b></p>
+                                                    <p className="message text-justify" >{product?.description?.spec1}</p>
+                                                    {/* <p className="message" >{product?.description?.spec2}</p>
                                                 <p className="message" >{product?.description?.spec3}</p>
                                                 <p className="message" >{product?.description?.spec4}</p>
                                                 <p className="message" >{product?.description?.spec5}</p>
@@ -51,13 +53,13 @@ const DMXControllers = () => {
                                                 <p className="message" >{product?.description?.spec9}</p>
                                                 <p className="message" >{product?.description?.spec10}</p> */}
 
+                                                </div>
+                                            </div>
+                                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <h3 className="text-start">{product.model}</h3>
                                             </div>
                                         </div>
-                                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <h3 className="text-start">{product.model}</h3>
-                                        </div>
                                     </div>
-                                </div>
                                     {/* </Link> */ }
                                 })
                             }

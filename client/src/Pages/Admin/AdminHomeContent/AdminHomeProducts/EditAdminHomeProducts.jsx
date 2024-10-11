@@ -3,6 +3,7 @@ import { useAuth } from "../../../../store/Auth"
 import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import Spinner from "../../../../componants/Spinner/Spinner"
+import { useAuthContext } from "../../../../store/authContext"
 
 const EditAdminHomeProducts = () => {
 
@@ -11,7 +12,7 @@ const EditAdminHomeProducts = () => {
   const [productname, setProductName] = useState("")
   const [imgpublicid, setImgPublicId] = useState("")
 
-  const { authorizationToken, server } = useAuth()
+  const { token, server } = useAuthContext()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
 
@@ -19,7 +20,7 @@ const EditAdminHomeProducts = () => {
     const response = await fetch(`${server}/api/v1/adminhomecontent/getsingalhomeproduct/${id}`, {
       method: "GET",
       headers: {
-        "Authorization": authorizationToken
+        "Authorization": token
       }
     })
     const singlehomeproduct = await response.json()
@@ -40,7 +41,7 @@ const EditAdminHomeProducts = () => {
       const response = await fetch(`${server}/api/v1/adminhomecontent/edithomeproduct/${id}`, {
         method: "PUT",
         headers: {
-          "Authorization": authorizationToken,
+          "Authorization": token,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({

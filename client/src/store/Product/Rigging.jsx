@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify"
-import { useAuth } from "../Auth";
+import { useAuthContext } from "../authContext";
 
 const RiggingContext = createContext()
 
 const RiggingProvider = ({ children }) => {
 
-    const { server } = useAuth()
+    const { server } = useAuthContext()
 
     // For - Rigging
     const [truss, setTruss] = useState([])

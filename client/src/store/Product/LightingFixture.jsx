@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify"
-import { useAuth } from "../Auth";
+import { useAuthContext } from "../authContext";
 
 const LightingFixturesContext = createContext()
 
 const LightingFixtureProvider = ({ children }) => {
 
-    const { server } = useAuth()
+    const { server } = useAuthContext()
 
     // For - Lighting Fixture / Architecture
     const [commercial, setCommercial] = useState([])

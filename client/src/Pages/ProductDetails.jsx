@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { toast } from "react-toastify";
-import { useAuth } from "../store/Auth";
+import { useAuthContext } from "../store/authContext";
 
 const ProductDetails = () => {
 
@@ -14,7 +14,7 @@ const ProductDetails = () => {
   })
 
   const [sent, setSent] = useState(false)
-  const { server } = useAuth()
+  const { server } = useAuthContext()
 
 
   const handleChange = (e) => {

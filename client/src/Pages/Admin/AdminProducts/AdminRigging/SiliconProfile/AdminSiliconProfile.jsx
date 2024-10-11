@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useRigging } from "../../../../../store/Product/Rigging";
 import { useAuth } from "../../../../../store/Auth";
+import { useAuthContext } from "../../../../../store/authContext";
 
 const AdminSiliconProfile = () => {
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const { siliconProfile, getAllSiliconProfileProducts } = useRigging()
 
     let count = 1
@@ -19,7 +20,7 @@ const AdminSiliconProfile = () => {
             const response = await fetch(`${server}/api/v1/rigging/adminsiliconprofile/deletesiliconprofile/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

@@ -1,21 +1,11 @@
-import { Link, Outlet } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./Navbar.css"
 import TopHeader from "../../Pages/TopHeader"
-import { useAuth } from "../../store/Auth"
-import { useEffect, useState } from "react"
+import { useAuthContext } from "../../store/authContext"
 
 const Navbar = () => {
 
-  const { isLoggedIn, auth } = useAuth()
-  const [username, setUsername] = useState("")
-  const [isAdmin, setIsAdmin] = useState(false)
-
-  useEffect(() => {
-    if (auth) {
-      setUsername(auth.name);
-      setIsAdmin(auth.isAdmin);
-    }
-  }, [auth]);
+  const { isAuthenticated, user, logout } = useAuthContext()
 
   return (
     <>
@@ -49,7 +39,7 @@ const Navbar = () => {
                       <li><Link to="/entertainment">Entertainment</Link></li>
                       <li><Link to="/ledpixels">LED Pixels</Link></li>
                       <li><Link to="/decorative">Decorative</Link></li>
-                      <li><Link to="/threaterstudiotelevision">Threater, Studio, Television</Link></li>
+                      {/* <li><Link to="/threaterstudiotelevision">Threater, Studio, Television</Link></li> */}
                     </ul>
                   </div>
 
@@ -73,7 +63,7 @@ const Navbar = () => {
                       <li><Link to="/dmxcontrollers">DMX Controllers</Link></li>
                       <li><Link to="/signaldistributionandpowersupply">Signal Distribution & Power Supply</Link></li>
                       <li><Link to="/decorderandamplifier">Decorders & Amplifiers</Link></li>
-                      <li><Link to="/processors">Processors</Link></li>
+                      {/* <li><Link to="/processors">Processors</Link></li> */}
                     </ul>
                   </div>
 
@@ -86,8 +76,8 @@ const Navbar = () => {
                       <li><Link to="/clamps">Clamps</Link></li>
                       <li><Link to="/alluminiumprofile">Alluminium Profile</Link></li>
                       <li><Link to="/siliconprofile">Silicon Profile</Link></li>
-                      <li><Link to="/stagelightingsystem">Stage Lighting Systems</Link></li>
-                      <li><Link to="/studiolightingsystem">Studio Lighting Systems</Link></li>
+                      {/* <li><Link to="/stagelightingsystem">Stage Lighting Systems</Link></li> */}
+                      {/* <li><Link to="/studiolightingsystem">Studio Lighting Systems</Link></li> */}
                     </ul>
                   </div>
 
@@ -108,7 +98,7 @@ const Navbar = () => {
             {/* Products Mega Menu End */}
 
 
-            <li><Link to="/brands">BRANDS PATNERS</Link></li>
+            {/* <li><Link to="/brands">BRANDS PATNERS</Link></li> */}
 
             <li><Link to="/application">APPLICATION</Link></li>
 
@@ -119,8 +109,8 @@ const Navbar = () => {
               <ul className="drop-menu">
                 <li><Link to="/software">Software</Link></li>
                 <li><Link to="/howtobuy">How To Buy</Link></li>
-                <li><Link to="/">DataSheet</Link></li>
-                <li><Link to="/">Solution Support</Link></li>
+                {/* <li><Link to="/">DataSheet</Link></li> */}
+                {/* <li><Link to="/">Solution Support</Link></li> */}
               </ul>
             </li>
 
@@ -129,25 +119,26 @@ const Navbar = () => {
             <li><Link to="/contact">CONTACT</Link></li>
 
             <li>
-              {isLoggedIn ? (
-                <span>
-                  <Link className="desktop-item">{username?.length < 10 ? username?.toUpperCase() : username?.slice(0, 10).toUpperCase()}</Link>
-                  <input type="checkbox" id="showDrop-profile" />
-                  <label htmlFor="showDrop-profile" className="mobile-item">{username?.length < 10 ? username?.toUpperCase() : username?.slice(0, 10).toUpperCase()}</label>
-                  <ul className="drop-menu-profile">
-                    <li><Link to="/userprofile">Profile</Link></li>
-                    {/* <li><Link to="/cart">Cart</Link></li> */}
-                    <li><Link to="/logout">Logout</Link></li>
-                  </ul>
-                </span>
-              ) : (
-                <Link to="/login">LOGIN</Link>
-              )}
+              {
+                isAuthenticated ?
+                  <span>
+                    <Link className="desktop-item">{user?.name?.length < 10 ? user?.name?.toUpperCase() : user?.name?.slice(0, 10).toUpperCase()}</Link>
+                    {/* <Link className="desktop-item">{user?.name}</Link> */}
+                    <input type="checkbox" id="showDrop-profile" />
+                    <label htmlFor="showDrop-profile" className="mobile-item">{user?.name?.length < 10 ? user?.name?.toUpperCase() : user?.name?.slice(0, 10).toUpperCase()}</label>
+                    <ul className="drop-menu-profile">
+                      <li><Link to="/userprofile">Profile</Link></li>
+                      {/* <li><Link to="/cart">Cart</Link></li> */}
+                      <li><Link to="/" onClick={() => logout()}>Logout</Link></li>
+                    </ul>
+                  </span>
+                  :
+                  <Link to="/login">LOGIN</Link>
+              }
             </li>
-
             <li>
               {
-                isAdmin ? (<Link to="/admin">Admin Section</Link>) : ("")
+                user?.isAdmin ? (<Link to="/admin">Admin Section</Link>) : ("")
               }
             </li>
 

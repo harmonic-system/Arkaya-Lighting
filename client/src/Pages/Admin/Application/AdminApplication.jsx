@@ -4,10 +4,14 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../store/Auth";
+import { useAuthContext } from "../../../store/authContext";
+import { useHome } from "../../../store/Product/Home";
 
 const AdminApplication = () => {
 
-    const { authorizationToken, server, application, getAllApplications } = useAuth()
+    const { token, server } = useAuthContext()
+
+    const {application, getAllApplications} = useHome()
 
     let count = 1
 
@@ -17,7 +21,7 @@ const AdminApplication = () => {
             const response = await fetch(`${server}/api/v1/adminapplication/deleteapplication/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

@@ -3,6 +3,8 @@ import { toast } from "react-toastify"
 import { useAuth } from "../../../../store/Auth";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../../../../componants/Spinner/Spinner";
+import { useAuthContext } from "../../../../store/authContext";
+import { useHome } from "../../../../store/Product/Home";
 
 const AddAdminHomeCarousel = () => {
 
@@ -10,7 +12,8 @@ const AddAdminHomeCarousel = () => {
   const [heading, setHeading] = useState("")
   const [des, setDes] = useState("")
 
-  const { authorizationToken, getAllHomeCarousel, server } = useAuth()
+  const { token, server } = useAuthContext()
+  const { getAllHomeCarousel } = useHome()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
 
@@ -22,7 +25,7 @@ const AddAdminHomeCarousel = () => {
       const response = await fetch(`${server}/api/v1/adminhomecontent/addhomecarousel`, {
         method: "POST",
         headers: {
-          "Authorization": authorizationToken,
+          "Authorization": token,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({

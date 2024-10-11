@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../../store/Auth";
 import { useVideoDisplays } from "../../../../../store/Product/VideoDisplay";
+import { useAuthContext } from "../../../../../store/authContext";
 
 const AdminIndoorSeries = () => {
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const { indoorSeries, getAllIndoorSeriesProducts } = useVideoDisplays()
 
     let count = 1
@@ -19,7 +20,7 @@ const AdminIndoorSeries = () => {
             const response = await fetch(`${server}/api/v1/videodisplays/adminindoorseries/deleteindoorseries/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

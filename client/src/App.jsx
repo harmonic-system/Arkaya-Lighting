@@ -101,29 +101,28 @@ import Connectors from "./Pages/Products/SpaersAndAccessories/Connectors/Connect
 // Admin Pages
 
 
-import AdminCommercial from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Commercials/AdminCommercials"
-import AddAdminCommercial from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Commercials/AddAdminCommercials"
-import EditAdminCommercial from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Commercials/EditAdminCommercials"
-// import ProductDetails from "./Pages/ProductDetails"
-import AddAdminDynamicFacade from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/DynamicFacade/AddAdminDynamicFacade"
-import EditAdminDynamicFacade from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/DynamicFacade/EditAdminDynamicFacade"
-import AdminDynamicFacade from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/DynamicFacade/AdminDynamicFacade"
+// import AdminCommercial from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Commercials/AdminCommercials"
+// import AddAdminCommercial from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Commercials/AddAdminCommercials"
+// import EditAdminCommercial from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Commercials/EditAdminCommercials"
+// import AddAdminDynamicFacade from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/DynamicFacade/AddAdminDynamicFacade"
+// import EditAdminDynamicFacade from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/DynamicFacade/EditAdminDynamicFacade"
+// import AdminDynamicFacade from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/DynamicFacade/AdminDynamicFacade"
 
-import AdminLandscapes from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Landscapes/AdminLandscapes"
-import AddAdminLandscapes from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Landscapes/AddAdminLandscapes"
-import EditAdminLandscapes from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Landscapes/EditAdminLandscapes"
+// import AdminLandscapes from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Landscapes/AdminLandscapes"
+// import AddAdminLandscapes from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Landscapes/AddAdminLandscapes"
+// import EditAdminLandscapes from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Landscapes/EditAdminLandscapes"
 
-import AdminMuseums from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Museums/AdminMuseums"
-import EditAdminMuseums from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Museums/EditAdminMuseums"
-import AddAdminMuseums from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Museums/AddAdminMuseums"
+// import AdminMuseums from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Museums/AdminMuseums"
+// import EditAdminMuseums from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Museums/EditAdminMuseums"
+// import AddAdminMuseums from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Museums/AddAdminMuseums"
 
-import AdminResidentials from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Residentials/AdminResidentials"
-import AddAdminResidentials from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Residentials/AddAdminResidentials"
-import EditAdminResidentials from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Residentials/EditAdminResidentials"
+// import AdminResidentials from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Residentials/AdminResidentials"
+// import AddAdminResidentials from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Residentials/AddAdminResidentials"
+// import EditAdminResidentials from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Residentials/EditAdminResidentials"
 
-import AddAdminPointSource from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Point Source/AddAdminPointSource"
-import AdminPointSource from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Point Source/AdminPointSource"
-import EditAdminPointSource from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Point Source/EditAdminPointSource"
+// import AddAdminPointSource from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Point Source/AddAdminPointSource"
+// import AdminPointSource from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Point Source/AdminPointSource"
+// import EditAdminPointSource from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Architecture/Point Source/EditAdminPointSource"
 
 import AddAdminEffectsLights from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Entertainment/EffectsLight/AddAdminEffectsLights"
 import AdminEffectsLights from "./Pages/Admin/AdminProducts/AdminLightingFixtures/Entertainment/EffectsLight/AdminEffectsLights"
@@ -410,7 +409,7 @@ function App() {
             {/* Add & Edit Admin Application Start */}
 
             <Route path="addapplication" element={<AddAdminApplication />} />
-            <Route path="editapplication" element={<EditAdminApplication />} />
+            <Route path="editapplication/:id" element={<EditAdminApplication />} />
 
             {/* Add & Edit Admin Application End */}
 

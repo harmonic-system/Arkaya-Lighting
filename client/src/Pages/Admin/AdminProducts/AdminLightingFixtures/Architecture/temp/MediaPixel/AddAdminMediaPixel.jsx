@@ -3,6 +3,7 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../../../../store/Auth";
 import Spinner from "../../../../../../../componants/Spinner/Spinner";
+import { useAuthContext } from "../../../../../../../store/authContext";
 
 const AddAdminMediaPixel = () => {
 
@@ -23,7 +24,7 @@ const AddAdminMediaPixel = () => {
         spec10: "",
     })
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const navigate = useNavigate()
     const [spinner, setSpinner] = useState(false)
 
@@ -35,7 +36,7 @@ const AddAdminMediaPixel = () => {
             const response = await fetch(`${server}/api/v1/lightingfixture/adminarchitecture/addmediapixel`, {
                 method: "POST",
                 headers: {
-                    "Authorization": authorizationToken,
+                    "Authorization": token,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({

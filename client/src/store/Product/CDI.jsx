@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify"
-import { useAuth } from "../Auth";
+import { useAuthContext } from "../authContext";
 
 const CDIContext = createContext()
 
 const CDIProvider = ({ children }) => {
 
-    const { server } = useAuth()
+    const { server } = useAuthContext()
 
     // For - Controllers Distribution & Interfaces
     const [ledControllers, setLedControllers] = useState([])

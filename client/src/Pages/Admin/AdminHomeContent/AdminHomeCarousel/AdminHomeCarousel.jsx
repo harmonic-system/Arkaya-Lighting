@@ -4,10 +4,14 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../store/Auth";
+import { useAuthContext } from "../../../../store/authContext";
+import { useHome } from "../../../../store/Product/Home";
 
 const AdminHomeCarousel = () => {
 
-  const { authorizationToken, homeCarousel, getAllHomeCarousel, server } = useAuth()
+  const { token, server } = useAuthContext()
+
+  const {homeCarousel, getAllHomeCarousel} = useHome()
 
 
   const deleteHomeCarousel = async (id) => {
@@ -15,7 +19,7 @@ const AdminHomeCarousel = () => {
       const response = await fetch(`${server}/api/v1/adminhomecontent/deletehomecarousel/${id}`, {
         method: "DELETE",
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         }
       })
 

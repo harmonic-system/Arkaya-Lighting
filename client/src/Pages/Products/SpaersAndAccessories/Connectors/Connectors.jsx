@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useSpaers } from "../../../../store/Product/Spaers"
+import BackButton from "../../../../componants/BackButton"
 
 const Connectors = () => {
 
@@ -27,6 +28,7 @@ const Connectors = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 connectors.map((product) => {

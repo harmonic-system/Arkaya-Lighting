@@ -1,3 +1,4 @@
+import BackButton from "../../../../../componants/BackButton"
 import { useLightingFixtures } from "../../../../../store/Product/LightingFixture"
 import { useEffect } from "react"
 
@@ -27,8 +28,9 @@ const Strips = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
-                        {
+                            {
                                 strip.map((product) => {
                                     // return <Link to="/productDetails" className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >
                                     return <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-end-danger" key={product._id} >

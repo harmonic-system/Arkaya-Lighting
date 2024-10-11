@@ -2,9 +2,10 @@ import { MdDelete } from "react-icons/md";
 import { useAuth } from "../../../store/Auth";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useAuthContext } from "../../../store/authContext";
 
 const AdminNewsLetter = () => {
-  const { authorizationToken, server } = useAuth()
+  const { token, server } = useAuthContext()
   const [allnewsletters, setAllNewsLetters] = useState([])
 
   const getAllNewsLetters = async () => {
@@ -12,7 +13,7 @@ const AdminNewsLetter = () => {
       const response = await fetch(`${server}/api/v1/admin/getnewsletters`, {
         method: 'GET',
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         },
       });
       const data = await response.json();
@@ -29,7 +30,7 @@ const AdminNewsLetter = () => {
       const response = await fetch(`${server}/api/v1/admin/deletenewsletter/${id}`, {
         method: "DELETE",
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         }
       })
 

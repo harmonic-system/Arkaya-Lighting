@@ -1,3 +1,4 @@
+import BackButton from "../../../../../componants/BackButton"
 import Breadcrumb from "../../../../../componants/Breadcrumb/Breadcrumb"
 import { useLightingFixtures } from "../../../../../store/Product/LightingFixture"
 import { useEffect } from "react"
@@ -13,7 +14,7 @@ const MovingHeadSeriesLamp = () => {
 
     return (
         <>
-            {/* <div className="brand_color">
+            <div className="brand_color">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
@@ -23,13 +24,14 @@ const MovingHeadSeriesLamp = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
-            <Breadcrumb first={"Products"} second={"/Lighting Fixtures"} third={"/Entertainment"} last={"/Moving Head Series Lamp"} />
+            {/* <Breadcrumb first={"Products"} second={"/Lighting Fixtures"} third={"/Entertainment"} last={"/Moving Head Series Lamp"} /> */}
 
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 movingHeadSeriesLamp.map((product) => {

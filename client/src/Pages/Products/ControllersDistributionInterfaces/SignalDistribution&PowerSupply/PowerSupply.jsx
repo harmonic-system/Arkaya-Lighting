@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useCDI } from "../../../../store/Product/CDI"
+import BackButton from "../../../../componants/BackButton"
 
 const PowerSupply = () => {
 
@@ -27,6 +28,7 @@ const PowerSupply = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 powerSupply.map((product) => {

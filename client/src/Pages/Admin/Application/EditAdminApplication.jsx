@@ -3,12 +3,13 @@ import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import { useAuth } from "../../../store/Auth"
 import Spinner from "../../../componants/Spinner/Spinner"
+import { useAuthContext } from "../../../store/authContext"
 
 const EditAdminApplication = () => {
 
     const { id } = useParams()
     // console.log(id);
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const navigate = useNavigate()
     const [spinner, setSpinner] = useState(false)
 
@@ -24,14 +25,14 @@ const EditAdminApplication = () => {
         const response = await fetch(`${server}/api/v1/adminapplication/getsingalapplication/${id}`, {
             method: "GET",
             headers: {
-                "Authorization": authorizationToken
+                "Authorization": token
             }
         })
         const singleApplication = await response.json()
         // console.log(singleApplication)
         if (singleApplication) {
-            setImg(singleApplication.productfile.url)
-            setImgPublicId(singleApplication.productfile.public_id)
+            setImg(singleApplication.applicationfile.url)
+            setImgPublicId(singleApplication.applicationfile.public_id)
             setApplication({
                 heading: singleApplication.heading,
                 about: singleApplication.about
@@ -61,7 +62,7 @@ const EditAdminApplication = () => {
             const response = await fetch(`${server}/api/v1/adminapplication/editapplication/${id}`, {
                 method: "PUT",
                 headers: {
-                    "Authorization": authorizationToken,
+                    "Authorization": token,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({

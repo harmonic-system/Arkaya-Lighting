@@ -2,10 +2,11 @@ import { MdDelete } from "react-icons/md";
 import { useAuth } from "../../../store/Auth";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useAuthContext } from "../../../store/authContext";
 
 const AdminContact = () => {
 
-  const { authorizationToken, server } = useAuth()
+  const { token, server } = useAuthContext()
   const [allcontacts, setAllContacts] = useState([])
 
   const getAllContacts = async () => {
@@ -13,7 +14,7 @@ const AdminContact = () => {
       const response = await fetch(`${server}/api/v1/admin/getcontacts`, {
         method: 'GET',
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         },
       });
       const data = await response.json();
@@ -30,7 +31,7 @@ const AdminContact = () => {
       const response = await fetch(`${server}/api/v1/admin/deletecontact/${id}`, {
         method: "DELETE",
         headers: {
-          'Authorization': authorizationToken,
+          'Authorization': token,
         }
       })
 

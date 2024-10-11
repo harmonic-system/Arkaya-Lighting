@@ -3,15 +3,16 @@ import './QueryBox.css';
 import { MdMessage } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from 'react-toastify';
-import { useAuth } from '../../store/Auth';
 import { RiWhatsappLine } from "react-icons/ri";
 import { FaArrowAltCircleUp } from "react-icons/fa";
+import { useAuthContext } from '../../store/authContext';
 
 const QueryBox = () => {
     const [isVisible, setIsVisible] = useState(false);
     const scrollTopRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
-    const { auth, server } = useAuth()
+    const { user, server } = useAuthContext()
+    // const { user, server } = useuser()
 
 
     const toggleChatBox = () => {
@@ -28,17 +29,17 @@ const QueryBox = () => {
     })
 
     useEffect(() => {
-        if (auth) {
+        if (user) {
             setQueryData({
                 productName: "",
-                name: auth.name,
-                email: auth.email,
-                phone: auth.phone,
-                organization: auth.organization,
+                name: user.name,
+                email: user.email,
+                phone: user.phone,
+                organization: user.organization,
                 query: ""
             })
         }
-    }, [auth])
+    }, [user])
 
     const handleChange = (e) => {
         setQueryData({

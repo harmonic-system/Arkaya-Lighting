@@ -3,6 +3,7 @@ import { useAuth } from "../../../../store/Auth"
 import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import Spinner from "../../../../componants/Spinner/Spinner"
+import { useAuthContext } from "../../../../store/authContext"
 
 const EditAdminHomeCarousel = () => {
 
@@ -12,7 +13,7 @@ const EditAdminHomeCarousel = () => {
   const [des, setDes] = useState("")
   const [imgpublicid, setImgPublicId] = useState("")
 
-  const { authorizationToken, server } = useAuth()
+  const { token, server } = useAuthContext()
   const navigate = useNavigate()
   const [spinner, setSpinner] = useState(false)
 
@@ -20,7 +21,7 @@ const EditAdminHomeCarousel = () => {
     const response = await fetch(`${server}/api/v1/adminhomecontent/getsingalhomecarousel/${id}`, {
       method: "GET",
       headers: {
-        "Authorization": authorizationToken
+        "Authorization": token
       }
     })
     // console.log(response);
@@ -43,7 +44,7 @@ const EditAdminHomeCarousel = () => {
       const response = await fetch(`${server}/api/v1/adminhomecontent/edithomecarousel/${id}`, {
         method: "PUT",
         headers: {
-          "Authorization": authorizationToken,
+          "Authorization": token,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({

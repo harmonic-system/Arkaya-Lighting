@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../../../../store/Auth";
 import { useCDI } from "../../../../../../store/Product/CDI";
+import { useAuthContext } from "../../../../../../store/authContext";
 
 const AdminSignalDistribution = () => {
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const { signalDistribution, getAllSignalDistributionProducts } = useCDI()
 
     let count = 1
@@ -19,7 +20,7 @@ const AdminSignalDistribution = () => {
             const response = await fetch(`${server}/api/v1/controllerdistributioninterfaces/adminsignaldistributionandpowersupply/deletesignaldistribution/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

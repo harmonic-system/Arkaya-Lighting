@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../../store/Auth";
 import "./Login-Signup.css";
+import { useAuthContext } from "../../store/authContext";
 
 
 const Login = () => {
@@ -14,7 +15,8 @@ const Login = () => {
     password: ""
   })
 
-  const { storeTokenInLocalStorage, server } = useAuth()
+  const { login, error, loading } = useAuthContext()
+  // const { storeTokenInLocalStorage, server } = useAuth()
   const navigate = useNavigate()
   const [show, setShow] = useState(true)
   const [inputType, setInputType] = useState("password")
@@ -33,34 +35,40 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
     try {
-      const response = await fetch(`${server}/api/v1/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user)
-      })
-
-      const res = await response.json()
-      // console.log(res);
-
-
-      if (response.ok) {
-        setUser({
-          email: "",
-          password: ""
-        })
-        storeTokenInLocalStorage(res.token, res.user)
-        toast.success(res.message)
-        navigate("/")
-      } else {
-        toast.error(res.message)
-      }
+      await login(user.email, user.password)
+      navigate("/")
     } catch (error) {
-      toast.error(error.message)
-      // console.log(error.message);
+      console.log(error);
     }
+    // try {
+    //   const response = await fetch(`${server}/api/v1/auth/login`, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(user)
+    //   })
+
+    //   const res = await response.json()
+    //   // console.log(res);
+
+
+    //   if (response.ok) {
+    //     setUser({
+    //       email: "",
+    //       password: ""
+    //     })
+    //     storeTokenInLocalStorage(res.token, res.user)
+    //     toast.success(res.message)
+    //     navigate("/")
+    //   } else {
+    //     toast.error(res.message)
+    //   }
+    // } catch (error) {
+    //   toast.error(error.message)
+    // }
 
   }
 
@@ -77,7 +85,7 @@ const Login = () => {
               <input type={inputType} placeholder="Password" onChange={handleChange} value={user.password} name="password" required />
               {show ? <FaEye className="text-dark position-absolute eye" onClick={toggleInput} /> : <FaEyeSlash className="text-dark position-absolute eye" onClick={toggleInput} />}
             </div>
-            <button type="submit" className="mt-3">Login</button>
+            <button type="submit" className="mt-3">{loading ? "Login..." : "Login"}</button>
             <p className="text-center mt-3">Not a User? <Link to="/signup" style={{ color: "#ffc221" }}>SignUp</Link></p>
           </form>
         </div>

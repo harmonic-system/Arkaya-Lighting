@@ -1,10 +1,11 @@
+import BackButton from "../../../../../componants/BackButton";
 import { useLightingFixtures } from "../../../../../store/Product/LightingFixture"
 import { useEffect } from "react"
 
 const Commercial = () => {
 
     const { commercial, getAllCommercialProducts } = useLightingFixtures()
-    console.log(commercial);
+    // console.log(commercial);
 
 
     useEffect(() => {
@@ -29,6 +30,7 @@ const Commercial = () => {
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row">
                             {
                                 commercial.map((product) => {

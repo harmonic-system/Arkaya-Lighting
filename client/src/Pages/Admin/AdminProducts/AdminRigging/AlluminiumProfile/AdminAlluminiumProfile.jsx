@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useRigging } from "../../../../../store/Product/Rigging";
 import { useAuth } from "../../../../../store/Auth";
+import { useAuthContext } from "../../../../../store/authContext";
 
 const AdminAlluminiumProfile = () => {
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const { alluminiumProfile, getAllAlluminiumProfileProducts } = useRigging()
 
     let count = 1
@@ -19,7 +20,7 @@ const AdminAlluminiumProfile = () => {
             const response = await fetch(`${server}/api/v1/rigging/adminAlluminiumProfile/deletealluminiumprofile/${id}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': authorizationToken,
+                    'Authorization': token,
                 }
             })
 

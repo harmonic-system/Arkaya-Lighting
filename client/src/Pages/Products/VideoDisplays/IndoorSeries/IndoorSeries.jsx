@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useVideoDisplays } from "../../../../store/Product/VideoDisplay"
 import Breadcrumb from "../../../../componants/Breadcrumb/Breadcrumb"
+import BackButton from "../../../../componants/BackButton"
 
 const IndoorSeries = () => {
 
@@ -13,7 +14,7 @@ const IndoorSeries = () => {
 
     return (
         <>
-            {/* <div className="brand_color">
+            <div className="brand_color">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
@@ -23,14 +24,15 @@ const IndoorSeries = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
 
-            <Breadcrumb first={"Products"} second={"/Video Displays"} last={"/Indoor Series"} />
+            {/* <Breadcrumb first={"Products"} second={"/Video Displays"} last={"/Indoor Series"} /> */}
 
             <div className="product-bg">
                 <div className="product-bg-white">
                     <div className="container-product">
+                        <BackButton />
                         <div className="row d-flex justify-content-center">
                             {
                                 indoorSeries.map((product) => {

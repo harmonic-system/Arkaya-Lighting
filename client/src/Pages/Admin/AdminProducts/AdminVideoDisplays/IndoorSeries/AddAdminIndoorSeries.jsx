@@ -3,6 +3,7 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../../store/Auth";
 import Spinner from "../../../../../componants/Spinner/Spinner";
+import { useAuthContext } from "../../../../../store/authContext";
 
 const AddAdminIndoorSeries = () => {
 
@@ -24,7 +25,7 @@ const AddAdminIndoorSeries = () => {
         renFix: "",
     })
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const navigate = useNavigate()
     const [spinner, setSpinner] = useState(false)
 
@@ -36,7 +37,7 @@ const AddAdminIndoorSeries = () => {
             const response = await fetch(`${server}/api/v1/videodisplays/adminindoorseries/addindoorseries`, {
                 method: "POST",
                 headers: {
-                    "Authorization": authorizationToken,
+                    "Authorization": token,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({

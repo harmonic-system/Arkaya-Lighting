@@ -3,6 +3,7 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../../store/Auth";
 import Spinner from "../../../../../componants/Spinner/Spinner";
+import { useAuthContext } from "../../../../../store/authContext";
 
 const AddAdminAlluminiumProfile = () => {
 
@@ -22,7 +23,7 @@ const AddAdminAlluminiumProfile = () => {
         spec10: "",
     })
 
-    const { authorizationToken, server } = useAuth()
+    const { token, server } = useAuthContext()
     const navigate = useNavigate()
     const [spinner, setSpinner] = useState(false)
 
@@ -34,7 +35,7 @@ const AddAdminAlluminiumProfile = () => {
             const response = await fetch(`${server}/api/v1/rigging/adminalluminiumprofile/addalluminiumprofile`, {
                 method: "POST",
                 headers: {
-                    "Authorization": authorizationToken,
+                    "Authorization": token,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
@@ -117,7 +118,7 @@ const AddAdminAlluminiumProfile = () => {
                             <input className="form-control rounded" onChange={(e) => setProductname(e.target.value)} value={productname} placeholder="Product name" type="text" name="productname" required />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input className="form-control rounded" onChange={(e) => setModel(e.target.value)} value={model} placeholder="Product Model" type="text" name="model" required />
+                            <input className="form-control rounded" onChange={(e) => setModel(e.target.value)} value={model} placeholder="Product Model" type="text" name="model" />
                         </div>
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <input className="form-control rounded" onChange={handlechange} value={description.spec1} placeholder="Product Spec 1" type="text" name="spec1" />
