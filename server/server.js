@@ -69,7 +69,7 @@ const corsOption = {
 app.use(cors(corsOption))
 app.use(express.json())
 
-const PORT = 8000
+const PORT = 4000
 
 app.get("/", (_, res) => {
   res.send("Welcome To Arkaya Lighting System,<br><br>Server Is Running.........")

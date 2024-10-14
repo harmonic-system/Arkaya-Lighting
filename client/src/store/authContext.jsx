@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
                     const { data } = response.data
                     dispatch({ type: "LOAD_USER_DATA", payload: { data, token } })
                 } catch (error) {
-                    console.log("Failed to fetch user data", error);
+                    console.log("Failed to fetch user data", error?.message);
                     logout();
                 }
             }

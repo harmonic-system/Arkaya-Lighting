@@ -100,7 +100,7 @@ const Navbar = () => {
 
             {/* <li><Link to="/brands">BRANDS PATNERS</Link></li> */}
 
-            <li><Link to="/application">APPLICATION</Link></li>
+            {/* <li><Link to="/application">APPLICATION</Link></li> */}
 
             <li>
               <Link className="desktop-item">RESOURCES</Link>
